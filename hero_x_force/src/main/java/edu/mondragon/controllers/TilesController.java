@@ -15,6 +15,7 @@ package edu.mondragon.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -69,7 +70,8 @@ public class TilesController {
 			model.addAttribute("msg", "User not found");
 			view = "home";
 		} else if (user.getPassword().equals(request.getParameter("password"))) {
-			model.addAttribute("user", user);
+			HttpSession session = request.getSession(true);
+			session.setAttribute("user", user);
 			view = "profile";
 		} else {
 			model.addAttribute("msg", "Incorrect password");
@@ -98,6 +100,18 @@ public class TilesController {
 	public String heroesPage(ModelMap model) {
 		return "heroes";
 	}
+	
+	/**
+	 * @brief Method that shows the user
+	 * @param id Users id
+	 * @param model implementation of Map for use when building data model
+	 * @return String
+	 */
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public String showUser(Model model) {
+		return "profile";
+	}
+	
 	/**
 	 * @brief Method that shows the user
 	 * @param id Users id
