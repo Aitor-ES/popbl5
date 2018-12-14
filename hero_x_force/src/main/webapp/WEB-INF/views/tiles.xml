@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+  <definition name="template-def"
+    template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
+    <put-attribute name="title" value="" />
+    <put-attribute name="header"
+      value="/WEB-INF/views/tiles/templates/defaultHeader.jsp" />
+    <put-attribute name="menu"
+      value="/WEB-INF/views/tiles/templates/defaultMenu.jsp" />
+    <put-attribute name="body" value="" />
+    <put-attribute name="footer"
+      value="/WEB-INF/views/tiles/templates/defaultFooter.jsp" />
+  </definition>
+  
+  <definition name="home" extends="template-def">
+    <put-attribute name="title" value="Home" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/home.jsp" />
+  </definition>
+  
+  <definition name="duels" extends="template-def">
+    <put-attribute name="title" value="Duels" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/duels.jsp" />
+  </definition>
+  
+  <definition name="heroes" extends="template-def">
+    <put-attribute name="title" value="Heroes" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/heroes.jsp" />
+  </definition>
+  
+  <definition name="profile" extends="template-def">
+    <put-attribute name="title" value="Profile" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/profile.jsp" />
+  </definition>
+  
+  <definition name="ranking" extends="template-def">
+    <put-attribute name="title" value="Ranking" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/ranking.jsp" />
+  </definition>
+  
+  <definition name="tournaments" extends="template-def">
+    <put-attribute name="title" value="Tournaments" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/tournaments.jsp" />
+  </definition>
+  
+</tiles-definitions>
