@@ -1,1 +1,0 @@
-<footer>Copyright © Hero X-Force</footer>

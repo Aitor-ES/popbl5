@@ -3,53 +3,90 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
+<!-- Tiles layout definitions -->
 <tiles-definitions>
-  <definition name="template-def"
-    template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
+  <!-- Welcome layout -->
+  <definition name="template-def-welcome"
+    template="/WEB-INF/views/tiles/layouts/default_layout_welcome.jsp">
     <put-attribute name="title" value="" />
     <put-attribute name="header"
-      value="/WEB-INF/views/tiles/templates/defaultHeader.jsp" />
-    <put-attribute name="menu"
-      value="/WEB-INF/views/tiles/templates/defaultMenu.jsp" />
+      value="/WEB-INF/views/tiles/templates/default_header.jsp" />
+    <put-attribute name="message"
+      value="/WEB-INF/views/tiles/templates/default_message.jsp" />
     <put-attribute name="body" value="" />
     <put-attribute name="footer"
-      value="/WEB-INF/views/tiles/templates/defaultFooter.jsp" />
+      value="/WEB-INF/views/tiles/templates/default_footer.jsp" />
   </definition>
-  
-  <definition name="home" extends="template-def">
+
+  <!-- Home screen layout -->
+  <definition name="home" extends="template-def-welcome">
     <put-attribute name="title" value="Home" />
     <put-attribute name="body"
       value="/WEB-INF/views/pages/home.jsp" />
   </definition>
   
-  <definition name="duels" extends="template-def">
-    <put-attribute name="title" value="Duels" />
+  <!-- Login screen layout -->
+  <definition name="login" extends="template-def-welcome">
+    <put-attribute name="title" value="Login" />
     <put-attribute name="body"
-      value="/WEB-INF/views/pages/duels.jsp" />
+      value="/WEB-INF/views/pages/login.jsp" />
   </definition>
-  
-  <definition name="heroes" extends="template-def">
-    <put-attribute name="title" value="Heroes" />
-    <put-attribute name="body"
-      value="/WEB-INF/views/pages/heroes.jsp" />
+
+  <!-- Logged layout -->
+  <definition name="template-def-logged"
+    template="/WEB-INF/views/tiles/layouts/default_layout_logged.jsp">
+    <put-attribute name="title" value="" />
+    <put-attribute name="header"
+      value="/WEB-INF/views/tiles/templates/default_header.jsp" />
+    <put-attribute name="menu"
+      value="/WEB-INF/views/tiles/templates/default_menu.jsp" />
+    <put-attribute name="message"
+      value="/WEB-INF/views/tiles/templates/default_message.jsp" />
+    <put-attribute name="body" value="" />
+    <put-attribute name="footer"
+      value="/WEB-INF/views/tiles/templates/default_footer.jsp" />
   </definition>
-  
-  <definition name="profile" extends="template-def">
+
+  <!-- Profile screen layout -->
+  <definition name="profile" extends="template-def-logged">
     <put-attribute name="title" value="Profile" />
     <put-attribute name="body"
       value="/WEB-INF/views/pages/profile.jsp" />
   </definition>
   
-  <definition name="ranking" extends="template-def">
-    <put-attribute name="title" value="Ranking" />
+  <!-- Decks screen layout -->
+  <definition name="decks" extends="template-def-logged">
+    <put-attribute name="title" value="Decks" />
     <put-attribute name="body"
-      value="/WEB-INF/views/pages/ranking.jsp" />
+      value="/WEB-INF/views/pages/decks.jsp" />
   </definition>
   
-  <definition name="tournaments" extends="template-def">
+  <!-- Heroes screen layout -->
+  <definition name="heroes" extends="template-def-logged">
+    <put-attribute name="title" value="Heroes" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/heroes.jsp" />
+  </definition>
+  
+  <!-- Duels screen layout -->
+  <definition name="duels" extends="template-def-logged">
+    <put-attribute name="title" value="Duels" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/duels.jsp" />
+  </definition>
+  
+   <!-- Tournaments screen layout -->
+  <definition name="tournaments" extends="template-def-logged">
     <put-attribute name="title" value="Tournaments" />
     <put-attribute name="body"
       value="/WEB-INF/views/pages/tournaments.jsp" />
   </definition>
   
+  <!-- Ranking screen layout -->
+  <definition name="ranking" extends="template-def-logged">
+    <put-attribute name="title" value="Ranking" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/ranking.jsp" />
+  </definition>
+    
 </tiles-definitions>

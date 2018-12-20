@@ -32,7 +32,7 @@ public class WebInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext container) throws ServletException {
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 
-		ctx.register(TilesApplicationConfiguration.class);
+		ctx.register(ApplicationConfig.class);
 
 		container.addListener(new ContextLoaderListener(ctx));
 

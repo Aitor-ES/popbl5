@@ -1,23 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Page directives -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<h2>Login</h2>
+<!-- FMT library -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<c:if test="${not empty msg}">
-  <p>${msg}</p>
-</c:if>
+<fmt:bundle basename="edu.mondragon.lang.View">
 
-<form name='login-form' action="login" method='POST'>
-  <table>
-    <tr>
-      <td>User:</td>
-      <td><input type='text' name='username' value='' /></td>
-    </tr>
-    <tr>
-      <td>Password:</td>
-      <td><input type='password' name='password' /></td>
-    </tr>
-    <tr>
-      <td><input name="submit" type="submit" value="submit" /></td>
-    </tr>
-  </table>
-</form>
+<h2><fmt:message key="header.home"/></h2>
+
+</fmt:bundle>

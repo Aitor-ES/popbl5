@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   
-  <!-- Project basic configuration -->
+  <!-- Basic configuration -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>mondragon.edu</groupId>
   <artifactId>hero_x_force</artifactId>
@@ -10,14 +10,16 @@
   <name>hero_x_force Maven Webapp</name>
   <url>http://maven.apache.org</url>
  
- <!-- Java 1.8 usage property -->
+ <!-- Properties -->
   <properties>
+  	<!-- Java v1.8 -->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
+  <!-- Dependences -->
   <dependencies>
-    <!-- JUnit dependency -->
+    <!-- JUnit v4.12 -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -25,22 +27,22 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- JSTL dependency -->
+    <!-- JSTL v1.2 -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
 
-    <!-- Java Servlet dependency -->
+    <!-- Java Servlet v4.0.1 -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>3.0.1</version>
+      <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
 
-    <!-- Spring dependencies -->
+    <!-- Spring v4.3.21 -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
@@ -59,35 +61,35 @@
       <version>4.3.21.RELEASE</version>
     </dependency>
 
-    <!-- Tiles dependency -->
+    <!-- Apache Tiles v3.0.8 -->
     <dependency>
       <groupId>org.apache.tiles</groupId>
       <artifactId>tiles-jsp</artifactId>
       <version>3.0.8</version>
     </dependency>
 
-    <!-- Hibernate dependency -->
+    <!-- Hibernate v5.2.12 -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.2.12.Final</version>
     </dependency>
 
-    <!-- Spring integration with Hibernate dependency -->
+    <!-- Spring integration with Hibernate v5.0.2 -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
       <version>5.0.2.RELEASE</version>
     </dependency>
 
-    <!-- Apache Commons DBCP -->
+    <!-- Apache Commons DBCP v2.1.1 -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-dbcp2</artifactId>
       <version>2.1.1</version>
     </dependency>
 
-    <!-- MySQL Connector dependency -->
+    <!-- MySQL Connector v6.0.5 -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -105,7 +107,7 @@
 	<!-- Plugins -->
     <plugins>
 	
-      <!-- Maven Surefire plugin -->
+      <!-- Maven Surefire v3.0.0 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>

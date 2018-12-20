@@ -5,16 +5,16 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import edu.mondragon.app.Main;
+import edu.mondragon.model.User;
 
 public class sampleTest {
 	// Instance of the class under test
-	static Main myClass;
+	static User myClass;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		// Create the instance
-		myClass = new Main();
+		myClass = new User();
 	}
 
 	@Test

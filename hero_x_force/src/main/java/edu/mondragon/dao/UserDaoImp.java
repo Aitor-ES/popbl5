@@ -51,6 +51,7 @@ public class UserDaoImp implements UserDao {
 	public List<User> listUsers() {
 		@SuppressWarnings("unchecked")
 		TypedQuery<User> query = getCurrentSession().createQuery("FROM User");
+		query.getSingleResult();
 		return query.getResultList();
 	}
 
@@ -73,7 +74,7 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public User getUserByName(String name) {
 		@SuppressWarnings("unchecked")
-		TypedQuery<User> query = getCurrentSession().createQuery("FROM User AS user WHERE user.firstName = \'" + name + "\'");
+		TypedQuery<User> query = getCurrentSession().createQuery("FROM User AS user WHERE user.firstName = '" + name + "'");
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
 
