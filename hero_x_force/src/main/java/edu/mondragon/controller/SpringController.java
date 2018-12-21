@@ -232,4 +232,23 @@ public class SpringController {
 		
 		return view;
 	}
+	
+	/**
+	 * @brief Method that shows the view to edit the user data
+	 * @param model implementation of Map for use when building data model
+	 * @return String
+	 */
+	@RequestMapping(value = "/userData", method = RequestMethod.GET)
+	public String showUserData(HttpServletRequest request, HttpServletResponse response, Model model) {
+		String view = "home";
+		
+		HttpSession session = request.getSession(true);
+		if(session.getAttribute("user") != null) {
+			view = "userData";
+		} else {
+			model.addAttribute("error", "general.notLogged");
+		}
+		
+		return view;
+	}
 }
