@@ -1,9 +1,13 @@
+<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!-- JSTL library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<!-- Spring library -->
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!-- Errors -->
-<fmt:bundle basename="edu.mondragon.lang.Errors">
 
 <!-- This takes the errors from the dispatcher -->
 <c:if test="${not empty error}">
@@ -11,14 +15,11 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <fmt:message key="${error}"/>
+    <spring:message code="${error}"/>
   </div>
 </c:if>
 
-</fmt:bundle>
-
 <!-- Messages -->
-<fmt:bundle basename="edu.mondragon.lang.Messages">
 
 <!-- This takes the messages from the dispatcher -->
 <c:if test="${not empty message}">
@@ -26,8 +27,6 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <fmt:message key="${message}"/>
+    <spring:message code="${message}"/>
   </div>
 </c:if>
-
-</fmt:bundle>

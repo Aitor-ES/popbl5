@@ -32,12 +32,11 @@ import edu.mondragon.service.UserService;
 @Controller
 @RequestMapping("/")
 public class SpringController {
-	
+
 	/**
 	 * @brief The application context
 	 */
-	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
-			HibernateConfig.class);
+	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
 
 	/**
 	 * @brief The user service
@@ -45,20 +44,30 @@ public class SpringController {
 	UserService userService = context.getBean(UserService.class);
 
 	/**
-	 * @brief The application context
+	 * @brief Method that manages the default page
 	 * @param model implementation of Map for use when building data model
 	 * @return String
 	 */
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	public String defaultPage(ModelMap model) {
+		return "home";
+	}
+
+	/**
+	 * @brief Method that manages the home page
+	 * @param model implementation of Map for use when building data model
+	 * @return String
+	 */
+	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
 		return "home";
 	}
-		
+
 	/**
 	 * @brief Method that manages the login
 	 * @param request
 	 * @param reponse
-	 * @param model implementation of Map for use when building data model
+	 * @param model   implementation of Map for use when building data model
 	 * @return String
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -80,12 +89,12 @@ public class SpringController {
 
 		return view;
 	}
-	
+
 	/**
 	 * @brief Method that manages the logout
 	 * @param request
 	 * @param reponse
-	 * @param model implementation of Map for use when building data model
+	 * @param model   implementation of Map for use when building data model
 	 * @return String
 	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -96,30 +105,30 @@ public class SpringController {
 
 		return "home";
 	}
-	
+
 	/**
 	 * @brief Method that shows the profile
-	 * @param id Users id
+	 * @param id    Users id
 	 * @param model implementation of Map for use when building data model
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public String showUser(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
-		
+
 		HttpSession session = request.getSession(true);
-		if(session.getAttribute("user") != null) {
+		if (session.getAttribute("user") != null) {
 			view = "profile";
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
-		
+
 		return view;
 	}
 
 	/**
 	 * @brief Method that shows the profile with ID
-	 * @param id Users id
+	 * @param id    Users id
 	 * @param model implementation of Map for use when building data model
 	 * @return String
 	 */
@@ -137,7 +146,7 @@ public class SpringController {
 
 		return "profile";
 	}
-	
+
 	/**
 	 * @brief Method to redirect to decks view
 	 * @param model implementation of Map for use when building data model
@@ -146,17 +155,17 @@ public class SpringController {
 	@RequestMapping(value = { "/decks" }, method = RequestMethod.GET)
 	public String decksPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
-		
+
 		HttpSession session = request.getSession(true);
-		if(session.getAttribute("user") != null) {
+		if (session.getAttribute("user") != null) {
 			view = "decks";
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
-		
+
 		return view;
 	}
-	
+
 	/**
 	 * @brief Method to redirect to heroes view
 	 * @param model implementation of Map for use when building data model
@@ -165,17 +174,17 @@ public class SpringController {
 	@RequestMapping(value = { "/heroes" }, method = RequestMethod.GET)
 	public String heroesPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
-		
+
 		HttpSession session = request.getSession(true);
-		if(session.getAttribute("user") != null) {
+		if (session.getAttribute("user") != null) {
 			view = "heroes";
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
-		
+
 		return view;
 	}
-	
+
 	/**
 	 * @brief Method to redirect to duels view
 	 * @param model implementation of Map for use when building data model
@@ -184,36 +193,36 @@ public class SpringController {
 	@RequestMapping(value = { "/duels" }, method = RequestMethod.GET)
 	public String duelsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
-		
+
 		HttpSession session = request.getSession(true);
-		if(session.getAttribute("user") != null) {
+		if (session.getAttribute("user") != null) {
 			view = "duels";
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
-		
+
 		return view;
 	}
 
 	/**
-	 * @brief Method to redirect to torunaments view
+	 * @brief Method to redirect to tournaments view
 	 * @param model implementation of Map for use when building data model
 	 * @return String
 	 */
 	@RequestMapping(value = { "/tournaments" }, method = RequestMethod.GET)
 	public String tournamentsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
-		
+
 		HttpSession session = request.getSession(true);
-		if(session.getAttribute("user") != null) {
+		if (session.getAttribute("user") != null) {
 			view = "tournaments";
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
-		
+
 		return view;
 	}
-	
+
 	/**
 	 * @brief Method to redirect to ranking view
 	 * @param model implementation of Map for use when building data model
@@ -222,14 +231,14 @@ public class SpringController {
 	@RequestMapping(value = { "/ranking" }, method = RequestMethod.GET)
 	public String rankingPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
-		
+
 		HttpSession session = request.getSession(true);
-		if(session.getAttribute("user") != null) {
+		if (session.getAttribute("user") != null) {
 			view = "ranking";
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
-		
+
 		return view;
 	}
 }

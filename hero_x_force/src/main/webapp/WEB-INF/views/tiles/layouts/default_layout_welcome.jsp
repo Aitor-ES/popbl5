@@ -4,13 +4,11 @@
 <!-- Tiles library -->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-<!-- FMT library -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!-- Spring library -->
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!-- JSTL library -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<fmt:bundle basename="edu.mondragon.lang.View">
 
 <!-- HTML code -->
 <!DOCTYPE html>
@@ -48,8 +46,8 @@
     <!-- Custom css -->
     <link rel="stylesheet" href="<c:url value='/static/css/sticky-footer.css'/>"></link>   
     
-    <!-- Tittle -->
-    <title><tiles:getAsString name="title"/> - <fmt:message key="header.appName"/></title> 
+    <!-- Title -->
+    <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 
   </head>
   <body>
     <div class="flex-container">
@@ -62,5 +60,3 @@
     </div>
   </body>
 </html>
-
-</fmt:bundle>

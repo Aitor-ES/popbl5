@@ -1,27 +1,22 @@
 <!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<!-- FMT library -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
 <!-- JSTL library -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- SPRING library -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<fmt:bundle basename="edu.mondragon.lang.View">
-
 <h2>Login</h2>
 
 <form name='login-form' action="login" method='GET'>
   <table>
     <tr>
-      <td><fmt:message key="userForm.nickname"></fmt:message>:</td>
+      <td>Nickname:</td>
       <td><input type='text' name='username' value='' /></td>
     </tr>
     <tr>
-      <td><fmt:message key="userForm.password"></fmt:message>:</td>
+      <td>Password:</td>
       <td><input type='password' name='password' /></td>
     </tr>
     <tr>
@@ -29,5 +24,3 @@
     </tr>
   </table>
 </form>
-
-</fmt:bundle>
