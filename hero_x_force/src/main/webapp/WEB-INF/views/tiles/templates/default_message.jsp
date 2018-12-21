@@ -11,7 +11,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <fmt:message key="${error}"/>
+    <strong>Error! </strong> <fmt:message key="${error}"/>
   </div>
 </c:if>
 
@@ -26,7 +26,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <fmt:message key="${message}"/>
+    <strong>Success! </strong> <fmt:message key="${message}"/>
   </div>
 </c:if>
 

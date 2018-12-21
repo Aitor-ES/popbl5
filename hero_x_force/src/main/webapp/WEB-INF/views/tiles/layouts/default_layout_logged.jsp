@@ -1,13 +1,6 @@
-<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
-<!-- Tiles library -->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-
-<!-- FMT library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-<!-- JSTL library -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <fmt:bundle basename="edu.mondragon.lang.View">
@@ -46,8 +39,11 @@
     crossorigin="anonymous">
     
     <!-- Custom css -->
-    <link rel="stylesheet" href="<c:url value='/static/css/sticky-footer.css'/>"></link>   
+    <link rel="stylesheet" href="<c:url value='/static/css/footer.css'/>"></link>   
     
+    <!-- Custom js -->
+    <script src="<c:url value='/static/js/footer.js'/>"></script>
+
     <!-- Tittle -->
     <title><tiles:getAsString name="title"/> - <fmt:message key="header.appName"/></title> 
   </head>
@@ -56,9 +52,7 @@
       <tiles:insertAttribute name="header"/>
       <tiles:insertAttribute name="menu"/>
       <tiles:insertAttribute name="message"/>
-      <div class="container-fluid">
-        <tiles:insertAttribute name="body"/>
-      </div>
+      <tiles:insertAttribute name="main"/>
       <tiles:insertAttribute name="footer"/>
     </div>
   </body>

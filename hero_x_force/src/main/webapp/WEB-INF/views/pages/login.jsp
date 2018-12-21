@@ -1,33 +1,32 @@
-<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
-<!-- FMT library -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-<!-- JSTL library -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<!-- SPRING library -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <fmt:bundle basename="edu.mondragon.lang.View">
 
-<h2>Login</h2>
-
-<form name='login-form' action="login" method='GET'>
-  <table>
-    <tr>
-      <td><fmt:message key="userForm.nickname"></fmt:message>:</td>
-      <td><input type='text' name='username' value='' /></td>
-    </tr>
-    <tr>
-      <td><fmt:message key="userForm.password"></fmt:message>:</td>
-      <td><input type='password' name='password' /></td>
-    </tr>
-    <tr>
-      <td><input name="submit" type="submit" value="submit" /></td>
-    </tr>
-  </table>
-</form>
+<div class="modal-dialog text-center">
+  <div class="col-sm-8 main-section">
+    <div class="modal-content">
+      <div class="col-12 user-img">
+        <img src="${pageContext.request.contextPath}/static/img/login.png"/>
+      </div>
+      
+      <form class="col-12" action="login" method='GET'>
+        <div class="form-group">
+          <input type="text" class="form-control" name='username' placeholder="Enter Username">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name='password' placeholder="Enter Password">
+        </div>
+        <button type="submit" class="btn" name="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+      </form>
+      
+      <div class="col-12 forgot">
+        <a href="#">Register</a>
+      </div>
+    </div> <!-- End of Modal Content -->
+  </div>
+</div>
 
 </fmt:bundle>
