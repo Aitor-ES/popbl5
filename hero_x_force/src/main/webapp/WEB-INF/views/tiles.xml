@@ -88,5 +88,12 @@
     <put-attribute name="body"
       value="/WEB-INF/views/pages/ranking.jsp" />
   </definition>
+  
+  <!-- Edit Create card screen layout -->
+  <definition name="editCreateCard" extends="template-def-logged">
+    <put-attribute name="title" value="EditCreateCard" />
+    <put-attribute name="body"
+      value="/WEB-INF/views/pages/editCreateCard.jsp" />
+  </definition>
     
 </tiles-definitions>
