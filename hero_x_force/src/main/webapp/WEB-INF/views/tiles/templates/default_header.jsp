@@ -1,10 +1,5 @@
-<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
-<!-- Spring library -->
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
-<!-- JSTL library -->
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <header class="navbar navbar-expand navbar-dark bg-dark d-flex justify-content-between">
