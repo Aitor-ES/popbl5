@@ -5,36 +5,36 @@ body {
   background-size: cover;
 }
 
-.main-section {
+#login .main-section {
   margin: 0 auto;
-  margin-top: 0px;
+  margin-top: 25%;
   padding: 0;
 }
 
-.moda-content {
+#login .modal-content {
    background-color: #3b4652;
-   opacity: .95;
+   opacity: .85;
    padding: 0 18px;
    box-shadow: 0px 0px 3px #848484;
 }
 
-.user-img {
+#login .user-img {
   margin-top: -50px;
   margin-bottom: 35px;
 }
 
-.user-img img {
+#login .user-img img {
   height: 100px;
   width: 100px;
   border-radius: 5px;
   box-shadow: 0px 0px 2px #848484;
 }
 
-.form-group {
+#login .form-group {
   margin-bottom: 25px; 
 }
 
-.form-group input {
+#login .form-group input {
   height: 42px;
   border-radius: 5px;
   border: 0px;
@@ -42,7 +42,7 @@ body {
   padding-left: 54px;
 }
 
-.form-group::before {
+#login .form-group::before {
   font-family: 'Font Awesome 5 Free';
   content: "\f007";
   position: absolute;
@@ -52,38 +52,18 @@ body {
   padding-top: 4px;
 }
 
-.form-group:last-of-type::before {
-    content: "\f023";
+#login .form-group:last-of-type::before {
+    content: "\f026";
 }
 
-button {
-  width: 40%;
-  mardin: 5px 0 25px;
+#login button {
+  width: 30%;
 }
 
-.btn {
-  backgroun-color: #27c2a5;
-  color: #fff;
-  font-size: 19px;
-  padding: 7px 14px;
-  border-radious: 5px;
-  border-bottom: 4px solid #219882;
-}
-
-.btn:hover, .btn:focus {
-  background-color: #25a890;
-  border-bottom: 4px solid #25a890;
-}
-
-.svg-inline--fa {
-  font-size: 20px;
+#login .svg-inline--fa {
   margin-right: 7px;
 }
 
-.forgot {
+#login .forgot {
   padding: 5px 0 25px;
-}
-
-.forgot a {
-  color: #c2fbfe;
 }
