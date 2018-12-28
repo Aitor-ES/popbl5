@@ -41,9 +41,11 @@
     
     <!-- Custom css -->
     <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>"></link>
+    <link rel="stylesheet" href="<c:url value='/static/css/deck_form.css'/>"></link>
     
     <!-- Custom js -->
     <script src="<c:url value='/static/js/message.js'/>"></script>
+    <script src="<c:url value='/static/js/deck_form.js'/>"></script>
 
     <!-- Title -->
     <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 

@@ -1,0 +1,9 @@
+div.selected-cards img {
+  width: 50px;
+  height: 70px;
+}
+
+div.available-cards img {
+  width: 200px;
+  height: 280px;
+}
