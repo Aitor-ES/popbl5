@@ -63,10 +63,10 @@
   </definition>
   
   <!-- Decks screen layout -->
-  <definition name="decks" extends="template-def-logged">
-    <put-attribute name="title" value="Decks" />
+  <definition name="deck-list" extends="template-def-logged">
+    <put-attribute name="title" value="Deck List" />
     <put-attribute name="main"
-      value="/WEB-INF/views/pages/decks.jsp" />
+      value="/WEB-INF/views/pages/deck_list.jsp" />
   </definition>
   
   <!-- Heroes screen layout -->

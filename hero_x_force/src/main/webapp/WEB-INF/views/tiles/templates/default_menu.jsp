@@ -17,7 +17,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link"
-          href="${pageContext.request.contextPath}/decks"><spring:message code="header.decks"/></a>
+          href="${pageContext.request.contextPath}/deck/list"><spring:message code="header.decks"/></a>
       </li>
       <li class="nav-item">
         <a class="nav-link"

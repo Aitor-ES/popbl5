@@ -152,13 +152,13 @@ public class SpringController {
 	 * @param model implementation of Map for use when building data model
 	 * @return String
 	 */
-	@RequestMapping(value = { "/decks" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/deck/list" }, method = RequestMethod.GET)
 	public String decksPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
 		HttpSession session = request.getSession(true);
 		if (session.getAttribute("user") != null) {
-			view = "decks";
+			view = "deck-list";
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
