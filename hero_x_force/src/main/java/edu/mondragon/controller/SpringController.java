@@ -167,6 +167,25 @@ public class SpringController {
 	}
 
 	/**
+	 * @brief Method to redirect to deck-form view
+	 * @param model implementation of Map for use when building data model
+	 * @return String
+	 */
+	@RequestMapping(value = { "/deckForm" }, method = RequestMethod.GET)
+	public String deckFormPage(HttpServletRequest request, HttpServletResponse response, Model model) {
+		String view = "home";
+
+		HttpSession session = request.getSession(true);
+		if (session.getAttribute("user") != null) {
+			view = "deck-form";
+		} else {
+			model.addAttribute("error", "general.notLogged");
+		}
+
+		return view;
+	}
+
+	/**
 	 * @brief Method to redirect to heroes view
 	 * @param model implementation of Map for use when building data model
 	 * @return String
