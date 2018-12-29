@@ -61,15 +61,15 @@
       value="/WEB-INF/views/pages/profile.jsp" />
   </definition>
   
-  <!-- Decks screen layout -->
-  <definition name="deck-list" extends="template-def-logged">
+  <!-- Deck List screen layout -->
+  <definition name="deck/list" extends="template-def-logged">
     <put-attribute name="title" value="Deck List" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/deck_list.jsp" />
   </definition>
   
   <!-- Deck Form screen layout -->
-  <definition name="deck-form" extends="template-def-logged">
+  <definition name="deck/form" extends="template-def-logged">
     <put-attribute name="title" value="Deck Form" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/deck_form.jsp" />
