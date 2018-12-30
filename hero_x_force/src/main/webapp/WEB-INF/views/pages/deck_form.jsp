@@ -23,32 +23,27 @@
   
   <div class="selected-cards">
     <div class="row">
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <label>Hero 1</label>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <label>Hero 2</label>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <label>Hero 3</label>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <label>Hero 4</label>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <label>Hero 5</label>
-      </div>
+      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+        ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+        ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+        ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+        ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+        ondragover="allowDrop(event)" ondrop="drop(event)"></div>
     </div>
   </div>
   
   <div class="available-cards">
     <div class="row">
-      <!--c:forEach items="${cardList}" var="card">
+      <!-- c:forEach items="${cardList}" var="card">
         <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
           <img src="${card.img}" alt="${card.alt}"
             id="${card.id}" draggable="true" ondragstart="drag(event)">
         </div>
-      </c:forEach-->
+      </c:forEach -->
       <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
         <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
           alt="Hero X-Force Logo"

@@ -1,4 +1,6 @@
-/* Footer styles */
+* {
+  box-sizing: border-box;
+}
 
 html {
   position: relative;
@@ -8,6 +10,8 @@ html {
 body {
   margin-bottom: 55px; /* Margin bottom by footer height */
 }
+
+/* Footer styles */
 
 .footer {
   position: absolute;

@@ -23,7 +23,7 @@
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/deck/form" role="button"><spring:message code="action.edit"/></a>
       </div>
     </div>
-    <div class="row">
+    <div class="row deck-cards">
       <!--c:forEach items="${deck.cardList}" var="card"-->
         <!--div class="col">
           <img src="${card.img}"
