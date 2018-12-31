@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!-- JSTL tags -->
-<!--%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%-->
+<!-- %@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"% -->
 
 <h2><spring:message code="deck.form.title.create"/></h2>
 
@@ -21,17 +21,17 @@
     </div>
   </div>
   
-  <div class="selected-cards">
+  <div>
     <div class="row">
-      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+      <div class="card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
         ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+      <div class="card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
         ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+      <div class="card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
         ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+      <div class="card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
         ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-      <div class="col bg-dark text-light rounded d-flex justify-content-center align-items-center selected-card-container"
+      <div class="card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
         ondragover="allowDrop(event)" ondrop="drop(event)"></div>
     </div>
   </div>
