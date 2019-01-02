@@ -41,6 +41,7 @@ public class UserServiceImp implements UserService {
 	public void add(User user) {
 		userDao.add(user);
 	}
+	
 	/**
 	 * @brief Method to obtain the users from the dao
 	 * @return List<User>
@@ -50,6 +51,7 @@ public class UserServiceImp implements UserService {
 	public List<User> listUsers() {
 		return userDao.listUsers();
 	}
+	
 	/**
 	 * @brief Method to obtain the user using the id from the dao
 	 * @param id Users id
@@ -60,6 +62,7 @@ public class UserServiceImp implements UserService {
 	public User getUserById(long id) {
 		return userDao.getUserById(id);
 	}
+	
 	/**
 	 * @brief Method to obtain the user using the name from the dao
 	 * @param name Users name
@@ -71,4 +74,14 @@ public class UserServiceImp implements UserService {
 		return userDao.getUserByName(name);
 	}
 
+	/**
+	 * @brief Method to obtain the user using the email from the dao
+	 * @param email Users email
+	 * @return User
+	 */
+	@Transactional(readOnly = true)
+	@Override
+	public User getUserByEmail(String email) {
+		return userDao.getUserByEmail(email);
+	}
 }

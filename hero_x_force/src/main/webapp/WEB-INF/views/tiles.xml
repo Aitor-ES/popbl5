@@ -6,43 +6,9 @@
 <!-- Tiles layout definitions -->
 <tiles-definitions>
 
-  <!-- Welcome layout -->
-  <definition name="template-def-welcome"
-    template="/WEB-INF/views/tiles/layouts/default_layout_welcome.jsp">
-    <put-attribute name="title" value="" />
-    <put-attribute name="header"
-      value="/WEB-INF/views/tiles/templates/default_header.jsp" />
-    <put-attribute name="message"
-      value="/WEB-INF/views/tiles/templates/default_message.jsp" />
-    <put-attribute name="main" value="" />
-    <put-attribute name="footer"
-      value="/WEB-INF/views/tiles/templates/default_footer.jsp" />
-  </definition>
-
-  <!-- Home screen layout -->
-  <definition name="home" extends="template-def-welcome">
-    <put-attribute name="title" value="Home" />
-    <put-attribute name="main"
-      value="/WEB-INF/views/pages/home.jsp" />
-  </definition>
-  
-  <!-- Login screen layout -->
-  <definition name="login" extends="template-def-welcome">
-    <put-attribute name="title" value="Login" />
-    <put-attribute name="main"
-      value="/WEB-INF/views/pages/login.jsp" />
-  </definition>
-  
-  <!-- Register screen layout -->
-  <definition name="register" extends="template-def-welcome">
-    <put-attribute name="title" value="register" />
-    <put-attribute name="main"
-      value="/WEB-INF/views/pages/register.jsp" />
-  </definition>
-
-  <!-- Logged layout -->
-  <definition name="template-def-logged"
-    template="/WEB-INF/views/tiles/layouts/default_layout_logged.jsp">
+  <!-- Default layout -->
+  <definition name="template-default"
+    template="/WEB-INF/views/tiles/layouts/default_layout.jsp">
     <put-attribute name="title" value="" />
     <put-attribute name="header"
       value="/WEB-INF/views/tiles/templates/default_header.jsp" />
@@ -55,43 +21,71 @@
       value="/WEB-INF/views/tiles/templates/default_footer.jsp" />
   </definition>
 
+  <!-- Home screen layout -->
+  <definition name="home" extends="template-default">
+    <put-attribute name="title" value="Home" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/home.jsp" />
+  </definition>
+  
+  <!-- Login screen layout -->
+  <definition name="login" extends="template-default">
+    <put-attribute name="title" value="Login" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/login.jsp" />
+  </definition>
+  
+  <!-- Register screen layout -->
+  <definition name="register" extends="template-default">
+    <put-attribute name="title" value="register" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/register.jsp" />
+  </definition>
+  
+    <!-- Forgot screen layout -->
+  <definition name="forgot" extends="template-default">
+    <put-attribute name="title" value="forgot" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/forgot.jsp" />
+  </definition>
+
   <!-- Profile screen layout -->
-  <definition name="profile" extends="template-def-logged">
+  <definition name="profile" extends="template-default">
     <put-attribute name="title" value="Profile" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/profile.jsp" />
   </definition>
   
   <!-- Decks screen layout -->
-  <definition name="decks" extends="template-def-logged">
+  <definition name="decks" extends="template-default">
     <put-attribute name="title" value="Decks" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/decks.jsp" />
   </definition>
   
   <!-- Heroes screen layout -->
-  <definition name="heroes" extends="template-def-logged">
+  <definition name="heroes" extends="template-default">
     <put-attribute name="title" value="Heroes" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/heroes.jsp" />
   </definition>
   
   <!-- Duels screen layout -->
-  <definition name="duels" extends="template-def-logged">
+  <definition name="duels" extends="template-default">
     <put-attribute name="title" value="Duels" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/duels.jsp" />
   </definition>
   
    <!-- Tournaments screen layout -->
-  <definition name="tournaments" extends="template-def-logged">
+  <definition name="tournaments" extends="template-default">
     <put-attribute name="title" value="Tournaments" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/tournaments.jsp" />
   </definition>
   
   <!-- Ranking screen layout -->
-  <definition name="ranking" extends="template-def-logged">
+  <definition name="ranking" extends="template-default">
     <put-attribute name="title" value="Ranking" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/ranking.jsp" />

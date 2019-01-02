@@ -4,8 +4,8 @@
 <h2>Profile</h2>
 <c:choose>
   <c:when test="${not empty user}">
-    <p>Nickname: ${user.firstName}</p>
-    <p>Password: ${user.email}</p>
+    <p>Username: ${user.username}</p>
+    <p>Email: ${user.email}</p>
   </c:when>
   <c:otherwise>
     <p>WIP</p>

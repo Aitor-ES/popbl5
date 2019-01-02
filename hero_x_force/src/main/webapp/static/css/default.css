@@ -1,4 +1,5 @@
-/* Footer styles */
+/* GLOBAL STYLES
+-------------------------------------------------- */
 
 html {
   position: relative;
@@ -6,15 +7,68 @@ html {
 }
 
 body {
-  margin-bottom: 55px; /* Margin bottom by footer height */
+  padding-bottom: 4px;
+  margin-bottom: 80px; /* Margin bottom by footer height */
+  background-color: #f5f5f5;
 }
+
+/* HEADER
+-------------------------------------------------- */
+
+#language-select .dropdown {
+  margin-left: 17px;
+}
+
+#language-select .dropdown-menu {
+  min-width: inherit;
+  padding: 0px;
+  left: -3px;
+}
+
+#language-select .dropdown-menu .dropdown-item:hover {
+  background: grey;
+}
+
+#language-select .dropdown-toggle:after {
+  display: none; 
+}
+    
+#language-select .dropdown-menu .dropdown-item {
+  max-width: 60px;
+  padding: 10px; 
+}
+
+#header_button {
+  margin-top: 7px;
+  margin-right: 17px;
+  height: 70%;
+  font-size: 1rem;
+}
+
+#header_link {
+  margin-top: 7px;
+  margin-right: 14px;
+  font-weight: bold;
+}
+
+/* TOP BUTTON
+-------------------------------------------------- */
+
+#topButton {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 15px; /* Place the button at the bottom of the page */
+  right: 20px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+}
+
+/* FOOTER
+-------------------------------------------------- */
 
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 55px; /* Set the fixed height of the footer here */
-  line-height: 55px; /* Vertically center the text there */
-  background-color: #343a40;
-  text-align: center;
+  height: 80px; /* Set the fixed height of the footer here */
+  line-height: 80px; /* Vertically center the text there */
 }

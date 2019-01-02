@@ -74,10 +74,22 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public User getUserByName(String name) {
 		@SuppressWarnings("unchecked")
-		TypedQuery<User> query = getCurrentSession().createQuery("FROM User AS user WHERE user.firstName = '" + name + "'");
+		TypedQuery<User> query = getCurrentSession().createQuery("FROM User AS user WHERE user.username = '" + name + "'");
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
 
+	/**
+	 * @brief Method to find a user using the email
+	 * @param email Users email
+	 * @return User
+	 */
+	@Override
+	public User getUserByEmail(String email) {
+		@SuppressWarnings("unchecked")
+		TypedQuery<User> query = getCurrentSession().createQuery("FROM User As user WHERE user.email = '" + email + "'");
+		return query.getResultList().stream().findFirst().orElse(null);
+	}
+	
 	/**
 	 * @brief Method to obtain the current session
 	 * @return Session

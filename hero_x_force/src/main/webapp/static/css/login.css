@@ -1,63 +1,24 @@
 /* Login styles */
 
-body {
-  background: url(../img/login_background.jpg) no-repeat center center fixed;
-  background-size: cover;
-}
-
-#login .main-section {
-  margin: 0 auto;
-  margin-top: 25%;
-  padding: 0;
+#login .row {
+  margin: 0;
 }
 
 #login .modal-content {
    background-color: #3b4652;
    opacity: .85;
-   padding: 0 18px;
+   padding: 20px;
    box-shadow: 0px 0px 3px #848484;
 }
 
-#login .user-img {
-  margin-top: -50px;
-  margin-bottom: 35px;
+#login img {
+  height: 150px;
+  width: 180px;
 }
 
-#login .user-img img {
-  height: 100px;
-  width: 100px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 2px #848484;
-}
-
-#login .form-group {
-  margin-bottom: 25px; 
-}
-
-#login .form-group input {
+#login .input-group input {
   height: 42px;
-  border-radius: 5px;
-  border: 0px;
   font-size: 18px;
-  padding-left: 54px;
-}
-
-#login .form-group::before {
-  font-family: 'Font Awesome 5 Free';
-  content: "\f007";
-  position: absolute;
-  font-size: 22px;
-  color: #555e60;
-  left: 28px;
-  padding-top: 4px;
-}
-
-#login .form-group:last-of-type::before {
-    content: "\f026";
-}
-
-#login button {
-  width: 30%;
 }
 
 #login .svg-inline--fa {
