@@ -16,38 +16,40 @@
   <!--c:forEach items="${deckList}" var="deck"-->
     <div class="row">
       <div class="col">
-        <h3>Deck name</h3>
-        <!--h3>${deck.name}</h3-->
+        <h3><a href="${pageContext.request.contextPath}/deck/data">Deck name</a></h3>
+        <!--h3><a class="link"
+          href="${pageContext.request.contextPath}/deck/${deck.id}/data">${deck.name}</a></h3-->
       </div>
       <div class="col-1">
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/deck/form" role="button"><spring:message code="action.edit"/></a>
       </div>
     </div>
-    <div class="row deck-cards">
+    <div class="deck-cards row">
       <!--c:forEach items="${deck.cardList}" var="card"-->
         <!--div class="col">
-          <img src="${card.img}"
-            width="200" height="280" alt="${card.alt}">
+          <img src="${card.img}" alt="${card.alt}">
         </div-->
         <div class="col">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            width="200" height="280" alt="Hero X-Force Logo">
+          <a href="${pageContext.request.contextPath}/card/data">
+            <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
+              alt="Hero X-Force Logo">
+          </a>
         </div>
         <div class="col">
           <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            width="200" height="280" alt="Hero X-Force Logo">
+            alt="Hero X-Force Logo">
         </div>
         <div class="col">
           <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            width="200" height="280" alt="Hero X-Force Logo">
+            alt="Hero X-Force Logo">
         </div>
         <div class="col">
           <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            width="200" height="280" alt="Hero X-Force Logo">
+            alt="Hero X-Force Logo">
         </div>
         <div class="col">
           <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            width="200" height="280" alt="Hero X-Force Logo">
+            alt="Hero X-Force Logo">
         </div>
       <!--/c:forEach-->
     </div>

@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/default.css"></link>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/deck_list.css"></link>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/deck_form.css"></link>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/deck_data.css"></link>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/card_data.css"></link>
     
     <!-- Custom js -->
     <script src="<c:url value='/static/js/message.js'/>"></script>
