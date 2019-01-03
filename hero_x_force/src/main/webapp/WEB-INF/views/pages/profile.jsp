@@ -1,28 +1,37 @@
 <%@ taglib
   prefix="c"
   uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib
+  uri="http://www.springframework.org/tags"
+  prefix="spring"%>
 <c:choose>
   <c:when test="${not empty user}">
     <div class="container-fluid ">
       <div class="row">
         <div class="col align-self-start">
-          <h2>${user.firstName}'s profile</h2>
+          <c:choose>
+            <c:when test="${pageContext.response.locale == 'es'}">
+              <h2><spring:message code="profile.subTitle"/> ${user.firstName}</h2>
+            </c:when>
+            <c:otherwise>
+              <h2>${user.firstName}<spring:message code="profile.subTitle"/></h2>
+            </c:otherwise>
+          </c:choose>
         </div>
-        <div class="col-1 align-self-end">
+        <div class="col-2">
           <button
             type="button"
-            class="btn btn-primary">Edit profile</button>
+            class="btn btn-primary"><spring:message code="profile.edit"/></button>
         </div>
       </div>
       <div class="row align-items-center">
         <div class="col">
-          <p>First name:</p>
-          <p>Last name:</p>
-          <p>email:</p>
-          <p>Points:</p>
-          <p>Battles won:</p>
-          <p>Battles lost:</p>
+          <p><spring:message code="profile.firstName"/></p>
+          <p><spring:message code="profile.lastName"/></p>
+          <p><spring:message code="profile.email"/></p>
+          <p><spring:message code="profile.points"/></p>
+          <p><spring:message code="profile.battlesWon"/></p>
+          <p><spring:message code="profile.battlesLost"/></p>
         </div>
         <div class="col">
           <p>win percentage pie chart</p>
@@ -32,15 +41,15 @@
 
     <div class="container-fluid ">
       <div class="row align-items-center">
-       <div
+        <div
           class="col-8"
           id="achievementTable">
-          <h2>Achievements:</h2>
+          <h3><spring:message code="profile.achievement.title"/></h3>
           <table class="table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Unlocked date</th>
+                <th><spring:message code="profile.achievement.name"/></th>
+                <th><spring:message code="profile.achievement.unlockedDate"/></th>
               </tr>
             </thead>
             <tbody>
@@ -82,3 +91,4 @@
     </div>
   </c:otherwise>
 </c:choose>
+

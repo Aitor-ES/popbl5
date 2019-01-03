@@ -1,16 +1,7 @@
-<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
-<!-- Tiles library -->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-
-<!-- FMT library -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-<!-- JSTL library -->
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<fmt:bundle basename="edu.mondragon.lang.View">
 
 <!-- HTML code -->
 <!DOCTYPE html>
@@ -20,14 +11,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <!-- Remove NetBeans bug -->
+    <link rel="shortcut icon" href="#">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
     crossorigin="anonymous">
     
     <!-- jQuery JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     
     <!-- Popper JS -->
@@ -41,27 +35,24 @@
     crossorigin="anonymous"></script>
     
     <!-- Icon library -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" 
-    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
     crossorigin="anonymous">
     
     <!-- Custom css -->
-    <link rel="stylesheet" href="<c:url value='/static/css/sticky-footer.css'/>"></link>   
+    <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>"></link>
     
-    <!-- Tittle -->
-    <title><tiles:getAsString name="title"/> - <fmt:message key="header.appName"/></title> 
+    <!-- Custom js -->
+    <script src="<c:url value='/static/js/message.js'/>"></script>
+
+    <!-- Title -->
+    <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 
   </head>
   <body>
-    <div class="flex-container">
-      <tiles:insertAttribute name="header"/>
-      <tiles:insertAttribute name="menu"/>
-      <tiles:insertAttribute name="message"/>
-      <div class="container-fluid">
-        <tiles:insertAttribute name="body"/>
-      </div>
-      <tiles:insertAttribute name="footer"/>
-    </div>
+    <tiles:insertAttribute name="header"/>
+    <tiles:insertAttribute name="menu"/>
+    <tiles:insertAttribute name="message"/>
+    <tiles:insertAttribute name="main"/>
+    <tiles:insertAttribute name="footer"/>
   </body>
 </html>
-
-</fmt:bundle>
