@@ -1,54 +1,80 @@
-<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
-<!-- FMT library -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-<!-- JSTL library -->
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<fmt:bundle basename="edu.mondragon.lang.View">
 
 <header class="navbar navbar-expand navbar-dark bg-dark d-flex justify-content-between">
   <!-- Logo -->
   <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-    <!--img src="${pageContext.request.contextPath}/static/img/horizontal_logo.png" width="100" height="40" alt="Hero X-Force Logo"-->
-    <fmt:message key="header.appName"/>
+    <img src="${pageContext.request.contextPath}/static/img/default/horizontal_logo.png" width="100" height="40" alt="Hero X-Force">
   </a>
-
   
-  <!-- Lang & Login/logout -->
-  <ul class="nav navbar-nav ">
-    <!-- Enable language changing -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navdrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <fmt:message key="header.lang"></fmt:message>
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navdrop">
-        <!--form name='locale-form' action="locale" method="GET"-->
-          <button class="dropdown-item" type="submit" name="langTag" value="en"><fmt:message key="language.en"/></button>
-          <button class="dropdown-item" type="submit" name="langTag" value="es-ES"><fmt:message key="language.es"/></button>
-          <button class="dropdown-item" type="submit" name="langTag" value="eu"><fmt:message key="language.eu"/></button>
-        <!--/form-->
-      </div>
-    </li>
-
-    <!-- Logout option if the user is logged -->
+  <!-- Options -->
+  <ul class="navbar-nav">
     <c:choose>
-      <c:when test="${empty sessionScope.user}">
+      <c:when test="${not empty sessionScope.user}">
         <li class="nav-item">
-            <button class="btn" onclick="window.location.href='${pageContext.request.contextPath}/login'"><i class="fas fa-sign-in-alt"></i> <fmt:message key="action.login"/></button>
+          <form action="logout">
+            <button class="btn btn-lg btn-danger" id="header_button" type="submit" name="action" value="logout"><i class="fas fa-sign-in-alt"></i> <spring:message code="action.logout"/></button>
+          </form>
         </li>
       </c:when>
       <c:otherwise>
-        <li class="nav-item">
-          <form action="logout">
-            <button class="btn" type="submit" name="action" value="logout"><i class="fas fa-sign-in-alt"></i> <fmt:message key="action.logout"/></button>
-          </form>
-        </li>
+        <c:choose>
+          <c:when test="${springViewName == 'home'}">
+            <li class="nav-item">
+              <a class="nav-link text-light" id="header_link" href="${pageContext.request.contextPath}/login"><i class="fas fa-chevron-right"></i> <spring:message code="action.login"/></a> 
+             </li>
+          </c:when>
+          <c:when test="${springViewName == 'register'}">
+            <li class="nav-item">
+              <a class="nav-link text-light" id="header_link" href="${pageContext.request.contextPath}/login"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToLogin"/></a> 
+             </li>
+          </c:when>
+          <c:when test="${springViewName == 'forgot'}">
+            <li class="nav-item">
+              <a class="nav-link text-light" id="header_link" href="${pageContext.request.contextPath}/login"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToLogin"/></a> 
+             </li>
+          </c:when>
+          <c:otherwise>
+            <li class="nav-item">
+              <a class="nav-link text-light" id="header_link" href="${pageContext.request.contextPath}/"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToHome"/></a> 
+            </li>
+          </c:otherwise>
+        </c:choose>
       </c:otherwise>
     </c:choose>
+
+    <!-- Enable language changing -->
+    <li class="nav-item dropdown" id="language-select">
+      <a class="nav-link dropdown-toggle" href="#" id="navdrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <c:choose>
+          <c:when test="${pageContext.response.locale == 'en'}">
+            <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">
+          </c:when>
+          <c:when test="${pageContext.response.locale == 'es'}">
+            <img src="${pageContext.request.contextPath}/static/img/default/spain.png" width="40" height="40" alt="<spring:message code="language.es"/>">
+          </c:when>
+          <c:when test="${pageContext.response.locale == 'eu'}">
+            <img src="${pageContext.request.contextPath}/static/img/default/basque_country.png" width="40" height="40" alt="<spring:message code="language.eu"/>">
+          </c:when>
+          <c:otherwise>
+            <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">
+          </c:otherwise>
+        </c:choose>
+      </a>
+        
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=en" role="button">
+          <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">
+        </a>
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=es" role="button">
+          <img src="${pageContext.request.contextPath}/static/img/default/spain.png" width="40" height="40" alt="<spring:message code="language.es"/>">
+        </a>
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=eu" role="button">
+          <img src="${pageContext.request.contextPath}/static/img/default/basque_country.png" width="40" height="40" alt="<spring:message code="language.eu"/>">
+        </a>
+      </div>
+    </li>
+
   </ul>
 </header>
-
-</fmt:bundle>

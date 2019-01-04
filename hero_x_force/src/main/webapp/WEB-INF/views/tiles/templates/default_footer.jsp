@@ -1,17 +1,10 @@
-<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<!-- FMT library -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-<footer class="footer">
-
-  <fmt:bundle basename="edu.mondragon.lang.View">
+<footer class="footer bg-dark">
 
   <div class="container">
-    <span class="text-muted"><fmt:message key="footer.copyright"/> <i class="far fa-copyright"></i> <fmt:message key="footer.company"/></span>
+    <p class="m-0 text-center text-white"><spring:message code="footer.copyright"/> <i class="far fa-copyright"></i> <spring:message code="footer.company"/> <spring:message code="footer.year"/></p>
   </div>
-
-  </fmt:bundle>
 
 </footer>

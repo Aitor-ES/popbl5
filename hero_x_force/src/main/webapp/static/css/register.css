@@ -1,0 +1,30 @@
+/* Register styles */
+
+#register .row {
+  margin: 0;
+}
+
+#register .modal-content {
+   background-color: #3b4652;
+   opacity: .85;
+   padding: 20px;
+   box-shadow: 0px 0px 3px #848484;
+}
+
+#register img {
+  height: 150px;
+  width: 180px;
+}
+
+#register .input-group input {
+  height: 42px;
+  font-size: 18px;
+}
+
+#register .svg-inline--fa {
+  margin-right: 7px;
+}
+
+#register .forgot {
+  padding: 5px 0 25px;
+}
