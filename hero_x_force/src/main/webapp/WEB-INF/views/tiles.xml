@@ -92,9 +92,9 @@
   </definition>
   
   <!-- User data screen layout -->
-  <definition name="userData" extends="template-def-logged">
+  <definition name="userData" extends="template-default">
     <put-attribute name="title" value="UserData" />
-    <put-attribute name="body"
+    <put-attribute name="main"
       value="/WEB-INF/views/pages/userData.jsp" />
   </definition>
     
