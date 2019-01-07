@@ -110,5 +110,12 @@
     <put-attribute name="main"
       value="/WEB-INF/views/pages/ranking.jsp" />
   </definition>
+  
+  <!-- User data screen layout -->
+  <definition name="profile/edit" extends="template-default">
+    <put-attribute name="title" value="Edit profile" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/profile_edit.jsp" />
+  </definition>
     
 </tiles-definitions>
