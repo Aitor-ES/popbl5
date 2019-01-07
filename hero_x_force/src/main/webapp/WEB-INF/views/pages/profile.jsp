@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col align-self-start">
           <c:choose>
-            <c:when test="${pageContext.response.locale == 'es'}">
+            <c:when test="${pageContext.response.locale.language == 'es'}">
               <h2><spring:message code="profile.subTitle"/> ${user.username}</h2>
             </c:when>
             <c:otherwise>
