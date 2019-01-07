@@ -29,6 +29,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import edu.mondragon.model.Tournament;
 import edu.mondragon.model.User;
 
 @Configuration
@@ -72,6 +73,8 @@ public class HibernateConfig {
 
 		factoryBean.setHibernateProperties(props);
 		factoryBean.setAnnotatedClasses(User.class);
+		factoryBean.setAnnotatedClasses(Tournament.class);
+		
 		return factoryBean;
 	}
 

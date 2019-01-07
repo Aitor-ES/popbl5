@@ -17,6 +17,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -57,9 +58,12 @@ public class Tournament {
 	/**
 	 * @brief Tournament winner id (FK)
 	 */
-	@ManyToOne
-	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID")
-	private User winner_id;
+	@ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name="WINNER_ID", nullable=true)
+  private User user;
+	
+	@Column(name = "WINNER_ID")
+	private int winner_id;
 
 	/**
 	 * @brief Empty constructor
@@ -71,7 +75,7 @@ public class Tournament {
 	 * @brief Class constructor
 	 * @param name             Tournament name
 	 * @param num_participants Tournament participants
-	 * @param date 			   Tournament start date
+	 * @param date 			       Tournament start date
 	 */
 	public Tournament(String name, int num_participants) {
 		this.name = name;
@@ -111,11 +115,11 @@ public class Tournament {
 		this.date = date;
 	}
 
-	public User getWinner_id() {
+	public int getWinnerID() {
 		return winner_id;
 	}
 
-	public void setWinner_id(User winner_id) {
+	public void setWinnerID(int winner_id) {
 		this.winner_id = winner_id;
 	}
 

@@ -306,7 +306,6 @@ public class SpringController {
 		User user = userService.getUserById(id);
 
 		if (user == null) {
-			// model.addAttribute("css", "danger");
 			model.addAttribute("message", "User not found");
 		}
 
