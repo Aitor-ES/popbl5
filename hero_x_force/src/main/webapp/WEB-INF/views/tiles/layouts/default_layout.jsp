@@ -8,16 +8,16 @@
 <html>
   <head>
     <!-- Required meta tags -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     
     <!-- Remove NetBeans bug -->
-    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="#"/>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
-    crossorigin="anonymous">
+    crossorigin="anonymous"/>
     
     <!-- jQuery JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -37,15 +37,15 @@
     <!-- Icon library -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
-    crossorigin="anonymous">
+    crossorigin="anonymous"/>
     
     <!-- Custom css -->
-    <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>"></link>
-    <link rel="stylesheet" href="<c:url value='/static/css/menu.css'/>"></link>
-    <link rel="stylesheet" href="<c:url value='/static/css/home.css'/>"></link>
-    <link rel="stylesheet" href="<c:url value='/static/css/login.css'/>"></link>
-    <link rel="stylesheet" href="<c:url value='/static/css/register.css'/>"></link>
-    <link rel="stylesheet" href="<c:url value='/static/css/forgot.css'/>"></link>
+    <link rel="stylesheet" href="<c:url value='/static/css/default.css'/>"/>
+    <link rel="stylesheet" href="<c:url value='/static/css/menu.css'/>"/>
+    <link rel="stylesheet" href="<c:url value='/static/css/home.css'/>"/>
+    <link rel="stylesheet" href="<c:url value='/static/css/login.css'/>"/>
+    <link rel="stylesheet" href="<c:url value='/static/css/register.css'/>"/>
+    <link rel="stylesheet" href="<c:url value='/static/css/forgot.css'/>"/>
     
     <!-- Custom js -->
     <script src="<c:url value='/static/js/default.js'/>"></script>

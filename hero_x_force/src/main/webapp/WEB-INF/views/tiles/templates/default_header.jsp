@@ -48,13 +48,13 @@
     <li class="nav-item dropdown" id="language-select">
       <a class="nav-link dropdown-toggle" href="#" id="navdrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <c:choose>
-          <c:when test="${pageContext.response.locale == 'en'}">
+          <c:when test="${pageContext.response.locale.language == 'en'}">
             <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">
           </c:when>
-          <c:when test="${pageContext.response.locale == 'es'}">
+          <c:when test="${pageContext.response.locale.language == 'es'}">
             <img src="${pageContext.request.contextPath}/static/img/default/spain.png" width="40" height="40" alt="<spring:message code="language.es"/>">
           </c:when>
-          <c:when test="${pageContext.response.locale == 'eu'}">
+          <c:when test="${pageContext.response.locale.language == 'eu'}">
             <img src="${pageContext.request.contextPath}/static/img/default/basque_country.png" width="40" height="40" alt="<spring:message code="language.eu"/>">
           </c:when>
           <c:otherwise>
@@ -62,7 +62,7 @@
           </c:otherwise>
         </c:choose>
       </a>
-        
+
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=en" role="button">
           <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">

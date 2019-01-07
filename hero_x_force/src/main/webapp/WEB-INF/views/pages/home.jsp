@@ -17,7 +17,7 @@
           <div class="carousel-caption text-left">
             <h1><spring:message code="home.carousel.first.label"/></h1>
             <p><spring:message code="home.carousel.first.text"/></p>
-            <p><a class="btn btn-lg btn-primary" href="${pageContext.request.contextPath}/login" role="button">Sign up today</a></p>
+            <p><a class="btn btn-lg btn-primary" href="${pageContext.request.contextPath}/register" role="button">Sign up today</a></p>
           </div>
         </div>
       </div>
