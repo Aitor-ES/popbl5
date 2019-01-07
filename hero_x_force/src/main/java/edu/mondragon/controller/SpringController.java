@@ -476,4 +476,23 @@ public class SpringController {
 		
 		return view;
 	}
+	
+	/**
+	 * @brief Method that shows the edit create card view
+	 * @param model implementation of Map for use when building data model
+	 * @return String
+	 */
+	@RequestMapping(value = "/card/form", method = RequestMethod.GET)
+	public String showAdminTools(HttpServletRequest request, HttpServletResponse response, Model model) {
+		String view = "home";
+		
+		HttpSession session = request.getSession(true);
+		if(session.getAttribute("user") != null) {
+			view = "card/form";
+		} else {
+			model.addAttribute("error", "general.notLogged");
+		}
+		
+		return view;
+	}
 }
