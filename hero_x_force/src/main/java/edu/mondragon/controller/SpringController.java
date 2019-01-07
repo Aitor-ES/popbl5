@@ -118,7 +118,7 @@ public class SpringController {
 	 * @brief Method that manages the register
 	 * @param request
 	 * @param reponse
-	 * @param model   implementation of Map for use when building data model
+	 * @param model implementation of Map for use when building data model
 	 * @return String
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -302,7 +302,7 @@ public class SpringController {
 
 		if (user == null) {
 			// model.addAttribute("css", "danger");
-			model.addAttribute("msg", "User not found");
+			model.addAttribute("message", "User not found");
 		}
 
 		model.addAttribute("user", user);
