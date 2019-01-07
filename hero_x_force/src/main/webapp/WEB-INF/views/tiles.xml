@@ -110,5 +110,19 @@
     <put-attribute name="main"
       value="/WEB-INF/views/pages/ranking.jsp" />
   </definition>
+  
+  <!-- Edit Create card screen layout -->
+  <definition name="card/form" extends="template-default">
+    <put-attribute name="title" value="Edit/Create card" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/card_form.jsp" />
+  </definition>
+  
+  <!-- User data screen layout -->
+  <definition name="profile/edit" extends="template-default">
+    <put-attribute name="title" value="Edit profile" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/profile_edit.jsp" />
+  </definition>
     
 </tiles-definitions>
