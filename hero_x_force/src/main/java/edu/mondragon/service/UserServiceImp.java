@@ -38,8 +38,8 @@ public class UserServiceImp implements UserService {
 	 */
 	@Transactional
 	@Override
-	public void add(User user) {
-		userDao.add(user);
+	public void addUser(User user) {
+		userDao.addUser(user);
 	}
 	
 	/**
@@ -59,8 +59,8 @@ public class UserServiceImp implements UserService {
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public User getUserById(long id) {
-		return userDao.getUserById(id);
+	public User getUserById(int user_id) {
+		return userDao.getUserById(user_id);
 	}
 	
 	/**

@@ -39,7 +39,7 @@ public class UserDaoImp implements UserDao {
 	 * @return void
 	 */
 	@Override
-	public void add(User user) {
+	public void addUser(User user) {
 		getCurrentSession().save(user);
 	}
 
@@ -51,7 +51,6 @@ public class UserDaoImp implements UserDao {
 	public List<User> listUsers() {
 		@SuppressWarnings("unchecked")
 		TypedQuery<User> query = getCurrentSession().createQuery("FROM User");
-		query.getSingleResult();
 		return query.getResultList();
 	}
 
@@ -61,8 +60,8 @@ public class UserDaoImp implements UserDao {
 	 * @return User
 	 */
 	@Override
-	public User getUserById(long id) {
-		User user = getCurrentSession().find(User.class, id);
+	public User getUserById(int user_id) {
+		User user = getCurrentSession().find(User.class, user_id);
 		return user;
 	}
 

@@ -18,11 +18,11 @@ import java.util.List;
 import edu.mondragon.model.User;
 
 public interface UserDao {
-	void add(User user);
+	void addUser(User user);
 
 	List<User> listUsers();
 
-	User getUserById(long id);
+	User getUserById(int user_id);
 	
 	User getUserByName(String name);
 	

@@ -25,11 +25,12 @@ import javax.persistence.Table;
 public class User {
 
 	/**
-	 * @brief User id
+	 * @brief User id (PK)
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "USER_ID")
+	private int user_id;
 
 	/**
 	 * @brief User name
@@ -50,6 +51,24 @@ public class User {
 	private String password;
 
 	/**
+	 * @brief User wins
+	 */
+	@Column(name = "WINS")
+	private int wins;
+	
+	/**
+	 * @brief User loses
+	 */
+	@Column(name = "LOSES")
+	private int loses;
+	
+	/**
+	 * @brief User points
+	 */
+	@Column(name = "POINTS")
+	private int points;
+	
+	/**
 	 * @brief Empty constructor
 	 */
 	public User() {}
@@ -66,12 +85,12 @@ public class User {
 		this.password = password;
 	}
 
-	public Long getId() {
-		return id;
+	public int getUserId() {
+		return user_id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setUserId(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getUsername() {
@@ -98,4 +117,28 @@ public class User {
 		this.password = password;
 	}
 
+	public int getWins() {
+		return wins;
+	}
+
+	public void setWins(int wins) {
+		this.wins = wins;
+	}
+
+	public int getLoses() {
+		return loses;
+	}
+
+	public void setLoses(int loses) {
+		this.loses = loses;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+	
 }

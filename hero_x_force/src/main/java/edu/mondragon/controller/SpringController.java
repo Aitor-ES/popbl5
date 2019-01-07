@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,8 +28,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mondragon.configuration.HibernateConfig;
 import edu.mondragon.model.User;
+import edu.mondragon.service.TournamentService;
 import edu.mondragon.service.UserService;
-import org.apache.commons.validator.routines.EmailValidator;
 
 @Controller
 @RequestMapping("/")
@@ -43,6 +44,11 @@ public class SpringController {
 	 * @brief The user service
 	 */
 	UserService userService = context.getBean(UserService.class);
+	
+	/**
+	 * @brief The tournament service
+	 */
+	TournamentService tournamentService = context.getBean(TournamentService.class);
 
 	/**
 	 * @brief Method that manages the default page
@@ -71,7 +77,6 @@ public class SpringController {
 	 * @param model   implementation of Map for use when building data model
 	 * @return String
 	 */
-	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		String view = "home";
@@ -168,7 +173,7 @@ public class SpringController {
 			correct = false;
 		}	else if (correct) {
 			model.addAttribute("message", "user.new.success");
-			userService.add(new User(username, email, password));
+			userService.addUser(new User(username, email, password));
 			view = "login";
 		}
 
