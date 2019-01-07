@@ -1,0 +1,30 @@
+/* Forgot styles */
+
+#forgot .row {
+  margin: 0;
+}
+
+#forgot .modal-content {
+   background-color: #3b4652;
+   opacity: .85;
+   padding: 20px;
+   box-shadow: 0px 0px 3px #848484;
+}
+
+#forgot img {
+  height: 150px;
+  width: 180px;
+}
+
+#forgot .input-group input {
+  height: 42px;
+  font-size: 18px;
+}
+
+#forgot .svg-inline--fa {
+  margin-right: 7px;
+}
+
+#forgot .forgot {
+  padding: 5px 0 25px;
+}
