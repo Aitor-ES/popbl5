@@ -3,7 +3,6 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
-<!-- Tiles layout definitions -->
 <tiles-definitions>
 
   <!-- Default layout -->
@@ -56,11 +55,32 @@
       value="/WEB-INF/views/pages/profile.jsp" />
   </definition>
   
-  <!-- Decks screen layout -->
-  <definition name="decks" extends="template-default">
-    <put-attribute name="title" value="Decks" />
+  <!-- Deck List screen layout -->
+  <definition name="deck/list" extends="template-default">
+    <put-attribute name="title" value="Deck List" />
     <put-attribute name="main"
-      value="/WEB-INF/views/pages/decks.jsp" />
+      value="/WEB-INF/views/pages/deck_list.jsp" />
+  </definition>
+  
+  <!-- Deck Form screen layout -->
+  <definition name="deck/form" extends="template-default">
+    <put-attribute name="title" value="Deck Form" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/deck_form.jsp" />
+  </definition>
+  
+  <!-- Deck Data screen layout -->
+  <definition name="deck/data" extends="template-default">
+    <put-attribute name="title" value="Deck Data" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/deck_data.jsp" />
+  </definition>
+  
+  <!-- Card Data screen layout -->
+  <definition name="card/data" extends="template-default">
+    <put-attribute name="title" value="Card Data" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/card_data.jsp" />
   </definition>
   
   <!-- Heroes screen layout -->
