@@ -13,7 +13,7 @@
     <c:choose>
       <c:when test="${not empty sessionScope.user}">
         <li class="nav-item">
-          <form action="logout">
+          <form action="${pageContext.request.contextPath}/logout">
             <button class="btn btn-lg btn-danger" id="header_button" type="submit" name="action" value="logout"><i class="fas fa-sign-in-alt"></i> <spring:message code="action.logout"/></button>
           </form>
         </li>
