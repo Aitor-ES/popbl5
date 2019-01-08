@@ -1,4 +1,4 @@
-#deck-form div#selected-cards {
+#deck-form #selected-cards {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
@@ -7,59 +7,59 @@
   z-index: 1;
 }
 
-#deck-form div#selected-cards div.selected-card-slot {
+#deck-form #selected-cards .selected-card-slot {
   width: 200px;
   height: 100px;
   margin: 1rem;
 }
 
-#deck-form div#selected-cards div.selected-card-slot img {
+#deck-form #selected-cards .selected-card-slot img {
   width: 50px;
   height: 70px;
 }
 
-#deck-form div#available-cards div.card-container img {
+#deck-form #available-cards .card-container img {
   width: 35px;
   height: 49px;
 }
 
 @media (min-width: 480px) {
-  #deck-form div#available-cards div.card-container img {
+  #deck-form #available-cards .card-container img {
     width: 40px;
     height: 56px;
   }
 }
 
 @media (min-width: 576px) {
-  #deck-form div#available-cards div.card-container img {
+  #deck-form #available-cards .card-container img {
     width: 60px;
     height: 84px;
   }
 }
 
 @media (min-width: 768px) {
-  #deck-form div#available-cards div.card-container img {
+  #deck-form #available-cards .card-container img {
     width: 90px;
     height: 126px;
   }
 }
 
 @media (min-width: 992px) {
-  #deck-form div#available-cards div.card-container img {
+  #deck-form #available-cards .card-container img {
     width: 130px;
     height: 182px;
   }
 }
 
 @media (min-width: 1200px) {
-  #deck-form div#available-cards div.card-container img {
+  #deck-form #available-cards .card-container img {
     width: 165px;
     height: 231px;
   }
 }
 
 @media (min-width: 1440px) {
-  #deck-form div#available-cards div.card-container img {
+  #deck-form #available-cards .card-container img {
     width: 210px;
     height: 294px;
   }
