@@ -21,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.mondragon.configuration.EmailConfig;
 import edu.mondragon.configuration.HibernateConfig;
 import edu.mondragon.service.UserService;
 
@@ -31,7 +32,7 @@ public class DuelController {
 	/**
 	 * @brief The application context
 	 */
-	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
+	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class, EmailConfig.class);
 
 	/**
 	 * @brief The user service

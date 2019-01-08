@@ -1,6 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  
+
   <!-- Basic configuration -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>mondragon.edu</groupId>
@@ -9,10 +10,10 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>hero_x_force Maven Webapp</name>
   <url>http://maven.apache.org</url>
- 
- <!-- Properties -->
+
+  <!-- Properties -->
   <properties>
-  	<!-- Java v1.8 -->
+    <!-- Java v1.8 -->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
@@ -95,7 +96,7 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>6.0.5</version>
     </dependency>
-    
+
     <!-- Apache Commons Validator -->
     <dependency>
       <groupId>commons-validator</groupId>
@@ -103,24 +104,36 @@
       <version>1.6</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>4.3.21.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+
   </dependencies>
- 
+
   <!-- Build -->
   <build>
-  
+
     <!-- Project Name -->
     <finalName>hero_x_force</finalName>
-	
-	<!-- Plugins -->
+
+    <!-- Plugins -->
     <plugins>
-	
+
       <!-- Maven Surefire v3.0.0 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
         <version>3.0.0-M2</version>
       </plugin>
-	  
+
     </plugins>
   </build>
 </project>

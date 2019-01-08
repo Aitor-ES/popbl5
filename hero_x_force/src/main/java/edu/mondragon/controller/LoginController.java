@@ -24,8 +24,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.mondragon.configuration.EmailConfig;
 import edu.mondragon.configuration.HibernateConfig;
 import edu.mondragon.model.User;
+import edu.mondragon.service.EmailService;
 import edu.mondragon.service.UserService;
 
 @Controller
@@ -35,12 +37,16 @@ public class LoginController {
 	/**
 	 * @brief The application context
 	 */
-	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
+	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class, EmailConfig.class);
 
 	/**
-	 * @brief The user service
+	 * @brief Spring Services
 	 */
-	UserService userService = context.getBean(UserService.class);
+	public UserService userService = context.getBean(UserService.class);
+	public EmailService emailService = context.getBean(EmailService.class);
+	
+	/*@Autowired
+    public SimpleMailMessage template;*/
 
 	/**
 	 * @brief Method that manages the login
@@ -49,7 +55,6 @@ public class LoginController {
 	 * @param model   implementation of Map for use when building data model
 	 * @return String
 	 */
-
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		String view = "home";
@@ -147,6 +152,7 @@ public class LoginController {
 		} else if (correct) {
 			model.addAttribute("message", "user.new.success");
 			userService.add(new User(username, email, password));
+			emailService.sendSimpleMessage(email, "Hero X-Force Account Registration", "This account has been registered.");
 			view = "login";
 		}
 

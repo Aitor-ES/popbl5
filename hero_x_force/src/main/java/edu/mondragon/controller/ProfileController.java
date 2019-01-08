@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.mondragon.configuration.EmailConfig;
 import edu.mondragon.configuration.HibernateConfig;
 import edu.mondragon.model.User;
 import edu.mondragon.service.UserService;
@@ -34,7 +35,7 @@ public class ProfileController {
 	/**
 	 * @brief The application context
 	 */
-	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
+	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class, EmailConfig.class);
 
 	/**
 	 * @brief The user service
