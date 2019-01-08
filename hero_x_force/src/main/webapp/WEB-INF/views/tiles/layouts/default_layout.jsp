@@ -51,6 +51,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/register.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/forgot.css"/>"/>
     
+    
     <!-- Custom js -->
     <script src="<c:url value='/static/js/default.js'/>"></script>
     <script src="<c:url value='/static/js/message.js'/>"></script>

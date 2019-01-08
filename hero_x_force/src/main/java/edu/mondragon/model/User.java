@@ -13,11 +13,13 @@
 
 package edu.mondragon.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,11 +36,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ID")
-	private int user_id;
+	private Integer user_id;
 
-	@OneToMany(mappedBy="cart", cascade = CascadeType.REMOVE)
-	private List<Tournament> tournaments = new ArrayList<Tournament>();
-	
 	/**
 	 * @brief User name
 	 */
@@ -61,29 +60,36 @@ public class User {
 	 * @brief User wins
 	 */
 	@Column(name = "WINS")
-	private int wins;
-	
+	private Integer wins;
+
 	/**
 	 * @brief User loses
 	 */
 	@Column(name = "LOSES")
-	private int loses;
-	
+	private Integer loses;
+
 	/**
 	 * @brief User points
 	 */
 	@Column(name = "POINTS")
-	private int points;
+	private Integer points;
+
+	/**
+	 * @brief Tournament list (FK)
+	 */
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Tournament> tournaments = new HashSet<Tournament>();
 	
 	/**
 	 * @brief Empty constructor
 	 */
-	public User() {}
+	public User() {
+	}
 
 	/**
 	 * @brief Class constructor
 	 * @param username Users name
-	 * @param email  Users email
+	 * @param email    Users email
 	 * @param password Users password
 	 */
 	public User(String username, String email, String password) {
@@ -92,11 +98,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getUserId() {
+	public Integer getUser_id() {
 		return user_id;
 	}
 
-	public void setUserId(int user_id) {
+	public void setUser_id(Integer user_id) {
 		this.user_id = user_id;
 	}
 
@@ -124,28 +130,36 @@ public class User {
 		this.password = password;
 	}
 
-	public int getWins() {
+	public Integer getWins() {
 		return wins;
 	}
 
-	public void setWins(int wins) {
+	public void setWins(Integer wins) {
 		this.wins = wins;
 	}
 
-	public int getLoses() {
+	public Integer getLoses() {
 		return loses;
 	}
 
-	public void setLoses(int loses) {
+	public void setLoses(Integer loses) {
 		this.loses = loses;
 	}
 
-	public int getPoints() {
+	public Integer getPoints() {
 		return points;
 	}
 
-	public void setPoints(int points) {
+	public void setPoints(Integer points) {
 		this.points = points;
 	}
-	
+
+	public Set<Tournament> getTournaments() {
+		return tournaments;
+	}
+
+	public void setTournaments(Set<Tournament> tournaments) {
+		this.tournaments = tournaments;
+	}
+
 }

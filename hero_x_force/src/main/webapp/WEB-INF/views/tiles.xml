@@ -49,10 +49,17 @@
   </definition>
 
   <!-- Profile screen layout -->
-  <definition name="profile" extends="template-default">
+  <definition name="profile/data" extends="template-default">
     <put-attribute name="title" value="Profile" />
     <put-attribute name="main"
-      value="/WEB-INF/views/pages/profile.jsp" />
+      value="/WEB-INF/views/pages/profile_data.jsp" />
+  </definition>
+  
+  <!-- User data screen layout -->
+  <definition name="profile/edit" extends="template-default">
+    <put-attribute name="title" value="Edit profile" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/profile_edit.jsp" />
   </definition>
   
   <!-- Deck List screen layout -->
@@ -84,10 +91,17 @@
   </definition>
   
   <!-- Heroes screen layout -->
-  <definition name="heroes" extends="template-default">
+  <definition name="card/list" extends="template-default">
     <put-attribute name="title" value="Heroes" />
     <put-attribute name="main"
-      value="/WEB-INF/views/pages/heroes.jsp" />
+      value="/WEB-INF/views/pages/card_list.jsp" />
+  </definition>
+  
+  <!-- Edit Create card screen layout -->
+  <definition name="card/form" extends="template-default">
+    <put-attribute name="title" value="Edit/Create card" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/card_form.jsp" />
   </definition>
   
   <!-- Duels screen layout -->

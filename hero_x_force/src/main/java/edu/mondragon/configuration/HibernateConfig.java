@@ -35,7 +35,7 @@ import edu.mondragon.model.User;
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScans(value = { @ComponentScan("edu.mondragon.dao"), @ComponentScan("edu.mondragon.service") })
+@ComponentScans(value = { @ComponentScan("edu.mondragon.dao"), @ComponentScan("edu.mondragon.service"), @ComponentScan("edu.mondragon.model") })
 public class HibernateConfig {
 
 	/**
@@ -67,13 +67,12 @@ public class HibernateConfig {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 		factoryBean.setDataSource(getDataSource());
 
-		Properties props = new Properties();
-		props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-		props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+		Properties hibernateProperties  = new Properties();
+		hibernateProperties .put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+		hibernateProperties .put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
-		factoryBean.setHibernateProperties(props);
-		factoryBean.setAnnotatedClasses(User.class);
-		factoryBean.setAnnotatedClasses(Tournament.class);
+		factoryBean.setHibernateProperties(hibernateProperties);
+		factoryBean.setAnnotatedClasses(User.class, Tournament.class);
 		
 		return factoryBean;
 	}

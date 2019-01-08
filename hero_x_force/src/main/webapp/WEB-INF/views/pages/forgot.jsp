@@ -6,7 +6,7 @@
 
   <img class="mt-5" src="${pageContext.request.contextPath}/static/img/login/logo.png" alt="<spring:message code="login.logo.alt"/>">
   <h1 class="h2 mt-3 mb-3 font-weight-normal"><spring:message code="forgot.label"/></h1>
-  <form action="forgotForm" method='GET'>    
+  <form action="${pageContext.request.contextPath}/forgot/form" method='GET'>    
     <div class="row justify-content-center mb-5">
       <div class="modal-content col-10 col-md-6 col-lg-4 col-xl-4">
         <div class="input-group">

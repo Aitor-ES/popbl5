@@ -1,6 +1,6 @@
 /**
- * @file Tournament.java
- * @brief The tournament class
+ * @file Matches.java
+ * @brief The matches class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -26,37 +26,37 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TOURNAMENTS")
-public class Tournament {
+@Table(name = "MATCHES")
+public class Matches {
 
 	/**
-	 * @brief Tournament id (PK)
+	 * @brief Matches id (PK)
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "TOURNAMENT_ID")
-	private Integer tournament_id;
+	@Column(name = "MATCH_ID")
+	private Integer match_id;
 
 	/**
-	 * @brief Tournament name
+	 * @brief Matches name
 	 */
 	@Column(name = "NAME")
 	private String name;
 
 	/**
-	 * @brief Tournament number of participants
+	 * @brief Matches number of participants
 	 */
 	@Column(name = "NUM_PARTICIPANTS")
 	private Integer num_participants;
 
 	/**
-	 * @brief Tournament date
+	 * @brief Matches date
 	 */
 	@Column(name = "DATE")
 	private String date;
 
 	/**
-	 * @brief Tournament winner id (FK)
+	 * @brief Matches winner id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
@@ -65,27 +65,27 @@ public class Tournament {
 	/**
 	 * @brief Empty constructor
 	 */
-	public Tournament() {
+	public Matches() {
 	}
 
 	/**
 	 * @brief Class constructor
-	 * @param name             Tournament name
-	 * @param num_participants Tournament participants
-	 * @param date             Tournament start date
+	 * @param name             Matches name
+	 * @param num_participants Matches participants
+	 * @param date             Matches start date
 	 */
-	public Tournament(String name, Integer num_participants) {
+	public Matches(String name, Integer num_participants) {
 		this.name = name;
 		this.num_participants = num_participants;
 		this.date = LocalDate.now().toString();
 	}
 
-	public Integer getTournament_id() {
-		return tournament_id;
+	public Integer getMatch_id() {
+		return match_id;
 	}
 
-	public void setTournament_id(Integer tournament_id) {
-		this.tournament_id = tournament_id;
+	public void setMatch_id(Integer match_id) {
+		this.match_id = match_id;
 	}
 
 	public String getName() {

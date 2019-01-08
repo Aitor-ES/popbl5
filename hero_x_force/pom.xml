@@ -68,11 +68,11 @@
       <version>3.0.8</version>
     </dependency>
 
-    <!-- Hibernate v5.2.12 -->
+    <!-- Hibernate v5.4.0 -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>5.2.12.Final</version>
+      <version>5.4.0.Final</version>
     </dependency>
 
     <!-- Spring integration with Hibernate v5.0.2 -->
@@ -89,11 +89,11 @@
       <version>2.1.1</version>
     </dependency>
 
-    <!-- MySQL Connector v6.0.5 -->
+    <!-- MySQL Connector v8.0.13 -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>6.0.5</version>
+      <version>8.0.13</version>
     </dependency>
     
     <!-- Apache Commons Validator -->
