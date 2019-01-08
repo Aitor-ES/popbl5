@@ -44,7 +44,7 @@ public class HibernateConfig {
 	private Environment env;
 
 	/**
-	 * @brief Configuration of data source
+	 * @brief Configuration of data source, the acces to the data base
 	 * @return DataSource
 	 */
 	@Bean

@@ -1,6 +1,6 @@
 /**
  * @file SpringController.java
- * @brief This class loads the application configuration
+ * @brief This class manages the home view mapping
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -38,7 +38,7 @@ public class SpringController {
 
 	/**
 	 * @brief Method that manages the default page
-	 * @param model implementation of Map for use when building data model
+	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
@@ -48,7 +48,7 @@ public class SpringController {
 
 	/**
 	 * @brief Method that manages the home page
-	 * @param model implementation of Map for use when building data model
+	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)

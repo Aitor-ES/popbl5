@@ -1,3 +1,15 @@
+/**
+ * @file ProfileController.java
+ * @brief This class manages the profile view mapping
+ * @author Name  | Surname   | Email                        |
+ * ------|-----------|--------------------------------------|
+ * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
+ * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
+ * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
+ * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
+ * @date 13/11/2018
+ * @brief Package edu.mondragon.controllers
+ */
 package edu.mondragon.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +43,9 @@ public class ProfileController {
 
 	/**
 	 * @brief Method that shows the profile
-	 * @param id    Users id
-	 * @param model implementation of Map for use when building data model
+	 * @param request Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile/data", method = RequestMethod.GET)
@@ -43,7 +56,9 @@ public class ProfileController {
 	/**
 	 * @brief Method that shows the profile with ID
 	 * @param id    Users id
-	 * @param model implementation of Map for use when building data model
+	 * @param request Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile/{id}/data", method = RequestMethod.GET)
@@ -63,7 +78,9 @@ public class ProfileController {
 
 	/**
 	 * @brief Method that shows the view to edit the user data
-	 * @param model implementation of Map for use when building data model
+	 * @param request Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile/edit", method = RequestMethod.GET)
@@ -71,6 +88,12 @@ public class ProfileController {
 		return checkIfUserIsLogged(request, model) ? "profile/edit" : "home";
 	}
 	
+	/**
+	 * @brief Method that checks if users is logged
+	 * @param request Provides request information for the servlets
+	 * @param model A holder for model attributes
+	 * @return boolean
+	 */
 	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
 		boolean isUserLogged = false;		
 		HttpSession session = request.getSession(true);

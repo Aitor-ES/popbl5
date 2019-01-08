@@ -51,6 +51,10 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @ComponentScan(basePackages = "edu.mondragon.controller")
 public class ApplicationConfig implements WebMvcConfigurer {
 
+	/**
+	 * @brief This method obtains the ViewResolver
+	 * @return InternalResouceViewResolver
+	 */
 	@Bean(name = "viewResolver")
 	public InternalResourceViewResolver getViewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -74,6 +78,10 @@ public class ApplicationConfig implements WebMvcConfigurer {
 		return tilesConfigurer;
 	}
 
+	/**
+	 * @brief This method obtains the messageSource
+	 * @return MessageSource
+	 */
 	@Bean(name = "messageSource")
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageResource = new ReloadableResourceBundleMessageSource();
@@ -84,6 +92,10 @@ public class ApplicationConfig implements WebMvcConfigurer {
 		return messageResource;
 	}
 
+	/**
+	 * @brief Set the default locale as "en"
+	 * @return LocaleResolver
+	 */
 	@Bean(name = "localeResolver")
 	public LocaleResolver localeResolver() {
 		SessionLocaleResolver resolver = new SessionLocaleResolver();
@@ -92,7 +104,8 @@ public class ApplicationConfig implements WebMvcConfigurer {
 	}
 
 	/**
-	 * @brief This method configures view resolvers
+	 * @brief This method configures the ViewResolvers
+	 * @param registry Assists to configure the ViewResolver
 	 * @return void
 	 */
 	@Override
@@ -101,6 +114,11 @@ public class ApplicationConfig implements WebMvcConfigurer {
 		registry.viewResolver(viewResolver);
 	}
 
+	/**
+	 * @brief This method specifies that the resources are in the folder static
+	 * @param registry Stores registrations of resources handlers
+	 * @return void
+	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
@@ -136,6 +154,11 @@ public class ApplicationConfig implements WebMvcConfigurer {
 
 	}
 
+	/**
+	 * @Brief This method add interceptors. Adds the "lang" parameter
+	 * @param registry To configure a list of mapped interceptors
+	 * @return void
+	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		LocaleChangeInterceptor localeInterceptor = new LocaleChangeInterceptor();

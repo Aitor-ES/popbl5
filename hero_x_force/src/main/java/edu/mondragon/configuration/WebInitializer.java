@@ -27,8 +27,8 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class WebInitializer implements WebApplicationInitializer {
 
 	/**
-	 * @brief This method loads the configuration
-	 * @param container The servlet context
+	 * @brief This method loads the spring configuration
+	 * @param container The servlet context methods to configure the servlet
 	 * @return void
 	 */
 	public void onStartup(ServletContext container) throws ServletException {

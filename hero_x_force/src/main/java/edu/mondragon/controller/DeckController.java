@@ -1,3 +1,15 @@
+/**
+ * @file DeckController.java
+ * @brief This class loads the controls the deck views mapping
+ * @author Name  | Surname   | Email                        |
+ * ------|-----------|--------------------------------------|
+ * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
+ * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
+ * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
+ * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
+ * @date 13/11/2018
+ * @brief Package edu.mondragon.controllers
+ */
 package edu.mondragon.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +41,9 @@ public class DeckController {
 
 	/**
 	 * @brief Method to redirect to decks view
-	 * @param model implementation of Map for use when building data model
+	 * @param request Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/list" }, method = RequestMethod.GET)
@@ -39,7 +53,9 @@ public class DeckController {
 
 	/**
 	 * @brief Method to redirect to deck-form view
-	 * @param model implementation of Map for use when building data model
+	 * @param request Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/form" }, method = RequestMethod.GET)
@@ -49,7 +65,9 @@ public class DeckController {
 
 	/**
 	 * @brief Method to redirect to deck-form view
-	 * @param model implementation of Map for use when building data model
+	 * @param request Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/data" }, method = RequestMethod.GET)
@@ -57,6 +75,12 @@ public class DeckController {
 		return checkIfUserIsLogged(request, model) ? "deck/data" : "home";
 	}
 	
+	/**
+	 * @brief Method that checks if users is logged
+	 * @param request Provides request information for the servlets
+	 * @param model A holder for model attributes
+	 * @return boolean
+	 */
 	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
 		boolean isUserLogged = false;		
 		HttpSession session = request.getSession(true);
