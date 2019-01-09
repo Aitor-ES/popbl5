@@ -34,7 +34,7 @@ public class UserDaoImp implements UserDao {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * @brief This method adds an user
+	 * @brief This method adds a user
 	 * @param user User object
 	 * @return void
 	 */
