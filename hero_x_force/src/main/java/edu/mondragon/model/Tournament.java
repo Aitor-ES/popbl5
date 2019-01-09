@@ -13,7 +13,7 @@
 
 package edu.mondragon.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -57,13 +57,13 @@ public class Tournament {
 	 * @brief Tournament date
 	 */
 	@Column(name = "DATE")
-	private String date;
+	private LocalDateTime date;
 
 	/**
-	 * @brief Tournament winner id (FK)
+	 * @brief User id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", nullable = true)
+	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
 	private User user;
 
 	/**
@@ -93,7 +93,7 @@ public class Tournament {
 	public Tournament(String name, Integer num_participants) {
 		this.name = name;
 		this.num_participants = num_participants;
-		this.date = LocalDate.now().toString();
+		this.date = LocalDateTime.now();
 	}
 
 	/*
@@ -123,11 +123,11 @@ public class Tournament {
 		this.num_participants = num_participants;
 	}
 
-	public String getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

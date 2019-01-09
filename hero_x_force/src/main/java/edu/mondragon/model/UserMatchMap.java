@@ -13,6 +13,8 @@
 
 package edu.mondragon.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -39,7 +41,7 @@ public class UserMatchMap {
 	 * @brief Played date
 	 */
 	@Column(name = "DATE")
-	private String date;
+	private LocalDateTime date;
 	
 	/**
 	 * @brief User user id (FK)
@@ -56,17 +58,10 @@ public class UserMatchMap {
 	private Match match;
 	
 	/**
-	 * @brief Empty constructor
+	 * @brief Class constructor
 	 */
 	public UserMatchMap() {
-	}
-	
-	/**
-	 * @brief Class constructor
-	 * @param date
-	 */
-	public UserMatchMap(String date) {
-		this.date = date;
+		this.date = LocalDateTime.now();
 	}
 
 	/*
@@ -80,11 +75,11 @@ public class UserMatchMap {
 		this.user_match_map_id = user_match_map_id;
 	}
 
-	public String getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

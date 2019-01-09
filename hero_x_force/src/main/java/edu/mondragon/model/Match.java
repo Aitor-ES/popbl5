@@ -13,8 +13,10 @@
 
 package edu.mondragon.model;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,7 +45,7 @@ public class Match {
 	 * @brief Match date
 	 */
 	@Column(name = "DATE")
-	private String date;
+	private LocalDateTime date;
 	
 	/**
 	 * @brief Tournament id (FK)
@@ -56,7 +58,7 @@ public class Match {
 	 * @brief User id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", nullable = true)
+	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
 	private User user;
 
 	/**
@@ -66,17 +68,10 @@ public class Match {
 	private Set<UserMatchMap> userMatchMaps = new HashSet<UserMatchMap>();
 	
 	/**
-	 * @brief Empty constructor
+	 * @brief Class constructor
 	 */
 	public Match() {
-	}
-	
-	/**
-	 * @brief Class constructor
-	 * @param date
-	 */
-	public Match(String date) {
-		this.date = date;
+		this.date = LocalDateTime.now();
 	}
 
 	/*
@@ -90,11 +85,11 @@ public class Match {
 		this.match_id = match_id;
 	}
 
-	public String getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

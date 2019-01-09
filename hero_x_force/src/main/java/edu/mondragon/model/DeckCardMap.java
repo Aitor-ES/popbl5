@@ -38,8 +38,8 @@ public class DeckCardMap {
 	/**
 	 * @brief Formed date
 	 */
-	@Column(name = "DATE")
-	private String date;
+	@Column(name = "POSITION")
+	private Integer position;
 	
 	/**
 	 * @brief User user id (FK)
@@ -65,8 +65,8 @@ public class DeckCardMap {
 	 * @brief Class constructor
 	 * @param date
 	 */
-	public DeckCardMap(String date) {
-		this.date = date;
+	public DeckCardMap(Integer position) {
+		this.position = position;
 	}
 
 	/*
@@ -80,12 +80,12 @@ public class DeckCardMap {
 		this.deck_card_map_id = deck_card_map_id;
 	}
 
-	public String getDate() {
-		return date;
+	public Integer getPosition() {
+		return position;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setPosition(Integer position) {
+		this.position = position;
 	}
 
 	public Deck getDeck() {

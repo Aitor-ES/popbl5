@@ -23,8 +23,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -77,11 +75,10 @@ public class User {
 	private Integer points;
 
 	/**
-	 * @brief Deck id (FK)
+	 * @brief Deck list (FK)
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DECK_ID", referencedColumnName = "DECK_ID", nullable = true)
-	private Deck deck;
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Deck> decks = new HashSet<Deck>();
 	
 	/**
 	 * @brief Matches list (FK)
@@ -196,12 +193,12 @@ public class User {
 		this.points = points;
 	}
 
-	public Deck getDeck() {
-		return deck;
+	public Set<Deck> getDecks() {
+		return decks;
 	}
 
-	public void setDeck(Deck deck) {
-		this.deck = deck;
+	public void setDecks(Set<Deck> decks) {
+		this.decks = decks;
 	}
 
 	public Set<Match> getMatches() {

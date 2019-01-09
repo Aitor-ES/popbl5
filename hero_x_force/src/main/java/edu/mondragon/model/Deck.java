@@ -23,6 +23,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -45,10 +47,11 @@ public class Deck {
 	private String name;
 	
 	/**
-	 * @brief User list (FK)
+	 * @brief User id (FK)
 	 */
-	@OneToMany(mappedBy="deck", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<User> users = new HashSet<User>();
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CREATOR_ID", referencedColumnName = "USER_ID", nullable = true)
+	private User user;
 	
 	/**
 	 * @brief DeckCardMap list (FK)
@@ -91,12 +94,12 @@ public class Deck {
 		this.name = name;
 	}
 
-	public Set<User> getUsers() {
-		return users;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Set<DeckCardMap> getDeckCardMaps() {

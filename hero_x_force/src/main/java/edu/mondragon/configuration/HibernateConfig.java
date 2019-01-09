@@ -82,7 +82,11 @@ public class HibernateConfig {
 		hibernateProperties .put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
 		factoryBean.setHibernateProperties(hibernateProperties);
-		factoryBean.setAnnotatedClasses(Ability.class, Achievement.class, Card.class, Deck.class, DeckCardMap.class, Match.class, Tournament.class, User.class, UserAchievementMap.class, UserCardMap.class, UserMatchMap.class, UserTournamentMap.class);
+		factoryBean.setAnnotatedClasses(User.class, Achievement.class, UserAchievementMap.class,
+				Ability.class, Card.class, UserCardMap.class,
+				Deck.class,	DeckCardMap.class,
+				Tournament.class, UserTournamentMap.class,
+				Match.class, UserMatchMap.class);
 		
 		return factoryBean;
 	}
