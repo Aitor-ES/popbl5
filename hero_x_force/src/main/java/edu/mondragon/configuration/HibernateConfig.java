@@ -1,13 +1,13 @@
 /**
  * @file HibernateApplicationConfiguration.java
- * @brief This class configurates Hibernate
+ * @brief Hibernate configuration file
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.configuration
  */
 
@@ -29,8 +29,18 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import edu.mondragon.model.Ability;
+import edu.mondragon.model.Achievement;
+import edu.mondragon.model.Card;
+import edu.mondragon.model.Deck;
+import edu.mondragon.model.DeckCardMap;
+import edu.mondragon.model.Match;
 import edu.mondragon.model.Tournament;
 import edu.mondragon.model.User;
+import edu.mondragon.model.UserAchievementMap;
+import edu.mondragon.model.UserCardMap;
+import edu.mondragon.model.UserMatchMap;
+import edu.mondragon.model.UserTournamentMap;
 
 @Configuration
 @PropertySource("classpath:db.properties")
@@ -72,7 +82,7 @@ public class HibernateConfig {
 		hibernateProperties .put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
 		factoryBean.setHibernateProperties(hibernateProperties);
-		factoryBean.setAnnotatedClasses(User.class, Tournament.class);
+		factoryBean.setAnnotatedClasses(Ability.class, Achievement.class, Card.class, Deck.class, DeckCardMap.class, Match.class, Tournament.class, User.class, UserAchievementMap.class, UserCardMap.class, UserMatchMap.class, UserTournamentMap.class);
 		
 		return factoryBean;
 	}

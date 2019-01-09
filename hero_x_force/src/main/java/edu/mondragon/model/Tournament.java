@@ -14,7 +14,10 @@
 package edu.mondragon.model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,6 +26,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -59,9 +63,21 @@ public class Tournament {
 	 * @brief Tournament winner id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
+	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", nullable = true)
 	private User user;
 
+	/**
+	 * @brief Matches list (FK)
+	 */
+	@OneToMany(mappedBy="tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Match> matches = new HashSet<Match>();
+	
+	/**
+	 * @brief UserTournamentMap list (FK)
+	 */
+	@OneToMany(mappedBy="tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();	
+	
 	/**
 	 * @brief Empty constructor
 	 */
@@ -80,6 +96,9 @@ public class Tournament {
 		this.date = LocalDate.now().toString();
 	}
 
+	/*
+	 * @brief Getters and setters
+	 */
 	public Integer getTournament_id() {
 		return tournament_id;
 	}
@@ -118,6 +137,22 @@ public class Tournament {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Set<Match> getMatches() {
+		return matches;
+	}
+
+	public void setMatches(Set<Match> matches) {
+		this.matches = matches;
+	}
+
+	public Set<UserTournamentMap> getUserTournamentMaps() {
+		return userTournamentMaps;
+	}
+
+	public void setUserTournamentMaps(Set<UserTournamentMap> userTournamentMaps) {
+		this.userTournamentMaps = userTournamentMaps;
 	}
 
 }

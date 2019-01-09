@@ -1,20 +1,21 @@
 /**
- * @file Matches.java
- * @brief The matches class
+ * @file Match.java
+ * @brief The match class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.model
  */
 
 package edu.mondragon.model;
 
-import java.time.LocalDate;
-
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,11 +24,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "MATCHES")
-public class Matches {
+public class Match {
 
 	/**
 	 * @brief Matches id (PK)
@@ -38,70 +40,54 @@ public class Matches {
 	private Integer match_id;
 
 	/**
-	 * @brief Matches name
-	 */
-	@Column(name = "NAME")
-	private String name;
-
-	/**
-	 * @brief Matches number of participants
-	 */
-	@Column(name = "NUM_PARTICIPANTS")
-	private Integer num_participants;
-
-	/**
-	 * @brief Matches date
+	 * @brief Match date
 	 */
 	@Column(name = "DATE")
 	private String date;
-
+	
 	/**
-	 * @brief Matches winner id (FK)
+	 * @brief Tournament id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
+	@JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID", nullable = true)
+	private Tournament tournament;
+	
+	/**
+	 * @brief User id (FK)
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", nullable = true)
 	private User user;
 
 	/**
+	 * @brief UserMatchMap list (FK)
+	 */
+	@OneToMany(mappedBy="match", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserMatchMap> userMatchMaps = new HashSet<UserMatchMap>();
+	
+	/**
 	 * @brief Empty constructor
 	 */
-	public Matches() {
+	public Match() {
 	}
-
+	
 	/**
 	 * @brief Class constructor
-	 * @param name             Matches name
-	 * @param num_participants Matches participants
-	 * @param date             Matches start date
+	 * @param date
 	 */
-	public Matches(String name, Integer num_participants) {
-		this.name = name;
-		this.num_participants = num_participants;
-		this.date = LocalDate.now().toString();
+	public Match(String date) {
+		this.date = date;
 	}
 
+	/*
+	 * @brief Getters and setters
+	 */
 	public Integer getMatch_id() {
 		return match_id;
 	}
 
 	public void setMatch_id(Integer match_id) {
 		this.match_id = match_id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getNum_participants() {
-		return num_participants;
-	}
-
-	public void setNum_participants(Integer num_participants) {
-		this.num_participants = num_participants;
 	}
 
 	public String getDate() {
@@ -112,6 +98,14 @@ public class Matches {
 		this.date = date;
 	}
 
+	public Tournament getTournament() {
+		return tournament;
+	}
+
+	public void setTournament(Tournament tournament) {
+		this.tournament = tournament;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -120,4 +114,12 @@ public class Matches {
 		this.user = user;
 	}
 
+	public Set<UserMatchMap> getUserMatchMaps() {
+		return userMatchMaps;
+	}
+
+	public void setUserMatchMaps(Set<UserMatchMap> userMatchMaps) {
+		this.userMatchMaps = userMatchMaps;
+	}
+	
 }

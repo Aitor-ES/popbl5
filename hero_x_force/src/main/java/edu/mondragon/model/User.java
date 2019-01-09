@@ -23,6 +23,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -75,10 +77,47 @@ public class User {
 	private Integer points;
 
 	/**
+	 * @brief Deck id (FK)
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "DECK_ID", referencedColumnName = "DECK_ID", nullable = true)
+	private Deck deck;
+	
+	/**
+	 * @brief Matches list (FK)
+	 */
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Match> matches = new HashSet<Match>();
+	
+	/**
 	 * @brief Tournament list (FK)
 	 */
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
 	private Set<Tournament> tournaments = new HashSet<Tournament>();
+	
+	/**
+	 * @brief UserTournamentMap list (FK)
+	 */
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();	
+	
+	/**
+	 * @brief UserMatchMap list (FK)
+	 */
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserMatchMap> userMatchMaps = new HashSet<UserMatchMap>();
+	
+	/**
+	 * @brief UserAchievementMap list (FK)
+	 */
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserAchievementMap> userAchievementMaps = new HashSet<UserAchievementMap>();
+	
+	/**
+	 * @brief UserCardMap list (FK)
+	 */
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserCardMap> userCardMaps = new HashSet<UserCardMap>();
 	
 	/**
 	 * @brief Empty constructor
@@ -98,6 +137,9 @@ public class User {
 		this.password = password;
 	}
 
+	/*
+	 * @brief Getters and setters
+	 */
 	public Integer getUser_id() {
 		return user_id;
 	}
@@ -154,6 +196,22 @@ public class User {
 		this.points = points;
 	}
 
+	public Deck getDeck() {
+		return deck;
+	}
+
+	public void setDeck(Deck deck) {
+		this.deck = deck;
+	}
+
+	public Set<Match> getMatches() {
+		return matches;
+	}
+
+	public void setMatches(Set<Match> matches) {
+		this.matches = matches;
+	}
+
 	public Set<Tournament> getTournaments() {
 		return tournaments;
 	}
@@ -162,4 +220,36 @@ public class User {
 		this.tournaments = tournaments;
 	}
 
+	public Set<UserTournamentMap> getUserTournamentMaps() {
+		return userTournamentMaps;
+	}
+
+	public void setUserTournamentMaps(Set<UserTournamentMap> userTournamentMaps) {
+		this.userTournamentMaps = userTournamentMaps;
+	}
+
+	public Set<UserMatchMap> getUserMatchMaps() {
+		return userMatchMaps;
+	}
+
+	public void setUserMatchMaps(Set<UserMatchMap> userMatchMaps) {
+		this.userMatchMaps = userMatchMaps;
+	}
+
+	public Set<UserAchievementMap> getUserAchievementMaps() {
+		return userAchievementMaps;
+	}
+
+	public void setUserAchievementMaps(Set<UserAchievementMap> userAchievementMaps) {
+		this.userAchievementMaps = userAchievementMaps;
+	}
+
+	public Set<UserCardMap> getUserCardMaps() {
+		return userCardMaps;
+	}
+
+	public void setUserCardMaps(Set<UserCardMap> userCardMaps) {
+		this.userCardMaps = userCardMaps;
+	}	
+	
 }
