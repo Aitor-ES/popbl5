@@ -18,29 +18,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.validator.routines.EmailValidator;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.mondragon.configuration.HibernateConfig;
+import edu.mondragon.configuration.WebInitializer;
 import edu.mondragon.model.User;
 import edu.mondragon.service.UserService;
 
 @Controller
 @RequestMapping("/")
 public class LoginController {
-
-	/**
-	 * @brief The application context
-	 */
-	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
-
 	/**
 	 * @brief Hibernate service variables
 	 */
-	UserService userService = context.getBean(UserService.class);
+	UserService userService = WebInitializer.getContext().getBean(UserService.class);
 
 	/**
 	 * @brief Method that manages the login

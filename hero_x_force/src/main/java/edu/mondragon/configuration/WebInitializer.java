@@ -18,6 +18,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -25,7 +26,11 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebInitializer implements WebApplicationInitializer {
-
+	/**
+	 * @brief AnnotationConfigApplicationContext
+	 */
+	private static AnnotationConfigApplicationContext context;
+	
 	/**
 	 * @brief This method loads the configuration
 	 * @param container The servlet context
@@ -48,5 +53,18 @@ public class WebInitializer implements WebApplicationInitializer {
 		fr.setInitParameter("encoding", "UTF-8");
 		fr.setInitParameter("forceEncoding", "true");
 		fr.addMappingForUrlPatterns(null, true, "/*");
+		
+		context = new AnnotationConfigApplicationContext(HibernateConfig.class);
+		
+		// Inserts
 	}
+	
+	/**
+	 * Static class to get the context of the application
+	 * @return
+	 */
+	public static AnnotationConfigApplicationContext getContext() {
+		return context;
+	}
+	
 }

@@ -4,28 +4,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.mondragon.configuration.HibernateConfig;
+import edu.mondragon.configuration.WebInitializer;
 import edu.mondragon.service.UserService;
 
 @Controller
 @RequestMapping("/")
 public class DuelController {
-
-	/**
-	 * @brief The application context
-	 */
-	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
-
 	/**
 	 * @brief The user service
 	 */
-	UserService userService = context.getBean(UserService.class);
+	UserService userService = WebInitializer.getContext().getBean(UserService.class);
 
 	/**
 	 * @brief Method to redirect to duels view
