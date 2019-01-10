@@ -1,17 +1,17 @@
 package edu.mondragon.edu.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import edu.mondragon.model.User;
 
 public class sampleTest {
 	// Instance of the class under test
 	static User myClass;
-	
-	@BeforeClass
+
+	@BeforeAll
 	public static void setUpBeforeClass() throws Exception {
 		// Create the instance
 		myClass = new User();
@@ -20,5 +20,5 @@ public class sampleTest {
 	@Test
 	public void testString() {
 		assertEquals("example", "example", "example");
-	}	
+	}
 }

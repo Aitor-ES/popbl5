@@ -152,7 +152,10 @@ public class LoginController {
 		} else if (correct) {
 			model.addAttribute("message", "user.new.success");
 			userService.add(new User(username, email, password));
-			emailService.sendSimpleMessage(email, "Hero X-Force Account Registration", "This account has been registered.");
+			emailService.sendSimpleMessage(email, "Hero X-Force Account Registration", 
+												  "This account has been registered." +
+												  "\n\nUsername: " + username + 
+												  "\n\nBest Regards, \nHero X-Force Team");
 			view = "login";
 		}
 
@@ -230,7 +233,11 @@ public class LoginController {
 			model.addAttribute("error", "forgot.email.fail");
 		} else {
 			model.addAttribute("message", "forgot.email.success");
-			// Send mail
+			emailService.sendSimpleMessage(email, "Hero X-Force Password Recovery", 
+												  "This account has requested password recovery." +
+												  "\n\nUsername: " + user.getUsername() + 
+												  "\nPassword: " + user.getPassword() + 
+												  "\n\nBest Regards, \nHero X-Force Team");
 			view = "login";
 		}
 
