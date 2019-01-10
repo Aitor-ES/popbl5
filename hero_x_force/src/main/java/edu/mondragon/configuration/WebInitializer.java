@@ -51,8 +51,7 @@ public class WebInitializer implements WebApplicationInitializer {
 		fr.addMappingForUrlPatterns(null, true, "/*");
 		
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
-		new ApplicationContextProvider().setContext(context);
-		
+		new ApplicationContextProvider().setContext(context);		
 		// Inserts
 	}
 	
