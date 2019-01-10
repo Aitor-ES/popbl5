@@ -26,10 +26,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebInitializer implements WebApplicationInitializer {
-	/**
-	 * @brief AnnotationConfigApplicationContext
-	 */
-	private static AnnotationConfigApplicationContext context;
 	
 	/**
 	 * @brief This method loads the configuration
@@ -54,17 +50,11 @@ public class WebInitializer implements WebApplicationInitializer {
 		fr.setInitParameter("forceEncoding", "true");
 		fr.addMappingForUrlPatterns(null, true, "/*");
 		
-		context = new AnnotationConfigApplicationContext(HibernateConfig.class);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
+		ApplicationContextProvider acp = new ApplicationContextProvider();
+		acp.setContext(context);
 		
 		// Inserts
-	}
-	
-	/**
-	 * Static class to get the context of the application
-	 * @return
-	 */
-	public static AnnotationConfigApplicationContext getContext() {
-		return context;
 	}
 	
 }
