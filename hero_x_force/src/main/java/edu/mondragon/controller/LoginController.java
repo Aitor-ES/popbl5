@@ -23,7 +23,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.mondragon.configuration.WebInitializer;
+import edu.mondragon.configuration.ApplicationContextProvider;
 import edu.mondragon.model.User;
 import edu.mondragon.service.UserService;
 
@@ -33,7 +33,7 @@ public class LoginController {
 	/**
 	 * @brief Hibernate service variables
 	 */
-	UserService userService = WebInitializer.getContext().getBean(UserService.class);
+	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 
 	/**
 	 * @brief Method that manages the login

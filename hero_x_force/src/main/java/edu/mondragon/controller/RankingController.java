@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.mondragon.configuration.WebInitializer;
+import edu.mondragon.configuration.ApplicationContextProvider;
 import edu.mondragon.service.UserService;
 
 @Controller
@@ -18,7 +18,7 @@ public class RankingController {
 	/**
 	 * @brief The user service
 	 */
-	UserService userService = WebInitializer.getContext().getBean(UserService.class);
+	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 
 	/**
 	 * @brief Method to redirect to ranking view

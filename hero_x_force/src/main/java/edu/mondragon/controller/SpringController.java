@@ -13,13 +13,12 @@
 
 package edu.mondragon.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.mondragon.configuration.WebInitializer;
+import edu.mondragon.configuration.ApplicationContextProvider;
 import edu.mondragon.service.TournamentService;
 import edu.mondragon.service.UserService;
 
@@ -29,12 +28,12 @@ public class SpringController {
 	/**
 	 * @brief The user service
 	 */
-	UserService userService = WebInitializer.getContext().getBean(UserService.class);
+	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	
 	/**
 	 * @brief The tournament service
 	 */
-	TournamentService tournamentService = WebInitializer.getContext().getBean(TournamentService.class);
+	TournamentService tournamentService = ApplicationContextProvider.getContext().getBean(TournamentService.class);
 
 	/**
 	 * @brief Method that manages the default page
