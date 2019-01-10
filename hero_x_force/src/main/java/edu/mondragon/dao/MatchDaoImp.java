@@ -1,5 +1,5 @@
 /**
- * @file AchievementDaoImp.java
+ * @file MatchDaoImp.java
  * @brief This class manages the database
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
@@ -22,10 +22,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.mondragon.model.Achievement;
+import edu.mondragon.model.Match;
 
 @Repository
-public class AchievementDaoImp implements AchievementDao {
+public class MatchDaoImp implements MatchDao {
 
 	/**
 	 * @brief The session factory
@@ -34,35 +34,35 @@ public class AchievementDaoImp implements AchievementDao {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * @brief This method adds a achievement
-	 * @param achievement Achievement object
+	 * @brief This method adds a match
+	 * @param match Match object
 	 * @return void
 	 */
 	@Override
-	public void addAchievement(Achievement achievement) {
-		getCurrentSession().save(achievement);
+	public void addMatch(Match match) {
+		getCurrentSession().save(match);
 	}
 
 	/**
-	 * @brief Method to obtain the list of achievements that are in database
-	 * @return List<Card>
+	 * @brief Method to obtain the list of matchs that are in database
+	 * @return List<Match>
 	 */
 	@Override
-	public List<Achievement> listAchievements() {
+	public List<Match> listMatchs() {
 		@SuppressWarnings("unchecked")
-		TypedQuery<Achievement> query = getCurrentSession().createQuery("FROM Achievement");
+		TypedQuery<Match> query = getCurrentSession().createQuery("FROM Match");
 		return query.getResultList();
 	}
 	
 	/**
-	 * @brief Method to find a achievement using the id
-	 * @param id Achievements id
-	 * @return Achievement
+	 * @brief Method to find a match using the id
+	 * @param id Matchs id
+	 * @return Match
 	 */
 	@Override
-	public Achievement getAchievementById(int achievement_id) {
-		Achievement achievement = getCurrentSession().find(Achievement.class, achievement_id);
-		return achievement;
+	public Match getMatchById(int match_id) {
+		Match match = getCurrentSession().find(Match.class, match_id);
+		return match;
 	}
 	
 	/**

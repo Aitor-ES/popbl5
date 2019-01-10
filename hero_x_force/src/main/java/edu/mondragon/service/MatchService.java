@@ -1,6 +1,6 @@
 /**
- * @file AbilityService.java
- * @brief The ability service class
+ * @file MatchService.java
+ * @brief The match service class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -15,12 +15,12 @@ package edu.mondragon.service;
 
 import java.util.List;
 
-import edu.mondragon.model.Ability;
+import edu.mondragon.model.Match;
 
-public interface AbilityService {
-	void addAbility(Ability ability);
+public interface MatchService {
+	void addMatch(Match match);
 
-	List<Ability> listAbilities();
+	List<Match> listMatches();
 
-	Ability getAbilityById(int ability_id);
+	Match getMatchById(int match_id);
 }

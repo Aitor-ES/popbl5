@@ -1,6 +1,6 @@
 /**
- * @file AbilityService.java
- * @brief The ability service class
+ * @file CardService.java
+ * @brief The card service class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -15,12 +15,12 @@ package edu.mondragon.service;
 
 import java.util.List;
 
-import edu.mondragon.model.Ability;
+import edu.mondragon.model.Card;
 
-public interface AbilityService {
-	void addAbility(Ability ability);
+public interface CardService {
+	void addCard(Card card);
 
-	List<Ability> listAbilities();
+	List<Card> listCards();
 
-	Ability getAbilityById(int ability_id);
+	Card getCardById(int card_id);
 }

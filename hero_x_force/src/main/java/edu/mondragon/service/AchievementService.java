@@ -1,6 +1,6 @@
 /**
  * @file AchievementService.java
- * @brief The user service class
+ * @brief The achievement service class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |

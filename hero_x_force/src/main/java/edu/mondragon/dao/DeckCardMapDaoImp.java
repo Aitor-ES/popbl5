@@ -1,5 +1,5 @@
 /**
- * @file AchievementDaoImp.java
+ * @file DeckCardMapDaoImp.java
  * @brief This class manages the database
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
@@ -7,7 +7,7 @@
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 19/01/2019
+ * @date 13/11/2018
  * @brief Package edu.mondragon.dao
  */
 
@@ -22,10 +22,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.mondragon.model.Achievement;
+import edu.mondragon.model.DeckCardMap;
 
 @Repository
-public class AchievementDaoImp implements AchievementDao {
+public class DeckCardMapDaoImp implements DeckCardMapDao {
 
 	/**
 	 * @brief The session factory
@@ -34,37 +34,37 @@ public class AchievementDaoImp implements AchievementDao {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * @brief This method adds a achievement
-	 * @param achievement Achievement object
+	 * @brief This method adds a deckCardMap
+	 * @param deckCardMap DeckCardMap object
 	 * @return void
 	 */
 	@Override
-	public void addAchievement(Achievement achievement) {
-		getCurrentSession().save(achievement);
+	public void addDeckCardMap(DeckCardMap deckCardMap) {
+		getCurrentSession().save(deckCardMap);
 	}
 
 	/**
-	 * @brief Method to obtain the list of achievements that are in database
-	 * @return List<Card>
+	 * @brief Method to obtain the list of deckCardMaps that are in database
+	 * @return List<DeckCardMap>
 	 */
 	@Override
-	public List<Achievement> listAchievements() {
+	public List<DeckCardMap> listDeckCardMaps() {
 		@SuppressWarnings("unchecked")
-		TypedQuery<Achievement> query = getCurrentSession().createQuery("FROM Achievement");
+		TypedQuery<DeckCardMap> query = getCurrentSession().createQuery("FROM DeckCardMap");
 		return query.getResultList();
 	}
-	
+
 	/**
-	 * @brief Method to find a achievement using the id
-	 * @param id Achievements id
-	 * @return Achievement
+	 * @brief Method to find a deckCardMap using the id
+	 * @param id DeckCardMaps id
+	 * @return DeckCardMap
 	 */
 	@Override
-	public Achievement getAchievementById(int achievement_id) {
-		Achievement achievement = getCurrentSession().find(Achievement.class, achievement_id);
-		return achievement;
+	public DeckCardMap getDeckCardMapById(int deckCardMap_id) {
+		DeckCardMap deckCardMap = getCurrentSession().find(DeckCardMap.class, deckCardMap_id);
+		return deckCardMap;
 	}
-	
+
 	/**
 	 * @brief Method to obtain the current session
 	 * @return Session
@@ -72,5 +72,4 @@ public class AchievementDaoImp implements AchievementDao {
 	protected Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
-
 }

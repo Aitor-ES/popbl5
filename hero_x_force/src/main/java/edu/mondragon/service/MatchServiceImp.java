@@ -1,6 +1,6 @@
 /**
- * @file AchievementServiceImp.java
- * @brief Class to manage the achievement dao
+ * @file MatchServiceImp.java
+ * @brief Class to manage the user dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -19,48 +19,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.mondragon.dao.AchievementDao;
-import edu.mondragon.model.Achievement;
+import edu.mondragon.dao.MatchDao;
+import edu.mondragon.model.Match;
 
 @Service
-public class AchievementServiceImp implements AchievementService {
+public class MatchServiceImp implements MatchService {
 
 	/**
-	 * @brief Achievement dao object
+	 * @brief Match dao object
 	 */
 	@Autowired
-	private AchievementDao achievementDao;
+	private MatchDao matchDao;
 
 	/**
-	 * @brief Method to add achievements to the dao
-	 * @param achievement Achievement object
+	 * @brief Method to add matches to the dao
+	 * @param match Match object
 	 * @return void
 	 */
 	@Transactional
 	@Override
-	public void addAchievement(Achievement achievement) {
-		achievementDao.addAchievement(achievement);
+	public void addMatch(Match match) {
+		matchDao.addMatch(match);
 	}
 	
 	/**
-	 * @brief Method to obtain the achievement using the id from the dao
-	 * @param id Achievement id
+	 * @brief Method to obtain the match using the id from the dao
+	 * @param id Match id
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public Achievement getAchievementById(int achievement_id) {
-		return achievementDao.getAchievementById(achievement_id);
+	public Match getMatchById(int match_id) {
+		return matchDao.getMatchById(match_id);
 	}
 	
 	/**
-	 * @brief Method to obtain the achievements from the dao
-	 * @return List<Achievement>
+	 * @brief Method to obtain the matches from the dao
+	 * @return List<Match>
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public List<Achievement> listAchievements() {
-		return achievementDao.listAchievements();
+	public List<Match> listMatches() {
+		return matchDao.listMatchs();
 	}
 
 }

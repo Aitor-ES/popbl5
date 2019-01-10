@@ -1,5 +1,5 @@
 /**
- * @file AchievementDaoImp.java
+ * @file DeckDaoImp.java
  * @brief This class manages the database
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
@@ -22,10 +22,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.mondragon.model.Achievement;
+import edu.mondragon.model.Deck;
 
 @Repository
-public class AchievementDaoImp implements AchievementDao {
+public class DeckDaoImp implements DeckDao {
 
 	/**
 	 * @brief The session factory
@@ -34,35 +34,35 @@ public class AchievementDaoImp implements AchievementDao {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * @brief This method adds a achievement
-	 * @param achievement Achievement object
+	 * @brief This method adds a deck
+	 * @param deck Deck object
 	 * @return void
 	 */
 	@Override
-	public void addAchievement(Achievement achievement) {
-		getCurrentSession().save(achievement);
+	public void addDeck(Deck deck) {
+		getCurrentSession().save(deck);
 	}
 
 	/**
-	 * @brief Method to obtain the list of achievements that are in database
-	 * @return List<Card>
+	 * @brief Method to obtain the list of decks that are in database
+	 * @return List<Deck>
 	 */
 	@Override
-	public List<Achievement> listAchievements() {
+	public List<Deck> listDecks() {
 		@SuppressWarnings("unchecked")
-		TypedQuery<Achievement> query = getCurrentSession().createQuery("FROM Achievement");
+		TypedQuery<Deck> query = getCurrentSession().createQuery("FROM Deck");
 		return query.getResultList();
 	}
 	
 	/**
-	 * @brief Method to find a achievement using the id
-	 * @param id Achievements id
-	 * @return Achievement
+	 * @brief Method to find a deck using the id
+	 * @param id Decks id
+	 * @return Deck
 	 */
 	@Override
-	public Achievement getAchievementById(int achievement_id) {
-		Achievement achievement = getCurrentSession().find(Achievement.class, achievement_id);
-		return achievement;
+	public Deck getDeckById(int deck_id) {
+		Deck deck = getCurrentSession().find(Deck.class, deck_id);
+		return deck;
 	}
 	
 	/**

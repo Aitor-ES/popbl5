@@ -1,6 +1,6 @@
 /**
- * @file AbilityService.java
- * @brief The ability service class
+ * @file DeckService.java
+ * @brief The deck service class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -15,12 +15,12 @@ package edu.mondragon.service;
 
 import java.util.List;
 
-import edu.mondragon.model.Ability;
+import edu.mondragon.model.Deck;
 
-public interface AbilityService {
-	void addAbility(Ability ability);
+public interface DeckService {
+	void addDeck(Deck deck);
 
-	List<Ability> listAbilities();
+	List<Deck> listDecks();
 
-	Ability getAbilityById(int ability_id);
+	Deck getDeckById(int deck_id);
 }

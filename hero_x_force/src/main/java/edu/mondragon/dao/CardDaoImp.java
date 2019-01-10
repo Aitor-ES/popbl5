@@ -1,5 +1,5 @@
 /**
- * @file AchievementDaoImp.java
+ * @file CardDaoImp.java
  * @brief This class manages the database
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
@@ -22,10 +22,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.mondragon.model.Achievement;
+import edu.mondragon.model.Card;
 
 @Repository
-public class AchievementDaoImp implements AchievementDao {
+public class CardDaoImp implements CardDao {
 
 	/**
 	 * @brief The session factory
@@ -34,35 +34,35 @@ public class AchievementDaoImp implements AchievementDao {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * @brief This method adds a achievement
-	 * @param achievement Achievement object
+	 * @brief This method adds a card
+	 * @param card Card object
 	 * @return void
 	 */
 	@Override
-	public void addAchievement(Achievement achievement) {
-		getCurrentSession().save(achievement);
+	public void addCard(Card card) {
+		getCurrentSession().save(card);
 	}
 
 	/**
-	 * @brief Method to obtain the list of achievements that are in database
+	 * @brief Method to obtain the list of cards that are in database
 	 * @return List<Card>
 	 */
 	@Override
-	public List<Achievement> listAchievements() {
+	public List<Card> listCards() {
 		@SuppressWarnings("unchecked")
-		TypedQuery<Achievement> query = getCurrentSession().createQuery("FROM Achievement");
+		TypedQuery<Card> query = getCurrentSession().createQuery("FROM Card");
 		return query.getResultList();
 	}
 	
 	/**
-	 * @brief Method to find a achievement using the id
-	 * @param id Achievements id
-	 * @return Achievement
+	 * @brief Method to find a card using the id
+	 * @param id Cards id
+	 * @return Card
 	 */
 	@Override
-	public Achievement getAchievementById(int achievement_id) {
-		Achievement achievement = getCurrentSession().find(Achievement.class, achievement_id);
-		return achievement;
+	public Card getCardById(int card_id) {
+		Card card = getCurrentSession().find(Card.class, card_id);
+		return card;
 	}
 	
 	/**

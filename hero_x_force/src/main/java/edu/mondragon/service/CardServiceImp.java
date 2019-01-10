@@ -1,6 +1,6 @@
 /**
- * @file AchievementServiceImp.java
- * @brief Class to manage the achievement dao
+ * @file CardServiceImp.java
+ * @brief Class to manage the card dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -19,48 +19,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.mondragon.dao.AchievementDao;
-import edu.mondragon.model.Achievement;
+import edu.mondragon.dao.CardDao;
+import edu.mondragon.model.Card;
 
 @Service
-public class AchievementServiceImp implements AchievementService {
+public class CardServiceImp implements CardService {
 
 	/**
-	 * @brief Achievement dao object
+	 * @brief Card dao object
 	 */
 	@Autowired
-	private AchievementDao achievementDao;
+	private CardDao cardDao;
 
 	/**
-	 * @brief Method to add achievements to the dao
-	 * @param achievement Achievement object
+	 * @brief Method to add cards to the dao
+	 * @param card Card object
 	 * @return void
 	 */
 	@Transactional
 	@Override
-	public void addAchievement(Achievement achievement) {
-		achievementDao.addAchievement(achievement);
+	public void addCard(Card card) {
+		cardDao.addCard(card);
 	}
 	
 	/**
-	 * @brief Method to obtain the achievement using the id from the dao
-	 * @param id Achievement id
+	 * @brief Method to obtain the card using the id from the dao
+	 * @param id Card id
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public Achievement getAchievementById(int achievement_id) {
-		return achievementDao.getAchievementById(achievement_id);
+	public Card getCardById(int card_id) {
+		return cardDao.getCardById(card_id);
 	}
 	
 	/**
-	 * @brief Method to obtain the achievements from the dao
-	 * @return List<Achievement>
+	 * @brief Method to obtain the cards from the dao
+	 * @return List<Card>
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public List<Achievement> listAchievements() {
-		return achievementDao.listAchievements();
+	public List<Card> listCards() {
+		return cardDao.listCards();
 	}
 
 }
