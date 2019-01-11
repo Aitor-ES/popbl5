@@ -1,7 +1,7 @@
 package edu.mondragon.configuration;
 
+import java.util.Properties;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import edu.mondragon.ability.Ability;
 import edu.mondragon.ability.AbilityService;
 import edu.mondragon.card.Card;
@@ -15,13 +15,23 @@ public class DataBaseInitializer {
 	 */
 	private AnnotationConfigApplicationContext context;
 
-	public DataBaseInitializer(AnnotationConfigApplicationContext context, boolean proceed) {
+	public DataBaseInitializer(AnnotationConfigApplicationContext context) {
 		this.context = context;
+		
+		Properties properties = new Properties();
+    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    try{
+    	properties.load(classLoader.getResourceAsStream("db.properties"));
 
-		if (proceed) {
-			insertValuesInDB();
+        if (Boolean.valueOf(properties.getProperty("hxf.hibernate.insert"))) {
+        	insertValuesInDB();
+        }
+    }
+    catch (Exception e) {
+    	System.out.println(e.getMessage());
 		}
 	}
+
 	
 	private void insertValuesInDB() {
 		/* 1. USER INSERTS */

@@ -55,7 +55,7 @@ public class WebInitializer implements WebApplicationInitializer {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
 		new ApplicationContextProvider().setContext(context);	
 		
-		new DataBaseInitializer(context, true);
+		new DataBaseInitializer(context);
 	}
 	
 }
