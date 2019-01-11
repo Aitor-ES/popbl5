@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mondragon.configuration.EmailConfig;
 import edu.mondragon.configuration.HibernateConfig;
-import edu.mondragon.service.UserService;
 
 @Controller
 @RequestMapping("/")
@@ -33,27 +32,12 @@ public class SpringController {
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class, EmailConfig.class);
 
 	/**
-	 * @brief The user service
-	 */
-	UserService userService = context.getBean(UserService.class);
-
-	/**
 	 * @brief Method that manages the default page
 	 * @param model A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String defaultPage(ModelMap model) {
-		return "home";
-	}
-
-	/**
-	 * @brief Method that manages the home page
-	 * @param model A holder for model attributes
-	 * @return String
-	 */
-	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
-	public String homePage(ModelMap model) {
 		return "home";
 	}
 	

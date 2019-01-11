@@ -45,9 +45,6 @@ public class LoginController {
 	public UserService userService = context.getBean(UserService.class);
 	public EmailService emailService = context.getBean(EmailService.class);
 	
-	/*@Autowired
-    public SimpleMailMessage template;*/
-
 	/**
 	 * @brief Method that manages the login
 	 * @param request

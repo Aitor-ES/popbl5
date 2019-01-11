@@ -12,24 +12,23 @@
         <div class="input-group">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
           <input type="text" class="form-control" name='username' placeholder="<spring:message code="register.username"/>" required>
-          <div class="invalid-feedback">Your username is required.</div>
         </div>
         <div class="input-group mt-3">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-at"></i></span></div>
           <input type="text" class="form-control" name='email' placeholder="<spring:message code="register.email"/>" required>
-          <div class="invalid-feedback">Your username is required.</div>
         </div>
         <div class="input-group mt-3">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-lock"></i></span></div>
           <input type="password" class="form-control" name='password' placeholder="<spring:message code="register.password"/>" required>
-          <div class="invalid-feedback">Your password is required.</div>
         </div>
         <div class="input-group mt-3">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-key"></i></span></div>
           <input type="password" class="form-control" name='confirmPassword' placeholder="<spring:message code="register.confirm.password"/>" required>
-          <div class="invalid-feedback">Your password is required.</div>
         </div>
-        <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit"><i class="fas fa-plus"></i> <spring:message code="register.create.account"/></button>
+        <div class="progress mt-3" id="myProgressBar" style="display: none">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+        <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit" onclick="$('#myProgressBar').fadeIn();"><i class="fas fa-plus"></i> <spring:message code="register.create.account"/></button>
       </div>
     </div>
   </form>

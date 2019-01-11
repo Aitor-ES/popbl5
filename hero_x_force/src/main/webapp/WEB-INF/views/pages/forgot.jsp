@@ -13,7 +13,10 @@
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-at"></i></span></div>
           <input type="text" class="form-control" name='email' placeholder="<spring:message code="forgot.email"/>" required>
         </div>
-        <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit"><i class="fas fa-share-square"></i> <spring:message code="forgot.send"/></button>
+        <div class="progress mt-3" id="myProgressBar" style="display: none">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+        <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit" onclick="$('#myProgressBar').fadeIn();"><i class="fas fa-share-square"></i> <spring:message code="forgot.send"/></button>
       </div>
     </div>
   </form>

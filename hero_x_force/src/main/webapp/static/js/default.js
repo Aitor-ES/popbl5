@@ -15,8 +15,8 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-// When the user clicks on a link, change status to active to show it activated
 $(document).ready(function() {
-	  $('li.active').removeClass('active');
-	  $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
-	});
+  // When the user clicks on a link, change status to active to show it activated
+  $('li.active').removeClass('active');
+  $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
+});

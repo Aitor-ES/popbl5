@@ -61,6 +61,12 @@
     <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 
   </head>
   <body>
+    <!-- Current application context -->
+    <script>
+    var MAIN_CONTEXT = '${pageContext.request.contextPath}';
+    </script>
+    
+    <!-- Tiles templates -->
     <tiles:insertAttribute name="header"/>
     <c:if test="${not empty sessionScope.user}">
       <tiles:insertAttribute name="menu"/>

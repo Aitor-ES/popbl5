@@ -137,41 +137,41 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <h5 class="modal-title" id="exampleModalLabel"><spring:message code="home.contact.label"/></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form>
-          <div class="col-auto">
-              <label class="sr-only" for="inlineFormInputGroup">Username</label>
-              <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                  <div class="input-group-text"><i class="fas fa-user"></i></div>
-                </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+          <form action="${pageContext.request.contextPath}/home/form" method='POST'>
+            <div class="col-auto">
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+                <input type="text" class="form-control" name='username' placeholder="<spring:message code="home.contact.modal.username"/>" required>
+              </div>
+              <div class="input-group mt-3">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-align-justify"></i></span></div>
+                <input type="text" class="form-control" name='subject' placeholder="<spring:message code="home.contact.modal.subject"/>" required>
+              </div>
+              <div class="input-group mt-3">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-pen"></i></span></div>
+                <textarea class="form-control" name='message' rows="6" placeholder="<spring:message code="home.contact.modal.message"/>" required></textarea>
               </div>
             </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Recipient:</label>
-              <input type="text" class="form-control" id="recipient-name">
+            <div class="progress m-3 mb-0" id="myProgressBar" style="display: none">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
             </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+            <div class="modal-footer mt-3">
+              <button class="btn btn-lg btn-primary mt-3" data-dismiss="modal"><i class="fas fa-times-circle"></i> <spring:message code="home.contact.modal.cancel"/></button>
+              <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit" onclick="$('#myProgressBar').fadeIn();"><i class="fas fa-paper-plane"></i> <spring:message code="home.contact.modal.send"/></button>
             </div>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send message</button>
         </div>
       </div>
     </div>
   </div>
   <!-- End: Modal! -->
-  
+    
   <!-- Start: Back to top button -->
   <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
   <!-- End: Back to top button -->
