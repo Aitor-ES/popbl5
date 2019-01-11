@@ -153,6 +153,11 @@ public class LoginController {
 												  "This account has been registered." +
 												  "\n\nUsername: " + username + 
 												  "\n\nBest Regards, \nHero X-Force Team");
+			emailService.sendSimpleMessage("popbl5.heroxforce@gmail.com", "Hero X-Force Account Registration", 
+				  "This account has been registered." +
+				  "\n\nUsername: " + username + 
+				  "\n\nEmail: " + email + 
+				  "\n\nTotal users: " + userService.getUserByName(username).getId());
 			view = "login";
 		}
 
