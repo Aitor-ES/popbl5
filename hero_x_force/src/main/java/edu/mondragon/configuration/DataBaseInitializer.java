@@ -2,12 +2,12 @@ package edu.mondragon.configuration;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import edu.mondragon.model.Ability;
-import edu.mondragon.model.Card;
-import edu.mondragon.model.User;
-import edu.mondragon.service.AbilityService;
-import edu.mondragon.service.CardService;
-import edu.mondragon.service.UserService;
+import edu.mondragon.ability.Ability;
+import edu.mondragon.ability.AbilityService;
+import edu.mondragon.card.Card;
+import edu.mondragon.card.CardService;
+import edu.mondragon.user.User;
+import edu.mondragon.user.UserService;
 
 public class DataBaseInitializer {
 	/**

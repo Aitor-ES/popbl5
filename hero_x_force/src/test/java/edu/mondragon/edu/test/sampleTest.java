@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import edu.mondragon.model.User;
+import edu.mondragon.user.User;
 
 public class sampleTest {
 	// Instance of the class under test
