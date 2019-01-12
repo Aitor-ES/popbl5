@@ -45,18 +45,12 @@ import edu.mondragon.usertournamentmap.UserTournamentMap;
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScans(value = { @ComponentScan("edu.mondragon.ability"),
-		@ComponentScan("edu.mondragon.achievement"),
-		@ComponentScan("edu.mondragon.card"),
-		@ComponentScan("edu.mondragon.deck"),
-		@ComponentScan("edu.mondragon.deckcardmap"),
-		@ComponentScan("edu.mondragon.match"),
-		@ComponentScan("edu.mondragon.tournament"),
-		@ComponentScan("edu.mondragon.user"),
-		@ComponentScan("edu.mondragon.userachievementmap"),
-		@ComponentScan("edu.mondragon.usercardmap"),
-		@ComponentScan("edu.mondragon.usermatchmap"),
-		@ComponentScan("edu.mondragon.usertournamentmap") })
+@ComponentScans(value = { @ComponentScan("edu.mondragon.ability"), @ComponentScan("edu.mondragon.achievement"),
+		@ComponentScan("edu.mondragon.card"), @ComponentScan("edu.mondragon.deck"),
+		@ComponentScan("edu.mondragon.deckcardmap"), @ComponentScan("edu.mondragon.match"),
+		@ComponentScan("edu.mondragon.tournament"), @ComponentScan("edu.mondragon.user"),
+		@ComponentScan("edu.mondragon.userachievementmap"), @ComponentScan("edu.mondragon.usercardmap"),
+		@ComponentScan("edu.mondragon.usermatchmap"), @ComponentScan("edu.mondragon.usertournamentmap") })
 public class HibernateConfig {
 
 	/**
@@ -88,9 +82,10 @@ public class HibernateConfig {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 		factoryBean.setDataSource(getDataSource());
 
-		Properties hibernateProperties  = new Properties();
-		hibernateProperties .put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-		hibernateProperties .put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+		Properties hibernateProperties = new Properties();
+		hibernateProperties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+		hibernateProperties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+		hibernateProperties.put("hibernate.enable_lazy_load_no_trans", env.getProperty("hibernate.enable_lazy_load_no_trans"));
 
 		factoryBean.setHibernateProperties(hibernateProperties);
 		factoryBean.setAnnotatedClasses(User.class, Achievement.class, UserAchievementMap.class,
@@ -98,7 +93,7 @@ public class HibernateConfig {
 				Deck.class,	DeckCardMap.class,
 				Tournament.class, UserTournamentMap.class,
 				Match.class, UserMatchMap.class);
-		
+
 		return factoryBean;
 	}
 

@@ -1,5 +1,7 @@
 package edu.mondragon.spring.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
+import edu.mondragon.user.User;
 import edu.mondragon.user.UserService;
 
 @Controller
@@ -27,7 +30,14 @@ public class RankingController {
 	 */
 	@RequestMapping(value = { "/ranking" }, method = RequestMethod.GET)
 	public String rankingPage(HttpServletRequest request, HttpServletResponse response, Model model) {
-		return checkIfUserIsLogged(request, model) ? "ranking" : "home";
+		String view = "home";
+		if (checkIfUserIsLogged(request, model)) {
+			List<User> ranking = userService.listUsers();
+			model.addAttribute("ranking", ranking);
+			
+			view = "ranking";
+		}
+		return view;
 	}
 	
 	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {

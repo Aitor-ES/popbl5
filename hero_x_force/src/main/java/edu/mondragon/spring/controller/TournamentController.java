@@ -1,5 +1,7 @@
 package edu.mondragon.spring.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
-import edu.mondragon.user.UserService;
+import edu.mondragon.tournament.Tournament;
+import edu.mondragon.tournament.TournamentService;
 
 @Controller
 @RequestMapping("/")
@@ -18,7 +21,7 @@ public class TournamentController {
 	/**
 	 * @brief The user service
 	 */
-	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
+	TournamentService tournamentService = ApplicationContextProvider.getContext().getBean(TournamentService.class);
 
 	/**
 	 * @brief Method to redirect to tournaments view
@@ -27,7 +30,16 @@ public class TournamentController {
 	 */
 	@RequestMapping(value = { "/tournaments" }, method = RequestMethod.GET)
 	public String tournamentsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
-		return checkIfUserIsLogged(request, model) ? "tournaments" : "home";
+		String view = "home";
+		if (checkIfUserIsLogged(request, model)) {
+			List<Tournament> availableTournamentList = tournamentService.listTournaments();
+			model.addAttribute("availableTournamentList", availableTournamentList);
+			for (Tournament t : availableTournamentList) {
+				System.out.println(t.getName());
+			}
+			view = "tournaments";
+		}
+		return view;
 	}
 	
 	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {

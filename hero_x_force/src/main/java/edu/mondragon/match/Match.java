@@ -52,6 +52,18 @@ public class Match {
 	private LocalDateTime date;
 	
 	/**
+	 * @brief user_1_matchMap list (FK)
+	 */
+	@OneToMany(mappedBy="user_1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserMatchMap> user_1_matchMap = new HashSet<UserMatchMap>();
+	
+	/**
+	 * @brief user_2_matchMap list (FK)
+	 */
+	@OneToMany(mappedBy="user_2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserMatchMap> user_2_matchMap = new HashSet<UserMatchMap>();
+	
+	/**
 	 * @brief Tournament id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -59,17 +71,11 @@ public class Match {
 	private Tournament tournament;
 	
 	/**
-	 * @brief User id (FK)
+	 * @brief Winner user id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
-	private User user;
-
-	/**
-	 * @brief UserMatchMap list (FK)
-	 */
-	@OneToMany(mappedBy="match", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserMatchMap> userMatchMaps = new HashSet<UserMatchMap>();
+	private User winner;
 	
 	/**
 	 * @brief Class constructor
@@ -97,6 +103,22 @@ public class Match {
 		this.date = date;
 	}
 
+	public Set<UserMatchMap> getUser_1_matchMap() {
+		return user_1_matchMap;
+	}
+
+	public void setUser_1_matchMap(Set<UserMatchMap> user_1_matchMap) {
+		this.user_1_matchMap = user_1_matchMap;
+	}
+
+	public Set<UserMatchMap> getUser_2_matchMap() {
+		return user_2_matchMap;
+	}
+
+	public void setUser_2_matchMap(Set<UserMatchMap> user_2_matchMap) {
+		this.user_2_matchMap = user_2_matchMap;
+	}
+
 	public Tournament getTournament() {
 		return tournament;
 	}
@@ -105,20 +127,12 @@ public class Match {
 		this.tournament = tournament;
 	}
 
-	public User getUser() {
-		return user;
+	public User getWinner() {
+		return winner;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Set<UserMatchMap> getUserMatchMaps() {
-		return userMatchMaps;
-	}
-
-	public void setUserMatchMaps(Set<UserMatchMap> userMatchMaps) {
-		this.userMatchMaps = userMatchMaps;
+	public void setWinner(User winner) {
+		this.winner = winner;
 	}
 	
 }

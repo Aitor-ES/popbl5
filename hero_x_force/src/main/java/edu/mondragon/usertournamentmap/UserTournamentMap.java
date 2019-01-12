@@ -50,14 +50,14 @@ public class UserTournamentMap {
 	 * @brief User user id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", nullable = true)
+	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private User user;
 	
 	/**
 	 * @brief Tournament tournament id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID", nullable = true)
+	@JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID")
 	private Tournament tournament;
 	
 	/**

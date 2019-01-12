@@ -45,22 +45,18 @@
             <thead>
               <tr>
                 <th><spring:message code="profile.achievement.name" /></th>
-                <th><spring:message code="profile.achievement.unlockedDate" /></th>
+                <th><spring:message code="profile.achievement.description" /></th>
+                <th><spring:message code="profile.achievement.points" /></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Achievement 1</td>
-                <td>12/21/2018</td>
-              </tr>
-              <tr>
-                <td>Achievement 1</td>
-                <td>12/21/2018</td>
-              </tr>
-              <tr>
-                <td>Achievement 1</td>
-                <td>12/21/2018</td>
-              </tr>
+              <c:forEach items="${achievementList}" var="achievement">
+                <tr>
+                  <td>${achievement.name}</td>
+                  <td>${achievement.description}</td>
+                  <td>${achievement.points}</td>
+                </tr>
+              </c:forEach>
             </tbody>
           </table>
         </div>

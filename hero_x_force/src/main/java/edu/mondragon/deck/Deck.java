@@ -54,7 +54,7 @@ public class Deck {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CREATOR_ID", referencedColumnName = "USER_ID", nullable = true)
-	private User user;
+	private User creator;
 	
 	/**
 	 * @brief DeckCardMap list (FK)
@@ -97,12 +97,12 @@ public class Deck {
 		this.name = name;
 	}
 
-	public User getUser() {
-		return user;
+	public User getCreator() {
+		return creator;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setCreator(User creator) {
+		this.creator = creator;
 	}
 
 	public Set<DeckCardMap> getDeckCardMaps() {
