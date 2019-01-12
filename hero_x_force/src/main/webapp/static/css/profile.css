@@ -1,0 +1,112 @@
+/* PROFILE
+-------------------------------------------------- */
+
+/* Body of the page */
+
+body{
+  background-image: url("../img/profile/back3.png");
+  background-repeat: no-repeat;
+  background-size: cover;  
+  font-family: "Orbitron";
+}
+
+/* USER DATA
+-------------------------------------------------- */
+
+/* The design of the box that contains the data */
+.profileDataBox{
+  padding: 1.875rem;
+  left: 1.875rem;
+  right: 1.875rem;
+  border: 0.0625rem solid #f6a305;
+  background-color:  #000000B2; /*Black, 70% op.*/
+  color: white;
+  margin: 1.875rem;
+
+}
+
+/* The design of the elements inside the data box*/
+.elementsDataBox{
+  margin-left: 1.25rem;
+  padding: 1.25rem;
+  border-left: 0.5rem solid #ff0000 ; 
+}
+
+/* The style of the titles (The Username and Achievements)*/
+#titleStyle{
+  margin-bottom: 1.25rem;
+  border-left: 1rem solid #ff0000 ; 
+  padding: 0.625rem;
+  font-size: 3.125rem;
+  font-weight: bolder;
+  text-shadow: 0rem 0.125rem 0.125rem #ffffff7F;/*White, 70% op.*/
+}
+
+/*The div that contains all the elements inside the data box*/
+.userElements{
+   font-weight: lighter;
+   text-shadow: 0rem 0.0625rem 0.0625rem #ffffff7F;/*White, 70% op.*/
+}
+
+/* EDIT BUTTON
+-------------------------------------------------- */
+/*Icon of the edit button*/
+.editButtonProfile{
+  display:flex;
+  margin: 1.25rem !important;
+}
+.editButtonProfile > img{
+  width: 3.125rem;
+  height: 3.125rem;
+}
+/*Text of the edit button*/
+.editButtonProfile > a{
+  height: 3.125rem;
+  border: 0.0625rem solid #f6a305;
+  background-color: transparent;
+  border-radius:0;
+  font-weight: bolder !important;
+  font-size: 1.563rem;
+  
+}
+/*Transition of the button*/
+.editButtonProfile > a{
+  -webkit-transition: background-color 1s ease-out;
+  -moz-transition: background-color 1s ease-out;
+  -o-transition: background-color 1s ease-out;
+  transition: background-color 1s ease-out;
+ 
+}
+.editButtonProfile >a:hover{
+  background-color: #f6a305;
+  border: 0.0625rem solid #f6a305;
+}
+
+.editButtonProfile >a:active{
+  background-color:  #f6a305 !important;
+  border: 0.0625rem solid #f6a305 !important;
+}
+.editButtonProfile >a:focus{
+  background-color: #f6a305 !important;
+  border: 0.0625rem solid #f6a305 !important;
+}
+
+
+/* ACHIEVEMENTS TABLE
+-------------------------------------------------- */
+
+
+.achTable{
+  margin-left: 1.25rem;
+}
+.achTableHeader{
+   font-weight: bolder !important;
+}
+.achTableData{
+  border-top: 0.25rem solid #ff0000 !important;
+  font-weight: lighter;
+}
+.achTableDate{
+  border-top: 0.25rem solid #f6a305 !important;
+  font-weight: lighter;
+}

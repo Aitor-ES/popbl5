@@ -2,7 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <div id="menu">
-  <div class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="navbar navbar-expand-md navbar-dark">
     <!-- Navbar toggler -->
     <button class="navbar-toggler" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

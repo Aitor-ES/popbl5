@@ -1,3 +1,7 @@
+#menu {
+  background-color: #343A4080;
+}
+
 #menu .nav-item::after {
   content: '';
   display: block;
@@ -5,6 +9,7 @@
   height: 3px;
   background: #fec400;
   transition: 0.35s;
+ 
 }
 
 #menu .nav-item:hover::after {
