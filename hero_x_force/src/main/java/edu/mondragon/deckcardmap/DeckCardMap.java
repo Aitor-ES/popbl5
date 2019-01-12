@@ -48,14 +48,14 @@ public class DeckCardMap {
 	 * @brief User user id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DECK_ID", referencedColumnName = "DECK_ID", nullable = true)
+	@JoinColumn(name = "DECK_ID", referencedColumnName = "DECK_ID")
 	private Deck deck;
 	
 	/**
 	 * @brief Card card id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CARD_ID", referencedColumnName = "CARD_ID", nullable = true)
+	@JoinColumn(name = "CARD_ID", referencedColumnName = "CARD_ID")
 	private Card card;
 	
 	/**

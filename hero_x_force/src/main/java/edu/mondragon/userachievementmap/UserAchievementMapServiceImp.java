@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserAchievementMapServiceImp implements UserAchievementMapService {
 
 	/**
-	 * @brief userAchievementMap dao object
+	 * @brief DAO objects
 	 */
 	@Autowired
 	private UserAchievementMapDao userAchievementMapDao;
