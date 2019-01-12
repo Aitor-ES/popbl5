@@ -57,17 +57,17 @@
   <div class="container features">
     <div class="row">
       <div class="col-lg-3">
-        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f1.png" alt="<spring:message code="home.features.first.alt"/>" width="140" height="140">
+        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f1.jpg" alt="<spring:message code="home.features.first.alt"/>" width="140" height="140">
         <h2><spring:message code="home.features.first.label"/></h2>
         <p><spring:message code="home.features.first.text"/></p>
       </div>
       <div class="col-lg-3">
-        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f2.png" alt="<spring:message code="home.features.second.alt"/>" width="140" height="140">
+        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f2.jpg" alt="<spring:message code="home.features.second.alt"/>" width="140" height="140">
         <h2><spring:message code="home.features.second.label"/></h2>
         <p><spring:message code="home.features.second.label"/></p>
       </div>
       <div class="col-lg-3">
-        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f3.png" alt="<spring:message code="home.features.third.alt"/>" width="140" height="140">
+        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f3.jpg" alt="<spring:message code="home.features.third.alt"/>" width="140" height="140">
         <h2><spring:message code="home.features.third.label"/></h2>
         <p><spring:message code="home.features.third.label"/></p>
       </div>
