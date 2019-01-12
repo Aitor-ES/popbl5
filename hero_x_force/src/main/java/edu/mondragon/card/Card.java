@@ -147,12 +147,14 @@ public class Card {
 	 * @param description
 	 * @param points
 	 */
-	public Card(String name, String saga, String img, String alt, String type, Integer hp, Integer atk, Integer def, Integer mag_atk, Integer mag_def, Integer spd, Integer stars) {
+	@SuppressWarnings("null")
+	public Card(String name, String saga, String img, String alt, String type, Ability ability, Integer hp, Integer atk, Integer def, Integer mag_atk, Integer mag_def, Integer spd, Integer stars) {
 		this.name = name;
 		this.saga = saga;
 		this.img = img;
 		this.alt = alt;
 		this.type = type;
+		this.ability = ability;
 		this.hp = hp;
 		this.atk = atk;
 		this.def = def;

@@ -25,6 +25,8 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import edu.mondragon.configuration.DataBaseInitializer;
+
 public class WebInitializer implements WebApplicationInitializer {
 	
 	/**
@@ -51,8 +53,9 @@ public class WebInitializer implements WebApplicationInitializer {
 		fr.addMappingForUrlPatterns(null, true, "/*");
 		
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
-		new ApplicationContextProvider().setContext(context);		
-		// Inserts
+		new ApplicationContextProvider().setContext(context);	
+		
+		new DataBaseInitializer(context);
 	}
 	
 }
