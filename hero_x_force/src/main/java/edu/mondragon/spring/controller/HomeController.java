@@ -33,6 +33,15 @@ public class HomeController {
 	EmailService emailService = ApplicationContextProvider.getContext().getBean(EmailService.class);
 	
 	/**
+	 * @brief Method that manages the home
+	 * @return String
+	 */
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String homePage() {
+		return "home";
+	}
+	
+	/**
 	 * @brief Method that manages the home page
 	 * @param model A holder for model attributes
 	 * @return String
