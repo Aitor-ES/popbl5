@@ -8,12 +8,10 @@
 <!-- JSTL library -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-
-  <h2>
+  <h2 class="duelsTitle">
     <spring:message code="duels.title" />
   </h2>
-  <div>
+ <div class="duelsDataBox">
     <form class="form-inline">
       <div class="form-group">
         <label for="inputPlayer"><spring:message
@@ -22,7 +20,7 @@
           aria-describedby="playerHelpInline">
       </div>
     </form>
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-danger challengeButton">
       <spring:message code="duels.challenge" />
     </button>
   </div>
@@ -30,8 +28,6 @@
   <h2>
     <spring:message code="duels.acceptDuel" />
   </h2>
-
-
 <!--
   <ul class="list-group">
     <c:forEach items="${duelList}" var="challenger">

@@ -1,8 +1,53 @@
-/*Duels Styles*/
 
-h2{
-  color: red;
+.duelsTitle{
+  margin-bottom: 1.25rem;
+  border-left: 1rem solid #ff0000 ; 
+  padding: 0.625rem;
+  font-size: 3.125rem;
+  font-weight: bolder;
+  text-shadow: 0rem 0.125rem 0.125rem #ffffff7F;/*White, 70% op.*/
+  color:white;
+  padding: 1rem;
+  margin: 1.875rem;
 }
+
+
+
+.duelsDataBox{
+  padding: 1.875rem;
+  left: 1.875rem;
+  right: 1.875rem;
+  border: 0.0625rem solid #f6a305;
+  background-color:  #000000B2; /*Black, 70% op.*/
+  color: white;
+  margin: 1.875rem;
+  width: 25%;
+}
+
+.challengeButton{
+  margin-top: 1rem;
+  
+}
+
+.challengeButton:hover{
+  background-color: #5e010c !important;
+  
+}
+
+.challengeButton:active{
+  background-color:  #5e010c !important;
+  
+}
+
+
+
+
+
+
+
+
+
+
 ul.list-group {
 max-height: 400px;
 overflow-y: scroll;
