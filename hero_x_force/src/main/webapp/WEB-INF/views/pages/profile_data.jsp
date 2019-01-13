@@ -4,7 +4,7 @@
   <c:when test="${not empty user}">
   
     <div class="container-fluid">
-      <div class= "profileDataBox">
+      <div class= "profile-data-box">
         <div class="row">
           <div class="col align-self-start fc">
             <c:choose>
@@ -12,14 +12,14 @@
                 <h2><spring:message code="profile.subTitle" />${user.username}</h2>
               </c:when>
               <c:otherwise>
-              <h2 id="titleStyle">${user.username}
+              <h2 id="title-style">${user.username}
                 <spring:message code="profile.subTitle" />
               </h2>
             </c:otherwise>
           </c:choose>
         </div>
         <div class="col-2">
-         <div class="editButtonProfile">
+         <div class="edit-button-profile">
           <img src="${pageContext.request.contextPath}/static/img/default/edit.jpg" alt="edit icon">
           <a class="btn btn-danger" href="${pageContext.request.contextPath}/profile/edit" role="button">
           <spring:message code="action.edit" /></a>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="row align-items-center">
-        <div class="col userElements">
+        <div class="col user-elements">
           <p class="elementsDataBox"><spring:message code="profile.firstName" /></p>
           <p class="elementsDataBox"><spring:message code="profile.lastName" /></p>
           <p class="elementsDataBox"><spring:message code="profile.email" /></p>
@@ -42,15 +42,15 @@
     </div>
     </div>
     <div class="container-fluid ">
-    <div class= "profileDataBox">
+    <div class= "profile-data-box">
       <div class="row align-items-center">
-        <div class="col-8" id="achievementTable">
-          <h3 id="titleStyle"><spring:message code="profile.achievement.title" /></h3>
-          <table class="table achTable">
+        <div class="col-8" id="achievement-table">
+          <h3 id="title-style"><spring:message code="profile.achievement.title" /></h3>
+          <table class="table ach-table">
             <thead>
               <tr>
-                <th class="achTableHeader achTableData"><spring:message code="profile.achievement.name" /></th>
-                <th class="achTableHeader achTableDate"><spring:message code="profile.achievement.unlockedDate" /></th>
+                <th class="ach-table-header ach-table-data"><spring:message code="profile.achievement.name" /></th>
+                <th class="ach-table-header ach-table-date"><spring:message code="profile.achievement.unlockedDate" /></th>
               </tr>
             </thead>
             <tbody>
@@ -60,11 +60,10 @@
                   <td>${achievement.description}</td>
                   <td>${achievement.points}</td>
                 </tr>
-              </c:forEach>
-            </tbody>
+              </c:forEach>            </tbody>
           </table>
         </div>
-        <div class="col-4" id="winChart">
+        <div class="col-4" id="win-chart">
           <p>Achievement percentage pie chart</p>
         </div>
       </div>
