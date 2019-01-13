@@ -28,7 +28,6 @@
   <c:forEach items="${user_2_matchMapList}" var="user_2_matchMap">
     <li class="list-group-item d-flex align-items-center bd-highlight mb-3">
       <span class="mr-auto bd-highlight">${user_2_matchMap.user_1.username}</span>
-  <ul class="list-group">
     <li
       class="list-group-item d-flex align-items-center bd-highlight mb-3">
       <span class="mr-auto  bd-highlight">Izq</span>
