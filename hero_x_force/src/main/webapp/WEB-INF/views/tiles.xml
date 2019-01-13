@@ -105,10 +105,10 @@
   </definition>
   
   <!-- Duels screen layout -->
-  <definition name="duels" extends="template-default">
-    <put-attribute name="title" value="Duels" />
+  <definition name="duel/list" extends="template-default">
+    <put-attribute name="title" value="Duel List" />
     <put-attribute name="main"
-      value="/WEB-INF/views/pages/duels.jsp" />
+      value="/WEB-INF/views/pages/duel_list.jsp" />
   </definition>
   
    <!-- Tournaments screen layout -->

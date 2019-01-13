@@ -44,7 +44,7 @@ public class DuelController {
 	 * @param model A holder for model attributes
 	 * @return String
 	 */
-	@RequestMapping(value = { "/duels" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/duel/list" }, method = RequestMethod.GET)
 	public String duelsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 		
@@ -54,7 +54,7 @@ public class DuelController {
 			
 			model.addAttribute("user_2_matchMapList", user_2_matchMapList);
 			
-			view = "duels";
+			view = "duel/list";
 		}
 		return view;
 	}
