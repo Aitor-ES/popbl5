@@ -26,138 +26,14 @@
         ondragover="allowDrop(event)" ondrop="drop(event)"></div>
     </div>
     <div class="row" id="available-cards">
-      <!-- <c:forEach items="${cardList}" var="card">
+      <c:forEach items="${cardList}" var="card">
         <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-          <img src="${card.img}" alt="${card.alt}"
-            id="${card.id}" draggable="true" ondragstart="drag(event)">
+          <div class="card-container" id="hero-${card.card_id}-container" draggable="true" ondragstart="drag(event)">
+            <img src="${card.img}" draggable="false">
+            <span>${card.name}</span>
+          </div>
         </div>
-      </c:forEach> -->
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-1-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>1</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-2-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-3-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>3</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-4-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>4</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-5-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>5</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-6-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>6</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-1-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>1</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-2-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-3-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>3</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-4-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>4</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-5-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>5</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-6-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>6</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-1-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>1</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-2-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-3-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>3</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-4-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>4</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-5-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>5</span>
-        </div>
-      </div>
-      <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-        <div class="card-container" id="hero-6-container" draggable="true" ondragstart="drag(event)">
-          <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
-            alt="Hero X-Force Logo" draggable="false">
-          <span>6</span>
-        </div>
-      </div>
+      </c:forEach>
     </div>
   </div>
 </section>

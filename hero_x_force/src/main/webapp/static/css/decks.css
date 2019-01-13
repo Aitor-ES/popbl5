@@ -16,29 +16,26 @@ body{
   padding: 0.625rem;
   font-size: 3.125rem;
   font-weight: bolder;
-  text-shadow: var(--textShadowVar);
- 
-  padding: 1rem;
+  text-shadow: var(--textShadowVar);  padding: 1rem;
   margin: 1.875rem;
 }
-.deck-list-data-box{
-  padding: 1.875rem;
+.deck-list-data-box{  padding: 1.875rem;
   left: 1.875rem;
   right: 1.875rem;
   border: 0.0625rem solid var(--borderColorBox);
   background-color:   var(--backgroundVar); /*Black, 70% op.*/
   color: var(--fontColorVar);
   margin: 1.875rem;
-
 }
+
+.deckListTitleRow{
 .deck-list-title-row{
   display:flex;
   align-items: center;
   margin-bottom: 1rem;
   
 }
-.deck-title{
-  margin-left: 1rem;
+.deck-title{  margin-left: 1rem;
   padding: 0.5rem;
   border-left: 0.5rem solid var(--borderColorVar) ; 
   color:var()--colorDeckTitle;
@@ -72,10 +69,9 @@ body{
   height: 3.125rem;
   border: 0.0625rem solid #f6a305;
   background-color: transparent;
-  border-radius:0;
+  border-radius: 0;
   font-weight: bolder !important;
   font-size: 1.563rem;
-  
 }
 /*Transition of the button*/
 .edit-button-deck-list > a{
@@ -83,7 +79,6 @@ body{
   -moz-transition: background-color 1s ease-out;
   -o-transition: background-color 1s ease-out;
   transition: background-color 1s ease-out;
- 
 }
 .edit-button-deck-list >a:hover{
   background-color: #f6a305;
@@ -163,8 +158,3 @@ transform:scale(1.15);
 .deck-list-card >  img{
   border: 0.0625rem solid #f6a305 !important;
 }
-
-
-
-
-

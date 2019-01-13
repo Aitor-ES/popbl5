@@ -14,10 +14,16 @@
 package edu.mondragon.user;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import edu.mondragon.deck.Deck;
+import edu.mondragon.userachievementmap.UserAchievementMap;
+import edu.mondragon.usercardmap.UserCardMap;
+import edu.mondragon.usermatchmap.UserMatchMap;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -80,5 +86,35 @@ public class UserServiceImp implements UserService {
 	@Override
 	public User getUserByEmail(String email) {
 		return userDao.getUserByEmail(email);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Set<UserAchievementMap> getUserAchievements(int user_id) {
+		return userDao.getUserAchievements(user_id);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Set<UserCardMap> getUserCards(int user_id) {
+		return userDao.getUserCards(user_id);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Set<Deck> getUserDecks(int user_id) {
+		return userDao.getUserDecks(user_id);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Set<UserMatchMap> getUser_1_matches(int user_id) {
+		return userDao.getUser_1_matches(user_id);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Set<UserMatchMap> getUser_2_matches(int user_id) {
+		return userDao.getUser_2_matches(user_id);
 	}
 }

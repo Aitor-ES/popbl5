@@ -50,8 +50,15 @@ public class UserMatchMap {
 	 * @brief User user id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", nullable = true)
-	private User user;
+	@JoinColumn(name = "USER_1_ID", referencedColumnName = "USER_ID")
+	private User user_1;
+	
+	/**
+	 * @brief User user id (FK)
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER_2_ID", referencedColumnName = "USER_ID")
+	private User user_2;
 	
 	/**
 	 * @brief Match match id (FK)
@@ -86,12 +93,20 @@ public class UserMatchMap {
 		this.date = date;
 	}
 
-	public User getUser() {
-		return user;
+	public User getUser_1() {
+		return user_1;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser_1(User user_1) {
+		this.user_1 = user_1;
+	}
+
+	public User getUser_2() {
+		return user_2;
+	}
+
+	public void setUser_2(User user_2) {
+		this.user_2 = user_2;
 	}
 
 	public Match getMatch() {

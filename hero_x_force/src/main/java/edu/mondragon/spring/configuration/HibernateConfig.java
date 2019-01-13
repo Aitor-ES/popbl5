@@ -67,7 +67,7 @@ public class HibernateConfig {
 	private Environment env;
 
 	/**
-	 * @brief Configuration of data source, the acces to the data base
+	 * @brief Configuration of data source, the access to the data base
 	 * @return DataSource
 	 */
 	@Bean
@@ -89,9 +89,10 @@ public class HibernateConfig {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 		factoryBean.setDataSource(getDataSource());
 
-		Properties hibernateProperties  = new Properties();
-		hibernateProperties .put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-		hibernateProperties .put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+		Properties hibernateProperties = new Properties();
+		hibernateProperties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+		hibernateProperties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+		hibernateProperties.put("hibernate.enable_lazy_load_no_trans", env.getProperty("hibernate.enable_lazy_load_no_trans"));
 
 		factoryBean.setHibernateProperties(hibernateProperties);
 		factoryBean.setAnnotatedClasses(User.class, Achievement.class, UserAchievementMap.class,
@@ -99,7 +100,7 @@ public class HibernateConfig {
 				Deck.class,	DeckCardMap.class,
 				Tournament.class, UserTournamentMap.class,
 				Match.class, UserMatchMap.class);
-		
+
 		return factoryBean;
 	}
 

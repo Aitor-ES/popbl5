@@ -14,6 +14,7 @@
 package edu.mondragon.user;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.TypedQuery;
 
@@ -21,6 +22,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import edu.mondragon.deck.Deck;
+import edu.mondragon.userachievementmap.UserAchievementMap;
+import edu.mondragon.usercardmap.UserCardMap;
+import edu.mondragon.usermatchmap.UserMatchMap;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -30,6 +36,14 @@ public class UserDaoImp implements UserDao {
 	 */
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	/**
+	 * @brief Method to obtain the current session
+	 * @return Session
+	 */
+	protected Session getCurrentSession() {
+        return sessionFactory.getCurrentSession();
+    }
 
 	/**
 	 * @brief This method adds a user
@@ -86,12 +100,34 @@ public class UserDaoImp implements UserDao {
 		TypedQuery<User> query = getCurrentSession().createQuery("FROM User As user WHERE user.email = '" + email + "'");
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
-	
-	/**
-	 * @brief Method to obtain the current session
-	 * @return Session
-	 */
-	protected Session getCurrentSession() {
-        return sessionFactory.getCurrentSession();
-    }
+
+	@Override
+	public Set<UserAchievementMap> getUserAchievements(int user_id) {
+		User user = getCurrentSession().find(User.class, user_id);
+		return user.getUserAchievementMaps();
+	}
+
+	@Override
+	public Set<UserCardMap> getUserCards(int user_id) {
+		User user = getCurrentSession().find(User.class, user_id);
+		return user.getUserCardMaps();
+	}
+
+	@Override
+	public Set<Deck> getUserDecks(int user_id) {
+		User user = getCurrentSession().find(User.class, user_id);
+		return user.getDecks();
+	}
+
+	@Override
+	public Set<UserMatchMap> getUser_1_matches(int user_id) {
+		User user = getCurrentSession().find(User.class, user_id);
+		return user.getUser_1_matchMap();
+	}
+
+	@Override
+	public Set<UserMatchMap> getUser_2_matches(int user_id) {
+		User user = getCurrentSession().find(User.class, user_id);
+		return user.getUser_2_matchMap();
+	}
 }

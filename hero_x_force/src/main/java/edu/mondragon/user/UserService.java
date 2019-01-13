@@ -14,6 +14,12 @@
 package edu.mondragon.user;
 
 import java.util.List;
+import java.util.Set;
+
+import edu.mondragon.deck.Deck;
+import edu.mondragon.userachievementmap.UserAchievementMap;
+import edu.mondragon.usercardmap.UserCardMap;
+import edu.mondragon.usermatchmap.UserMatchMap;
 
 public interface UserService {
 	/**
@@ -22,6 +28,7 @@ public interface UserService {
 	 * @return void
 	 */
 	void addUser(User user);
+	
 	/**
 	 * @brief Method to obtain the list of users that are in database
 	 * @return List<User>
@@ -33,7 +40,8 @@ public interface UserService {
 	 * @param user_id Users id
 	 * @return User
 	 */
-	User getUserById(int user_id);	
+	User getUserById(int user_id);
+	
 	/**
 	 * @brief Method to find a user using the username
 	 * @param name Users name
@@ -47,4 +55,10 @@ public interface UserService {
 	 * @return User
 	 */
 	User getUserByEmail(String email);
+
+	Set<UserAchievementMap> getUserAchievements(int user_id);
+	Set<UserCardMap> getUserCards(int user_id);
+	Set<Deck> getUserDecks(int user_id);
+	Set<UserMatchMap> getUser_1_matches(int user_id);
+	Set<UserMatchMap> getUser_2_matches(int user_id);
 }

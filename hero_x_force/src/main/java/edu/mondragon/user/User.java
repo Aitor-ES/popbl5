@@ -85,32 +85,38 @@ public class User {
 	/**
 	 * @brief Deck list (FK)
 	 */
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy="creator", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
 	private Set<Deck> decks = new HashSet<Deck>();
 	
 	/**
-	 * @brief Matches list (FK)
+	 * @brief Matches list (FK): Winner
 	 */
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<Match> matches = new HashSet<Match>();
+	@OneToMany(mappedBy="winner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Match> wonMatches = new HashSet<Match>();
 	
 	/**
-	 * @brief Tournament list (FK)
+	 * @brief Tournament list (FK): Winner
 	 */
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
 	private Set<Tournament> tournaments = new HashSet<Tournament>();
 	
 	/**
-	 * @brief UserTournamentMap list (FK)
+	 * @brief UserTournamentMap list (FK): Participant
 	 */
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
 	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();	
 	
 	/**
-	 * @brief UserMatchMap list (FK)
+	 * @brief user_1_matchMap list (FK): Participant
 	 */
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserMatchMap> userMatchMaps = new HashSet<UserMatchMap>();
+	@OneToMany(mappedBy="user_1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserMatchMap> user_1_matchMap = new HashSet<UserMatchMap>();	
+	
+	/**
+	 * @brief user_2_matchMap list (FK): Participant
+	 */
+	@OneToMany(mappedBy="user_2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<UserMatchMap> user_2_matchMap = new HashSet<UserMatchMap>();
 	
 	/**
 	 * @brief UserAchievementMap list (FK)
@@ -209,12 +215,20 @@ public class User {
 		this.decks = decks;
 	}
 
-	public Set<Match> getMatches() {
-		return matches;
+	public Set<UserMatchMap> getUser_1_matchMap() {
+		return user_1_matchMap;
 	}
 
-	public void setMatches(Set<Match> matches) {
-		this.matches = matches;
+	public void setUser_1_matchMap(Set<UserMatchMap> user_1_matchMap) {
+		this.user_1_matchMap = user_1_matchMap;
+	}
+
+	public Set<UserMatchMap> getUser_2_matchMap() {
+		return user_2_matchMap;
+	}
+
+	public void setUser_2_matchMap(Set<UserMatchMap> user_2_matchMap) {
+		this.user_2_matchMap = user_2_matchMap;
 	}
 
 	public Set<Tournament> getTournaments() {
@@ -233,12 +247,12 @@ public class User {
 		this.userTournamentMaps = userTournamentMaps;
 	}
 
-	public Set<UserMatchMap> getUserMatchMaps() {
-		return userMatchMaps;
+	public Set<Match> getWonMatches() {
+		return wonMatches;
 	}
 
-	public void setUserMatchMaps(Set<UserMatchMap> userMatchMaps) {
-		this.userMatchMaps = userMatchMaps;
+	public void setWonMatches(Set<Match> wonMatches) {
+		this.wonMatches = wonMatches;
 	}
 
 	public Set<UserAchievementMap> getUserAchievementMaps() {
@@ -255,6 +269,6 @@ public class User {
 
 	public void setUserCardMaps(Set<UserCardMap> userCardMaps) {
 		this.userCardMaps = userCardMaps;
-	}	
+	}
 	
 }

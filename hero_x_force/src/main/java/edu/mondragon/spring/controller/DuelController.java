@@ -12,6 +12,8 @@ package edu.mondragon.spring.controller;
  * @brief Package edu.mondragon.controllers
  */
 
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
+import edu.mondragon.user.User;
 import edu.mondragon.user.UserService;
+import edu.mondragon.usermatchmap.UserMatchMap;
 
 @Controller
 @RequestMapping("/")
@@ -42,7 +46,17 @@ public class DuelController {
 	 */
 	@RequestMapping(value = { "/duels" }, method = RequestMethod.GET)
 	public String duelsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
-		return checkIfUserIsLogged(request, model) ? "duels" : "home";
+		String view = "home";
+		
+		if (checkIfUserIsLogged(request, model)) {
+			HttpSession session = request.getSession(true);
+			Set<UserMatchMap> user_2_matchMapList = userService.getUser_2_matches(((User) session.getAttribute("user")).getUser_id());
+			
+			model.addAttribute("user_2_matchMapList", user_2_matchMapList);
+			
+			view = "duels";
+		}
+		return view;
 	}
 	
 	/**

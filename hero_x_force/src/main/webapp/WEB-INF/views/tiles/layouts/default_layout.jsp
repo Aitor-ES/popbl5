@@ -65,7 +65,7 @@
   <body>
     <!-- Current application context -->
     <script>
-    var MAIN_CONTEXT = '${pageContext.request.contextPath}';
+    	var MAIN_CONTEXT = '${pageContext.request.contextPath}';
     </script>
     
     <!-- Tiles templates -->

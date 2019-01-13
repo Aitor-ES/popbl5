@@ -54,19 +54,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="ach-table-data">Achievement 1</td>
-                <td class=ach-table-date>12/21/2018</td>
-              </tr>
-              <tr>
-                <td class="ach-table-data">Achievement 1</td>
-                <td class=ach-table-date>12/21/2018</td>
-              </tr>
-              <tr>
-                <td class="ach-table-data">Achievement 1</td>
-                <td class=ach-table-date >12/21/2018</td>
-              </tr>
-            </tbody>
+              <c:forEach items="${achievementList}" var="achievement">
+                <tr>
+                  <td>${achievement.name}</td>
+                  <td>${achievement.description}</td>
+                  <td>${achievement.points}</td>
+                </tr>
+              </c:forEach>            </tbody>
           </table>
         </div>
         <div class="col-4" id="win-chart">

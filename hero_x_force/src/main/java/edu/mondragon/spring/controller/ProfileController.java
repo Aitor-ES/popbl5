@@ -12,6 +12,10 @@ package edu.mondragon.spring.controller;
  * @brief Package edu.mondragon.controllers
  */
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,14 +26,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.mondragon.achievement.Achievement;
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
 import edu.mondragon.user.User;
 import edu.mondragon.user.UserService;
+import edu.mondragon.userachievementmap.UserAchievementMap;
 
 @Controller
 @RequestMapping("/")
 public class ProfileController {
-	/**
 	/**
 	 * @brief The user service
 	 */
@@ -45,7 +50,21 @@ public class ProfileController {
 	 */
 	@RequestMapping(value = "/profile/data", method = RequestMethod.GET)
 	public String showUser(HttpServletRequest request, HttpServletResponse response, Model model) {
-		return checkIfUserIsLogged(request, model) ? "profile/data" : "home";
+
+		String view = "home";
+		if (checkIfUserIsLogged(request, model)) {
+			HttpSession session = request.getSession(true);
+			Set<UserAchievementMap> achievementMapList = userService.getUserAchievements(((User) session.getAttribute("user")).getUser_id());
+			
+			List<Achievement> achievementList = new ArrayList<>();
+			for (UserAchievementMap userAchievementMap : achievementMapList) {
+				achievementList.add(userAchievementMap.getAchievement());
+			}
+			model.addAttribute("achievementList", achievementList);
+			
+			view = "profile/data";
+		}
+		return view;
 	}
 
 	/**

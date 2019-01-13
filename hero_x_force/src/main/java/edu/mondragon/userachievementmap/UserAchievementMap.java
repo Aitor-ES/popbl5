@@ -50,14 +50,14 @@ public class UserAchievementMap {
 	 * @brief User user id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", nullable = true)
+	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private User user;
 	
 	/**
 	 * @brief Achievement achievement id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ACHIEVEMENT_ID", referencedColumnName = "ACHIEVEMENT_ID", nullable = true)
+	@JoinColumn(name = "ACHIEVEMENT_ID", referencedColumnName = "ACHIEVEMENT_ID")
 	private Achievement achievement;
 	
 	/**
