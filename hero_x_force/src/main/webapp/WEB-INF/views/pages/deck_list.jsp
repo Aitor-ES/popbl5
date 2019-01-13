@@ -20,16 +20,12 @@
     <!--c:forEach items="${deckList}" var="deck"-->
     <div class="deck-list-data-box">
       <div class="row deck-list-title-row">
-        <div class="col">
           <h3><a class="deck-title" href="${pageContext.request.contextPath}/deck/data">Deck name</a></h3>
-          <!--h3><a class="link"
-            href="${pageContext.request.contextPath}/deck/${deck.id}/data">${deck.name}</a></h3-->
+          <div class="edit-button-deck-list">
+            <img src="${pageContext.request.contextPath}/static/img/default/edit.jpg" alt="edit icon">
+            <a class="btn btn-danger" href="${pageContext.request.contextPath}/deck/${deck.deck_id}/form" role="button">
+              <spring:message code="action.edit"/></a>          </div>
         </div> 
-         <div class="edit-button-deck-list">
-          <img src="${pageContext.request.contextPath}/static/img/default/edit.jpg" alt="edit icon">
-          <a class="btn btn-danger" href="${pageContext.request.contextPath}/deck/form" role="button"><spring:message code="action.edit"/></a>
-        </div>
-      </div>
       <div class="deck-cards row">
         <!--c:forEach items="${deck.cardList}" var="card"-->
           <!--div class="col">
@@ -39,19 +35,16 @@
 			<a class ="deck-list-card" href="${pageContext.request.contextPath}/card/data">
               <img src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/poker-playing-card-ace-heart-miroslav-nemecek-transparent.png?&targetx=43&targety=39&imagewidth=413&imageheight=622&modelwidth=500&modelheight=700&backgroundcolor=ffffff&orientation=1"
                 alt="Hero X-Force Logo">
-            </a>            <h3><a class="deckTitle" href="${pageContext.request.contextPath}/deck/${deck.deck_id}/data">${deck.name}</a></h3>
+            </a>        
+           <h3><a class="deckTitle" href="${pageContext.request.contextPath}/deck/${deck.deck_id}/data">${deck.name}</a></h3>
           </div> 
-           <div class="editButtonDeckList">
-            <img src="${pageContext.request.contextPath}/static/img/default/edit.jpg" alt="edit icon">
-            <a class="btn btn-danger" href="${pageContext.request.contextPath}/deck/${deck.deck_id}/form" role="button">
-              <spring:message code="action.edit"/></a>          </div>
-        </div>
         <div class="deck-cards row">
           <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
             <div class="col">
               <img src="${deckCardMap.card.img}" alt="${deckCardMap.card.alt}">
             </div>
           </c:forEach>
+        </div>
         </div>
       </div>
   </div>
