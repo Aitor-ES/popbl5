@@ -66,8 +66,12 @@ public class LoginController {
 	@RequestMapping(value = "/login/form", method = RequestMethod.POST)
 	public String loginFormPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		String view = "login";
-		User user = userService.getUserByName(request.getParameter("username"));
 
+		User user = userService.getUserByName(request.getParameter("username"));
+		if (user == null) {
+			user = userService.getUserByEmail(request.getParameter("username"));
+		}
+		
 		if (user == null) {
 			model.addAttribute("error", "user.login.fail.user");
 			view = "login";
