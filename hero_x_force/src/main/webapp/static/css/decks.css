@@ -1,44 +1,46 @@
 /*DECK L
 -------------------------------------------------- */
 body{
-  
+   
   --backgroundVar: transparent important!;
   --backgroundButton: orange;
   --borderColorBox: black;
-  --borderColorData: #343A40;
+  --borderColorData: transparent/*#343A40*/;
   --borderColorButton:orange;
   --colorDeckTitle: #343A40;
   --textShadowVar:0rem 0.125rem 0.125rem #ffffff7F;/*White, 70% op.*/
 }
 .deck-list-title{
   margin-bottom: 1.25rem;
-  border-left: 1rem solid var()--borderColorData); 
+  border-left: 1rem solid var(--borderColorData); 
   padding: 0.625rem;
   font-size: 3.125rem;
   font-weight: bolder;
   text-shadow: var(--textShadowVar);  padding: 1rem;
   margin: 1.875rem;
 }
-.deck-list-data-box{  padding: 1.875rem;
-  left: 1.875rem;
-  right: 1.875rem;
+
+.deck-list-data-box{  
+  padding: 1rem;
   border: 0.0625rem solid var(--borderColorBox);
   background-color:   var(--backgroundVar); /*Black, 70% op.*/
   color: var(--fontColorVar);
   margin: 1.875rem;
 }
 
-.deckListTitleRow{
+
 .deck-list-title-row{
   display:flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  justify-content: space-between;
   
 }
-.deck-title{  margin-left: 1rem;
+.deck-title{ 
+  margin-left: 1rem;
   padding: 0.5rem;
   border-left: 0.5rem solid var(--borderColorVar) ; 
-  color:var()--colorDeckTitle;
+  color:var(--colorDeckTitle);
   
   -webkit-transition: color 1s ease-out;
   -moz-transition: color 1s ease-out;
@@ -155,6 +157,3 @@ transform:scale(1.15);
   
 }
 
-.deck-list-card >  img{
-  border: 0.0625rem solid #f6a305 !important;
-}

@@ -5,6 +5,7 @@
 
 body{
   /*background-image: url("../img/profile/background.png");*/
+ 
   background-repeat: no-repeat;
   background-size: cover;  
   font-family: "Orbitron";
@@ -36,7 +37,7 @@ body{
 
 /* The design of the elements inside the data box*/
 .elements-data-box{
-  margin-left: 1.25rem;
+  margin-left: 2rem;
   padding: 1.25rem;
   border-left: 0.5rem solid transparent ; 
 }
@@ -53,6 +54,7 @@ body{
 
 /*The div that contains all the elements inside the data box*/
 .user-elements{
+   margin-left: 2rem;
    font-weight: lighter;
    text-shadow: var(--textShadowVar);
 }
