@@ -39,16 +39,16 @@ public class DataBaseInitializer {
 		/* 1. USER INSERTS */
 		UserService userService = context.getBean(UserService.class);
 
-		User user_1 = new User("estarrona", "aitor.estarrona@alumni.mondragon.edu", "@root1234");
+		User user_1 = new User("estarrona", "aitor.estarrona@alumni.mondragon.edu", "@Root1234");
 		userService.addUser(user_1);
 		
-		User user_2 = new User("uribarren", "julen.uribarren@alumni.mondragon.edu", "@root1234");
+		User user_2 = new User("uribarren", "julen.uribarren@alumni.mondragon.edu", "@Root1234");
 		userService.addUser(user_2);
 		
-		User user_3 = new User("mendi", "iker.mendi@alumni.mondragon.edu", "@root1234");
+		User user_3 = new User("mendi", "iker.mendi@alumni.mondragon.edu", "@Root1234");
 		userService.addUser(user_3);
 		
-		User user_4 = new User("barreiro", "aitor.barreirom@alumni.mondragon.edu", "@root1234");
+		User user_4 = new User("barreiro", "aitor.barreirom@alumni.mondragon.edu", "@Root1234");
 		userService.addUser(user_4);
 
 		/* 2. ACHIEVEMENT INSERTS */
