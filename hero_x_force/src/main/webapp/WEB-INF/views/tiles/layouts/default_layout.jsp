@@ -52,13 +52,13 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/forgot.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/profile.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/decks.css"/>"/>
-     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duels.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duels.css"/>"/>
     
     <!-- Custom js -->
     <script src="<c:url value='/static/js/default.js'/>"></script>
     <script src="<c:url value='/static/js/message.js'/>"></script>
     <script src="<c:url value='/static/js/deck_form.js'/>"></script>
-
+    
     <!-- Title -->
     <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 
   </head>
