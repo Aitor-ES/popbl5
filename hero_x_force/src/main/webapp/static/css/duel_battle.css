@@ -1,0 +1,6 @@
+#battle-log {
+  color: white; /* Remove when style is ready */
+  
+  height: 25rem;
+  overflow-y: auto;
+}

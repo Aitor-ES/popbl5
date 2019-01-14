@@ -12,7 +12,9 @@ package edu.mondragon.spring.controller;
  * @brief Package edu.mondragon.controllers
  */
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -20,11 +22,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mondragon.card.Card;
@@ -44,6 +49,8 @@ public class DuelController {
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	MatchService matchService = ApplicationContextProvider.getContext().getBean(MatchService.class);
+	
+	private List<String> battleLog = new ArrayList<>();
 	
 	/**
 	 * @brief Method that checks if users is logged
@@ -129,6 +136,28 @@ public class DuelController {
 		}
 		return view;
 	}
+	
+	@RequestMapping(value = "/duel/battle/update", method = RequestMethod.POST)
+	@ResponseBody
+	public String ajaxUpdateBattleLog(/*@RequestParam("id")String id*/) {
+		JSONArray jsonArray = new JSONArray();
+		
+		for(String string : battleLog) {
+			// Generate String JSON Object
+			JSONObject jsonString = new JSONObject();
+			
+			// Put the string inside the JSON Object
+			jsonString.put("battleLogLine", string);
+			
+			// Put the JSON Object in the JSON Array
+			jsonArray.put(jsonString);
+		}
+		/* It's important to call toString() so that it returns a char string.
+		 * So it transforms the JSON Object/Array to a normal string.
+		 * Then the client will transform back to JSON 
+		 */
+		return jsonArray.toString();
+	}
 
 	public boolean startBattle(Deck deck_1, Deck deck_2) {
 		Card hero_1;
@@ -139,19 +168,34 @@ public class DuelController {
 		
 		Iterator<DeckCardMap> it_1 = deck_1.getDeckCardMaps().iterator();
 		Iterator<DeckCardMap> it_2 = deck_2.getDeckCardMaps().iterator();
+
+		this.battleLog = new ArrayList<>();
+		int i = 1;
 		
 		while (it_1.hasNext() && it_2.hasNext()) {
+			this.battleLog.add("ROUND " + i);
+			
 			hero_1 = it_1.next().getCard();
 			hero_2 = it_2.next().getCard();
 			
 			if (startRound(hero_1, hero_2)) {
 				player_1_points++;
+				this.battleLog.add("PLAYER 1 WON ROUND " + i);
 			} else {
 				player_2_points++;
+				this.battleLog.add("PLAYER 2 WON ROUND " + i);
 			}
+			i++;
 		}
-		System.out.println(player_1_points);
-		System.out.println(player_2_points);
+		this.battleLog.add("ROUNDS WON BY PLAYER 1: " + player_1_points);
+		this.battleLog.add("ROUNDS WON BY PLAYER 2: " + player_2_points);
+		this.battleLog.add("PLAYER " + ((player_1_points > player_2_points) ? "1" : "2") + " WINS!");
+		
+		try {
+			TimeUnit.SECONDS.sleep(3);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 		return (player_1_points > player_2_points);
 	}
@@ -159,12 +203,12 @@ public class DuelController {
 	private boolean startRound(Card hero_1, Card hero_2) {
 		boolean is_hero_1_winner;
 		
-		System.out.println(hero_1.getName());
-		System.out.println(hero_2.getName());
+		this.battleLog.add("Hero 1: " + hero_1.getName());
+		this.battleLog.add("Hero 2: " + hero_2.getName());
 		int i = 1;
 
 		do {
-			System.out.println("Turn " + i);
+			this.battleLog.add("TURN " + i);
 			
 			startTurn(hero_1, hero_2);
 			
@@ -176,27 +220,41 @@ public class DuelController {
 		} else {
 			is_hero_1_winner = false;
 		}
+		
+		try {
+			TimeUnit.SECONDS.sleep(3);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		return is_hero_1_winner;
 	}
 
 	private void startTurn(Card hero_1, Card hero_2) {
 		double speedComparison = hero_1.getSpd() / hero_2.getSpd();
-		System.out.println(speedComparison);
 		
 		if (Math.random() < ((speedComparison >= 1) ? (0.5 * speedComparison) : (0.5 / speedComparison))) {
-			System.out.println("Hero 1 moves first");
-			
+			this.battleLog.add(hero_1.getName() + " moves first");
 			move(hero_1, hero_2);
+			
 			if (hero_2.getHp() > 0) {
+				this.battleLog.add("Now moves " + hero_2.getName());
 				move(hero_2, hero_1);
 			}
 		} else {
-			System.out.println("Hero 2 moves first");
-			
+			this.battleLog.add(hero_2.getName() + " moves first");
 			move(hero_2, hero_1);
+			
 			if (hero_1.getHp() > 0) {
+				this.battleLog.add("Now moves " + hero_1.getName());
 				move(hero_1, hero_2);
 			}
+		}
+		
+		try {
+			TimeUnit.SECONDS.sleep(3);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -219,10 +277,12 @@ public class DuelController {
 			physicalOrMagical = false;
 		}
 		
-		System.out.println("physicalOrMagical: " + physicalOrMagical);
+		this.battleLog.add(attacker.getName() + " will use a " + (physicalOrMagical ? "physical" : "magic") + " attack");
 		
 		if (defender.getCard_id() == 16) {	// Sans: 90% chance of dodging
 			dodgeOrBlock = true;
+			this.battleLog.add(defender.getName() + " will try to dodge the attack");
+			
 			if (Math.random() < 0.1) {
 				fail = true;
 			} else {
@@ -239,7 +299,7 @@ public class DuelController {
 				dodgeOrBlock = (Math.random() < 0.5) ? true : false;
 			}
 			
-			System.out.println("dodgeOrBlock: " + dodgeOrBlock);
+			this.battleLog.add(defender.getName() + " will try to " + (dodgeOrBlock ? "dodge" : "block") + " the attack");
 
 			if (Math.random() < (0.125 / ((dodgeOrBlock == true) ? defender.getSpd() : ((physicalOrMagical) ? physicalRelation : magicalRelation)))) {
 				fail = true;
@@ -248,20 +308,17 @@ public class DuelController {
 			}
 		}
 		
-		System.out.println("fail: " + fail);
+		if (fail) {
+			this.battleLog.add("The attack missed!");
+		}
 
 		if (fail == false) {
 			int dmg = (int) Math.round(25 * ((physicalOrMagical) ? physicalRelation : magicalRelation) * type * ability);
-			defender.setHp(defender.getHp() - dmg);
+			int newHp = defender.getHp() - dmg;
+			defender.setHp((newHp > 0) ? newHp : 0);
 			
-			System.out.println(attacker.getName() + " dealt " + dmg + " damage to " + defender.getName());
-			System.out.println(defender.getHp());
-		}
-		
-		try {
-			TimeUnit.SECONDS.sleep(5);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			this.battleLog.add(attacker.getName() + " dealt " + dmg + " damage to " + defender.getName());
+			this.battleLog.add(defender.getName() + " has " + defender.getHp() + " HP remaining");
 		}
 	}
 	
