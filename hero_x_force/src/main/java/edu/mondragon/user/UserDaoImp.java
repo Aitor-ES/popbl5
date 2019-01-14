@@ -24,9 +24,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.mondragon.deck.Deck;
+import edu.mondragon.match.Match;
 import edu.mondragon.userachievementmap.UserAchievementMap;
 import edu.mondragon.usercardmap.UserCardMap;
-import edu.mondragon.usermatchmap.UserMatchMap;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -120,14 +120,14 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public Set<UserMatchMap> getUser_1_matches(int user_id) {
+	public Set<Match> getMatchesAsUser_1(int user_id) {
 		User user = getCurrentSession().find(User.class, user_id);
-		return user.getUser_1_matchMap();
+		return user.getMatchesAsUser_1();
 	}
 
 	@Override
-	public Set<UserMatchMap> getUser_2_matches(int user_id) {
+	public Set<Match> getMatchesAsUser_2(int user_id) {
 		User user = getCurrentSession().find(User.class, user_id);
-		return user.getUser_2_matchMap();
+		return user.getMatchesAsUser_2();
 	}
 }

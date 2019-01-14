@@ -111,6 +111,13 @@
       value="/WEB-INF/views/pages/duel_list.jsp" />
   </definition>
   
+  <!-- Duels screen layout -->
+  <definition name="duel/battle" extends="template-default">
+    <put-attribute name="title" value="Battle!" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/duel_battle.jsp" />
+  </definition>
+  
    <!-- Tournaments screen layout -->
   <definition name="tournaments" extends="template-default">
     <put-attribute name="title" value="Tournaments" />

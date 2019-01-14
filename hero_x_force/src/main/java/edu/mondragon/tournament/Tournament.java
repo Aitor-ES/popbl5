@@ -68,7 +68,7 @@ public class Tournament {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
-	private User user;
+	private User winner;
 
 	/**
 	 * @brief Matches list (FK)
@@ -135,12 +135,12 @@ public class Tournament {
 		this.date = date;
 	}
 
-	public User getUser() {
-		return user;
+	public User getWinner() {
+		return winner;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setWinner(User winner) {
+		this.winner = winner;
 	}
 
 	public Set<Match> getMatches() {

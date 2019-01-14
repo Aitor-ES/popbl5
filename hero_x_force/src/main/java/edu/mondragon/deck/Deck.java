@@ -29,6 +29,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import edu.mondragon.deckcardmap.DeckCardMap;
+import edu.mondragon.match.Match;
 import edu.mondragon.user.User;
 
 @Entity
@@ -53,20 +54,31 @@ public class Deck {
 	 * @brief User id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CREATOR_ID", referencedColumnName = "USER_ID", nullable = true)
+	@JoinColumn(name = "CREATOR_ID", referencedColumnName = "USER_ID")
 	private User creator;
 	
 	/**
 	 * @brief DeckCardMap list (FK)
 	 */
 	@OneToMany(mappedBy="deck", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<DeckCardMap> deckCardMaps = new HashSet<DeckCardMap>();	
+	private Set<DeckCardMap> deckCardMaps = new HashSet<DeckCardMap>();
+	
+	/**
+	 * @brief Card id (FK)
+	 */
+	@OneToMany(mappedBy="deck_1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Match> matches_1 = new HashSet<Match>();
+	
+	/**
+	 * @brief Card id (FK)
+	 */
+	@OneToMany(mappedBy="deck_2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Match> matches_2 = new HashSet<Match>();
 	
 	/**
 	 * @brief Empty constructor
 	 */
-	public Deck() {
-	}
+	public Deck() {}
 	
 	/**
 	 * @brief Class constructor
@@ -111,6 +123,22 @@ public class Deck {
 
 	public void setDeckCardMaps(Set<DeckCardMap> deckCardMaps) {
 		this.deckCardMaps = deckCardMaps;
+	}
+
+	public Set<Match> getMatches_1() {
+		return matches_1;
+	}
+
+	public void setMatches_1(Set<Match> matches_1) {
+		this.matches_1 = matches_1;
+	}
+
+	public Set<Match> getMatches_2() {
+		return matches_2;
+	}
+
+	public void setMatches_2(Set<Match> matches_2) {
+		this.matches_2 = matches_2;
 	}
 
 }

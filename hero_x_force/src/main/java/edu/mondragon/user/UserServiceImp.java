@@ -21,9 +21,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.mondragon.deck.Deck;
+import edu.mondragon.match.Match;
 import edu.mondragon.userachievementmap.UserAchievementMap;
 import edu.mondragon.usercardmap.UserCardMap;
-import edu.mondragon.usermatchmap.UserMatchMap;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -108,13 +108,13 @@ public class UserServiceImp implements UserService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<UserMatchMap> getUser_1_matches(int user_id) {
-		return userDao.getUser_1_matches(user_id);
+	public Set<Match> getMatchesAsUser_1(int user_id) {
+		return userDao.getMatchesAsUser_1(user_id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<UserMatchMap> getUser_2_matches(int user_id) {
-		return userDao.getUser_2_matches(user_id);
+	public Set<Match> getMatchesAsUser_2(int user_id) {
+		return userDao.getMatchesAsUser_2(user_id);
 	}
 }
