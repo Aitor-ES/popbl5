@@ -22,7 +22,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link"
-            href="${pageContext.request.contextPath}/card/list"><spring:message code="header.heroes"/></a>
+            href="${pageContext.request.contextPath}/heroes"><spring:message code="header.heroes"/></a>
         </li>
         <li class="nav-item">
           <a class="nav-link"

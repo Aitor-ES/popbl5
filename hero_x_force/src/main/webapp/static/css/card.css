@@ -1,0 +1,215 @@
+#charts{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.titleArea {
+  position: absolute;
+  left: 200px;
+  top: -1px;
+  width: 2500px;
+  height: 434px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroName {
+  font-size: 240px;
+  font-family: "Orbitron";
+  color: rgb(253, 246, 246);
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.75);
+  
+}
+
+.stats {
+  position: absolute;
+  left: -1px;
+  top: 3320px;
+  width: 1500px;
+  height: 848px;
+  z-index: 51;
+  display: grid;
+  grid-template-columns: auto auto 50px 100px;
+  grid-template-areas: 
+  "ATK ATK_val MATK MATK_val"
+  "DEF DEF_val MDEF MDEF_val"
+  "HP HP_val SPD SPD_val";
+  justify-content: space-around;
+  align-items: center;
+  grid-column-gap: 250px;
+}
+
+.statName {
+  font-size: 110px;
+  font-family: "Orbitron";
+  color: rgb(253, 253, 253);
+  line-height: 1.2;
+  position: absolute;
+
+}
+
+.MDEF {
+  z-index: 50;
+  grid-area: MDEF;
+}
+.MATK {
+  z-index: 49;
+  grid-area: MATK;
+}
+.HP{
+  z-index: 48;
+  grid-area: HP;
+}
+.SPD {
+  z-index: 47;
+  grid-area: SPD;
+}
+.DEF {
+  z-index: 46;
+  grid-area: DEF;
+}
+.ATK {
+  z-index: 45;
+  grid-area: ATK;
+}
+
+.statValue{
+  font-size: 110px;
+  font-family: "Orbitron";
+  color: red;
+  line-height: 1.2;
+  position: absolute;
+
+}
+.MDEF_VAL {
+  grid-area: MDEF_val;
+  z-index: 58;
+}
+.MATK_VAL {
+  grid-area: MATK_val;
+  z-index: 57;
+}
+.HP_VAL {
+  grid-area: HP_val;
+  z-index: 56;
+}
+.SPD_VAL{
+  grid-area: SPD_val;
+  z-index: 55;
+}
+.DEF_VAL {
+  grid-area: DEF_val;
+  z-index: 54;
+}
+.ATK_VAL {
+  grid-area: ATK_val;
+  z-index: 53;
+}
+
+
+.cardImg {
+
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  top: 429px;
+  width: 2737px;
+  height: 2702px;
+  z-index: 6;
+}
+
+.templateImg{
+  position: absolute;
+  z-index: 7;
+}
+
+.saga {
+  font-size: 120px;
+  font-family: "Orbitron";
+  color: rgb(247, 223, 103);
+  line-height: 1.2;
+  text-align: left;
+  position: absolute;
+  z-index: 28;
+}
+
+.sagaArea {
+  position: absolute;
+  top: 3130px;
+  width: 1600px;
+  height: 170px;
+  left: 0px;
+  z-index: 29;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.abilityArea{
+ 
+ position: absolute;
+  top: 3320px;
+  width: 1000px;
+  height: 848px;
+  left: 1700px;
+  z-index: 59;
+}
+.abilityTitle {
+  
+  font-size: 120px;
+  font-family: "Orbitron";
+  color: rgb(247, 223, 103);
+  line-height: 1.5;
+  text-align: center;
+  z-index: 60;
+}
+
+.abilityName {
+  
+  font-size: 120px;
+  font-family: "Orbitron";
+  color: red;
+  line-height: 1.5;
+  text-align: center;
+  z-index: 60;
+}
+
+.levelArea {
+  position: absolute;
+  top: 3130px;
+  width: 950px;
+  height: 170px;
+  left: 1770px;
+  z-index: 40;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.levelStar {
+  background-image: url("../img/elements/star.png");
+  width: 182px;
+  height: 142px;
+ }
+
+.heroCardFather {
+	width:200px;
+	height:500px;
+	margin-left:0px;
+	margin-right:200px;
+
+}
+
+.heroCard{
+	transform: scale(0.15, 0.15);
+  -ms-transform: scale(0.1, 0.1); /* IE 9 */
+  -webkit-transform: scale(0.1, 0.1); /* Safari and Chrome */
+  -o-transform: scale(0.1, 0.1); /* Opera */
+  -moz-transform: scale(0.1, 0.1); /* Firefox */
+}
+

@@ -53,6 +53,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/profile.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/decks.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duels.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card.css"/>"/>
     
     <!-- Custom js -->
     <script src="<c:url value='/static/js/default.js'/>"></script>
