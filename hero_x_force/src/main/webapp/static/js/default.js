@@ -20,3 +20,37 @@ $(document).ready(function() {
   $('li.active').removeClass('active');
   $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
 });
+
+// Contact us progress bar
+function contactUsProgress() {
+	var username = document.forms["contactUs"]["username"].value;
+    var subject = document.forms["contactUs"]["subject"].value;
+    var message = document.forms["contactUs"]["message"].value;
+    
+    if (username != "" && subject != "" && message != "")
+    {
+    	$('#myProgressBar').fadeIn();
+    }
+}
+
+// Forgot progress bar
+function forgotProgress() {
+	var email = document.forms["forgotForm"]["email"].value;
+
+	if (email != "") {
+		$('#myProgressBar').fadeIn();
+	}
+}
+
+// Register & Profile edit progress bar
+function userProgress() {
+	var username = document.forms["userForm"]["username"].value;
+    var email = document.forms["userForm"]["email"].value;
+    var password = document.forms["userForm"]["password"].value;
+    var confirmPassword = document.forms["userForm"]["confirmPassword"].value;
+    
+    if (username != "" && email != "" && password != "" && confirmPassword != "")
+    {
+    	$('#myProgressBar').fadeIn();
+    }
+}

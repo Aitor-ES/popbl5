@@ -30,6 +30,20 @@ public interface UserService {
 	void addUser(User user);
 	
 	/**
+	 * @brief This method update a user
+	 * @param user User object
+	 * @return void
+	 */
+	void updateUser(User user);
+	
+	/**
+	 * @bried This method removes a user
+	 * @param user
+	 * @return void
+	 */
+	void removeUser(User user);
+	
+	/**
 	 * @brief Method to obtain the list of users that are in database
 	 * @return List<User>
 	 */
@@ -56,9 +70,38 @@ public interface UserService {
 	 */
 	User getUserByEmail(String email);
 
+	/**
+	 * @brief 
+	 * @param user_id
+	 * @return
+	 */
 	Set<UserAchievementMap> getUserAchievements(int user_id);
+	
+	/**
+	 * @brief 
+	 * @param user_id
+	 * @return
+	 */
 	Set<UserCardMap> getUserCards(int user_id);
+	
+	/**
+	 * @brief 
+	 * @param user_id
+	 * @return
+	 */
 	Set<Deck> getUserDecks(int user_id);
+	
+	/**
+	 * @brief 
+	 * @param user_id
+	 * @return
+	 */
 	Set<UserMatchMap> getUser_1_matches(int user_id);
+	
+	/**
+	 * @brief 
+	 * @param user_id
+	 * @return
+	 */
 	Set<UserMatchMap> getUser_2_matches(int user_id);
 }

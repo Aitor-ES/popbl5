@@ -17,7 +17,7 @@
           <div class="carousel-caption text-left">
             <h1><spring:message code="home.carousel.first.label"/></h1>
             <p><spring:message code="home.carousel.first.text"/></p>
-            <p><a class="btn btn-lg btn-primary" href="${pageContext.request.contextPath}/register" role="button">Sign up today</a></p>
+            <p><a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/register" role="button">Sign up today</a></p>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
           <div class="carousel-caption">
             <h1><spring:message code="home.carousel.second.label"/></h1>
             <p><spring:message code="home.carousel.second.text"/></p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            <p><a class="btn btn-lg btn-warning" href="#" role="button">Learn more</a></p>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
           <div class="carousel-caption text-right">
             <h1><spring:message code="home.carousel.third.label"/></h1>
             <p><spring:message code="home.carousel.third.text"/></p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            <p><a class="btn btn-lg btn-warning" href="#" role="button">Browse gallery</a></p>
           </div>
         </div>
       </div>
@@ -143,7 +143,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="${pageContext.request.contextPath}/home/form" method='POST'>
+          <form name="contactUs" action="${pageContext.request.contextPath}/home/form" method='POST'>
             <div class="col-auto">
               <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
@@ -163,7 +163,7 @@
             </div>
             <div class="modal-footer mt-3">
               <button class="btn btn-lg btn-primary mt-3" data-dismiss="modal"><i class="fas fa-times-circle"></i> <spring:message code="home.contact.modal.cancel"/></button>
-              <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit" onclick="$('#myProgressBar').fadeIn();"><i class="fas fa-paper-plane"></i> <spring:message code="home.contact.modal.send"/></button>
+              <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit" onclick="contactUsProgress()"><i class="fas fa-paper-plane"></i> <spring:message code="home.contact.modal.send"/></button>
             </div>
           </form>
         </div>

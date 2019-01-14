@@ -54,25 +54,25 @@ public class DataBaseInitializer {
 		/* 2. ACHIEVEMENT INSERTS */
 		AchievementService achievementService = context.getBean(AchievementService.class);
 		
-		Achievement achievement_1 = new Achievement("Recruit", "Win 5 battles", 10);
+		Achievement achievement_1 = new Achievement("Recruit", 10, "Win 5 battles");
 		achievementService.addAchievement(achievement_1);
 		
-		Achievement achievement_2 = new Achievement("Cadet", "Win 10 battles", 20);
+		Achievement achievement_2 = new Achievement("Cadet", 20, "Win 10 battles");
 		achievementService.addAchievement(achievement_2);
 		
-		Achievement achievement_3 = new Achievement("Sergeant", "Win 20 battles", 50);
+		Achievement achievement_3 = new Achievement("Sergeant", 50, "Win 20 battles");
 		achievementService.addAchievement(achievement_3);
 		
-		Achievement achievement_4 = new Achievement("Lieutenant", "Win 50 battles", 100);
+		Achievement achievement_4 = new Achievement("Lieutenant", 100, "Win 50 battles");
 		achievementService.addAchievement(achievement_4);
 		
-		Achievement achievement_5 = new Achievement("Captain", "Win 100 battles", 200);
+		Achievement achievement_5 = new Achievement("Captain", 200, "Win 100 battles");
 		achievementService.addAchievement(achievement_5);
 		
-		Achievement achievement_6 = new Achievement("Colonel", "Win 150 battles", 300);
+		Achievement achievement_6 = new Achievement("Colonel", 300, "Win 150 battles");
 		achievementService.addAchievement(achievement_6);
 		
-		Achievement achievement_7 = new Achievement("General", "Win 200 battles", 500);
+		Achievement achievement_7 = new Achievement("General", 500, "Win 200 battles");
 		achievementService.addAchievement(achievement_7);
 
 		/* 3. ABILITY INSERTS */

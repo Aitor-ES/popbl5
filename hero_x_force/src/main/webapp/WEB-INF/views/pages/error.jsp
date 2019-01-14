@@ -34,6 +34,9 @@
             <c:when test="${errorCode == 404}">
               <h1>4<span>0</span>4</h1>
             </c:when>
+            <c:when test="${errorCode == 405}">
+              <h1>4<span>0</span>5</h1>
+            </c:when>
             <c:when test="${errorCode == 500}">
               <h1>5<span>0</span>0</h1>
             </c:when>
@@ -51,6 +54,9 @@
           </c:when>
           <c:when test="${errorCode == 404}">
             <p><spring:message code="error.404"/></p>
+          </c:when>
+          <c:when test="${errorCode == 405}">
+            <p><spring:message code="error.405"/></p>
           </c:when>
           <c:when test="${errorCode == 500}">
             <p><spring:message code="error.500"/></p>

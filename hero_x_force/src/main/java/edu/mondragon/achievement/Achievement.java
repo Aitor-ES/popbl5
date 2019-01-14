@@ -13,6 +13,7 @@
 
 package edu.mondragon.achievement;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -47,16 +48,22 @@ public class Achievement {
 	private String name;
 	
 	/**
-	 * @brief Achievement description
+	 * @brief Achievement date
 	 */
-	@Column(name = "DESCRIPTION")
-	private String description;
+	@Column(name = "DATE")
+	private LocalDateTime date;
 	
 	/**
 	 * @brief Achievement points
 	 */
 	@Column(name = "POINTS")
 	private Integer points;
+	
+	/**
+	 * @brief Achievement description
+	 */
+	@Column(name = "DESCRIPTION")
+	private String description;
 	
 	/**
 	 * @brief User achievement map id (FK)
@@ -76,10 +83,11 @@ public class Achievement {
 	 * @param description
 	 * @param points
 	 */
-	public Achievement(String name, String description, Integer points) {
+	public Achievement(String name, Integer points, String description) {
 		this.name = name;
-		this.description = description;
+		this.date = LocalDateTime.now();
 		this.points = points;
+		this.description = description;
 	}
 
 	/*
@@ -101,20 +109,28 @@ public class Achievement {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public Integer getPoints() {
 		return points;
 	}
 
 	public void setPoints(Integer points) {
 		this.points = points;
+	}
+	
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Set<UserAchievementMap> getUserAchievementMaps() {

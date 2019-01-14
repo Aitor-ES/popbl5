@@ -2,38 +2,63 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <section id="profile-edit">
-  <c:choose>
-    <c:when test="${not empty user}">
+
       <div class="container-fluid ">
         <div class="row align-items-center">
-          <div class="col align-self-start">
-            <h2>Edit User data</h2>
-          </div>
-        </div>
-        <div class="row align-items-center">
           <div class="col align-self-center">
-            <form>
-              <div class="form-group">
-                <label for="userEditData"><spring:message code="userData.email"/></label>
-                  <input type="email" class="form-control" id="inputFirstName" placeholder="Enter your new email">
+            <form name="userForm" action="${pageContext.request.contextPath}/profile/form" method='POST'>
+              <label class="mt-3"><spring:message code="profile.edit.username.title"/></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input type="text" class="form-control" name='username' placeholder="<spring:message code="profile.edit.username.placeholder"/>"
+                  value="${user.username}" required>
               </div>
-              <div class="form-group">
-                <label for="userEdtiData"><spring:message code="userData.password"/></label>
-                <input type="password" class="form-control" id="inputSecondName" placeholder="Enter your new password">
+              
+              <label class="mt-3"><spring:message code="profile.edit.email.title"/></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-at"></i></span>
+                </div>
+                <input type="text" class="form-control" name='email' placeholder="<spring:message code="profile.edit.email.placeholder"/>" 
+                  value="${user.email}" required>
               </div>
-              <button type="submit" class="btn btn-primary">Update</button>
+              
+              <label class="mt-3"><spring:message code="profile.edit.password.title"/></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" name='password' placeholder="<spring:message code="profile.edit.password.placeholder"/>" 
+                  value="${user.password}" required>
+              </div>
+              
+              <label class="mt-3"><spring:message code="profile.edit.password.confirm.title"/></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" class="form-control" name='confirmPassword' placeholder="<spring:message code="profile.edit.password.confirm.placeholder"/>" 
+                  value="${user.password}" required>
+              </div>
+              
+              <div class="progress mt-3" id="myProgressBar" style="display: none">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                </div>
+              </div>
+              
+              <a class="btn btn-lg btn-warning mt-3 mb-3" href="${pageContext.request.contextPath}/profile/data" role="button">
+                <i class="fas fa-times-circle"></i> <spring:message code="profile.edit.cancel"/>
+              </a>
+              
+              <button class="btn btn-lg btn-warning ml-3 mt-3 mb-3" type="submit" name="submit" onclick="userProgress()">
+                <i class="fas fa-check-circle"></i> <spring:message code="profile.edit.accept" />
+              </button>
             </form>
           </div>
         </div>
       </div>
-    </c:when>
-    <c:otherwise>
-      <div class="alert alert-danger alert-dismissible" role="alert">
-        <p>An error has been occurred</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </c:otherwise>
-  </c:choose>
+
 </section>

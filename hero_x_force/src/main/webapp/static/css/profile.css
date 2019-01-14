@@ -3,12 +3,18 @@
 
 /* Body of the page */
 
+@font-face {
+    font-family: "Orbitron"; /*a name to be used later*/
+      src: url('../font/orbitron.ttf'); /*URL to font*/
+}
+
 body{
   /*background-image: url("../img/profile/background.png");*/
  
   background-repeat: no-repeat;
   background-size: cover;  
   font-family: "Orbitron";
+  src: url('../font/orbitron.ttf');
   color:#494949;
   --backgroundVar: transparent important!;
   --borderColorVar: transparent;
@@ -104,10 +110,8 @@ body{
   border: 0.0625rem solid var(--borderColorVar) !important;
 }
 
-
 /* ACHIEVEMENTS TABLE
 -------------------------------------------------- */
-
 
 .ach-table{
   margin-left: 1.25rem;

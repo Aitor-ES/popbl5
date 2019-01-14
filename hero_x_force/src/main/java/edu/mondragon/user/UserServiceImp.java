@@ -46,6 +46,28 @@ public class UserServiceImp implements UserService {
 	}
 	
 	/**
+	 * @brief Method to update users from the dao
+	 * @param user User object
+	 * @return void
+	 */
+	@Transactional
+	@Override
+	public void updateUser(User user) {
+		userDao.updateUser(user);
+	}
+	
+	/**
+	 * @bried This method removes a user from the dao
+	 * @param user
+	 * @return void
+	 */
+	@Transactional
+	@Override
+	public void removeUser(User user) {
+		userDao.removeUser(user);
+	}
+	
+	/**
 	 * @brief Method to obtain the users from the dao
 	 * @return List<User>
 	 */
