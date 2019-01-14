@@ -66,8 +66,12 @@ public class LoginController {
 	@RequestMapping(value = "/login/form", method = RequestMethod.POST)
 	public String loginFormPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		String view = "login";
-		User user = userService.getUserByName(request.getParameter("username"));
 
+		User user = userService.getUserByName(request.getParameter("username"));
+		if (user == null) {
+			user = userService.getUserByEmail(request.getParameter("username"));
+		}
+		
 		if (user == null) {
 			model.addAttribute("error", "user.login.fail.user");
 			view = "login";
@@ -120,10 +124,52 @@ public class LoginController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirmPassword");
-		boolean correct = true;
 
 		User user = userService.getUserByName(username);
 
+		if (validateData(model, user, email, password, confirmPassword)) {
+			model.addAttribute("message", "user.new.success");
+			userService.addUser(new User(username, email, password));
+			sendEmail(email, username, password);
+			view = "login";
+		}
+
+		return view;
+	}
+	
+	/**
+	 * @brief Method to send an email to the user and to the hero-x-force team
+	 * @param email
+	 * @param username
+	 * @param password
+	 */
+	public void sendEmail(String email, String username, String password) {
+		emailService.sendSimpleMessage(email, 
+		   "Hero X-Force Account Registration", 
+		   "Your account has been registered." +
+		   "\n\nUsername: " + username + 
+		   "\n\nBest Regards, \nHero X-Force Team");
+		
+		emailService.sendSimpleMessage("popbl5.heroxforce@gmail.com", 
+			"Hero X-Force Account Registration", 
+			"This account has been registered." +
+			"\n\nUsername: " + username + 
+			"\n\nEmail: " + email + 
+			"\n\nTotal users: " + userService.getUserByName(username).getUser_id());
+	}
+
+	/**
+	 * @brief Method to validate the data inserted by the user
+	 * @param model
+	 * @param user
+	 * @param email
+	 * @param password
+	 * @param confirmPassword
+	 * @return
+	 */
+	public boolean validateData(ModelMap model, User user, String email, String password, String confirmPassword) {
+		boolean correct = true;
+		
 		if (user != null) {
 			model.addAttribute("error", "register.user.fail");
 			correct = false;
@@ -136,24 +182,16 @@ public class LoginController {
 		} else if (!password.equals(confirmPassword) && correct) {
 			model.addAttribute("error", "register.password.fail");
 			correct = false;
-		} else if (correct) {
-			model.addAttribute("message", "user.new.success");
-			userService.addUser(new User(username, email, password));
-			emailService.sendSimpleMessage(email, "Hero X-Force Account Registration", 
-												  "This account has been registered." +
-												  "\n\nUsername: " + username + 
-												  "\n\nBest Regards, \nHero X-Force Team");
-			emailService.sendSimpleMessage("popbl5.heroxforce@gmail.com", "Hero X-Force Account Registration", 
-				  "This account has been registered." +
-				  "\n\nUsername: " + username + 
-				  "\n\nEmail: " + email + 
-				  "\n\nTotal users: " + userService.getUserByName(username).getUser_id());
-			view = "login";
 		}
-
-		return view;
+		
+		return correct;
 	}
-
+	
+	/**
+	 * @brief Checks the strength of the password for 0 to 10
+	 * @param password
+	 * @return
+	 */
 	private static int passwordStrength(String password) {
 		// total score of password
 		int passwordScore = 0;

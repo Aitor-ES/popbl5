@@ -54,6 +54,25 @@ public class UserDaoImp implements UserDao {
 	public void addUser(User user) {
 		getCurrentSession().save(user);
 	}
+	
+	/**
+	 * @brief This method update a user
+	 * @param user User object
+	 * @return void
+	 */
+	@Override
+	public void updateUser(User user) {
+		getCurrentSession().update(user);
+	}
+	
+	/**
+	 * @bried This method removes a user
+	 * @param user
+	 */
+	@Override
+	public void removeUser(User user) {
+		getCurrentSession().remove(user);
+	}
 
 	/**
 	 * @brief Method to obtain the list of users that are in database

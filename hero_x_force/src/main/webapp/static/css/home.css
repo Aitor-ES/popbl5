@@ -25,6 +25,10 @@
   height: 32rem;
 }
 
+.carousel-text span {
+  background-color: #00000080;
+}
+
 
 /* FEATURES
 -------------------------------------------------- */
@@ -57,6 +61,15 @@
 }
 
 
+/* MODAL
+-------------------------------------------------- */
+
+.modal-footer {
+  display:flex;
+  justify-content: space-between;
+}
+
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -75,5 +88,11 @@
 @media (min-width: 62em) {
   .news-heading {
     margin-top: 7rem;
+  }
+}
+
+@media (max-width: 40em) {
+    .modal-footer button {
+    font-size: 90%;
   }
 }

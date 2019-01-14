@@ -61,7 +61,8 @@ public class HomeController {
 				  "Message received from:" +
 				  "\n\nUsername: " + user.getUsername() + 
 				  "\nEmail: " + user.getEmail() +
-					"\n\n[...] " + message + " [...]");
+				  "\n\n[...] " + message + " [...]");
+			
 			model.addAttribute("message", "contact.email.success");
 		} else {
 			model.addAttribute("error", "contact.email.fail");

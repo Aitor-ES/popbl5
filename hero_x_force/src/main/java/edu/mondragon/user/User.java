@@ -146,6 +146,9 @@ public class User {
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.wins = 0;
+		this.loses = 0;
+		this.points = 0;
 	}
 
 	/*

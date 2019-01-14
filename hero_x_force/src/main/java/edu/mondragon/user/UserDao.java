@@ -28,6 +28,19 @@ public interface UserDao {
 	 * @return void
 	 */
 	void addUser(User user);
+	
+	/**
+	 * @brief This method updates a user
+	 * @param user
+	 */
+	void updateUser(User user);
+	
+	/**
+	 * @bried This method removes a user
+	 * @param user
+	 */
+	void removeUser(User user);
+	
 	/**
 	 * @brief Method to obtain the list of users that are in database
 	 * @return List<User>
@@ -46,6 +59,12 @@ public interface UserDao {
 	 * @return User
 	 */
 	User getUserByName(String name);
+	
+	/**
+	 * @brief Method to find user using the email
+	 * @param email
+	 * @return
+	 */
 	User getUserByEmail(String email);
 	
 	/**
@@ -53,10 +72,33 @@ public interface UserDao {
 	 * @param email Users email
 	 * @return User
 	 */
-
 	Set<UserAchievementMap> getUserAchievements(int user_id);
+	
+	/**
+	 * @brief
+	 * @param user_id
+	 * @return
+	 */
 	Set<UserCardMap> getUserCards(int user_id);
+	
+	/**
+	 * @brief
+	 * @param user_id
+	 * @return
+	 */
 	Set<Deck> getUserDecks(int user_id);
+	
+	/**
+	 * @brief
+	 * @param user_id
+	 * @return
+	 */
 	Set<UserMatchMap> getUser_1_matches(int user_id);
+	
+	/**
+	 * @brief
+	 * @param user_id
+	 * @return
+	 */
 	Set<UserMatchMap> getUser_2_matches(int user_id);
 }
