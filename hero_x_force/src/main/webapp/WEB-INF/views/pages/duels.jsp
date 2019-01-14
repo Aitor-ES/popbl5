@@ -11,14 +11,14 @@
   <h2 class="duels-title">
     <spring:message code="duels.title" />
   </h2>
- <div class="duelsDataBox">
+ <div class="duels-data-box">
     <form class="form-inline">
       <div class="form-group">
         <label for="inputPlayer"><spring:message code="duels.searchPlayer" /></label>
         <input type="text" id="inputPlayer" class="form-control mx-sm-3" aria-describedby="playerHelpInline">
       </div>
     </form>
-    <button type="submit" class="btn btn-danger challengeButton"> <spring:message code="duels.challenge" /></button>
+    <button type="submit" class="btn btn-danger challenge-button"> <spring:message code="duels.challenge" /></button>
   </div>
 
   <h2>

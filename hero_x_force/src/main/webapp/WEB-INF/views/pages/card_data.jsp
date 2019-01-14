@@ -31,7 +31,7 @@
       <div class="col-2"><spring:message code="card.data.stats.table.stats.heading"/></div>
       <div class="col-4"><spring:message code="card.data.stats.table.value.heading"/></div>
       <div class="col-4"><spring:message code="card.data.stats.table.ranking.heading"/></div>
-      <div class="col-2"><spring:message code="card.data.stats.table.balance.heading"/></div>
+      <div class="col-2 radar-col"><spring:message code="card.data.stats.table.balance.heading"/></div>
     </div>
     <div class="row">
       <div class="col-2">
@@ -43,12 +43,7 @@
         <div><spring:message code="card.data.stats.table.stats.speed"/></div>
       </div>
       <div class="col-4">
-        <div>Span 6</div>
-        <div>Span 6</div>
-        <div>Span 6</div>
-        <div>Span 6</div>
-        <div>Span 6</div>
-        <div>Span 6</div>
+       
       </div>
       <div class="col-4">
         <div>Span 6</div>
@@ -58,9 +53,28 @@
         <div>Span 6</div>
         <div>Span 6</div>
       </div>
-      <div class="col-2">
-        <div>Span 6</div>
+      <div class="col-2 radar-col">
+         <div id="chart" class="radar-chart">
+ 
+        <script>
+          var config = {
+              w: 150,
+              h: 150,
+              maxValue: 100,
+              levels: 5,
+              fontFamily: "orbitron",
+              ExtraWidthX: 150
+          }
+          
+          //Call function to draw the Radar chart
+          d3.json("${pageContext.request.contextPath}/static/js/data.json", function(error, data) {
+              if (error) throw error;
+              radar_chart.draw("#chart", data, config);
+          });
+        </script>
+       </div>
       </div>
     </div>
   </div>
+  
 </section>

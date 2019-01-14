@@ -36,6 +36,7 @@
           <p class="elementsDataBox"><spring:message code="profile.battlesLost" /></p>
         </div>
         <div class="col">
+        
           <p>win percentage pie chart</p>
         </div>
       </div>

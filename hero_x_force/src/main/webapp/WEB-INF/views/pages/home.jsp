@@ -72,7 +72,7 @@
         <p><spring:message code="home.features.third.label"/></p>
       </div>
       <div class="col-lg-3">
-        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f4.png" alt="<spring:message code="home.features.fourth.alt"/>" width="140" height="140">
+        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f4.jpg" alt="<spring:message code="home.features.fourth.alt"/>" width="140" height="140">
         <h2><spring:message code="home.features.fourth.label"/></h2>
         <p><spring:message code="home.features.fourth.label"/></p>
       </div>

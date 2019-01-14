@@ -2,6 +2,28 @@
   width: 50px;
   height: 70px;
 }
+.radar-col{
+  display:flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.radar-chart{
+   display:flex;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+#chart > svg{
+  
+  transform: scale(0.7, 0.7);
+  -ms-transform: scale(0.7, 0.7); /* IE 9 */
+  -webkit-transform: scale(0.7, 0.7); /* Safari and Chrome */
+  -o-transform: scale(0.7, 0.7); /* Opera */
+  -moz-transform: scale(0.7, 0.7); /* Firefox */
+ 
+}
+
 
 @media (min-width: 480px) {
   .card-container img {

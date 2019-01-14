@@ -33,6 +33,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
       crossorigin="anonymous"></script>
+      
+    <!-- D3 JS -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+      
     
     <!-- Icon library -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
@@ -58,6 +62,7 @@
     <script src="<c:url value='/static/js/default.js'/>"></script>
     <script src="<c:url value='/static/js/message.js'/>"></script>
     <script src="<c:url value='/static/js/deck_form.js'/>"></script>
+    <script src="<c:url value='/static/js/radar_chart.js'/>"></script>
 
     <!-- Title -->
     <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 

@@ -1,5 +1,5 @@
 
-.duelsTitle{
+.duels-title{
   margin-bottom: 1.25rem;
   border-left: 1rem solid #ff0000 ; 
   padding: 0.625rem;
@@ -13,7 +13,7 @@
 
 
 
-.duelsDataBox{
+.duels-data-box{
   padding: 1.875rem;
   left: 1.875rem;
   right: 1.875rem;
@@ -24,17 +24,17 @@
   width: 25%;
 }
 
-.challengeButton{
+.challenge-button{
   margin-top: 1rem;
   
 }
 
-.challengeButton:hover{
+.challenge-button:hover{
   background-color: #5e010c !important;
   
 }
 
-.challengeButton:active{
+.challenge-button:active{
   background-color:  #5e010c !important;
   
 }
