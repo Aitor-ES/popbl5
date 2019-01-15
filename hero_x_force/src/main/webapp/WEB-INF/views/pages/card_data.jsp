@@ -145,19 +145,28 @@
         </div>
       </div>
       
-     
+      <div class="col-12 col-sm-4">
+        <h2 class="title-style"><spring:message code="card.data.bar.title"/></h2>
+        <canvas class="col-12 mt-5"id="horizontalBar" ></canvas>
+       
+      </div>
+      
+      <div class="col-12 col-sm-4">
+        <h2 class="title-style"><spring:message code="card.data.balance.title"/></h2>
+        <div id="chart" class="radar-chart">
+         
           <!-- CHART -->
         </div>
       </div>
       <div class="col-2 radar-col">
          <div id="chart" class="radar-chart">
  
-        <script>
-          var config = {
-              maxValue: 200,
-              levels: 5,
-              fontFamily: "orbitron",
-              fontSize: "1.25rem"
+       <script>
+        var config = {
+                maxValue: 200,
+                levels: 5,
+                fontFamily: "orbitron",
+                fontSize: "1.3rem"
           }
           $.ajax({
           	  data: {id: "${card.card_id}"},
@@ -168,7 +177,9 @@
       	  	  success: function(data){
       			  var jsonObject = JSON.parse(data);
       			  console.log(jsonObject);
+      			 
       	          //Call function to draw the Radar chart
+      	          drawHorizontalBarChart(jsonObject);
       	          radar_chart.draw("#chart", jsonObject, config);
       		  }
   		  });
@@ -176,7 +187,8 @@
         </script>
        </div>
       </div>
-    
+    </div>
+ </div>
   <!-- Start: Back to top button -->
   <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
   <!-- End: Back to top button -->  
