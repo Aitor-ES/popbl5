@@ -1,3 +1,18 @@
+:root{
+--dark-color: #b27ce5;
+--earth-color:#bb7514;
+--electric-color:#fff000;
+--fire-color:#f0300a;
+--ghost-color:#d2c9c9;
+--ice-color:#93d7e6;
+--light-color:#fbc66e;
+--normal-color:#aeaeae;
+--plant-color:#75b719;
+--psychic-color:#f514c3;
+--water-color:#0054ff;
+}
+
+
 .titleArea {
   position: absolute;
   left: 22.579px;
@@ -80,7 +95,6 @@
 .statValue{
   font-size: 12.418px;
   font-family: "Orbitron";
-  color: red;
   line-height: 1.2;
   position: absolute;
 }
