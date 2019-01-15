@@ -17,8 +17,8 @@ var radar_chart = {
   draw: function(id, d, options){
     var cfg = {
      
-     w: 600,
-     h: 600,
+     w: 400,
+     h: 400,
      factor: 1,
      factorLegend: .85,
      levels: 3,
@@ -27,10 +27,10 @@ var radar_chart = {
      
      
      ToRight: 5,
-     TranslateX: 30,
-     TranslateY: 30,
-     ExtraWidthX: 100,
-     ExtraWidthY: 100,
+     TranslateX: 100,
+     TranslateY: 50,
+     ExtraWidthX: 150,
+     ExtraWidthY: 150,
      color: d3.scaleOrdinal().range(["#6F257F", "#CA0D59"]),
 
      opacityArea: 0.5,
