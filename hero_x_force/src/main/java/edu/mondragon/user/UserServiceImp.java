@@ -21,9 +21,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.mondragon.deck.Deck;
+import edu.mondragon.match.Match;
 import edu.mondragon.userachievementmap.UserAchievementMap;
 import edu.mondragon.usercardmap.UserCardMap;
-import edu.mondragon.usermatchmap.UserMatchMap;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -44,7 +44,7 @@ public class UserServiceImp implements UserService {
 	public void addUser(User user) {
 		userDao.addUser(user);
 	}
-	
+
 	/**
 	 * @brief Method to update users from the dao
 	 * @param user User object
@@ -55,7 +55,7 @@ public class UserServiceImp implements UserService {
 	public void updateUser(User user) {
 		userDao.updateUser(user);
 	}
-	
+
 	/**
 	 * @bried This method removes a user from the dao
 	 * @param user
@@ -66,7 +66,7 @@ public class UserServiceImp implements UserService {
 	public void removeUser(User user) {
 		userDao.removeUser(user);
 	}
-	
+
 	/**
 	 * @brief Method to obtain the users from the dao
 	 * @return List<User>
@@ -76,7 +76,7 @@ public class UserServiceImp implements UserService {
 	public List<User> listUsers() {
 		return userDao.listUsers();
 	}
-	
+
 	/**
 	 * @brief Method to obtain the user using the id from the dao
 	 * @param id Users id
@@ -87,7 +87,7 @@ public class UserServiceImp implements UserService {
 	public User getUserById(int user_id) {
 		return userDao.getUserById(user_id);
 	}
-	
+
 	/**
 	 * @brief Method to obtain the user using the name from the dao
 	 * @param name Users name
@@ -130,13 +130,13 @@ public class UserServiceImp implements UserService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<UserMatchMap> getUser_1_matches(int user_id) {
-		return userDao.getUser_1_matches(user_id);
+	public Set<Match> getMatchesAsUser_1(int user_id) {
+		return userDao.getMatchesAsUser_1(user_id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<UserMatchMap> getUser_2_matches(int user_id) {
-		return userDao.getUser_2_matches(user_id);
+	public Set<Match> getMatchesAsUser_2(int user_id) {
+		return userDao.getMatchesAsUser_2(user_id);
 	}
 }

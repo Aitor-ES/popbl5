@@ -25,12 +25,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import edu.mondragon.deck.Deck;
 import edu.mondragon.match.Match;
 import edu.mondragon.tournament.Tournament;
 import edu.mondragon.userachievementmap.UserAchievementMap;
 import edu.mondragon.usercardmap.UserCardMap;
-import edu.mondragon.usermatchmap.UserMatchMap;
 import edu.mondragon.usertournamentmap.UserTournamentMap;
 
 @Entity
@@ -84,51 +84,51 @@ public class User {
 	/**
 	 * @brief Deck list (FK)
 	 */
-	@OneToMany(mappedBy="creator", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Deck> decks = new HashSet<Deck>();
-	
+
 	/**
 	 * @brief Matches list (FK): Winner
 	 */
-	@OneToMany(mappedBy="winner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy = "winner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Match> wonMatches = new HashSet<Match>();
-	
+
 	/**
 	 * @brief Tournament list (FK): Winner
 	 */
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy = "winner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Tournament> tournaments = new HashSet<Tournament>();
-	
+
 	/**
 	 * @brief UserTournamentMap list (FK): Participant
 	 */
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();	
-	
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();
+
 	/**
 	 * @brief user_1_matchMap list (FK): Participant
 	 */
-	@OneToMany(mappedBy="user_1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserMatchMap> user_1_matchMap = new HashSet<UserMatchMap>();	
-	
+	@OneToMany(mappedBy = "user_1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private Set<Match> matchesAsUser_1 = new HashSet<Match>();
+
 	/**
 	 * @brief user_2_matchMap list (FK): Participant
 	 */
-	@OneToMany(mappedBy="user_2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserMatchMap> user_2_matchMap = new HashSet<UserMatchMap>();
-	
+	@OneToMany(mappedBy = "user_2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private Set<Match> matchesAsUser_2 = new HashSet<Match>();
+
 	/**
 	 * @brief UserAchievementMap list (FK)
 	 */
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<UserAchievementMap> userAchievementMaps = new HashSet<UserAchievementMap>();
-	
+
 	/**
 	 * @brief UserCardMap list (FK)
 	 */
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<UserCardMap> userCardMaps = new HashSet<UserCardMap>();
-	
+
 	/**
 	 * @brief Empty constructor
 	 */
@@ -217,20 +217,20 @@ public class User {
 		this.decks = decks;
 	}
 
-	public Set<UserMatchMap> getUser_1_matchMap() {
-		return user_1_matchMap;
+	public Set<Match> getMatchesAsUser_1() {
+		return matchesAsUser_1;
 	}
 
-	public void setUser_1_matchMap(Set<UserMatchMap> user_1_matchMap) {
-		this.user_1_matchMap = user_1_matchMap;
+	public void setMatchesAsUser_1(Set<Match> matchesAsUser_1) {
+		this.matchesAsUser_1 = matchesAsUser_1;
 	}
 
-	public Set<UserMatchMap> getUser_2_matchMap() {
-		return user_2_matchMap;
+	public Set<Match> getMatchesAsUser_2() {
+		return matchesAsUser_2;
 	}
 
-	public void setUser_2_matchMap(Set<UserMatchMap> user_2_matchMap) {
-		this.user_2_matchMap = user_2_matchMap;
+	public void setMatchesAsUser_2(Set<Match> matchesAsUser_2) {
+		this.matchesAsUser_2 = matchesAsUser_2;
 	}
 
 	public Set<Tournament> getTournaments() {
@@ -272,5 +272,5 @@ public class User {
 	public void setUserCardMaps(Set<UserCardMap> userCardMaps) {
 		this.userCardMaps = userCardMaps;
 	}
-	
+
 }
