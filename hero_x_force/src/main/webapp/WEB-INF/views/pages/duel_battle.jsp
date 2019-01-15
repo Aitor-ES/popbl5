@@ -25,7 +25,7 @@
 			},
 			success : function(data) {
 				// WATCH OUT! If you don't return a JSON-formatted string, JSON.parse() will throw an exception
-				// and Javascript will stop working. This can happen if the server sends something non-JSON
+				// and Javascript will stop working. This can happen if the server sends something non-JSON.
 				var jsonObject = JSON.parse(data);
 				console.log(jsonObject);
 				

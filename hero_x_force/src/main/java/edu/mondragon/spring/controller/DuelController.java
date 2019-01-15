@@ -111,6 +111,8 @@ public class DuelController {
 			
 			if (match.getWinner() == null) {
 				session.setAttribute("match", match);
+				this.battleLog = new ArrayList<>();
+				
 				view = "duel/battle";
 			}
 		}
@@ -168,8 +170,7 @@ public class DuelController {
 		
 		Iterator<DeckCardMap> it_1 = deck_1.getDeckCardMaps().iterator();
 		Iterator<DeckCardMap> it_2 = deck_2.getDeckCardMaps().iterator();
-
-		this.battleLog = new ArrayList<>();
+		
 		int i = 1;
 		
 		while (it_1.hasNext() && it_2.hasNext()) {
@@ -279,14 +280,14 @@ public class DuelController {
 		
 		this.battleLog.add(attacker.getName() + " will use a " + (physicalOrMagical ? "physical" : "magic") + " attack");
 		
-		if (defender.getCard_id() == 16) {	// Sans: 90% chance of dodging
+		if (defender.getAbility().getAbility_id() == 15) {	// Bad Time Ability (Sans)
 			dodgeOrBlock = true;
 			this.battleLog.add(defender.getName() + " will try to dodge the attack");
 			
-			if (Math.random() < 0.1) {
-				fail = true;
-			} else {
+			if (Math.random() < 0.1) {	// 90% chance of dodging
 				fail = false;
+			} else {
+				fail = true;
 			}
 		} else {	// Everybody else: Around 12.5% chance of dodging/blocking
 			hero_2_tankiness = ((defender.getHp() + ((physicalOrMagical) ? defender.getDef() : defender.getMag_def())) / 2);
