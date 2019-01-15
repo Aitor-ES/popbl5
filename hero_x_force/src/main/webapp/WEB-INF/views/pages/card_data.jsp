@@ -78,7 +78,7 @@
       <div class="col-4">
         <div>${card.hp}</div>
         <div>${card.atk}</div>
-        <div>${card.def}<div>
+        <div>${card.def}</div>
         <div>${card.mag_atk}</div>
         <div>${card.mag_def}</div>
         <div>${card.spd}</div>
@@ -92,7 +92,7 @@
         <div>Span 6</div>
       </div>
       <div class="col-2 radar-col">
-         <div id="chart" class="radar-chart">
+        <div id="chart" class="radar-chart"></div>
  
         <script>
           var config = {
@@ -110,9 +110,8 @@
               radar_chart.draw("#chart", data, config);
           });
         </script>
-       </div>
+        
       </div>
     </div>
   </div>
-  
 </section>

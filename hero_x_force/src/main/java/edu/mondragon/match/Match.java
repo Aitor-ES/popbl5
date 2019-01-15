@@ -15,10 +15,7 @@ package edu.mondragon.match;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,12 +24,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import edu.mondragon.deck.Deck;
 import edu.mondragon.tournament.Tournament;
 import edu.mondragon.user.User;
-import edu.mondragon.usermatchmap.UserMatchMap;
 
 @Entity
 @Table(name = "MATCHES")
@@ -51,39 +47,56 @@ public class Match {
 	 */
 	@Column(name = "DATE")
 	private String date;
-	
+
 	/**
+	 * @brief user_1 user_id (FK)
 	 * @brief Match hour
 	 */
 	@Column(name = "HOUR")
 	private String hour;
-	
+
 	/**
 	 * @brief user_1_matchMap list (FK)
 	 */
-	@OneToMany(mappedBy="user_1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserMatchMap> user_1_matchMap = new HashSet<UserMatchMap>();
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER_1_ID", referencedColumnName = "USER_ID")
+	private User user_1;
+
 	/**
-	 * @brief user_2_matchMap list (FK)
+	 * @brief user_2 user_id (FK)
 	 */
-	@OneToMany(mappedBy="user_2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserMatchMap> user_2_matchMap = new HashSet<UserMatchMap>();
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER_2_ID", referencedColumnName = "USER_ID")
+	private User user_2;
+
+	/**
+	 * @brief deck_1 deck_id (FK)
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "DECK_1_ID", referencedColumnName = "DECK_ID")
+	private Deck deck_1;
+
+	/**
+	 * @brief deck_2 deck_id (FK)
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "DECK_2_ID", referencedColumnName = "DECK_ID")
+	private Deck deck_2;
+
 	/**
 	 * @brief Tournament id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID", nullable = true)
 	private Tournament tournament;
-	
+
 	/**
 	 * @brief Winner user id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
 	private User winner;
-	
+
 	/**
 	 * @brief Class constructor
 	 */
@@ -94,20 +107,20 @@ public class Match {
 
 	private String parseCurrentDate(LocalDateTime date) {
 		String pattern = "YYYY-MM-dd";
-		
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-		
+
 		return date.format(formatter);
 	}
-	
+
 	private String parseCurrentHour(LocalDateTime date) {
 		String pattern = "HH:mm";
-		
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-		
+
 		return date.format(formatter);
 	}
-	
+
 	/*
 	 * @brief Getters and setters
 	 */
@@ -127,6 +140,10 @@ public class Match {
 		this.date = date;
 	}
 
+	public User getUser_1() {
+		return user_1;
+	}
+
 	public String getHour() {
 		return hour;
 	}
@@ -135,20 +152,32 @@ public class Match {
 		this.hour = hour;
 	}
 
-	public Set<UserMatchMap> getUser_1_matchMap() {
-		return user_1_matchMap;
+	public void setUser_1(User user_1) {
+		this.user_1 = user_1;
 	}
 
-	public void setUser_1_matchMap(Set<UserMatchMap> user_1_matchMap) {
-		this.user_1_matchMap = user_1_matchMap;
+	public User getUser_2() {
+		return user_2;
 	}
 
-	public Set<UserMatchMap> getUser_2_matchMap() {
-		return user_2_matchMap;
+	public void setUser_2(User user_2) {
+		this.user_2 = user_2;
 	}
 
-	public void setUser_2_matchMap(Set<UserMatchMap> user_2_matchMap) {
-		this.user_2_matchMap = user_2_matchMap;
+	public Deck getDeck_1() {
+		return deck_1;
+	}
+
+	public void setDeck_1(Deck deck_1) {
+		this.deck_1 = deck_1;
+	}
+
+	public Deck getDeck_2() {
+		return deck_2;
+	}
+
+	public void setDeck_2(Deck deck_2) {
+		this.deck_2 = deck_2;
 	}
 
 	public Tournament getTournament() {
@@ -166,5 +195,5 @@ public class Match {
 	public void setWinner(User winner) {
 		this.winner = winner;
 	}
-	
+
 }

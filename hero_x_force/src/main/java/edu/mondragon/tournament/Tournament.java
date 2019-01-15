@@ -63,7 +63,7 @@ public class Tournament {
 	 */
 	@Column(name = "DATE")
 	private String date;
-	
+
 	/**
 	 * @brief Tournament hour
 	 */
@@ -75,20 +75,20 @@ public class Tournament {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
-	private User user;
+	private User winner;
 
 	/**
 	 * @brief Matches list (FK)
 	 */
-	@OneToMany(mappedBy="tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy = "tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Match> matches = new HashSet<Match>();
-	
+
 	/**
 	 * @brief UserTournamentMap list (FK)
 	 */
-	@OneToMany(mappedBy="tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();	
-	
+	@OneToMany(mappedBy = "tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();
+
 	/**
 	 * @brief Empty constructor
 	 */
@@ -110,20 +110,20 @@ public class Tournament {
 
 	private String parseCurrentDate(LocalDateTime date) {
 		String pattern = "YYYY-MM-dd";
-		
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-		
+
 		return date.format(formatter);
 	}
-	
+
 	private String parseCurrentHour(LocalDateTime date) {
 		String pattern = "HH:mm";
-		
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-		
+
 		return date.format(formatter);
 	}
-	
+
 	/*
 	 * @brief Getters and setters
 	 */
@@ -159,6 +159,10 @@ public class Tournament {
 		this.date = date;
 	}
 
+	public User getWinner() {
+		return winner;
+	}
+
 	public String getHour() {
 		return hour;
 	}
@@ -166,13 +170,9 @@ public class Tournament {
 	public void setHour(String hour) {
 		this.hour = hour;
 	}
-	
-	public User getUser() {
-		return user;
-	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setWinner(User winner) {
+		this.winner = winner;
 	}
 
 	public Set<Match> getMatches() {

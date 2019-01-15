@@ -5,7 +5,7 @@
 <section id="tournament_list">
   <div class="container-fluid">
     <div class="row px-4 pt-4">
-      <div class="col-10">
+      <div class="col">
         <h2 class="title-style">
           <spring:message code="heroes.title" />
         </h2>

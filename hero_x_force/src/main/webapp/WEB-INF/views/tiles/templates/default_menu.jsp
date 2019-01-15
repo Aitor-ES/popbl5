@@ -26,7 +26,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link"
-            href="${pageContext.request.contextPath}/duels"><spring:message code="header.duels"/></a>
+            href="${pageContext.request.contextPath}/duel/list"><spring:message code="header.duels"/></a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
