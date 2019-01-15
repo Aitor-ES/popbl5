@@ -112,10 +112,17 @@
   </definition>
   
    <!-- Tournaments screen layout -->
-  <definition name="tournaments" extends="template-default">
-    <put-attribute name="title" value="Tournaments" />
+  <definition name="tournament/list" extends="template-default">
+    <put-attribute name="title" value="Tournament List" />
     <put-attribute name="main"
-      value="/WEB-INF/views/pages/tournaments.jsp" />
+      value="/WEB-INF/views/pages/tournament_list.jsp" />
+  </definition>
+  
+     <!-- Tournaments create screen layout -->
+  <definition name="tournament/create" extends="template-default">
+    <put-attribute name="title" value="Tournament Create" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/tournament_create.jsp" />
   </definition>
   
   <!-- Ranking screen layout -->

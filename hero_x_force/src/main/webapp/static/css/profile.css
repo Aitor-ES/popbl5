@@ -31,27 +31,25 @@ body{
 
 /* The design of the box that contains the data */
 .profile-data-box{
-  padding: 1.875rem;
-  left: 1.875rem;
-  right: 1.875rem;
+  padding: 1rem;
   border: 0.0625rem solid var(--borderColorVar);
   background-color:   var(--backgroundVar); /*Black, 70% op.*/
   color: var(--fontColorVar);
-  margin: 1.875rem;
+  margin: 1rem;
 
 }
 
 /* The design of the elements inside the data box*/
 .elements-data-box{
-  margin-left: 2rem;
+  margin-left: 1rem;
   padding: 1.25rem;
   border-left: 0.5rem solid transparent ; 
 }
 
 /* The style of the titles (The Username and Achievements)*/
-#title-style{
+.title-style{
   margin-bottom: 1.25rem;
-  
+  border-left: 1rem solid #ff0000 ; 
   padding: 0.625rem;
   font-size: 3.125rem;
   font-weight: bolder;

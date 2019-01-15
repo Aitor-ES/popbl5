@@ -25,7 +25,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import edu.mondragon.deck.Deck;
 import edu.mondragon.match.Match;
 import edu.mondragon.tournament.Tournament;
@@ -149,6 +148,12 @@ public class User {
 		this.wins = 0;
 		this.loses = 0;
 		this.points = 0;
+		
+		addCards();
+	}
+	
+	private void addCards() {
+		// Add cards to user
 	}
 
 	/*

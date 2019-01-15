@@ -15,6 +15,7 @@ body {
 -------------------------------------------------- */
 #header {
   background-color: #343A40;
+  box-shadow: 0px 0px 3px red;
 }
 
 #language-select .dropdown {
@@ -53,6 +54,13 @@ body {
   font-weight: bold;
 }
 
+
+/* DATATABLES
+-------------------------------------------------- */
+.table-overflow-x {
+  overflow-x: auto;
+}
+
 /* TOP BUTTON
 -------------------------------------------------- */
 #topButton {
@@ -66,6 +74,7 @@ body {
 /* FOOTER
 -------------------------------------------------- */
 .footer {
+  box-shadow: 0px 0px 3px red;
   position: absolute;
   bottom: 0;
   width: 100%;
