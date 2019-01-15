@@ -36,7 +36,10 @@
       
     <!-- D3 JS -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
-      
+
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     
     <!-- Icon library -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
@@ -57,7 +60,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/profile.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/decks.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duels.css"/>"/>
-    
+        
     <!-- Custom js -->
     <script src="<c:url value='/static/js/default.js'/>"></script>
     <script src="<c:url value='/static/js/message.js'/>"></script>

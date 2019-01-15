@@ -30,7 +30,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link"
-            href="${pageContext.request.contextPath}/tournaments"><spring:message code="header.tournaments"/></a>
+            href="${pageContext.request.contextPath}/tournament/list"><spring:message code="header.tournaments"/></a>
         </li>
         <li class="nav-item">
           <a class="nav-link"

@@ -1,35 +1,46 @@
-<!-- Page directives -->
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!-- Spring library -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
-<!-- JSTL library -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <section id="ranking">
-  <h2><spring:message code="ranking.title" /></h2>
-
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col"><spring:message code="ranking.table.number" /></th>
-        <th scope="col"><spring:message code="ranking.table.username" /></th>
-        <th scope="col"><spring:message code="ranking.table.battlesWon" /></th>
-        <th scope="col"><spring:message code="ranking.table.battlesLost" /></th>
-        <th scope="col"><spring:message code="ranking.table.points" /></th>
-      </tr>
-    </thead>
-    <tbody>
-      <c:forEach items="${ranking}" var="user">
-        <tr>
-          <th scope="row">${user.user_id}</th>
-          <td>${user.username}</td>
-          <td>${user.wins}</td>
-          <td>${user.loses}</td>
-          <td>${user.points}</td>
-        </tr>
-      </c:forEach>
-    </tbody>
-  </table>
-</section>
+  <div class="container-fluid">
+    <div class="row px-4 pt-4">
+      <div class="col">
+        <h2 class="title-style"><spring:message code="ranking.title" /></h2>
+      </div>
+    </div>
+    
+    <div class="row px-4 pt-4">
+      <div class="col">
+        <div class="table-overflow-x">
+          <table class="myTable table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col"><spring:message code="ranking.table.number" /></th>
+                <th scope="col"><spring:message code="ranking.table.username" /></th>
+                <th scope="col"><spring:message code="ranking.table.battlesWon" /></th>
+                <th scope="col"><spring:message code="ranking.table.battlesLost" /></th>
+                <th scope="col"><spring:message code="ranking.table.points" /></th>
+              </tr>
+            </thead>
+            <tbody>
+              <c:forEach items="${ranking}" var="user">
+                <tr>
+                  <td scope="row">${user.user_id}</td>
+                  <td>${user.username}</td>
+                  <td>${user.wins}</td>
+                  <td>${user.loses}</td>
+                  <td>${user.points}</td>
+                </tr>
+              </c:forEach>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+ </div>
+ 
+  <!-- Start: Back to top button -->
+  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+  <!-- End: Back to top button -->
+ </section>

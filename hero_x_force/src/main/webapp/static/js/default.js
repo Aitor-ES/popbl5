@@ -1,6 +1,11 @@
 // When the user scrolls down 200px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
+// DataTables initialization
+$(document).ready(function() {
+    $('.myTable').DataTable();
+} );
+
 function scrollFunction() {
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
     document.getElementById("topButton").style.display = "block";

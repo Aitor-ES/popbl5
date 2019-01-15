@@ -13,16 +13,14 @@ package edu.mondragon.spring.controller;
  */
 
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
 import edu.mondragon.tournament.Tournament;
 import edu.mondragon.tournament.TournamentService;
@@ -36,15 +34,15 @@ public class TournamentController {
 	TournamentService tournamentService = ApplicationContextProvider.getContext().getBean(TournamentService.class);
 
 	/**
-	 * @brief Method to redirect to tournaments view
-	 * @param model implementation of Map for use when building data model
-	 * @param request Provides request information for the servlets
+	 * @brief Method to redirect to tournament list view
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
 	 * @param response To assist the servlet in sending a response
-	 * @param model A holder for model attributes
+	 * @param model    A holder for model attributes
 	 * @return String
 	 */
-	@RequestMapping(value = { "/tournaments" }, method = RequestMethod.GET)
-	public String tournamentsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
+	@RequestMapping(value = { "/tournament/list" }, method = RequestMethod.GET)
+	public String tournamentListPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 		if (checkIfUserIsLogged(request, model)) {
 			List<Tournament> availableTournamentList = tournamentService.listTournaments();
@@ -52,21 +50,78 @@ public class TournamentController {
 			for (Tournament t : availableTournamentList) {
 				System.out.println(t.getName());
 			}
-			view = "tournaments";
+			view = "tournament/list";
+		}
+		return view;
+	}
+
+	/**
+	 * @brief Method to redirect to tournament create view
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = { "/tournament/create" }, method = RequestMethod.GET)
+	public String tournamentCreatePage(HttpServletRequest request, Model model) {
+		String view = "home";
+		if (checkIfUserIsLogged(request, model)) {
+			view = "tournament/create";
 		}
 		return view;
 	}
 	
 	/**
+	 * @brief Method that manages the tournament creation form
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/tournament/form", method = RequestMethod.POST)
+	public String registerFormPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		String view = "tournament/create";
+		
+		String name = request.getParameter("name");
+		int participants = Integer.valueOf(request.getParameter("participants"));
+		
+		if (validateData(model, participants))
+		{
+			Tournament tournament = new Tournament(name,participants);
+			tournamentService.addTournament(tournament);
+			model.addAttribute("message", "tournament.participants.success");
+			view = "tournament/list";
+		}
+		
+		return view;
+	}
+
+	/**
+	 * @brief Function to validate tournament data
+	 * @param model
+	 * @param participants
+	 * @return
+	 */
+	public boolean validateData(ModelMap model, int participants) {
+		boolean correct = true;
+		
+		if ((participants%2) != 0 || participants < 4) {
+			model.addAttribute("error", "tournament.participants.fail");
+			correct = false;
+		}
+		
+		return correct;
+	}
+	
+	/**
 	 * @brief Method that checks if users is logged
 	 * @param request Provides request information for the servlets
-	 * @param model A holder for model attributes
+	 * @param model   A holder for model attributes
 	 * @return boolean
 	 */
 	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;		
+		boolean isUserLogged = false;
 		HttpSession session = request.getSession(true);
-		
+
 		if (session.getAttribute("user") != null) {
 			isUserLogged = true;
 		} else {

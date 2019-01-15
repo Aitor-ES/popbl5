@@ -1,72 +1,110 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<div class="container-fluid">
-  <div class="profile-data-box">
-    <div class="row">
-      <div class="col align-self-start fc">
+<section id="profile-data">
+  <div class="container-fluid">
+    <div class="row px-4 pt-4">
+      <div class="col-10">
         <c:choose>
           <c:when test="${pageContext.response.locale.language == 'es'}">
-            <h2 id="title-style"><spring:message code="profile.data.subTitle" /> ${user.username}</h2>
+            <h2 class="title-style"><spring:message code="profile.data.subTitle" /> ${user.username}</h2>
           </c:when>
           <c:otherwise>
-            <h2 id="title-style">${user.username}<spring:message code="profile.data.subTitle" /></h2>
+            <h2 class="title-style">${user.username}<spring:message code="profile.data.subTitle" /></h2>
           </c:otherwise>
         </c:choose>
       </div>
-      <div class="col-2">
+      <div class="col-2 d-flex justify-content-end align-items-center">
           <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/edit" role="button">
-            <i class="fas fa-cog"></i> <spring:message code="profile.data.edit"/>
+            <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
           </a>
       </div>
     </div>
-    <div class="row align-items-center">
-      <div class="col user-elements">
-        <p class="elementsDataBox">
-          <spring:message code="profile.data.username" />
-          ${user.username}
-        </p>
-        <p class="elementsDataBox">
-          <spring:message code="profile.data.email" />
-          ${user.email}
-        </p>
-        <p class="elementsDataBox">
-          <spring:message code="profile.data.points" />
-          ${user.points}
-        </p>
-        <p class="elementsDataBox">
-          <spring:message code="profile.data.battlesWon" />
-          ${user.wins}
-        </p>
-        <p class="elementsDataBox">
-          <spring:message code="profile.data.battlesLost" />
-          ${user.loses}
-        </p>
+    
+    <div class="row px-5">
+      <div class="col-4">
+        <div class="row">
+          <div class="col">
+            <label><spring:message code="profile.data.username" /></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+              	<span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" value="${user.username}" readonly>
+            </div>
+          </div>
+         </div>
+      
+        <div class="row mt-2">
+          <div class="col">
+            <label><spring:message code="profile.data.email" /></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+              	<span class="input-group-text"><i class="fas fa-at"></i></span>
+              </div>
+              <input type="text" class="form-control" name='email' value="${user.email}" readonly>
+            </div>
+          </div>
+         </div>
+                 
+        <div class="row mt-2">
+          <div class="col">
+            <label><spring:message code="profile.data.points" /></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+              	<span class="input-group-text"><i class="fas fa-medal"></i></span>
+              </div>
+              <input type="text" class="form-control" name='points' value="${user.points}" readonly>
+            </div>
+          </div>
+         </div>
+               
+        <div class="row mt-2">
+          <div class="col">
+            <label><spring:message code="profile.data.battlesWon" /></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+              	<span class="input-group-text"><i class="fas fa-smile"></i></span>
+              </div>
+              <input type="text" class="form-control" name='battlesWon' value="${user.wins}" readonly>
+            </div>
+          </div>
+         </div>
+         
+        <div class="row mt-2">
+          <div class="col">
+            <label><spring:message code="profile.data.battlesLost" /></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+              	<span class="input-group-text"><i class="fas fa-sad-tear"></i></span>
+              </div>
+              <input type="text" class="form-control" name='battlesLost' value="${user.loses}" readonly>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col">
+      
+      <div class="col-6 d-flex justify-content-center align-items-center">
         <p>IKER: win percentage pie chart</p>
       </div>
     </div>
-  </div>
-</div>
-<div class="container-fluid ">
-  <div class="profile-data-box">
-    <div class="row align-items-center">
-      <div class="col-8" id="achievement-table">
-        <h3 id="title-style">
-          <spring:message code="profile.data.achievement.title" />
-        </h3>
+      
+    <div class="row px-4 pt-5">
+    	<div class="col">
+        <h2 class="title-style"><spring:message code="profile.data.achievement.title" /></h2>
+      </div>
+    </div>
+    
+    <div class="row px-4 mb-5">
+      <div class="col-8">
         <table class="table ach-table">
           <thead>
             <tr>
-              <th class="ach-table-header ach-table-data"><spring:message
-                  code="profile.data.achievement.name" /></th>
-              <th class="ach-table-header ach-table-date"><spring:message
-                  code="profile.data.achievement.unlockedDate" /></th>
-              <th class="ach-table-header ach-table-date"><spring:message
-                  code="profile.data.achievement.points" /></th>
-              <th class="ach-table-header ach-table-date"><spring:message
-                  code="profile.data.achievement.description" /></th>
+              <th class="ach-table-header ach-table-data"><spring:message code="profile.data.achievement.name" /></th>
+              <th class="ach-table-header ach-table-date"><spring:message code="profile.data.achievement.unlockedDate" /></th>
+              <th class="ach-table-header ach-table-date"><spring:message code="profile.data.achievement.points" /></th>
+              <th class="ach-table-header ach-table-date"><spring:message code="profile.data.achievement.description" /></th>
             </tr>
           </thead>
           <tbody>
@@ -81,13 +119,13 @@
           </tbody>
         </table>
       </div>
-      <div class="col-4" id="win-chart">
+      <div class="col-4 d-flex justify-content-center align-items-center" id="win-chart">
         <p>IKER: Achievement percentage pie chart</p>
       </div>
     </div>
   </div>
-</div>
-
-<!-- Start: Back to top button -->
-<button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
-<!-- End: Back to top button -->
+  
+  <!-- Start: Back to top button -->
+  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+  <!-- End: Back to top button -->
+</section>

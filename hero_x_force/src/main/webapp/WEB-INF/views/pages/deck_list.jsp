@@ -1,30 +1,29 @@
-<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
-<!-- Spring tags -->
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-
-<!-- JSTL tags -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <section id="deck-list">
-  <div class="d-flex justify-content-between align-items-center">
-    <h2 class="deck-list-title"><spring:message code="deck.list.title"/></h2>
-  	<div class="add-button-deck-list">
-      <img src="${pageContext.request.contextPath}/static/img/default/add.jpg" alt="add icon">
-      <a class="btn btn-danger" href="${pageContext.request.contextPath}/deck/form" role="button"><spring:message code="action.new"/></a>
-  	</div>
-  </div>
-  
   <div class="container-fluid">
+    <div class="row px-4 pt-4">
+      <div class="col-10">
+        <h2 class="title-style"><spring:message code="deck.list.title"/></h2>
+      </div>
+      <div class="col-2 d-flex justify-content-end align-items-center">
+        <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/form" role="button">
+          <i class="fas fa-plus"></i> <spring:message code="action.new"/>
+        </a>
+      </div>
+    </div>
+
     <!--c:forEach items="${deckList}" var="deck"-->
     <div class="deck-list-data-box">
-      <div class="row deck-list-title-row">
+      <div class="row deck-list-title-row mr-3">
           <h3><a class="deck-title" href="${pageContext.request.contextPath}/deck/data">Deck name</a></h3>
-          <div class="edit-button-deck-list">
-            <img src="${pageContext.request.contextPath}/static/img/default/edit.jpg" alt="edit icon">
-            <a class="btn btn-danger" href="${pageContext.request.contextPath}/deck/${deck.deck_id}/form" role="button">
-              <spring:message code="action.edit"/></a>          </div>
+          <div class="d-flex justify-content-end">
+            <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/${deck.deck_id}/form" role="button">
+              <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
+            </a>
+          </div>
         </div> 
       <div class="deck-cards row">
         <!--c:forEach items="${deck.cardList}" var="card"-->
@@ -45,7 +44,11 @@
             </div>
           </c:forEach>
         </div>
-        </div>
       </div>
+    </div>
   </div>
+  
+  <!-- Start: Back to top button -->
+  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+  <!-- End: Back to top button -->
 </section>
