@@ -27,18 +27,12 @@
     </div>
     
     <ul class="list-group">
-      <c:forEach items="${user_2_matchMapList}" var="user_2_matchMap">
+      <c:forEach items="${matchesAsUser_2}" var="matchAsUser_2">
         <li class="list-group-item d-flex align-items-center bd-highlight mb-3">
-          <span class="mr-auto bd-highlight">${user_2_matchMap.user_1.username}</span>
-        <li
-          class="list-group-item d-flex align-items-center bd-highlight mb-3">
-          <span class="mr-auto  bd-highlight">Izq</span>
-          <button type="submit" class="btn btn-success bd-highlight mr-1">
-            <spring:message code="duels.buttonAccept" />
-          </button>
-          <button type="submit" class="btn btn-danger bd-highlight ml-1">
-            <spring:message code="duels.buttonRefuse" />
-          </button>
+          <span class="mr-auto bd-highlight">${matchAsUser_2.user_1.username}</span>
+          <a class="btn btn-success bd-highlight mr-1" href="${pageContext.request.contextPath}/duel/${matchAsUser_2.match_id}/loadBattle"
+            role="button"><spring:message code="action.accept" /></a>
+          <button type="submit" class="btn btn-danger bd-highlight ml-1"><spring:message code="action.refuse" /></button>
         </li>
       </c:forEach>
     </ul>
@@ -49,8 +43,3 @@
   <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
   <!-- End: Back to top button -->
 </section>
-
-
-
-
-

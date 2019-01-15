@@ -21,4 +21,6 @@ public interface CardService {
 	List<Card> listCards();
 
 	Card getCardById(int card_id);
+	
+	int getHeroNumber();
 }

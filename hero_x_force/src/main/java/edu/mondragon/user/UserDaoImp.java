@@ -24,9 +24,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.mondragon.deck.Deck;
+import edu.mondragon.match.Match;
 import edu.mondragon.userachievementmap.UserAchievementMap;
 import edu.mondragon.usercardmap.UserCardMap;
-import edu.mondragon.usermatchmap.UserMatchMap;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -36,14 +36,14 @@ public class UserDaoImp implements UserDao {
 	 */
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	/**
 	 * @brief Method to obtain the current session
 	 * @return Session
 	 */
 	protected Session getCurrentSession() {
-        return sessionFactory.getCurrentSession();
-    }
+		return sessionFactory.getCurrentSession();
+	}
 
 	/**
 	 * @brief This method adds a user
@@ -54,7 +54,7 @@ public class UserDaoImp implements UserDao {
 	public void addUser(User user) {
 		getCurrentSession().save(user);
 	}
-	
+
 	/**
 	 * @brief This method update a user
 	 * @param user User object
@@ -64,7 +64,7 @@ public class UserDaoImp implements UserDao {
 	public void updateUser(User user) {
 		getCurrentSession().update(user);
 	}
-	
+
 	/**
 	 * @bried This method removes a user
 	 * @param user
@@ -104,7 +104,8 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public User getUserByName(String name) {
 		@SuppressWarnings("unchecked")
-		TypedQuery<User> query = getCurrentSession().createQuery("FROM User AS user WHERE user.username = '" + name + "'");
+		TypedQuery<User> query = getCurrentSession()
+				.createQuery("FROM User AS user WHERE user.username = '" + name + "'");
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
 
@@ -116,7 +117,8 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public User getUserByEmail(String email) {
 		@SuppressWarnings("unchecked")
-		TypedQuery<User> query = getCurrentSession().createQuery("FROM User As user WHERE user.email = '" + email + "'");
+		TypedQuery<User> query = getCurrentSession()
+				.createQuery("FROM User As user WHERE user.email = '" + email + "'");
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
 
@@ -139,14 +141,14 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public Set<UserMatchMap> getUser_1_matches(int user_id) {
+	public Set<Match> getMatchesAsUser_1(int user_id) {
 		User user = getCurrentSession().find(User.class, user_id);
-		return user.getUser_1_matchMap();
+		return user.getMatchesAsUser_1();
 	}
 
 	@Override
-	public Set<UserMatchMap> getUser_2_matches(int user_id) {
+	public Set<Match> getMatchesAsUser_2(int user_id) {
 		User user = getCurrentSession().find(User.class, user_id);
-		return user.getUser_2_matchMap();
+		return user.getMatchesAsUser_2();
 	}
 }

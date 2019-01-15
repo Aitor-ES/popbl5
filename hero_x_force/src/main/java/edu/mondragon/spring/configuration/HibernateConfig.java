@@ -39,7 +39,6 @@ import edu.mondragon.tournament.Tournament;
 import edu.mondragon.user.User;
 import edu.mondragon.userachievementmap.UserAchievementMap;
 import edu.mondragon.usercardmap.UserCardMap;
-import edu.mondragon.usermatchmap.UserMatchMap;
 import edu.mondragon.usertournamentmap.UserTournamentMap;
 
 @Configuration
@@ -56,7 +55,6 @@ import edu.mondragon.usertournamentmap.UserTournamentMap;
 		@ComponentScan("edu.mondragon.user"),
 		@ComponentScan("edu.mondragon.userachievementmap"),
 		@ComponentScan("edu.mondragon.usercardmap"),
-		@ComponentScan("edu.mondragon.usermatchmap"),
 		@ComponentScan("edu.mondragon.usertournamentmap") })
 public class HibernateConfig {
 
@@ -99,7 +97,7 @@ public class HibernateConfig {
 				Ability.class, Card.class, UserCardMap.class,
 				Deck.class,	DeckCardMap.class,
 				Tournament.class, UserTournamentMap.class,
-				Match.class, UserMatchMap.class);
+				Match.class);
 
 		return factoryBean;
 	}
