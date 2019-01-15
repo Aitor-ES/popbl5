@@ -1,12 +1,7 @@
-<!-- Page directives -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"  %>
-
-<!-- Spring tags -->
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-
-<!-- JSTL tags -->
-<!--%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <section id="card-data">
   <div class="container-fluid">
@@ -53,7 +48,7 @@
 		</div>
       </div>
       <div class="col-3">
-        <div><h2>Card</h2></div>
+        <div><h2>${card.name}</h2></div>
         <div><spring:message code="card.data.saga"/>: ${card.saga}</div>
         <div><spring:message code="card.data.type"/>: ${card.type}</div>
         <div><spring:message code="card.data.ability"/>: ${card.ability.name}</div>
