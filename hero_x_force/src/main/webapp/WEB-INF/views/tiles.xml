@@ -91,10 +91,10 @@
   </definition>
   
   <!-- Heroes screen layout -->
-  <definition name="card/list" extends="template-default">
+  <definition name="heroes" extends="template-default">
     <put-attribute name="title" value="Heroes" />
     <put-attribute name="main"
-      value="/WEB-INF/views/pages/card_list.jsp" />
+      value="/WEB-INF/views/pages/heroes.jsp" />
   </definition>
   
   <!-- Edit Create card screen layout -->
