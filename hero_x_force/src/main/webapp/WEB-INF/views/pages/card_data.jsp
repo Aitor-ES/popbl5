@@ -12,7 +12,7 @@
     </div>
     
     <div class="row">
-      <div class="col-sm-5 col-12">
+      <div class="col-sm-5 col-12 ml-5">
         <div class="heroCardFather" id="card${card.card_id}">
           <div class="heroCardStatic">
             <div class="cardImg" style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
@@ -20,6 +20,7 @@
               src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
               alt="edit icon">
             <div class="titleArea">
+            <script>changeTitleFontSize();</script>
               <div class="heroName" id="${card.name}">${card.name}</div>
             </div>
             <div class="stats">

@@ -11,9 +11,9 @@
         </h2>
       </div>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-4 ml-5">
       <c:forEach items="${heroesList}" var="card">
-        <div class="col-sm-4">
+        <div class="col-sm-4 py-5 px-3">
           <div class="heroCardFather" id="card${card.card_id }">
             <div class="heroCard">
               <div class="cardImg"
@@ -24,6 +24,7 @@
                 alt="edit icon">
               </a>
               <div class="titleArea">
+              <script>changeTitleFontSize();</script>
                 <div class="heroName" id="${card.name}">${card.name}</div>
               </div>
               <div class="stats">
