@@ -67,6 +67,7 @@
     <script src="<c:url value='/static/js/message.js'/>"></script>
     <script src="<c:url value='/static/js/deck_form.js'/>"></script>
     <script src="<c:url value='/static/js/radar_chart.js'/>"></script>
+    <script src="<c:url value='/static/js/cardHeaderSize.js'/>"></script>
 
     <!-- Title -->
     <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 

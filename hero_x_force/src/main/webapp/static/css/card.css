@@ -1,9 +1,9 @@
 .titleArea {
   position: absolute;
-  left: 200px;
+  left: 22.579px;
   top: -1px;
-  width: 2500px;
-  height: 434px;
+  width: 282.24px;
+  height: 48.99px;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -11,35 +11,35 @@
 }
 
 .heroName {
-  font-size: 240px;
+  font-size: 27.095px;
   font-family: "Orbitron";
   color: rgb(253, 246, 246);
   line-height: 1.2;
   text-align: center;
-  text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.75);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
   
 }
 
 .stats {
   position: absolute;
   left: -1px;
-  top: 3320px;
-  width: 1500px;
-  height: 848px;
+  top: 374.82px;
+  width: 168.346px;
+  height: 95.737px;
   z-index: 51;
   display: grid;
-  grid-template-columns: auto auto 50px 100px;
+  grid-template-columns: auto auto 5.65px 11.289px;
   grid-template-areas: 
   "ATK ATK_val MATK MATK_val"
   "DEF DEF_val MDEF MDEF_val"
   "HP HP_val SPD SPD_val";
   justify-content: space-around;
   align-items: center;
-  grid-column-gap: 250px;
+  grid-column-gap: 28.224px;
 }
 
 .statName {
-  font-size: 110px;
+  font-size: 12.418px;
   font-family: "Orbitron";
   color: rgb(253, 253, 253);
   line-height: 1.2;
@@ -78,7 +78,7 @@
 }
 
 .statValue{
-  font-size: 110px;
+  font-size: 12.418px;
   font-family: "Orbitron";
   color: red;
   line-height: 1.2;
@@ -119,9 +119,9 @@
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;  
-  top: 429px;
-  width: 2737px;
-  height: 2702px;
+  top: 48.433px;
+  width: 309px;
+  height: 305.048px;
   z-index: 6;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .saga {
-  font-size: 120px;
+  font-size: 13.548px;
   font-family: "Orbitron";
   color: rgb(247, 223, 103);
   line-height: 1.2;
@@ -142,9 +142,9 @@
 
 .sagaArea {
   position: absolute;
-  top: 3130px;
-  width: 1600px;
-  height: 170px;
+  top: 353.369px;
+  width: 180.636px;
+  height: 19.193px;
   left: 0px;
   z-index: 29;
   display: flex;
@@ -154,15 +154,15 @@
 
 .abilityArea{
  position: absolute;
-  top: 3320px;
-  width: 1000px;
-  height: 848px;
-  left: 1700px;
+  top: 374.819px;
+  width: 112.897px;
+  height: 95.737px;
+  left: 191.925px;
   z-index: 59;
 }
 
 .abilityTitle {
-  font-size: 120px;
+  font-size: 13.548px;
   font-family: "Orbitron";
   color: rgb(247, 223, 103);
   line-height: 1.5;
@@ -171,7 +171,7 @@
 }
 
 .abilityName {
-  font-size: 120px;
+  font-size: 13.548px;
   font-family: "Orbitron";
   color: red;
   line-height: 1.5;
@@ -181,10 +181,10 @@
 
 .levelArea {
   position: absolute;
-  top: 3130px;
-  width: 950px;
-  height: 170px;
-  left: 1770px;
+  top: 353.369px;
+  width: 107.252px;
+  height: 19.193px;
+  left: 199.828px;
   z-index: 40;
 
   display: flex;
@@ -194,8 +194,8 @@
 
 .levelStar {
   background-image: url("../img/elements/star.png");
-  width: 182px;
-  height: 142px;
+  width: 20px;
+  height: 16px;
  }
 
 .heroCardFather {
@@ -206,17 +206,17 @@
 }
 
 .heroCard {
-  transform: scale(0.1, 0.1);
+  transform: scale(1,1);
   -ms-transform: scale(0.1, 0.1); /* IE 9 */
-  -webkit-transform: scale(0.1, 0.1); /* Safari and Chrome */
+  -webkit-transform: scale(1, 1); /* Safari and Chrome */
   -o-transform: scale(0.1, 0.1); /* Opera */
   -moz-transform: scale(0.1, 0.1); /* Firefox */
 }
 
 .heroCardStatic {
-  transform: scale(0.1, 0.1);
+  transform: scale(1, 1);
   -ms-transform: scale(0.1, 0.1); /* IE 9 */
-  -webkit-transform: scale(0.1, 0.1); /* Safari and Chrome */
+  -webkit-transform: scale(1, 1); /* Safari and Chrome */
   -o-transform: scale(0.1, 0.1); /* Opera */
   -moz-transform: scale(0.1, 0.1); /* Firefox */
   
@@ -227,9 +227,9 @@
 }
 
 .heroCard:hover{
-  transform: scale(0.11, 0.11);
+  transform: scale(1.1, 1.1);
   -ms-transform: scale(0.1, 0.1); /* IE 9 */
-  -webkit-transform: scale(0.105, 0.105); /* Safari and Chrome */
+  -webkit-transform: scale(1.1, 1.1); /* Safari and Chrome */
   -o-transform: scale(0.1, 0.1); /* Opera */
   -moz-transform: scale(0.1, 0.1); /* Firefox */
 }
