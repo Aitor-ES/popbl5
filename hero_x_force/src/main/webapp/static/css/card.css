@@ -206,11 +206,16 @@
 }
 
 .heroCard{
-	transform: scale(0.1, 0.1);
+   transform: scale(0.1, 0.1);
   -ms-transform: scale(0.1, 0.1); /* IE 9 */
   -webkit-transform: scale(0.1, 0.1); /* Safari and Chrome */
   -o-transform: scale(0.1, 0.1); /* Opera */
   -moz-transform: scale(0.1, 0.1); /* Firefox */
+  
+  -webkit-transition:all .9s ease; /* Safari y Chrome */
+  -moz-transition:all .9s ease; /* Firefox */
+  -o-transition:all .9s ease; /* IE 9 */
+  -ms-transition:all .9s ease; /* Opera */
 }
 .heroCard:hover{
 	transform: scale(0.11, 0.11);

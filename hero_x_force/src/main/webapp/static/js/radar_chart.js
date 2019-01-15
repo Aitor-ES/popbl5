@@ -1,7 +1,22 @@
+/*
+  opacityArea: 0.5,
+  radius: 4,
+  fontFamily: "sans-serif",
+  fontSize: "12px",
+  polygonColor: "gray",
+  lineColor: "gray",
+  polygonBorderColor: "black",
+  pointColor: "white",
+  pointBorderColor: "gray",
+  textColor: "black",
+  polygonBorderWidth: "1px",
+  segmentColor: "gray"--> 
+*/
+
 var radar_chart = {
   draw: function(id, d, options){
     var cfg = {
-     radius: 5,
+     
      w: 600,
      h: 600,
      factor: 1,
@@ -9,14 +24,29 @@ var radar_chart = {
      levels: 3,
      maxValue: 0,
      radians: 2 * Math.PI,
-     fontFamily: "sans-serif",
-     opacityArea: 0.5,
+     
+     
      ToRight: 5,
-     TranslateX: 80,
+     TranslateX: 30,
      TranslateY: 30,
      ExtraWidthX: 100,
      ExtraWidthY: 100,
-     color: d3.scaleOrdinal().range(["#6F257F", "#CA0D59"])
+     color: d3.scaleOrdinal().range(["#6F257F", "#CA0D59"]),
+
+     opacityArea: 0.5,
+     radius: 4,
+
+     fontFamily: "sans-serif",
+     fontSize: "12px",
+    
+     polygonColor: "gray",
+     lineColor: "gray",
+     polygonBorderColor: "black",
+     pointColor: "white",
+     pointBorderColor: "gray",
+     textColor: "black",
+     polygonBorderWidth: "1px",
+     segmentColor: "gray"
     };
 	  console.log(d);
     if('undefined' !== typeof options){
@@ -27,7 +57,7 @@ var radar_chart = {
       }
     }
     
-    cfg.maxValue = 100;
+   
     
     var allAxis = (d[0].map(function(i, j){return i.area}));
     var total = allAxis.length;
@@ -56,7 +86,7 @@ var radar_chart = {
        .attr("x2", function(d, i){return levelFactor*(1-cfg.factor*Math.sin((i+1)*cfg.radians/total));})
        .attr("y2", function(d, i){return levelFactor*(1-cfg.factor*Math.cos((i+1)*cfg.radians/total));})
        .attr("class", "line")
-       .style("stroke", "grey")
+       .style("stroke", cfg.segmentColor)
        .style("stroke-opacity", "0.75")
        .style("stroke-width", "0.3px")
        .attr("transform", "translate(" + (cfg.w/2-levelFactor) + ", " + (cfg.h/2-levelFactor) + ")");
@@ -93,16 +123,17 @@ var radar_chart = {
       .attr("x2", function(d, i){return cfg.w/2*(1-cfg.factor*Math.sin(i*cfg.radians/total));})
       .attr("y2", function(d, i){return cfg.h/2*(1-cfg.factor*Math.cos(i*cfg.radians/total));})
       .attr("class", "line")
-      .style("stroke", "grey")
+      .style("stroke", cfg.lineColor)
       .style("stroke-width", "1px");
 
     axis.append("text")
       .attr("class", "legend")
       .text(function(d){return d})
       .style("font-family", cfg.fontFamily)
-      .style("font-size", "11px")
+      .style("font-size", cfg.fontSize)
+      .style("fill", cfg.textColor)
       .attr("text-anchor", "middle")
-      .attr("dy", "1.5em")
+      .attr("dy", "1.2em")
       .attr("transform", function(d, i){return "translate(0, -10)"})
       .attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
       .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
@@ -123,8 +154,8 @@ var radar_chart = {
              .enter()
              .append("polygon")
              .attr("class", "radar-chart-serie"+series)
-             .style("stroke-width", "2px")
-             .style("stroke", cfg.color(series))
+             .style("stroke-width", cfg.polygonBorderWidth)
+             .style("stroke", cfg.polygonBorderColor)
              .attr("points",function(d) {
                var str="";
                for(var pti=0;pti<d.length;pti++){
@@ -132,7 +163,7 @@ var radar_chart = {
                }
                return str;
               })
-             .style("fill", function(j, i){return cfg.color(series)})
+             .style("fill", cfg.polygonColor)
              .style("fill-opacity", cfg.opacityArea)
              .on('mouseover', function (d){
                       z = "polygon."+d3.select(this).attr("class");
@@ -172,9 +203,9 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
         return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
       })
       .attr("data-id", function(j){return j.area})
-      .style("fill", "#fff")
+      .style("fill", cfg.pointColor)
       .style("stroke-width", "2px")
-      .style("stroke", cfg.color(series)).style("fill-opacity", .9)
+      .style("stroke", cfg.pointBorderColor)
       /*.on('mouseover', function (d){
         console.log(d.area)
             tooltip

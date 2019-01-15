@@ -101,19 +101,25 @@
  
         <script>
           var config = {
-              w: 150,
-              h: 150,
-              maxValue: 100,
+              maxValue: 200,
               levels: 5,
               fontFamily: "orbitron",
-              ExtraWidthX: 150
+             
           }
+          $.ajax({
+          	  data: {id: "${card.card_id}"},
+          	  url: "${pageContext.request.contextPath}/card/stats",
+          	  type: 'get',
+          	  beforeSend: function(){
+      		  },
+      	  	  success: function(data){
+      			  var jsonObject = JSON.parse(data);
+      			  console.log(jsonObject);
+      	          //Call function to draw the Radar chart
+      	          radar_chart.draw("#chart", jsonObject, config);
+      		  }
+  		  });
           
-          //Call function to draw the Radar chart
-          d3.json("${pageContext.request.contextPath}/static/js/data.json", function(error, data) {
-              if (error) throw error;
-              radar_chart.draw("#chart", data, config);
-          });
         </script>
        </div>
       </div>
