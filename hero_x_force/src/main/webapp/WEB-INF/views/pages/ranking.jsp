@@ -16,17 +16,17 @@
           <table class="myTable table table-hover">
             <thead class="thead-dark">
               <tr>
-                <th scope="col"><spring:message code="ranking.table.number" /></th>
-                <th scope="col"><spring:message code="ranking.table.username" /></th>
-                <th scope="col"><spring:message code="ranking.table.battlesWon" /></th>
-                <th scope="col"><spring:message code="ranking.table.battlesLost" /></th>
-                <th scope="col"><spring:message code="ranking.table.points" /></th>
+                <th><spring:message code="ranking.table.number" /></th>
+                <th><spring:message code="ranking.table.username" /></th>
+                <th><spring:message code="ranking.table.battlesWon" /></th>
+                <th><spring:message code="ranking.table.battlesLost" /></th>
+                <th><spring:message code="ranking.table.points" /></th>
               </tr>
             </thead>
             <tbody>
               <c:forEach items="${ranking}" var="user">
                 <tr>
-                  <td scope="row">${user.user_id}</td>
+                  <td>${user.user_id}</td>
                   <td>${user.username}</td>
                   <td>${user.wins}</td>
                   <td>${user.loses}</td>

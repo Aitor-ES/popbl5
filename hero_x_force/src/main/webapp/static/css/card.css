@@ -51,22 +51,27 @@
   z-index: 50;
   grid-area: MDEF;
 }
+
 .MATK {
   z-index: 49;
   grid-area: MATK;
 }
+
 .HP{
   z-index: 48;
   grid-area: HP;
 }
+
 .SPD {
   z-index: 47;
   grid-area: SPD;
 }
+
 .DEF {
   z-index: 46;
   grid-area: DEF;
 }
+
 .ATK {
   z-index: 45;
   grid-area: ATK;
@@ -78,33 +83,37 @@
   color: red;
   line-height: 1.2;
   position: absolute;
-
 }
+
 .MDEF_VAL {
   grid-area: MDEF_val;
   z-index: 58;
 }
+
 .MATK_VAL {
   grid-area: MATK_val;
   z-index: 57;
 }
+
 .HP_VAL {
   grid-area: HP_val;
   z-index: 56;
 }
+
 .SPD_VAL{
   grid-area: SPD_val;
   z-index: 55;
 }
+
 .DEF_VAL {
   grid-area: DEF_val;
   z-index: 54;
 }
+
 .ATK_VAL {
   grid-area: ATK_val;
   z-index: 53;
 }
-
 
 .cardImg {
   position: absolute;
@@ -194,16 +203,24 @@
   height:500px;
   margin-left:0px;
   margin-right:0px;
-
 }
 
-.heroCard{
+.heroCard {
   transform: scale(0.1, 0.1);
   -ms-transform: scale(0.1, 0.1); /* IE 9 */
   -webkit-transform: scale(0.1, 0.1); /* Safari and Chrome */
   -o-transform: scale(0.1, 0.1); /* Opera */
   -moz-transform: scale(0.1, 0.1); /* Firefox */
 }
+
+.heroCardStatic {
+  transform: scale(0.1, 0.1);
+  -ms-transform: scale(0.1, 0.1); /* IE 9 */
+  -webkit-transform: scale(0.1, 0.1); /* Safari and Chrome */
+  -o-transform: scale(0.1, 0.1); /* Opera */
+  -moz-transform: scale(0.1, 0.1); /* Firefox */
+}
+
 .heroCard:hover{
   transform: scale(0.11, 0.11);
   -ms-transform: scale(0.1, 0.1); /* IE 9 */
@@ -211,5 +228,3 @@
   -o-transform: scale(0.1, 0.1); /* Opera */
   -moz-transform: scale(0.1, 0.1); /* Firefox */
 }
-
-

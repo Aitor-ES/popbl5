@@ -14,6 +14,7 @@
 package edu.mondragon.usercardmap;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,10 +42,16 @@ public class UserCardMap {
 	private Integer user_card_map_id;
 
 	/**
-	 * @brief Unlock date
+	 * @brief Match date
 	 */
 	@Column(name = "DATE")
-	private LocalDateTime date;
+	private String date;
+	
+	/**
+	 * @brief Match hour
+	 */
+	@Column(name = "HOUR")
+	private String hour;
 	
 	/**
 	 * @brief User user id (FK)
@@ -64,9 +71,26 @@ public class UserCardMap {
 	 * @brief Class constructor
 	 */
 	public UserCardMap() {
-		this.date = LocalDateTime.now();
+		this.date = parseCurrentDate(LocalDateTime.now());
+		this.hour = parseCurrentHour(LocalDateTime.now());
 	}
 
+	private String parseCurrentDate(LocalDateTime date) {
+		String pattern = "YYYY-MM-dd";
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		
+		return date.format(formatter);
+	}
+	
+	private String parseCurrentHour(LocalDateTime date) {
+		String pattern = "HH:mm";
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		
+		return date.format(formatter);
+	}
+	
 	/*
 	 * @brief Getters and setters
 	 */
@@ -78,12 +102,20 @@ public class UserCardMap {
 		this.user_card_map_id = user_card_map_id;
 	}
 
-	public LocalDateTime getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getHour() {
+		return hour;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
 	}
 
 	public User getUser() {

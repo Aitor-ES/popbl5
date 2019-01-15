@@ -71,4 +71,15 @@ public class CardDaoImp implements CardDao {
         return sessionFactory.getCurrentSession();
     }
 
+	/**
+	 * @brief Method to return the number of heroes
+	 * @return int number of heroes
+	 */
+	@Override
+	public int getHeroNumber() {
+		@SuppressWarnings("unchecked")
+		TypedQuery<Card> query = getCurrentSession().createQuery("FROM Card");
+		return query.getResultList().size();
+	}
+
 }

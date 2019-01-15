@@ -148,12 +148,6 @@ public class User {
 		this.wins = 0;
 		this.loses = 0;
 		this.points = 0;
-		
-		addCards();
-	}
-	
-	private void addCards() {
-		// Add cards to user
 	}
 
 	/*

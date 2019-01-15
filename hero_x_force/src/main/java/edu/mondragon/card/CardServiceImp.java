@@ -60,4 +60,13 @@ public class CardServiceImp implements CardService {
 		return cardDao.listCards();
 	}
 
+	/**
+	 * @brief Method to return the number of heroes
+	 * @return int number of heroes
+	 */
+	@Override
+	public int getHeroNumber() {
+		return cardDao.getHeroNumber();
+	}
+
 }

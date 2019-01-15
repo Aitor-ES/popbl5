@@ -89,7 +89,7 @@ public class TournamentController {
 			Tournament tournament = new Tournament(name,participants);
 			tournamentService.addTournament(tournament);
 			model.addAttribute("message", "tournament.participants.success");
-			view = "tournament/list";
+			view = "redirect:/tournament/list";
 		}
 		
 		return view;
@@ -104,12 +104,22 @@ public class TournamentController {
 	public boolean validateData(ModelMap model, int participants) {
 		boolean correct = true;
 		
-		if ((participants%2) != 0 || participants < 4) {
+		if (!IsPowerOfTwo(participants) || participants < 4) {
 			model.addAttribute("error", "tournament.participants.fail");
 			correct = false;
 		}
 		
 		return correct;
+	}
+	
+	/**
+	 * @brief checks if a number is a power of two
+	 * @param participants
+	 * @return
+	 */
+	public Boolean IsPowerOfTwo(int participants)
+	{
+	    return (participants != 0) && ((participants & (participants - 1)) == 0);
 	}
 	
 	/**
