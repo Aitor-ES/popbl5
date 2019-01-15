@@ -10,41 +10,18 @@
 
 body{
   /*background-image: url("../img/profile/background.png");*/
- 
   background-repeat: no-repeat;
   background-size: cover;  
   font-family: "Orbitron";
   src: url('../font/orbitron.ttf');
   color:#494949;
-  --backgroundVar: transparent important!;
-  --borderColorVar: transparent;
-  --backgroundButton: orange;
-  
-  --borderColorBox: transparent;
   --borderColorData: transparent;
-  --borderColorButton:orange;
   --textShadowVar:0rem 0.125rem 0.125rem #ffffff7F;/*White, 70% op.*/
 }
 
 /* USER DATA
 -------------------------------------------------- */
 
-/* The design of the box that contains the data */
-.profile-data-box{
-  padding: 1rem;
-  border: 0.0625rem solid var(--borderColorVar);
-  background-color:   var(--backgroundVar); /*Black, 70% op.*/
-  color: var(--fontColorVar);
-  margin: 1rem;
-
-}
-
-/* The design of the elements inside the data box*/
-.elements-data-box{
-  margin-left: 1rem;
-  padding: 1.25rem;
-  border-left: 0.5rem solid transparent ; 
-}
 
 /* The style of the titles (The Username and Achievements)*/
 .title-style{
@@ -56,57 +33,7 @@ body{
   text-shadow: var(--textShadowVar);
 }
 
-/*The div that contains all the elements inside the data box*/
-.user-elements{
-   margin-left: 2rem;
-   font-weight: lighter;
-   text-shadow: var(--textShadowVar);
-}
 
-/* EDIT BUTTON
--------------------------------------------------- */
-/*Icon of the edit button*/
-.edit-button-profile{
-  display:flex;
-  margin: 1.25rem !important;
-  
-}
-.edit-button-profile > img{
-  width: 3.125rem;
-  height: 3.125rem;
-}
-/*Text of the edit button*/
-.edit-button-profile > a{
-  color: var(--colorButton)
-  height: 3.125rem;
-  border: 0.0625rem solid var(--borderColorButton);
-  background-color: transparent;
-  border-radius:0;
-  font-weight: bolder !important;
-  font-size: 1.563rem;
-  
-}
-/*Transition of the button*/
-.edit-button-profile > a{
-  -webkit-transition: background-color 1s ease-out;
-  -moz-transition: background-color 1s ease-out;
-  -o-transition: background-color 1s ease-out;
-  transition: background-color 1s ease-out;
- 
-}
-.edit-button-profile >a:hover{
-  background-color: var( --backgroundButton);
-  border: 0.0625rem solid var(--borderColorVar);
-}
-
-.edit-button-profile >a:active{
-  background-color:  var( --backgroundButton) !important;
-  border: 0.0625rem solid var(--borderColorVar) !important;
-}
-.edit-button-profile >a:focus{
-  background-color: var( --backgroundButton) !important;
-  border: 0.0625rem solid var(--borderColorVar) !important;
-}
 
 /* ACHIEVEMENTS TABLE
 -------------------------------------------------- */
