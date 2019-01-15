@@ -1,62 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <section id="deck-form">
-  <div class="container-fluid">
+    <!-- Start: Title -->
     <div class="row px-4 pt-4">
       <div class="col">
-        <h2 class="title-style"><spring:message code="deck.form.title.create"/></h2>       
+        <h2 class="title-style"><spring:message code="deck.form.title.create"/></h2>
+        <p><spring:message code="deck.form.instructions"/></p>  
       </div>
     </div>
+    <!-- End: Title -->
     
-    <form name="userForm" action="${pageContext.request.contextPath}/profile/form" method='POST'>
+    <!-- Start: Form -->
+    <form name="userForm" action="${pageContext.request.contextPath}/deck/form/save" method='POST'>
+      <!-- Start: ID and name inputs and buttons -->
       <div class="row px-5">
         <div class="col-4 d-flex justify-content-end align-items-center">
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-pen"></i></span>
             </div>
-            <input type="text" class="form-control" name='deckName' placeholder="<spring:message code="deck.form.name"/>" required>
+            <c:if test="${not empty deck}">
+              <input type="text" class="form-control" name='deck_id'
+                value="${deck.deck_id}" required readonly>
+            </c:if>
+            <input type="text" class="form-control" name='deckName'
+              placeholder="<spring:message code="deck.form.name.placeholder"/>" value="${deck.name}" required>
           </div>
         </div>
         <div class="col-8 d-flex justify-content-end align-items-center">
           <a class="btn btn-lg btn-warning mr-3" href="${pageContext.request.contextPath}/deck/list" role="button">
-            <i class="fas fa-times-circle"></i> <spring:message code="action.cancel"/>
-          </a>
+            <i class="fas fa-times-circle"></i><spring:message code="action.cancel"/></a>
           <button class="btn btn-lg btn-warning ml-3 mt-3 mb-3" type="submit" name="submit">
-            <i class="fas fa-check-circle"></i> <spring:message code="action.save" />
-          </button>
+            <i class="fas fa-check-circle"></i><spring:message code="action.save" /></button>
         </div>  
       </div>
+      <!-- End: ID and name inputs and buttons -->
       
-      <div class="row mx-5 mt-2" id="selected-cards">
-        <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
-          ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-        <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
-          ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-        <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
-          ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-        <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
-          ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-        <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
-          ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-      </div>
+      <!-- Start: card inputs and drop boxes -->
+      <c:choose>
+        <!-- If editing -->
+        <c:when test="${not empty deck}">
+          <div class="row mx-5 mt-2" id="selected-card-names">
+            <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
+              <input type="text" class="selected-card-name form-control col mx-5" id="selected-card-name-${deckCardMap.position}"
+                name='selected-card-id-${deckCardMap.position}'
+                placeholder="<spring:message code="deck.form.slot-${deckCardMap.position}.placeholder"/>"
+                value="Hero #${deckCardMap.card.card_id}" required readonly>
+            </c:forEach>
+          </div>
+          <div class="row mx-5 mt-2" id="selected-card-slots">
+            <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
+              <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
+                id="selected-card-slot-${deckCardMap.position}" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            </c:forEach>
+          </div>
+        </c:when>
+        
+        <!-- If creating -->
+        <c:otherwise>
+          <div class="row mx-5 mt-2" id="selected-card-names">
+            <c:forEach var="i" begin="1" end="5">
+              <input type="text" class="selected-card-name form-control col mx-3" id="selected-card-name-${i}"
+                name='selected-card-id-${i}'
+                placeholder="<spring:message code="deck.form.slot-${i}.placeholder"/>" required readonly>
+            </c:forEach>
+          </div>
+          <div class="row mx-5 mt-2" id="selected-card-slots">
+            <c:forEach var="i" begin="1" end="5">
+              <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
+                id="selected-card-slot-${i}" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            </c:forEach>
+          </div>
+        </c:otherwise>
+      </c:choose>
+      <!-- End: card inputs and drop boxes -->
+
     </form>
-    
+    <!-- End: Form -->
+
+    <!-- Start: Card HTML -->
     <div class="row p-5" id="available-cards">
       <c:forEach items="${cardList}" var="card">
-        
         <div class="col" ondragover="allowDrop(event)" ondrop="drop(event)">
-          <div class="heroCardFather" id="card${card.card_id }" draggable="true" ondragstart="drag(event)">
+          <div class="heroCardFather" id="${card.card_id}" draggable="true" ondragstart="drag(event)">
             <div class="heroCard" draggable="false">
               <div class="cardImg"
                 style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
               <a href="${pageContext.request.contextPath}/card/${card.card_id}/data">
                 <img class="templateImg"
-                src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
-                alt="edit icon">
+                  src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
+                  alt="edit icon">
               </a>
               <div class="titleArea">
                 <div class="heroName" id="${card.name}">${card.name}</div>
@@ -92,7 +128,7 @@
         </div>
       </c:forEach>
     </div>
-  </div>
+    <!-- End: Card HTML -->
   
   <!-- Start: Back to top button -->
   <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>

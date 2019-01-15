@@ -86,8 +86,9 @@ public class Deck {
 	 * @param description
 	 * @param points
 	 */
-	public Deck(String name) {
+	public Deck(String name, User creator) {
 		this.name = name;
+		this.creator = creator;
 	}
 
 	/*

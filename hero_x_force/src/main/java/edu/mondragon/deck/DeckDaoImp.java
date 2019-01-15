@@ -41,6 +41,11 @@ public class DeckDaoImp implements DeckDao {
 		getCurrentSession().save(deck);
 	}
 
+	@Override
+	public void updateDeck(Deck deck) {
+		getCurrentSession().update(deck);
+	}
+
 	/**
 	 * @brief Method to obtain the list of decks that are in database
 	 * @return List<Deck>

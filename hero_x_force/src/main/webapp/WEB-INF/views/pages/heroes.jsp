@@ -14,7 +14,7 @@
     <div class="row mt-4">
       <c:forEach items="${heroesList}" var="card">
         <div class="col-sm-4">
-          <div class="heroCardFather" id="card${card.card_id }">
+          <div class="heroCardFather" id="${card.card_id}">
             <div class="heroCard">
               <div class="cardImg"
                 style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>

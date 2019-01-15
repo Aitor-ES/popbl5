@@ -68,8 +68,10 @@ public class DeckCardMap {
 	 * @brief Class constructor
 	 * @param date
 	 */
-	public DeckCardMap(Integer position) {
+	public DeckCardMap(Integer position, Deck deck, Card card) {
 		this.position = position;
+		this.deck = deck;
+		this.card = card;
 	}
 
 	/*

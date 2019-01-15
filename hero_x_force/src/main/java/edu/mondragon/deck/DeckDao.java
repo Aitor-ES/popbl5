@@ -17,6 +17,8 @@ import java.util.List;
 
 public interface DeckDao {
 	void addDeck(Deck deck);
+	
+	void updateDeck(Deck deck);
 
 	List<Deck> listDecks();
 	
