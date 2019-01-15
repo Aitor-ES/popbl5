@@ -11,11 +11,13 @@
 		<div class="heroCardFather" id="card${card.card_id }">
 			<div class="heroCard">
 				<div class="cardImg" style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
+				<a 	href="${pageContext.request.contextPath}/card/${card.card_id}/data">
 				<img class="templateImg"
-					src="${pageContext.request.contextPath}/static/img/card/templates/darkness-template.png"
+					src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
 					alt="edit icon">
+				</a>
 				<div class="titleArea">
-					<div class="heroName" id="${card.name }">${card.name}</div>
+					<div class="heroName" id="${card.name}">${card.name}</div>
 				</div>
 				<div class="stats">
 					<div class="ATK statName">ATK</div>
@@ -41,7 +43,7 @@
 				</div>
 				<div class="abilityArea">
 					<div class="abilityTitle">SPECIAL ABILITY:</div>
-					<div class="abilityName">${card.ability}</div>
+					<div class="abilityName">${card.ability.name}</div>
 				</div>
 			</div>
 		</div>
