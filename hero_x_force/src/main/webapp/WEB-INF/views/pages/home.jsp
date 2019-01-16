@@ -12,7 +12,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="first-slide" src="${pageContext.request.contextPath}/static/img/home/first_slide.jpg" alt="<spring:message code="home.carousel.first.alt"/>">
+        <img src="${pageContext.request.contextPath}/static/img/home/first_slide.jpg" alt="<spring:message code="home.carousel.first.alt"/>">
         <div class="carousel-text container">
           <div class="carousel-caption text-left">
             <h1><span><spring:message code="home.carousel.first.label"/></span></h1>
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="second-slide" src="${pageContext.request.contextPath}/static/img/home/second_slide.jpg" alt="<spring:message code="home.carousel.second.alt"/>">
+        <img src="${pageContext.request.contextPath}/static/img/home/second_slide.jpg" alt="<spring:message code="home.carousel.second.alt"/>">
         <div class="carousel-text container">
           <div class="carousel-caption">
             <h1><span><spring:message code="home.carousel.second.label"/></span></h1>
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="third-slide" src="${pageContext.request.contextPath}/static/img/home/third_slide.jpg" alt="<spring:message code="home.carousel.third.alt"/>">
+        <img src="${pageContext.request.contextPath}/static/img/home/third_slide.jpg" alt="<spring:message code="home.carousel.third.alt"/>">
         <div class="carousel-text container">
           <div class="carousel-caption text-right">
             <h1><span><spring:message code="home.carousel.third.label"/></span></h1>
@@ -54,25 +54,25 @@
   <!-- End: Carousel -->
   
   <!-- Start: Features -->
-  <div id="checkpoint1" class="container features">
-    <div class="row">
-      <div class="col-lg-3">
-        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f1.jpg" alt="<spring:message code="home.features.first.alt"/>" width="140" height="140">
+  <div id="checkpoint1" class="features container">
+    <div class="row text-center">
+      <div class="col-lg-3 px-4">
+        <img class="rounded-circle mb-3" src="${pageContext.request.contextPath}/static/img/home/f1.jpg" alt="<spring:message code="home.features.first.alt"/>" width="140" height="140">
         <h2><spring:message code="home.features.first.label"/></h2>
         <p><spring:message code="home.features.first.text"/></p>
       </div>
-      <div class="col-lg-3">
-        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f2.jpg" alt="<spring:message code="home.features.second.alt"/>" width="140" height="140">
+      <div class="col-lg-3 px-4">
+        <img class="rounded-circle mb-3" src="${pageContext.request.contextPath}/static/img/home/f2.jpg" alt="<spring:message code="home.features.second.alt"/>" width="140" height="140">
         <h2><spring:message code="home.features.second.label"/></h2>
         <p><spring:message code="home.features.second.text"/></p>
       </div>
-      <div class="col-lg-3">
-        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f3.jpg" alt="<spring:message code="home.features.third.alt"/>" width="140" height="140">
+      <div class="col-lg-3 px-4">
+        <img class="rounded-circle mb-3" src="${pageContext.request.contextPath}/static/img/home/f3.jpg" alt="<spring:message code="home.features.third.alt"/>" width="140" height="140">
         <h2><spring:message code="home.features.third.label"/></h2>
         <p><spring:message code="home.features.third.text"/></p>
       </div>
-      <div class="col-lg-3">
-        <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/home/f4.jpg" alt="<spring:message code="home.features.fourth.alt"/>" width="140" height="140">
+      <div class="col-lg-3 px-4">
+        <img class="rounded-circle mb-3" src="${pageContext.request.contextPath}/static/img/home/f4.jpg" alt="<spring:message code="home.features.fourth.alt"/>" width="140" height="140">
         <h2><spring:message code="home.features.fourth.label"/></h2>
         <p><spring:message code="home.features.fourth.text"/></p>
       </div>
@@ -87,7 +87,7 @@
     <div class="row news">
       <div class="col-md-7">
         <h2 class="news-heading"><spring:message code="home.news.first.heading"/> <span class="text-muted"><spring:message code="home.news.first.title"/></span></h2>
-        <p class="lead"><spring:message code="home.news.first.text"/></p>
+        <p class="text-justify"><spring:message code="home.news.first.text"/></p>
       </div>
       <div class="col-md-5">
         <img class="news-image img-fluid mx-auto" src="${pageContext.request.contextPath}/static/img/home/n1.jpg" data-src="holder.js/500x500/auto" alt="<spring:message code="home.news.first.alt"/>">
@@ -99,7 +99,7 @@
     <div class="row news">
       <div class="col-md-7 order-md-2">
         <h2 class="news-heading"><spring:message code="home.news.second.heading"/> <span class="text-muted"><spring:message code="home.news.second.title"/></span></h2>
-        <p class="lead"><spring:message code="home.news.second.text"/></p>
+        <p class="text-justify"><spring:message code="home.news.second.text"/></p>
       </div>
       <div class="col-md-5 order-md-1">
         <img class="news-image img-fluid mx-auto" src="${pageContext.request.contextPath}/static/img/home/n2.jpg" data-src="holder.js/500x500/auto" alt="<spring:message code="home.news.second.alt"/>">
@@ -111,7 +111,7 @@
     <div class="row news">
       <div class="col-md-7">
         <h2 class="news-heading"><spring:message code="home.news.third.heading"/> <span class="text-muted"><spring:message code="home.news.third.title"/></span></h2>
-        <p class="lead"><spring:message code="home.news.third.text"/></p>
+        <p class="text-justify"><spring:message code="home.news.third.text"/></p>
       </div>
       <div class="col-md-5">
         <img class="news-image img-fluid mx-auto" src="${pageContext.request.contextPath}/static/img/home/n3.jpg" data-src="holder.js/500x500/auto" alt="<spring:message code="home.news.third.alt"/>">

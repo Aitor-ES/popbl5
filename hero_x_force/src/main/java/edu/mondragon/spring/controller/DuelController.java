@@ -168,7 +168,7 @@ public class DuelController {
 	 * @param model A holder for model attributes
 	 * @return String
 	 */
-	@RequestMapping(value = { "/duel/{id}/loadBattle" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/duel/{id}/loadBattle" }, method = RequestMethod.POST)
 	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model,	RedirectAttributes redirectAttributes) {
 		String view = "home";
 		

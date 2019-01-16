@@ -1,17 +1,22 @@
-/* CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
+/* CAROUSEL 
+ *********************************************************/
+#myCarousel {
   margin-bottom: 5rem;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  bottom: 2rem;
-  z-index: 10;
+  box-shadow: 0px 0px 3px red;
 }
 
-/* Declare heights because of positioning of img element */
+.carousel-caption {
+  bottom: 4rem;
+}
+
+.carousel-caption h1 {
+  font-size: 2.3rem;
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+}
+
 .carousel-item {
   height: 32rem;
   background-color: #777;
@@ -31,24 +36,18 @@
 
 
 /* FEATURES
--------------------------------------------------- */
+ *********************************************************/
 
-/* Center align the text within the four columns */
-.features .col-lg-3 {
-  text-align: center;
-}
-.features h2 {
-  font-weight: 400;
-}
-.features .col-lg-3 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
+.rounded-circle {
+  box-shadow: 0px 0px 10px black;
 }
 
+.features p {
+  font-size: 1rem;
+}
 
 /* NEWS
--------------------------------------------------- */
-
+ *********************************************************/
 .news-divider {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
@@ -61,38 +60,48 @@
 }
 
 
-/* MODAL
--------------------------------------------------- */
 
+/* MODAL
+ *********************************************************/
 .modal-footer {
   display:flex;
   justify-content: space-between;
 }
 
+.modal-footer button {
+  font-size: 90%;
+}
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
 
-@media (min-width: 40em) {
+/* RESPONSIVE (sm<540px - md<720px - lg<960px)
+ *********************************************************/
+
+@media (min-width: 720px) {
   .carousel-caption p {
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
     line-height: 1.4;
   }
+  
+  .carousel-caption h1 {
+    font-size: 3.5rem;
+  }
 
+  .features p {
+    font-size: 1.5rem;
+  }
+  
   .news-heading {
     font-size: 50px;
+  }
+  
+  .modal-footer button {
+    font-size: 100%;
   }
 }
 
 @media (min-width: 62em) {
   .news-heading {
     margin-top: 7rem;
-  }
-}
-
-@media (max-width: 40em) {
-    .modal-footer button {
-    font-size: 90%;
   }
 }
