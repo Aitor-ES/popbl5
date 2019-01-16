@@ -31,7 +31,10 @@
           xAxes: [{ 
        gridLines: { 
         display:false 
-       } 
+       },
+        ticks: {
+              beginAtZero: true
+          }
       }], 
        yAxes: [{ 
        gridLines: { 

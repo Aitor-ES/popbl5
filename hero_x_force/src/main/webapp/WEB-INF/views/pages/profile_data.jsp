@@ -122,12 +122,15 @@
           </tbody>
         </table>
       </div>
+     
       <div class="col-4 d-flex justify-content-center align-items-center" id="win-chart">
         <!-- Circle chart -->
-         <div class="percent-circle" style="text-align:center;" data-percent="65"></div>
-           <script>
-             $('.percent-circle').percentcircle();
-		   </script>
+          <div class="c100 p50 big orange">
+                    <span>50%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
           </div>
       </div>
     </div>
