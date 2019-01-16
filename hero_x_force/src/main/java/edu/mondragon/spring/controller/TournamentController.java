@@ -44,6 +44,7 @@ public class TournamentController {
 	@RequestMapping(value = { "/tournament/list" }, method = RequestMethod.GET)
 	public String tournamentListPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
+		
 		if (checkIfUserIsLogged(request, model)) {
 			List<Tournament> availableTournamentList = tournamentService.listTournaments();
 			model.addAttribute("availableTournamentList", availableTournamentList);
@@ -52,6 +53,7 @@ public class TournamentController {
 			}
 			view = "tournament/list";
 		}
+		
 		return view;
 	}
 
@@ -88,7 +90,7 @@ public class TournamentController {
 		{
 			Tournament tournament = new Tournament(name,participants);
 			tournamentService.addTournament(tournament);
-			model.addAttribute("message", "tournament.participants.success");
+			model.addAttribute("message", "tournament.create.success");
 			view = "redirect:/tournament/list";
 		}
 		

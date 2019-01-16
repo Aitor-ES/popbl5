@@ -41,23 +41,23 @@
       value="/WEB-INF/views/pages/register.jsp" />
   </definition>
   
-    <!-- Forgot screen layout -->
+  <!-- Forgot screen layout -->
   <definition name="forgot" extends="template-default">
     <put-attribute name="title" value="forgot" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/forgot.jsp" />
   </definition>
 
-  <!-- Profile screen layout -->
+  <!-- Profile Data screen layout -->
   <definition name="profile/data" extends="template-default">
-    <put-attribute name="title" value="Profile" />
+    <put-attribute name="title" value="Profile Data" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/profile_data.jsp" />
   </definition>
   
-  <!-- User data screen layout -->
+  <!-- Profile Edit screen layout -->
   <definition name="profile/edit" extends="template-default">
-    <put-attribute name="title" value="Edit profile" />
+    <put-attribute name="title" value="Profile Edit" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/profile_edit.jsp" />
   </definition>
@@ -83,13 +83,6 @@
       value="/WEB-INF/views/pages/deck_data.jsp" />
   </definition>
   
-  <!-- Card Data screen layout -->
-  <definition name="card/data" extends="template-default">
-    <put-attribute name="title" value="Card Data" />
-    <put-attribute name="main"
-      value="/WEB-INF/views/pages/card_data.jsp" />
-  </definition>
-  
   <!-- Heroes screen layout -->
   <definition name="heroes" extends="template-default">
     <put-attribute name="title" value="Heroes" />
@@ -97,35 +90,56 @@
       value="/WEB-INF/views/pages/heroes.jsp" />
   </definition>
   
-  <!-- Edit Create card screen layout -->
+  <!-- Card Data screen layout -->
+  <definition name="card/data" extends="template-default">
+    <put-attribute name="title" value="Card Data" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/card_data.jsp" />
+  </definition>
+  
+  <!-- Card Form screen layout -->
   <definition name="card/form" extends="template-default">
-    <put-attribute name="title" value="Edit/Create card" />
+    <put-attribute name="title" value="Card Form" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/card_form.jsp" />
   </definition>
   
-  <!-- Duels screen layout -->
+  <!-- Duel List screen layout -->
   <definition name="duel/list" extends="template-default">
     <put-attribute name="title" value="Duel List" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/duel_list.jsp" />
   </definition>
   
-  <!-- Duels screen layout -->
+  <!-- Duel Create screen layout -->
+  <definition name="duel/create" extends="template-default">
+    <put-attribute name="title" value="Duel Create" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/duel_create.jsp" />
+  </definition>
+  
+  <!-- Duel Battle screen layout -->
   <definition name="duel/battle" extends="template-default">
-    <put-attribute name="title" value="Battle!" />
+    <put-attribute name="title" value="Duel Battle" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/duel_battle.jsp" />
   </definition>
   
-   <!-- Tournaments screen layout -->
+  <!-- Duel Result screen layout -->
+  <definition name="duel/result" extends="template-default">
+    <put-attribute name="title" value="Duel Result" />
+    <put-attribute name="main"
+      value="/WEB-INF/views/pages/duel_result.jsp" />
+  </definition>
+  
+  <!-- Tournament List screen layout -->
   <definition name="tournament/list" extends="template-default">
     <put-attribute name="title" value="Tournament List" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/tournament_list.jsp" />
   </definition>
   
-     <!-- Tournaments create screen layout -->
+  <!-- Tournaments create screen layout -->
   <definition name="tournament/create" extends="template-default">
     <put-attribute name="title" value="Tournament Create" />
     <put-attribute name="main"

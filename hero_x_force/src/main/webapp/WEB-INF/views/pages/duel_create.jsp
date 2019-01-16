@@ -2,39 +2,47 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<section id="tournament-create">
+<section id="duel-create">
   <div class="container-fluid">
     <div class="row px-4 pt-4">
       <div class="col-10">
-        <h2 class="title-style"><spring:message code="tournament.create.title" /></h2>
+        <h2 class="title-style"><spring:message code="duel.create.title" /></h2>
       </div>
       <div class="col-2 d-flex justify-content-end align-items-center">
-        <a class="btn btn-lg btn-warning mt-3 mb-3" href="${pageContext.request.contextPath}/tournament/list" role="button">
+        <a class="btn btn-lg btn-warning mt-3 mb-3" href="${pageContext.request.contextPath}/duel/list" role="button">
           <i class="fas fa-times-circle"></i> <spring:message code="action.cancel"/>
         </a>
       </div>
     </div>
 
-    <form name="tournamentForm" action="${pageContext.request.contextPath}/tournament/form" method='POST'> 
+    <form name="duelForm" action="${pageContext.request.contextPath}/duel/form" method='POST'> 
       <div class="row px-5">
         <div class="col col-lg-6">
-          <label><spring:message code="tournament.create.tournament.title"/></label>
+          <label><spring:message code="duel.create.search"/>:</label>
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-gamepad"></i></span>
+              <span class="input-group-text"><i class="fas fa-user-secret"></i></span>
             </div>
-            <input type="text" class="form-control" name='name' placeholder="<spring:message code="tournament.create.tournament.placeholder"/>" required>
+            <select class="selectpicker form-control" name="opponent_id" data-size="5" data-live-search="true" title="Choose one of the following..." required>
+              <c:forEach items="${userList}" var="user">
+                <option value="${user.user_id}">${user.username}</option>
+              </c:forEach>
+            </select>
           </div>
         </div>
       </div>
       <div class="row px-5 mt-3">
         <div class="col col-lg-6">
-          <label><spring:message code="tournament.create.participants.title"/></label>
+          <label><spring:message code="duel.create.choose"/></label>
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-users"></i></span>
+              <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
             </div>
-            <input type="number" class="form-control" min="0" step="1" name='participants' placeholder="<spring:message code="tournament.create.participants.placeholder"/>" required>
+            <select class="selectpicker form-control" name="myDeck_id" data-size="5" data-live-search="true" title="Choose one of the following..." required>
+              <c:forEach items="${deckList}" var="deck">
+                <option value="${deck.deck_id}">${deck.name}</option>
+              </c:forEach>
+            </select>
           </div>
         </div>
       </div>

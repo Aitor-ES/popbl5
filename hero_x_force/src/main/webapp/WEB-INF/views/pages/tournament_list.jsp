@@ -10,7 +10,7 @@
       </div>
       <div class="col-2 d-flex justify-content-end align-items-center">
         <a class="btn btn-lg btn-warning mt-3 mb-3" href="${pageContext.request.contextPath}/tournament/create" role="button">
-          <i class="fas fa-plus"></i> <spring:message code="tournament.list.create.button"/>
+          <i class="fas fa-plus"></i> <spring:message code="action.create"/>
         </a>
       </div>
     </div>

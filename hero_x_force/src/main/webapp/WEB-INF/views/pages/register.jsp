@@ -32,4 +32,8 @@
       </div>
     </div>
   </form>
+  
+  <!-- Start: Back to top button -->
+  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+  <!-- End: Back to top button -->
 </div>
