@@ -2,31 +2,65 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div id="login" class="text-center">
+<!-- Start: Login  -->
+<section id="login">
 
-  <img class="mt-5" src="${pageContext.request.contextPath}/static/img/login/logo.png" alt="<spring:message code="login.logo.alt"/>">
-  <h1 class="h2 mt-3 mb-3 font-weight-normal"><spring:message code="login.label"/></h1>
-  <form action="${pageContext.request.contextPath}/login/form" method='POST'>    
+  <!-- Start: Logo -->
+  <div class="row mt-4">
+    <div class="col text-center">
+      <img src="${pageContext.request.contextPath}/static/img/login/logo.png" alt="<spring:message code="login.logo.alt"/>">
+    </div>
+  </div>
+  <!-- End: Logo -->
+  
+  <!--  Start: Title -->
+  <div id="login-title" class="row">
+    <div class="col text-center">
+      <h1 class="h2 mt-3 mb-3 font-weight-normal"><spring:message code="login.label"/></h1>
+    </div>
+  </div>
+  <!-- End: Title -->
+  
+  <!-- Start: Sign in -->
+  <form name="loginForm" action="${pageContext.request.contextPath}/login/form" method='POST'>    
     <div class="row justify-content-center mb-5">
       <div class="modal-content col-10 col-md-8 col-lg-6 col-xl-4">
+      
+        <!-- Input: Username -->
         <div class="input-group">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
           <input type="text" class="form-control" name='username' placeholder="<spring:message code="login.username"/>" required>
         </div>
+        
+        <!-- Input: Password -->
         <div class="input-group mt-3">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-lock"></i></span></div>
           <input type="password" class="form-control" name='password' placeholder="<spring:message code="login.password"/>" required>
         </div>
-        <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit"><i class="fas fa-sign-in-alt"></i> <spring:message code="login.singIn"/></button>
+        
+        <!-- Button: Sign in -->
+        <button class="btn btn-lg btn-warning mt-3" type="submit" name="submit"><i class="fas fa-sign-in-alt"></i> <spring:message code="login.singIn"/></button>
+        
         <div class="row">
-          <div class="link col-12 col-sm-6 mt-2 d-flex justify-content-start">
-            <a class="link text-white" href="${pageContext.request.contextPath}/register"><spring:message code="login.register"/></a>
+        
+          <!-- Link: Register -->
+          <div id="register-link" class="col-sm mt-2 text-center">
+            <a class="text-white" href="${pageContext.request.contextPath}/register"><spring:message code="login.register"/></a>
           </div>
-          <div class="link col-12 col-sm-6 mt-2 d-flex justify-content-end">
-            <a class="link text-white" href="${pageContext.request.contextPath}/forgot"><spring:message code="login.forgot"/></a>
+          
+          <!-- Link: Forgot -->
+          <div id="recover-link" class="col-sm mt-2 text-center">
+            <a class="text-white" href="${pageContext.request.contextPath}/forgot"><spring:message code="login.forgot"/></a>
           </div>
+          
         </div>
       </div>
     </div>
   </form>
-</div>
+  <!-- End: Sign in -->
+  
+  <!-- Start: Back to top button -->
+  <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+  <!-- End: Back to top button -->
+</section>
+<!-- End: Section -->

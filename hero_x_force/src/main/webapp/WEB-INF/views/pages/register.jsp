@@ -2,38 +2,69 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div id="register" class="text-center">
+<!-- Start: Register  -->
+<section id="register">
 
-  <img class="mt-5" src="${pageContext.request.contextPath}/static/img/login/logo.png" alt="<spring:message code="login.logo.alt"/>">
-  <h1 class="h2 mt-3 mb-3 font-weight-normal"><spring:message code="register.label"/></h1>
-  <form name="userForm" action="${pageContext.request.contextPath}/register/form" method='POST'>
+  <!-- Start: Logo -->
+  <div class="row mt-4">
+    <div class="col text-center">
+      <img src="${pageContext.request.contextPath}/static/img/login/logo.png" alt="<spring:message code="register.logo.alt"/>">
+    </div>
+  </div>
+  <!-- End: Logo -->
+  
+  <!--  Start: Title -->
+  <div id="register-title" class="row">
+    <div class="col text-center">
+      <h1 class="h2 mt-3 mb-3 font-weight-normal"><spring:message code="register.label"/></h1>
+    </div>
+  </div>
+  <!-- End: Title -->
+  
+  <!-- Start: Register -->
+  <form name="registerForm" action="${pageContext.request.contextPath}/register/form" method='POST'>
     <div class="row justify-content-center mb-5">
-      <div class="modal-content col-10 col-md-6 col-lg-4 col-xl-4">
+      <div class="modal-content col-10 col-md-8 col-lg-6 col-xl-4">
+      
+        <!-- Input: Username -->
         <div class="input-group">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
           <input type="text" class="form-control" name='username' placeholder="<spring:message code="register.username"/>" required>
         </div>
+        
+        <!-- Input: Email -->
         <div class="input-group mt-3">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-at"></i></span></div>
           <input type="text" class="form-control" name='email' placeholder="<spring:message code="register.email"/>" required>
         </div>
+        
+        <!-- Input: Password -->
         <div class="input-group mt-3">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-lock"></i></span></div>
           <input type="password" class="form-control" name='password' placeholder="<spring:message code="register.password"/>" required>
         </div>
+        
+        <!-- Input: Confirm password -->
         <div class="input-group mt-3">
           <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-key"></i></span></div>
           <input type="password" class="form-control" name='confirmPassword' placeholder="<spring:message code="register.confirm.password"/>" required>
         </div>
+        
+        <!-- Progress bar -->
         <div class="progress mt-3" id="myProgressBar" style="display: none">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
         </div>
-        <button class="btn btn-lg btn-primary mt-3" type="submit" name="submit" onclick="userProgress()"><i class="fas fa-plus"></i> <spring:message code="register.create.account"/></button>
+        
+        <!-- Button: Create -->
+        <button class="btn btn-lg btn-warning mt-3" type="submit" name="submit" onclick="userProgress()"><i class="fas fa-plus"></i> <spring:message code="action.create"/></button>
+      
       </div>
     </div>
   </form>
+  <!-- End: Register -->
   
   <!-- Start: Back to top button -->
-  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+  <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
   <!-- End: Back to top button -->
-</div>
+</section>
+<!-- End: Section -->

@@ -1,28 +1,24 @@
-/* CAROUSEL 
+/* Carousel 
  *********************************************************/
-#myCarousel {
+#home #myCarousel {
   margin-bottom: 5rem;
-  box-shadow: 0px 0px 3px red;
+  box-shadow: 0px 0px 5px red;
 }
 
-.carousel-caption {
+#home .carousel-caption {
   bottom: 4rem;
 }
 
-.carousel-caption h1 {
-  font-size: 2.3rem;
+#home .carousel-caption h1 {
+  font-size: 2.4rem;
 }
 
-.carousel-caption p {
-  font-size: 1rem;
-}
-
-.carousel-item {
+#home .carousel-item {
   height: 32rem;
   background-color: #777;
 }
 
-.carousel-item > img {
+#home .carousel-item > img {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,78 +26,87 @@
   height: 32rem;
 }
 
-.carousel-text span {
+#home .carousel-text span {
   background-color: #00000080;
 }
 
-
-/* FEATURES
+/* Features
  *********************************************************/
-
-.rounded-circle {
+#home .rounded-circle {
   box-shadow: 0px 0px 10px black;
 }
 
-.features p {
-  font-size: 1rem;
-}
-
-/* NEWS
+/* News
  *********************************************************/
-.news-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+#home .news-divider {
+  margin: 5rem 0;
 }
 
-/* Thin out the marketing headings */
-.news-heading {
+#home .news-heading {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -.05rem;
 }
 
+#home .news p {
+  font-size: 1.15rem;
+}
 
+#home .news img {
+  box-shadow: 0px 0px 10px black;
+}
 
-/* MODAL
+/* Jumbotron
  *********************************************************/
-.modal-footer {
+#home .jumbotron h1 {
+  font-size: 2.4rem;
+ }
+ 
+#home .subtitle {
+  font-size: 1.15rem;
+ }
+ 
+/* Modal
+ *********************************************************/
+#home .modal-footer {
   display:flex;
   justify-content: space-between;
 }
 
-.modal-footer button {
-  font-size: 90%;
-}
-
-
-/* RESPONSIVE (sm<540px - md<720px - lg<960px)
+/* Responsive (sm<540px - md<720px - lg<960px)
  *********************************************************/
-
 @media (min-width: 720px) {
-  .carousel-caption p {
+  #home .carousel-caption h1 {
+    font-size: 3.5rem;
+  }
+  
+  #home .carousel-caption p {
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
     line-height: 1.4;
   }
-  
-  .carousel-caption h1 {
-    font-size: 3.5rem;
-  }
 
-  .features p {
-    font-size: 1.5rem;
+  #home .features h2 {
+    font-size: 2.25rem;
   }
   
-  .news-heading {
+  #home .features p {
+    font-size: 1.25rem;
+  }
+  
+  #home .news-heading {
     font-size: 50px;
   }
   
-  .modal-footer button {
-    font-size: 100%;
+  #home .news p {
+    font-size: 1.4rem;
   }
-}
-
-@media (min-width: 62em) {
-  .news-heading {
-    margin-top: 7rem;
+  
+  #home .subtitle {
+    font-size: 1.4rem;
+  }
+  
+  #home .modal-footer button {
+    font-size: 100%;
   }
 }

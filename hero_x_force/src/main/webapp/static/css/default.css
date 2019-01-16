@@ -1,5 +1,5 @@
-/* GLOBAL STYLES
--------------------------------------------------- */
+/* Global
+ *********************************************************/
 html {
   position: relative;
   min-height: 100%;
@@ -11,8 +11,24 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Datatables
+ *********************************************************/
+.table-overflow-x {
+  overflow-x: auto;
+}
+
+/* Top button
+ *********************************************************/
+#topButton {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 15px; /* Place the button at the bottom of the page */
+  right: 20px; /* Place the button 20px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+}
+
 /* HEADER
--------------------------------------------------- */
+ *********************************************************/
 #header {
   background-color: #343A40;
   box-shadow: 0px 0px 3px red;
@@ -54,25 +70,8 @@ body {
   font-weight: bold;
 }
 
-
-/* DATATABLES
--------------------------------------------------- */
-.table-overflow-x {
-  overflow-x: auto;
-}
-
-/* TOP BUTTON
--------------------------------------------------- */
-#topButton {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 15px; /* Place the button at the bottom of the page */
-  right: 20px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-}
-
 /* FOOTER
--------------------------------------------------- */
+ *********************************************************/
 .footer {
   box-shadow: 0px 0px 3px red;
   position: absolute;

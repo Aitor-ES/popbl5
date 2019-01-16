@@ -1,9 +1,12 @@
-/* Login styles */
-
-#login .row {
-  margin: 0;
+/* Logo
+ *********************************************************/
+#login img {
+  height: 150px;
+  width: 180px;
 }
 
+/* Sign in
+ *********************************************************/
 #login .modal-content {
    background-color: #3b4652;
    opacity: .85;
@@ -11,26 +14,20 @@
    box-shadow: 0px 0px 3px #848484;
 }
 
-#login img {
-  height: 150px;
-  width: 180px;
-}
-
-#login .input-group input {
-  height: 42px;
-  font-size: 18px;
-}
-
-#login .svg-inline--fa {
-  margin-right: 7px;
-}
-
-#login .forgot {
-  padding: 5px 0 25px;
-}
-
-@media (max-width: 35em) {
-  .link {
-    width: 100%;
+/* Responsive (sm<540px - md<720px - lg<960px)
+ *********************************************************/
+@media (min-width: 720px) {
+  #login #login-title h1 {
+    font-size: 2.3rem;
+  }
+  
+  #login #register-link {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  #login #recover-link {
+    display: flex;
+    justify-content: flex-end;
   }
 }
