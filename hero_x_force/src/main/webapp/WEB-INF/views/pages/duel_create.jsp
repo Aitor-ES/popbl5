@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <form name="duelCreateForm" action="${pageContext.request.contextPath}/duel/form" method='POST'> 
+    <form name="duelCreateForm" action="${pageContext.request.contextPath}/duel/create/save" method='POST'> 
       <div class="row px-5">
         <div class="col col-lg-6">
           <label><spring:message code="duel.create.search"/>:</label>
