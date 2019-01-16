@@ -38,6 +38,12 @@ public class DeckServiceImp implements DeckService {
 	public void addDeck(Deck deck) {
 		deckDao.addDeck(deck);
 	}
+
+	@Transactional
+	@Override
+	public void updateDeck(Deck deck) {
+		deckDao.updateDeck(deck);
+	}
 	
 	/**
 	 * @brief Method to obtain the deck using the id from the dao

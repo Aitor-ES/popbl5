@@ -41,6 +41,11 @@ public class DeckCardMapDaoImp implements DeckCardMapDao {
 		getCurrentSession().save(deckCardMap);
 	}
 
+	@Override
+	public void updateDeckCardMap(DeckCardMap deckCardMap) {
+		getCurrentSession().update(deckCardMap);
+	}
+
 	/**
 	 * @brief Method to obtain the list of deckCardMaps that are in database
 	 * @return List<DeckCardMap>

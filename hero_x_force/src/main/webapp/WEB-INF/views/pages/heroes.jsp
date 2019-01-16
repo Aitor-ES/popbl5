@@ -11,10 +11,10 @@
         </h2>
       </div>
     </div>
-    <div class="row mt-4 ml-5">
+    <div class="row mx-3 mt-3">
       <c:forEach items="${heroesList}" var="card">
-        <div class="col-sm-4 py-5 px-3">
-          <div class="heroCardFather" id="card${card.card_id }">
+        <div class="col-sm-3 px-3 mb-5 d-flex justify-content-center">
+          <div class="heroCardFather" id="${card.card_id}">
             <div class="heroCard">
               <div class="cardImg"
                 style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
@@ -24,7 +24,6 @@
                 alt="edit icon">
               </a>
               <div class="titleArea">
-              <script>changeTitleFontSize();</script>
                 <div class="heroName" id="${card.name}">${card.name}</div>
               </div>
               <div class="stats">
@@ -59,4 +58,11 @@
       </c:forEach>
     </div>
   </div>
+  
+  <!-- Start: Back to top button -->
+  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+  <!-- End: Back to top button -->
 </section>
+
+<!-- Reduce long card titles -->
+<script>changeTitleFontSize();</script>

@@ -121,7 +121,7 @@ public class CardController {
 	 * @return String
 	 */
 	@RequestMapping(value = { "/card/{id}/data" }, method = RequestMethod.GET)
-	public String cardDataPage(HttpServletRequest request, HttpServletResponse response, Model model,@PathVariable("id") int id) {
+	public String cardDataPage(HttpServletRequest request, HttpServletResponse response, Model model, @PathVariable("id") int id) {
 
 		Card card = cardService.getCardById(id);
 		
