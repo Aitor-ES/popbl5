@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.mondragon.card.Card;
 import edu.mondragon.deck.Deck;
+import edu.mondragon.deck.DeckService;
 import edu.mondragon.deckcardmap.DeckCardMap;
 import edu.mondragon.match.Match;
 import edu.mondragon.match.MatchService;
@@ -47,6 +48,7 @@ public class DuelController {
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	MatchService matchService = ApplicationContextProvider.getContext().getBean(MatchService.class);
+	DeckService deckService = ApplicationContextProvider.getContext().getBean(DeckService.class);
 	
 	private List<String> battleLog = new ArrayList<>();
 	
@@ -82,8 +84,11 @@ public class DuelController {
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			Set<Match> matchesAsUser_2 = userService.getMatchesAsUser_2(((User) session.getAttribute("user")).getUser_id());
-			
 			model.addAttribute("matchesAsUser_2", matchesAsUser_2);
+			
+			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUser_id());
+			model.addAttribute("deckList", deckList);
+			
 			view = "duel/list";
 		}
 		
@@ -104,7 +109,10 @@ public class DuelController {
 			List<User> userList = userService.listUsers();
 			model.addAttribute("userList", userList);
 			
-			//List<Card> cardList = 
+			HttpSession session = request.getSession(true);
+			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUser_id());
+			model.addAttribute("deckList", deckList);
+			
 			view = "duel/create";
 		}
 		
@@ -121,14 +129,18 @@ public class DuelController {
 	@RequestMapping(value = "/duel/form", method = RequestMethod.POST)
 	public String registerFormPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		String view = "redirect:/duel/list";
-		HttpSession session = request.getSession(true);
 		
-		Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUser_id());
-		Integer deck_id = Integer.valueOf(request.getParameter("deck_id"));
-		
-		Integer user_id = Integer.valueOf(request.getParameter("user_id"));
+		Integer opponent_id = Integer.valueOf(request.getParameter("opponent_id"));
+		Integer myDeck_id = Integer.valueOf(request.getParameter("myDeck_id"));
 		
 		Match match = new Match();
+		// Creator
+		HttpSession session = request.getSession(true);
+		match.setUser_1(userService.getUserById(((User) session.getAttribute("user")).getUser_id()));
+		match.setDeck_1(deckService.getDeckById(myDeck_id));
+		
+		// Opponent
+		match.setUser_2(userService.getUserById(opponent_id));
 		
 		matchService.addMatch(match);
 		model.addAttribute("message", "duel.create.success");
@@ -145,13 +157,15 @@ public class DuelController {
 	 * @return String
 	 */
 	@RequestMapping(value = { "/duel/{id}/loadBattle" }, method = RequestMethod.GET)
-	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model,
-			RedirectAttributes redirectAttributes) {
+	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model,	RedirectAttributes redirectAttributes) {
 		String view = "home";
 		
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			Match match = matchService.getMatchById(id);
+			
+			Integer myDeck_id = Integer.valueOf(request.getParameter("myDeck_id"));
+			match.setDeck_2(deckService.getDeckById(myDeck_id));
 			
 			if (match.getWinner() == null) {
 				session.setAttribute("match", match);

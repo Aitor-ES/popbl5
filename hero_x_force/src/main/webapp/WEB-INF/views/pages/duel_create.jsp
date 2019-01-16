@@ -23,9 +23,9 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user-secret"></i></span>
             </div>
-            <select class="selectpicker form-control" data-size="5" data-live-search="true" title="Choose one of the following..." required>
+            <select class="selectpicker form-control" name="opponent_id" data-size="5" data-live-search="true" title="Choose one of the following..." required>
               <c:forEach items="${userList}" var="user">
-                <option>${user.username}</option>
+                <option value="${user.user_id}">${user.username}</option>
               </c:forEach>
             </select>
           </div>
@@ -38,9 +38,9 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
             </div>
-            <select class="selectpicker form-control" data-size="5" data-live-search="true" title="Choose one of the following..." required>
-              <c:forEach items="${userList}" var="user">
-                <option>${user.username}</option>
+            <select class="selectpicker form-control" name="myDeck_id" data-size="5" data-live-search="true" title="Choose one of the following..." required>
+              <c:forEach items="${deckList}" var="deck">
+                <option value="${deck.deck_id}">${deck.name}</option>
               </c:forEach>
             </select>
           </div>

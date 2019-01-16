@@ -21,16 +21,33 @@
       </div>
     </div>
     
-    <ul class="list-group">
-      <c:forEach items="${matchesAsUser_2}" var="matchAsUser_2">
-        <li class="list-group-item d-flex align-items-center bd-highlight mb-3">
-          <span class="mr-auto bd-highlight">${matchAsUser_2.user_1.username}</span>
-          <a class="btn btn-success bd-highlight mr-1" href="${pageContext.request.contextPath}/duel/${matchAsUser_2.match_id}/loadBattle"
-            role="button"><spring:message code="action.accept" /></a>
-          <button type="submit" class="btn btn-danger bd-highlight ml-1"><spring:message code="action.refuse" /></button>
-        </li>
-      </c:forEach>
-    </ul>
+    <div class="row px-4 pt-2">
+      <div class="col">
+        <ul class="list-group">
+          <c:forEach items="${matchesAsUser_2}" var="matchAsUser_2">
+            <li class="list-group-item d-flex align-items-center bd-highlight mb-3">
+              <span class="mr-auto bd-highlight">${matchAsUser_2.user_1.username}</span>
+            
+              
+              <div class="input-group col-sm-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
+                </div>
+                <select class="selectpicker form-control" name="myDeck_id" data-size="5" data-live-search="true" title="Choose one of the following..." required>
+                  <c:forEach items="${deckList}" var="deck">
+                    <option value="${deck.deck_id}">${deck.name}</option>
+                  </c:forEach>
+                </select>
+              </div>
+            
+              <a class="btn btn-success bd-highlight mr-1" href="${pageContext.request.contextPath}/duel/${matchAsUser_2.match_id}/loadBattle"
+                role="button"><spring:message code="action.accept" /></a>
+              <button type="submit" class="btn btn-danger bd-highlight ml-1"><spring:message code="action.refuse" /></button>
+            </li>
+          </c:forEach>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- Start: Back to top button -->
