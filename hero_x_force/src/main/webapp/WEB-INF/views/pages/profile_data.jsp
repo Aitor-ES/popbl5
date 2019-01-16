@@ -5,7 +5,7 @@
 <section id="profile-data">
   <div class="container-fluid">
     <div class="row px-4 pt-4">
-      <div class="col-10">
+      <div class="col-lg-10">
         <c:choose>
           <c:when test="${pageContext.response.locale.language == 'es'}">
             <h2 class="title-style"><spring:message code="profile.data.subTitle" /> ${user.username}</h2>
@@ -15,7 +15,7 @@
           </c:otherwise>
         </c:choose>
       </div>
-      <div class="col-2 d-flex justify-content-end align-items-center">
+      <div class="col-lg-2 d-flex justify-content-end align-items-center">
           <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/edit" role="button">
             <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
           </a>
@@ -23,7 +23,7 @@
     </div>
     
     <div class="row px-5">
-      <div class="col-4">
+      <div class="col-lg-6">
         <div class="row">
           <div class="col">
             <label><spring:message code="profile.data.username" /></label>
@@ -85,14 +85,16 @@
         </div>
       </div>
       
-      <div class="col-6 d-flex justify-content-center align-items-center">
-      <canvas id="pieChart"></canvas>
-      <script>
-      
-      pieChart (${user.wins}, ${user.loses});
-      </script>
+      <div class="col-lg-6">
+        <div id="win-chart" class="mt-4">
+          <canvas id="pieChart"></canvas>
+          <script>
+            pieChart(${user.wins}, ${user.loses})
+          </script>
+        </div>
+      </div>
     </div>
-      
+    
     <div class="row px-4 pt-5">
     	<div class="col">
         <h2 class="title-style"><spring:message code="profile.data.achievement.title" /></h2>
@@ -100,7 +102,7 @@
     </div>
     
     <div class="row px-4 mb-5">
-      <div class="col-8">
+      <div class="col-lg-8">
         <table class="table ach-table">
           <thead>
             <tr>
@@ -123,14 +125,16 @@
         </table>
       </div>
      
-      <div class="col-4 d-flex justify-content-center align-items-center" id="win-chart">
+      <div class="col-lg-4">
         <!-- Circle chart -->
-          <div class="c100 p50 big orange">
-                    <span>50%</span>
-                    <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                    </div>
+          <div id="achievement-chart" class="mt-4">
+            <div class="c100 p50 big orange">
+              <span>50%</span>
+              <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+              </div>
+            </div>
           </div>
       </div>
     </div>

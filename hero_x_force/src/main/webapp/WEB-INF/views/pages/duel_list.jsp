@@ -28,7 +28,6 @@
             <li class="list-group-item d-flex align-items-center bd-highlight mb-3">
               <span class="mr-auto bd-highlight">${matchAsUser_2.user_1.username}</span>
             
-              
               <div class="input-group col-sm-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>

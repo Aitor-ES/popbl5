@@ -22,18 +22,39 @@ body{
 /* USER DATA
 -------------------------------------------------- */
 
-
 /* The style of the titles (The Username and Achievements)*/
 .title-style{
   margin-bottom: 1.25rem;
   border-left: 1rem solid #ff0000 ; 
   padding: 0.625rem;
-  font-size: 3.125rem;
+  font-size: 2.125rem;
   font-weight: bolder;
   text-shadow: var(--textShadowVar);
 }
 
+/* WIN CHART
+-------------------------------------------------- */
+#win-chart {
+  width: 100%; 
+  margin: 0 auto;
+}
 
+@media(min-width: 768px) {
+  .title-style {
+    font-size: 3.125rem;
+  }
+  
+  #win-chart {
+    width: 60%; 
+  }
+}
+
+/* ACHIEVEMENT CHART
+-------------------------------------------------- */
+#achievement-chart {
+  display: flex;
+  justify-content: center;
+}
 
 /* ACHIEVEMENTS TABLE
 -------------------------------------------------- */

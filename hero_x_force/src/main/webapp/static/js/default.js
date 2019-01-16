@@ -3,7 +3,7 @@ window.onscroll = function() {scrollFunction()};
 
 // DataTables initialization
 $(document).ready(function() {
-    $('.myTable').DataTable();
+    $('.myTable	').DataTable();
 } );
 
 $(document).ready(function() {
@@ -13,6 +13,7 @@ $(document).ready(function() {
     });
 } );
 
+// Top button display
 function scrollFunction() {
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
     document.getElementById("topButton").style.display = "block";
