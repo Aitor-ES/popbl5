@@ -61,7 +61,7 @@ public class DeckController {
 		
 		if (checkIfUserIsLogged(request, model)) {
 			/**
-			 * @brief TODO: future lines
+			 * @brief Future lines
 			 * HttpSession session = request.getSession(true);
 			 * Set<UserCardMap> cardMapList = userService.getUserCards(((User) session.getAttribute("user")).getUser_id());
 			 * 

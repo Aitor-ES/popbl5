@@ -44,10 +44,16 @@ public class HeroesController {
 	 */
 	@RequestMapping(value = { "/heroes" }, method = RequestMethod.GET)
 	public String heroesPage(HttpServletRequest request, HttpServletResponse response, Model model) {
-
-		List<Card> heroesList = cardService.listCards();
-		model.addAttribute("heroesList", heroesList);
-		return checkIfUserIsLogged(request, model) ? "heroes" : "home";
+		String view = "home";
+		
+		if (checkIfUserIsLogged(request, model)) {
+			List<Card> heroesList = cardService.listCards();
+			model.addAttribute("heroesList", heroesList);
+			
+			view = "heroes";
+		}
+		
+		return view;
 	}
 
 	/**
@@ -65,6 +71,7 @@ public class HeroesController {
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
+		
 		return isUserLogged;
 	}
 

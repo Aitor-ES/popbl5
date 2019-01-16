@@ -17,21 +17,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import edu.mondragon.card.Card;
 import edu.mondragon.deck.Deck;
 import edu.mondragon.deckcardmap.DeckCardMap;
@@ -86,9 +84,55 @@ public class DuelController {
 			Set<Match> matchesAsUser_2 = userService.getMatchesAsUser_2(((User) session.getAttribute("user")).getUser_id());
 			
 			model.addAttribute("matchesAsUser_2", matchesAsUser_2);
-			
 			view = "duel/list";
 		}
+		
+		return view;
+	}
+	
+	/**
+	 * @brief Method to redirect to duel create view
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = { "/duel/create" }, method = RequestMethod.GET)
+	public String duelCreatePage(HttpServletRequest request, Model model) {
+		String view = "home";
+		
+		if (checkIfUserIsLogged(request, model)) {
+			List<User> userList = userService.listUsers();
+			model.addAttribute("userList", userList);
+			
+			//List<Card> cardList = 
+			view = "duel/create";
+		}
+		
+		return view;
+	}
+	
+	/**
+	 * @brief Method that manages the duel creation form
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/duel/form", method = RequestMethod.POST)
+	public String registerFormPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		String view = "redirect:/duel/list";
+		HttpSession session = request.getSession(true);
+		
+		Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUser_id());
+		Integer deck_id = Integer.valueOf(request.getParameter("deck_id"));
+		
+		Integer user_id = Integer.valueOf(request.getParameter("user_id"));
+		
+		Match match = new Match();
+		
+		matchService.addMatch(match);
+		model.addAttribute("message", "duel.create.success");
+		
 		return view;
 	}
 	
@@ -119,6 +163,12 @@ public class DuelController {
 		return view;
 	}
 	
+	/**
+	 * @brief 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = { "/duel/battle" }, method = RequestMethod.GET)
 	public String battlePage(HttpServletRequest request, Model model) {
 		String view = "home";
@@ -139,6 +189,10 @@ public class DuelController {
 		return view;
 	}
 	
+	/**
+	 * @brief
+	 * @return
+	 */
 	@RequestMapping(value = "/duel/battle/update", method = RequestMethod.POST)
 	@ResponseBody
 	public String ajaxUpdateBattleLog(/*@RequestParam("id")String id*/) {
@@ -161,6 +215,12 @@ public class DuelController {
 		return jsonArray.toString();
 	}
 
+	/**
+	 * @brief
+	 * @param deck_1
+	 * @param deck_2
+	 * @return
+	 */
 	public boolean startBattle(Deck deck_1, Deck deck_2) {
 		Card hero_1;
 		Card hero_2;
@@ -201,6 +261,12 @@ public class DuelController {
 		return (player_1_points > player_2_points);
 	}
 
+	/**
+	 * @brief
+	 * @param hero_1
+	 * @param hero_2
+	 * @return
+	 */
 	private boolean startRound(Card hero_1, Card hero_2) {
 		boolean is_hero_1_winner;
 		
@@ -230,7 +296,12 @@ public class DuelController {
 		
 		return is_hero_1_winner;
 	}
-
+  
+	/**
+	 * @brief
+	 * @param hero_1
+	 * @param hero_2
+	 */
 	private void startTurn(Card hero_1, Card hero_2) {
 		double speedComparison = hero_1.getSpd() / hero_2.getSpd();
 		
@@ -259,6 +330,11 @@ public class DuelController {
 		}
 	}
 
+	/**
+	 * @brief
+	 * @param attacker
+	 * @param defender
+	 */
 	private void move(Card attacker, Card defender) {
 		boolean physicalOrMagical;
 		boolean dodgeOrBlock;

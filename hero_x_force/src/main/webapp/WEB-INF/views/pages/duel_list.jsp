@@ -2,27 +2,22 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<section id="duels">
+<section id="duel_list">
   <div class="container-fluid">
     <div class="row px-4 pt-4">
-      <div class="col">
-        <h2 class="title-style"><spring:message code="duels.title"/></h2>
+      <div class="col-10">
+        <h2 class="title-style"><spring:message code="duel.list.title" /></h2>
+      </div>
+      <div class="col-2 d-flex justify-content-end align-items-center">
+        <a class="btn btn-lg btn-warning mt-3 mb-3" href="${pageContext.request.contextPath}/duel/create" role="button">
+          <i class="fas fa-plus"></i> <spring:message code="action.create"/>
+        </a>
       </div>
     </div>
     
-    <div class="duels-data-box">
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="inputPlayer"><spring:message code="duels.searchPlayer" /></label>
-          <input type="text" id="inputPlayer" class="form-control mx-sm-3" aria-describedby="playerHelpInline">
-        </div>
-      </form>
-      <button type="submit" class="btn btn-danger challenge-button"> <spring:message code="duels.challenge" /></button>
-    </div>
-    
     <div class="row px-4 pt-4">
       <div class="col">
-        <h2 class="title-style"><spring:message code="duels.acceptDuel"/></h2>
+        <h2 class="title-style"><spring:message code="duel.list.join"/></h2>
       </div>
     </div>
     
@@ -36,9 +31,8 @@
         </li>
       </c:forEach>
     </ul>
-
   </div>
-    
+
   <!-- Start: Back to top button -->
   <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
   <!-- End: Back to top button -->
