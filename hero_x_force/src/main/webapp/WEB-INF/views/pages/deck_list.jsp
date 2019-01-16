@@ -40,18 +40,24 @@
                     <div class="heroName" id="${deckCardMap.card.name}">${deckCardMap.card.name}</div>
                   </div>
                   <div class="stats">
-                    <div class="ATK statName">ATK</div>
-                    <div class="DEF statName">DEF</div>
-                    <div class="SPD statName">SPD</div>
-                    <div class="HP statName">HP</div>
-                    <div class="MATK statName">MATK</div>
-                    <div class="MDEF statName">MDEF</div>
-                  <div class="ATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.atk}</div>
-                  <div class="DEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.def}</div>
-                  <div class="SPD_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.spd}</div>
-                  <div class="HP_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.hp}</div>
-                  <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_atk}</div>
-                  <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_def}</div>
+                    <div class="ATK statName"><spring:message code="card.atk.physical" /></div>
+                    <div class="DEF statName"><spring:message code="card.def.physical" /></div>
+                    <div class="SPD statName"><spring:message code="card.spd" /></div>
+                    <div class="HP statName"><spring:message code="card.hp" /></div>
+                    <div class="MATK statName"><spring:message code="card.atk.magic" /></div>
+                    <div class="MDEF statName"><spring:message code="card.def.magic" /></div>
+                    <div class="ATK_VAL statValue"
+                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.atk}</div>
+                    <div class="DEF_VAL statValue"
+                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.def}</div>
+                    <div class="SPD_VAL statValue"
+                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.spd}</div>
+                    <div class="HP_VAL statValue"
+                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.hp}</div>
+                    <div class="MATK_VAL statValue"
+                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.mag_atk}</div>
+                    <div class="MDEF_VAL statValue"
+                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.mag_def}</div>
                   </div>
                   <div class="sagaArea">
                     <div class="saga">${deckCardMap.card.saga}</div>
@@ -62,7 +68,7 @@
                     </c:forEach>
                   </div>
                   <div class="abilityArea">
-                    <div class="abilityTitle">SPECIAL ABILITY:</div>
+                    <div class="abilityTitle"><spring:message code="card.ability" /></div>
                     <div class="abilityName">${deckCardMap.card.ability.name}</div>
                   </div>
                 </div>

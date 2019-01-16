@@ -33,15 +33,17 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
                   </div>
-                  <select class="selectpicker form-control" name="deck-picker-${matchAsUser_2.match_id}" data-size="5" data-live-search="true" title="Choose one of the following..." required>
+                  <select class="selectpicker form-control" name="deck-picker-${matchAsUser_2.match_id}" data-size="5"
+                    data-live-search="true" title="Choose one of the following..." required>
                     <c:forEach items="${deckList}" var="deck">
                       <option value="${deck.deck_id}">${deck.name}</option>
                     </c:forEach>
                   </select>
                 </div>
-              
-                <button type="submit" name="action" value="accept" class="btn btn-success bd-highlight ml-1"><spring:message code="action.accept" /></button>
-                <button type="submit" name="action" value="refuse" class="btn btn-danger bd-highlight ml-1"><spring:message code="action.refuse" /></button>
+                <button type="submit" name="action" value="accept"
+                  class="btn btn-success bd-highlight ml-1"><spring:message code="action.accept" /></button>
+                <button type="submit" name="action" value="refuse"
+                  class="btn btn-danger bd-highlight ml-1"><spring:message code="action.refuse" /></button>
              </div>
             </div>
           </form>
