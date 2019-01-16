@@ -15,6 +15,7 @@ package edu.mondragon.spring.controller;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import javax.servlet.http.HttpServletRequest;
@@ -106,11 +107,22 @@ public class DuelController {
 		String view = "home";
 		
 		if (checkIfUserIsLogged(request, model)) {
+			HttpSession session = request.getSession(true);
+			User sessionUser = (User) session.getAttribute("user");
+			
+			// Remove currentUser from the list
 			List<User> userList = userService.listUsers();
+			ListIterator<User> iterator = userList.listIterator();
+			while(iterator.hasNext()){
+			    if(iterator.next().getUser_id() == sessionUser.getUser_id()) {
+			    	iterator.remove();
+			    }
+			}
+			// Add user list to create page
 			model.addAttribute("userList", userList);
 			
-			HttpSession session = request.getSession(true);
-			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUser_id());
+			// Add deck list to create page
+			Set<Deck> deckList = userService.getUserDecks(sessionUser.getUser_id());
 			model.addAttribute("deckList", deckList);
 			
 			view = "duel/create";
@@ -161,17 +173,24 @@ public class DuelController {
 		String view = "home";
 		
 		if (checkIfUserIsLogged(request, model)) {
-			HttpSession session = request.getSession(true);
-			Match match = matchService.getMatchById(id);
-			
-			Integer myDeck_id = Integer.valueOf(request.getParameter("myDeck_id"));
-			match.setDeck_2(deckService.getDeckById(myDeck_id));
-			
-			if (match.getWinner() == null) {
-				session.setAttribute("match", match);
-				this.battleLog = new ArrayList<>();
+			if(request.getParameter("action").equals("accept")) {
+				HttpSession session = request.getSession(true);
+				Match match = matchService.getMatchById(id);
 				
-				view = "duel/battle";
+				Integer myDeck_id = Integer.valueOf(request.getParameter("deck-picker-" + id));
+				match.setDeck_2(deckService.getDeckById(myDeck_id));
+				
+				if (match.getWinner() == null) {
+					session.setAttribute("match", match);
+					this.battleLog = new ArrayList<>();
+					
+					view = "duel/battle";
+				}
+			} else {
+				// Remove match
+				Match match = matchService.getMatchById(id);
+				matchService.removeMatch(match);
+				view = "redirect:/duel/list";
 			}
 		}
 		return view;

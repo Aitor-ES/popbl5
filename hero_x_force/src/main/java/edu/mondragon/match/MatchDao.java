@@ -21,4 +21,6 @@ public interface MatchDao {
 	List<Match> listMatchs();
 	
 	Match getMatchById(int match_id);
+	
+	void removeMatch(Match match);
 }

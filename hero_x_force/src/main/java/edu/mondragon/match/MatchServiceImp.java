@@ -60,4 +60,9 @@ public class MatchServiceImp implements MatchService {
 		return matchDao.listMatchs();
 	}
 
+	@Override
+	public void removeMatch(Match match) {
+		matchDao.removeMatch(match);		
+	}
+
 }

@@ -21,4 +21,6 @@ public interface MatchService {
 	List<Match> listMatches();
 
 	Match getMatchById(int match_id);
+	
+	void removeMatch(Match match);
 }

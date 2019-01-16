@@ -71,4 +71,9 @@ public class MatchDaoImp implements MatchDao {
         return sessionFactory.getCurrentSession();
     }
 
+	@Override
+	public void removeMatch(Match match) {
+		getCurrentSession().remove(match);
+	}
+
 }
