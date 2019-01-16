@@ -1,17 +1,16 @@
-:root{
---dark-color: #b27ce5;
---earth-color:#bb7514;
---electric-color:#fff000;
---fire-color:#f0300a;
---ghost-color:#d2c9c9;
---ice-color:#93d7e6;
---light-color:#fbc66e;
---normal-color:#aeaeae;
---plant-color:#75b719;
---psychic-color:#f514c3;
---water-color:#0054ff;
+:root {
+  --dark-color: #b27ce5;
+  --earth-color: #bb7514;
+  --electric-color: #fff000;
+  --fire-color: #f0300a;
+  --ghost-color: #d2c9c9;
+  --ice-color: #93d7e6;
+  --light-color: #fbc66e;
+  --normal-color: #aeaeae;
+  --plant-color: #75b719;
+  --psychic-color: #f514c3;
+  --water-color: #0054ff;
 }
-
 
 .titleArea {
   position: absolute;
@@ -32,7 +31,6 @@
   line-height: 1.2;
   text-align: center;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
-  
 }
 
 .stats {
@@ -44,10 +42,8 @@
   z-index: 51;
   display: grid;
   grid-template-columns: auto auto 5.65px 11.289px;
-  grid-template-areas: 
-  "ATK ATK_val MATK MATK_val"
-  "DEF DEF_val MDEF MDEF_val"
-  "HP HP_val SPD SPD_val";
+  grid-template-areas: "ATK ATK_val MATK MATK_val"
+    "DEF DEF_val MDEF MDEF_val" "HP HP_val SPD SPD_val";
   justify-content: space-around;
   align-items: center;
   grid-column-gap: 28.224px;
@@ -59,7 +55,6 @@
   color: rgb(253, 253, 253);
   line-height: 1.2;
   position: absolute;
-
 }
 
 .MDEF {
@@ -72,7 +67,7 @@
   grid-area: MATK;
 }
 
-.HP{
+.HP {
   z-index: 48;
   grid-area: HP;
 }
@@ -92,7 +87,7 @@
   grid-area: ATK;
 }
 
-.statValue{
+.statValue {
   font-size: 12.418px;
   font-family: "Orbitron";
   line-height: 1.2;
@@ -114,7 +109,7 @@
   z-index: 56;
 }
 
-.SPD_VAL{
+.SPD_VAL {
   grid-area: SPD_val;
   z-index: 55;
 }
@@ -132,14 +127,14 @@
 .cardImg {
   position: absolute;
   background-repeat: no-repeat;
-  background-size: cover;  
+  background-size: cover;
   top: 48.433px;
   width: 309px;
   height: 305.048px;
   z-index: 6;
 }
 
-.templateImg{
+.templateImg {
   position: absolute;
   z-index: 7;
 }
@@ -166,8 +161,8 @@
   align-items: center;
 }
 
-.abilityArea{
- position: absolute;
+.abilityArea {
+  position: absolute;
   top: 374.819px;
   width: 112.897px;
   height: 95.737px;
@@ -200,7 +195,6 @@
   height: 19.193px;
   left: 199.828px;
   z-index: 40;
-
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
@@ -210,40 +204,82 @@
   background-image: url("../img/elements/star.png");
   width: 20px;
   height: 16px;
- }
+}
 
 .heroCardFather {
-  width:200px;
-  height:500px;
-  margin-left:0px;
-  margin-right:0px;
+  width: 231.75px;
+  height: 375px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.heroCardDeckFather {
+  width: 231.75px;
+  height: 375px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#deck-form #selected-card-slots .heroCardFather {
+  width: 75.25px;
+  height: 125px;
 }
 
 .heroCard {
-  transform: scale(1,1);
-  -ms-transform: scale(0.1, 0.1); /* IE 9 */
-  -webkit-transform: scale(1, 1); /* Safari and Chrome */
-  -o-transform: scale(0.1, 0.1); /* Opera */
-  -moz-transform: scale(0.1, 0.1); /* Firefox */
+  transform: scale(0.75, 0.75);
+  -ms-transform: scale(0.75, 0.75); /* IE 9 */
+  -webkit-transform: scale(0.75, 0.75); /* Safari and Chrome */
+  -o-transform: scale(0.75, 0.75); /* Opera */
+  -moz-transform: scale(0.75, 0.75); /* Firefox */
+  
+  -webkit-transition: all .3s ease; /* Safari y Chrome */
+  -moz-transition: all .3s ease; /* Firefox */
+  -o-transition: all .3s ease; /* IE 9 */
+  -ms-transition: all .3s ease; /* Opera */
+  
+  margin-left: -33px;
+}
+
+.heroCard:hover {
+  transform: scale(0.8, 0.8);
+  -ms-transform: scale(0.8, 0.8); /* IE 9 */
+  -webkit-transform: scale(0.8, 0.8); /* Safari and Chrome */
+  -o-transform: scale(0.8, 0.8); /* Opera */
+  -moz-transform: scale(0.8, 0.8); /* Firefox */
 }
 
 .heroCardStatic {
-  transform: scale(1, 1);
-  -ms-transform: scale(0.1, 0.1); /* IE 9 */
-  -webkit-transform: scale(1, 1); /* Safari and Chrome */
-  -o-transform: scale(0.1, 0.1); /* Opera */
-  -moz-transform: scale(0.1, 0.1); /* Firefox */
+  transform: scale(0.75, 0.75);
+  -ms-transform: scale(0.75, 0.75); /* IE 9 */
+  -webkit-transform: scale(0.75, 0.75); /* Safari and Chrome */
+  -o-transform: scale(0.75, 0.75); /* Opera */
+  -moz-transform: scale(0.75, 0.75); /* Firefox */
   
-  -webkit-transition:all .9s ease; /* Safari y Chrome */
-  -moz-transition:all .9s ease; /* Firefox */
-  -o-transition:all .9s ease; /* IE 9 */
-  -ms-transition:all .9s ease; /* Opera */
+  margin-left: -33px;
 }
 
-.heroCard:hover{
-  transform: scale(1.1, 1.1);
-  -ms-transform: scale(0.1, 0.1); /* IE 9 */
-  -webkit-transform: scale(1.1, 1.1); /* Safari and Chrome */
-  -o-transform: scale(0.1, 0.1); /* Opera */
-  -moz-transform: scale(0.1, 0.1); /* Firefox */
+.heroCardDeck {
+  transform: scale(0.75, 0.75);
+  -ms-transform: scale(0.75, 0.75); /* IE 9 */
+  -webkit-transform: scale(0.75, 0.75); /* Safari and Chrome */
+  -o-transform: scale(0.75, 0.75); /* Opera */
+  -moz-transform: scale(0.75, 0.75); /* Firefox */
+  
+  margin-left: -33px;
+}
+
+#selected-card-slots .heroCard {
+  transform: scale(0.25, 0.25);
+  -ms-transform: scale(0.25, 0.75); /* IE 9 */
+  -webkit-transform: scale(0.25, 0.25); /* Safari and Chrome */
+  -o-transform: scale(0.75, 0.75); /* Opera */
+  -moz-transform: scale(0.75, 0.75); /* Firefox */
+}
+
+#selected-card-slots .heroCard:hover {
+  transform: scale(0.75, 0.75);
+  -ms-transform: scale(0.75, 0.75); /* IE 9 */
+  -webkit-transform: scale(0.75, 0.75); /* Safari and Chrome */
+  -o-transform: scale(0.75, 0.75); /* Opera */
+  -moz-transform: scale(0.75, 0.75); /* Firefox */
 }

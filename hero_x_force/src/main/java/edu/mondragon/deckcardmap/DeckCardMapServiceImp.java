@@ -38,6 +38,12 @@ public class DeckCardMapServiceImp implements DeckCardMapService {
 	public void addDeckCardMap(DeckCardMap deckCardMap) {
 		deckCardMapDao.addDeckCardMap(deckCardMap);
 	}
+
+	@Transactional
+	@Override
+	public void updateDeckCardMap(DeckCardMap deckCardMap) {
+		deckCardMapDao.updateDeckCardMap(deckCardMap);
+	}
 	
 	/**
 	 * @brief Method to obtain the deckCardMaps from the dao

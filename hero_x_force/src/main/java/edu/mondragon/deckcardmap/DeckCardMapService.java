@@ -17,6 +17,8 @@ import java.util.List;
 
 public interface DeckCardMapService {
 	void addDeckCardMap(DeckCardMap deckCardMap);
+	
+	void updateDeckCardMap(DeckCardMap deckCardMap);
 
 	List<DeckCardMap> listDeckCardMaps();
 

@@ -70,7 +70,9 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/register.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/forgot.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/profile.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/decks.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_list.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_battle.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/percentage_chart.css"/>"/>
     

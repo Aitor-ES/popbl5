@@ -43,10 +43,10 @@ public class ProfileController {
 
 	/**
 	 * @brief Method that shows the profile
-	 * @param model implementation of Map for use when building data model
-	 * @param request Provides request information for the servlets
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
 	 * @param response To assist the servlet in sending a response
-	 * @param model A holder for model attributes
+	 * @param model    A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile/data", method = RequestMethod.GET)
@@ -55,14 +55,15 @@ public class ProfileController {
 		String view = "home";
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
-			Set<UserAchievementMap> achievementMapList = userService.getUserAchievements(((User) session.getAttribute("user")).getUser_id());
-			
+			Set<UserAchievementMap> achievementMapList = userService
+					.getUserAchievements(((User) session.getAttribute("user")).getUser_id());
+
 			List<Achievement> achievementList = new ArrayList<>();
 			for (UserAchievementMap userAchievementMap : achievementMapList) {
 				achievementList.add(userAchievementMap.getAchievement());
 			}
 			model.addAttribute("achievementList", achievementList);
-			
+
 			view = "profile/data";
 		}
 		return view;
@@ -70,17 +71,17 @@ public class ProfileController {
 
 	/**
 	 * @brief Method that shows the view to edit the user data
-	 * @param model implementation of Map for use when building data model
-	 * @param request Provides request information for the servlets
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
 	 * @param response To assist the servlet in sending a response
-	 * @param model A holder for model attributes
+	 * @param model    A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile/edit", method = RequestMethod.GET)
 	public String showUserData(HttpServletRequest request, HttpServletResponse response, Model model) {
 		return checkIfUserIsLogged(request, model) ? "profile/edit" : "home";
 	}
-	
+
 	/**
 	 * @brief Method that manages the login form
 	 * @param request
@@ -91,22 +92,21 @@ public class ProfileController {
 	@RequestMapping(value = "/profile/form", method = RequestMethod.POST)
 	public String registerFormPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		String view = "profile/edit";
-		
+
 		HttpSession session = request.getSession(true);
-		
+
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirmPassword");
-		
+
 		User sessionUser = (User) session.getAttribute("user");
 
-		if (validateData(model, email, password, confirmPassword))
-		{
+		if (validateData(model, email, password, confirmPassword)) {
 			if (username.equals(sessionUser.getUsername())) {
 				sessionUser.setEmail(email);
 				sessionUser.setPassword(password);
-				
+
 				userService.updateUser(sessionUser);
 				model.addAttribute("message", "user.modified.success");
 				sendEmail(username, email, password);
@@ -118,7 +118,7 @@ public class ProfileController {
 					sessionUser.setUsername(username);
 					sessionUser.setEmail(email);
 					sessionUser.setPassword(password);
-					
+
 					userService.updateUser(sessionUser);
 					model.addAttribute("message", "user.modified.success");
 					sendEmail(email, username, password);
@@ -128,10 +128,10 @@ public class ProfileController {
 				}
 			}
 		}
-		
+
 		return view;
 	}
-	
+
 	/**
 	 * @brief Method to send an email to the user and to the hero-x-force team
 	 * @param email
@@ -139,14 +139,11 @@ public class ProfileController {
 	 * @param password
 	 */
 	public void sendEmail(String email, String username, String password) {
-		emailService.sendSimpleMessage(email, "Hero X-Force Account Modification", 
-			"Your account has been modified." +
-		    "\n\nUsername: " + username + 
-		    "\n\nEmail: " + email +
-		    "\n\nPassword: " + password +
-		    "\n\nBest Regards, \nHero X-Force Team");
+		emailService.sendSimpleMessage(email, "Hero X-Force Account Modification",
+				"Your account has been modified." + "\n\nUsername: " + username + "\n\nEmail: " + email
+						+ "\n\nPassword: " + password + "\n\nBest Regards, \nHero X-Force Team");
 	}
-	
+
 	/**
 	 * @brief Method to validate the data inserted by the user
 	 * @param model
@@ -157,7 +154,7 @@ public class ProfileController {
 	 */
 	public boolean validateData(ModelMap model, String email, String password, String confirmPassword) {
 		boolean correct = true;
-		
+
 		if (!EmailValidator.getInstance(true).isValid(email) && correct) {
 			model.addAttribute("error", "register.email.fail");
 			correct = false;
@@ -168,10 +165,10 @@ public class ProfileController {
 			model.addAttribute("error", "register.password.fail");
 			correct = false;
 		}
-		
+
 		return correct;
 	}
-		
+
 	/**
 	 * @brief Checks the strength of the password for 0 to 10
 	 * @param password
@@ -207,23 +204,23 @@ public class ProfileController {
 
 		return passwordScore;
 	}
-	
+
 	/**
 	 * @brief Method that checks if users is logged
 	 * @param request Provides request information for the servlets
-	 * @param model A holder for model attributes
+	 * @param model   A holder for model attributes
 	 * @return boolean
 	 */
 	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;		
+		boolean isUserLogged = false;
 		HttpSession session = request.getSession(true);
-		
+
 		if (session.getAttribute("user") != null) {
 			isUserLogged = true;
 		} else {
 			model.addAttribute("error", "general.notLogged");
 		}
-		
+
 		return isUserLogged;
 	}
 
