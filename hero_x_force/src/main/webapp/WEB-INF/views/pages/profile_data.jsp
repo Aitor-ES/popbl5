@@ -86,8 +86,11 @@
       </div>
       
       <div class="col-6 d-flex justify-content-center align-items-center">
-        <p>IKER: win percentage pie chart</p>
-      </div>
+      <canvas id="pieChart"></canvas>
+      <script>
+      
+      pieChart (${user.wins}, ${user.loses});
+      </script>
     </div>
       
     <div class="row px-4 pt-5">
@@ -120,7 +123,12 @@
         </table>
       </div>
       <div class="col-4 d-flex justify-content-center align-items-center" id="win-chart">
-        <p>IKER: Achievement percentage pie chart</p>
+        <!-- Circle chart -->
+         <div class="percent-circle" style="text-align:center;" data-percent="65"></div>
+           <script>
+             $('.percent-circle').percentcircle();
+		   </script>
+          </div>
       </div>
     </div>
   </div>

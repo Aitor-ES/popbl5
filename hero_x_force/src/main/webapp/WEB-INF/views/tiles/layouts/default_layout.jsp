@@ -23,6 +23,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     
     <!-- Popper JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
@@ -36,7 +37,10 @@
       
     <!-- D3 JavaScript -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
-
+    
+     <!-- Charts JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
@@ -67,7 +71,6 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/register.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/forgot.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/profile.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duels.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_battle.css"/>"/>
     
@@ -77,7 +80,10 @@
     <script src="<c:url value='/static/js/deck_form.js'/>"></script>
     <script src="<c:url value='/static/js/radar_chart.js'/>"></script>
     <script src="<c:url value='/static/js/cardHeaderSize.js'/>"></script>
-
+    <script src="<c:url value='/static/js/hbar_chart.js'/>"></script>
+    <script src="<c:url value='/static/js/jquery.circlechart.js'/>"></script>
+     <script src="<c:url value='/static/js/pie_chart.js'/>"></script>
+    
     <!-- Title -->
     <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 
   </head>

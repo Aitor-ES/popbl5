@@ -20,17 +20,17 @@ var radar_chart = {
      w: 400,
      h: 400,
      factor: 1,
-     factorLegend: .85,
+     factorLegend: 1,
      levels: 3,
      maxValue: 0,
      radians: 2 * Math.PI,
      
      
      ToRight: 5,
-     TranslateX: 100,
+     TranslateX: 50,
      TranslateY: 50,
-     ExtraWidthX: 150,
-     ExtraWidthY: 150,
+     ExtraWidthX: 100,
+     ExtraWidthY: 100,
      color: d3.scaleOrdinal().range(["#6F257F", "#CA0D59"]),
 
      opacityArea: 0.5,
@@ -58,7 +58,6 @@ var radar_chart = {
     }
     
    
-    
     var allAxis = (d[0].map(function(i, j){return i.area}));
     var total = allAxis.length;
     var radius = cfg.factor*Math.min(cfg.w/2, cfg.h/2);

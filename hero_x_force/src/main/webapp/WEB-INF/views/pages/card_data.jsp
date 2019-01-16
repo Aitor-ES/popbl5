@@ -30,12 +30,12 @@
               <div class="HP statName">HP</div>
               <div class="MATK statName">MATK</div>
               <div class="MDEF statName">MDEF</div>
-              <div class="ATK_VAL statValue">${card.atk}</div>
-              <div class="DEF_VAL statValue">${card.def}</div>
-              <div class="SPD_VAL statValue">${card.spd}</div>
-              <div class="HP_VAL statValue">${card.hp}</div>
-              <div class="MATK_VAL statValue">${card.mag_atk}</div>
-              <div class="MDEF_VAL statValue">${card.mag_def}</div>
+               <div class="ATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.atk}</div>
+                <div class="DEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.def}</div>
+                <div class="SPD_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.spd}</div>
+                <div class="HP_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.hp}</div>
+                <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_atk}</div>
+                <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_def}</div>
             </div>
             <div class="sagaArea">
               <div class="saga">${card.saga}</div>
@@ -47,7 +47,7 @@
             </div>
             <div class="abilityArea">
               <div class="abilityTitle">SPECIAL ABILITY:</div>
-              <div class="abilityName">${card.ability.name}</div>
+				<div class="abilityName" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.ability.name}</div>
             </div>
           </div>
         </div>
@@ -145,19 +145,28 @@
         </div>
       </div>
       
-     
+      <div class="col-12 col-sm-4">
+        <h2 class="title-style"><spring:message code="card.data.bar.title"/></h2>
+        <canvas class="col-12 mt-5"id="horizontalBar" ></canvas>
+       
+      </div>
+      
+      <div class="col-12 col-sm-4">
+        <h2 class="title-style"><spring:message code="card.data.balance.title"/></h2>
+        <div id="chart" class="radar-chart">
+         
           <!-- CHART -->
         </div>
       </div>
       <div class="col-2 radar-col">
          <div id="chart" class="radar-chart">
  
-        <script>
-          var config = {
-              maxValue: 200,
-              levels: 5,
-              fontFamily: "orbitron",
-              fontSize: "1.25rem"
+       <script>
+        var config = {
+                maxValue: 200,
+                levels: 5,
+                fontFamily: "orbitron",
+                fontSize: "1.3rem"
           }
           $.ajax({
           	  data: {id: "${card.card_id}"},
@@ -168,7 +177,9 @@
       	  	  success: function(data){
       			  var jsonObject = JSON.parse(data);
       			  console.log(jsonObject);
+      			 
       	          //Call function to draw the Radar chart
+      	          drawHorizontalBarChart(jsonObject);
       	          radar_chart.draw("#chart", jsonObject, config);
       		  }
   		  });
@@ -176,7 +187,8 @@
         </script>
        </div>
       </div>
-    
+    </div>
+ </div>
   <!-- Start: Back to top button -->
   <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
   <!-- End: Back to top button -->  
