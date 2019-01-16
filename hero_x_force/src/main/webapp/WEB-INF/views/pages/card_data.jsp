@@ -108,7 +108,7 @@
       <div class="col-12 col-sm-4">
         <h2 class="title-style"><spring:message code="card.data.stats.title"/></h2>
         <div class="table-overflow-x">
-          <table class="myTable table table-hover">
+          <table class="mySimpleTable table table-hover">
             <thead class="thead-dark">
               <tr>
                 <th><spring:message code="card.data.stats.table.stats.heading" /></th>
