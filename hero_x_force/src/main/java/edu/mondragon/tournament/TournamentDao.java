@@ -28,4 +28,11 @@ public interface TournamentDao {
 	 * @return List<Tournament>
 	 */
 	List<Tournament> listTournaments();
+
+	/**
+	 * @brief Method to find a tournament using the id
+	 * @param tournamentId Tournament id int
+	 * @return User
+	 */
+	Tournament getTournamentById(int tournamentId);
 }

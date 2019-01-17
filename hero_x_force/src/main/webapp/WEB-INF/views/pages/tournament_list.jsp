@@ -35,7 +35,7 @@
     <div class="row px-sm-5 pt-3 mb-4">
       <div class="col">
         <c:choose>
-          <c:when test="${tournamentList.size() == 0 }">
+          <c:when test="${tournamentList.size() == 0}">
             <div class="row">
               <div class="modal-content col">
                 <h3 class="text-center"><spring:message code="tournament.list.empty" /></h3>
@@ -59,7 +59,7 @@
                         <!-- <li class="list-group-item">${user.username}</li> -->
                       </ul>
                       <div class="col-2 d-flex justify-content-start align-items-center">
-                        <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/tournament/create" role="button">
+                        <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/tournament/${tournament.tournament_id}/join" role="button">
                           <i class="fas fa-hand-point-up"></i> <spring:message code="tournament.list.join.button"/>
                         </a>
                       </div>
