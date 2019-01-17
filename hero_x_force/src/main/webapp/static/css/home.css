@@ -58,14 +58,35 @@
 
 /* Jumbotron
  *********************************************************/
+#home .jumbotron {
+  background-color: #3b4652;
+  opacity: .85;
+  padding: 20px;
+  box-shadow: 0px 0px 3px #848484;
+  color: white;
+}
+
 #home .jumbotron h1 {
-  font-size: var(--movile-h1-font-size)
- }
+  font-size: var(--movile-h1-font-size);
+}
  
 #home .subtitle {
   font-size: var(--movile-subtitle-font-size);
- }
+}
  
+#home .jumbotron hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; 
+}
+
+#home .jumbotron a {
+  color: black;
+}
+
 /* Modal
  *********************************************************/
 #home .modal-footer {

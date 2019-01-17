@@ -39,14 +39,14 @@
           </div>
           
           <!-- Button -->
-          <button class="btn btn-lg btn-warning mt-3" type="submit" name="submit" onclick="forgotProgress()"><i class="fas fa-share-square"></i> <spring:message code="action.recover"/></button>
+          <button class="button-style btn btn-lg btn-warning mt-3" type="submit" name="submit" onclick="forgotProgress()"><i class="fas fa-share-square"></i> <spring:message code="action.recover"/></button>
         </div>
       </div>
     </form>
     <!-- End: Forgot -->
   
     <!-- Start: Top button -->
-    <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
     <!-- End: Top button -->
   
   </div>

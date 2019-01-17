@@ -56,7 +56,7 @@
           </div>
           
           <!-- Button -->
-          <button class="btn btn-lg btn-warning mt-3" type="submit" name="submit" onclick="userProgress()"><i class="fas fa-plus"></i> <spring:message code="action.create"/></button>
+          <button class="button-style btn btn-lg btn-warning mt-3" type="submit" name="submit" onclick="userProgress()"><i class="fas fa-plus"></i> <spring:message code="action.create"/></button>
         
         </div>
       </div>
@@ -64,7 +64,7 @@
     <!-- End: Register -->
   
     <!-- Start: Top button -->
-    <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
     <!-- End: Top button -->
   
   </div>
