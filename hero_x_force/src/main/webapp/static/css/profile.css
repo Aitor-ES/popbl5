@@ -1,39 +1,11 @@
-/* PROFILE
--------------------------------------------------- */
-
-/* Body of the page */
-
-@font-face {
-    font-family: "Orbitron"; /*a name to be used later*/
-      src: url('../font/orbitron.ttf'); /*URL to font*/
-}
-
-body{
-  /*background-image: url("../img/profile/background.png");*/
-  background-repeat: no-repeat;
-  background-size: cover;  
-  font-family: "Orbitron";
-  src: url('../font/orbitron.ttf');
-  color:#494949;
-  --borderColorData: transparent;
-  --textShadowVar:0rem 0.125rem 0.125rem #ffffff7F;/*White, 70% op.*/
-}
-
-/* USER DATA
--------------------------------------------------- */
+/* Global
+ *********************************************************/
 
 /* The style of the titles (The Username and Achievements)*/
-.title-style{
-  margin-bottom: 1.25rem;
-  border-left: 1rem solid #ff0000 ; 
-  padding: 0.625rem;
-  font-size: 2.125rem;
-  font-weight: bolder;
-  text-shadow: var(--textShadowVar);
-}
 
-/* WIN CHART
--------------------------------------------------- */
+
+/* Win chart
+ *********************************************************/
 #win-chart {
   width: 100%; 
   margin: 0 auto;
@@ -49,16 +21,15 @@ body{
   }
 }
 
-/* ACHIEVEMENT CHART
--------------------------------------------------- */
+/* Achievement chart
+ *********************************************************/
 #achievement-chart {
   display: flex;
   justify-content: center;
 }
 
-/* ACHIEVEMENTS TABLE
--------------------------------------------------- */
-
+/* Achievement table
+ *********************************************************/
 .ach-table{
   margin-left: 1.25rem;
 }

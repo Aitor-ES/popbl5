@@ -1,7 +1,7 @@
-/* Drag & drop Javascript for deck-form view */
-
+/* Drag & drop Javascript for deck-form view
+ *********************************************************/
 function drag(ev) {
-	ev.dataTransfer.setData("text", ev.target.id);		// ev.target is the element being dragged (the img)
+	ev.dataTransfer.setData("text", ev.target.id); // ev.target is the element being dragged (the img)
 }
 
 function allowDrop(ev) {
@@ -12,7 +12,7 @@ function drop(ev) {
 	ev.preventDefault();
 	var data = ev.dataTransfer.getData("text");
 	var elementToDrop = document.getElementById(data);
-	ev.target.appendChild(elementToDrop);		// ev.target is the container where the element is being dropped
+	ev.target.appendChild(elementToDrop); // ev.target is the container where the element is being dropped
 	
 	if (ev.target.classList[0] == "selected-card-slot") {
 		var slotId = ev.target.id;

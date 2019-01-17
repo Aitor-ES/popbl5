@@ -17,8 +17,8 @@
 /* Responsive (sm<540px - md<720px - lg<960px)
  *********************************************************/
 @media (min-width: 720px) {
-  #login #login-title h1 {
-    font-size: 2.3rem;
+  #login #login-title h2 {
+    font-size: var(--desktop-h2-font-size);
   }
   
   #login #register-link {

@@ -17,8 +17,8 @@
 /* Responsive (sm<540px - md<720px - lg<960px)
  *********************************************************/
 @media (min-width: 720px) {
-  #forgot #forgot-title h1 {
-    font-size: 2.3rem;
+  #forgot #forgot-title h2 {
+    font-size: var(--desktop-h2-font-size);
   }
 }
 

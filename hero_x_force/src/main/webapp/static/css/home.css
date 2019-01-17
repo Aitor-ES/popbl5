@@ -10,7 +10,7 @@
 }
 
 #home .carousel-caption h1 {
-  font-size: 2.4rem;
+  font-size: var(--movile-h1-font-size);
 }
 
 #home .carousel-item {
@@ -49,7 +49,7 @@
 }
 
 #home .news p {
-  font-size: 1.15rem;
+  font-size: var(--movile-p-font-size);
 }
 
 #home .news img {
@@ -59,11 +59,11 @@
 /* Jumbotron
  *********************************************************/
 #home .jumbotron h1 {
-  font-size: 2.4rem;
+  font-size: var(--movile-h1-font-size)
  }
  
 #home .subtitle {
-  font-size: 1.15rem;
+  font-size: var(--movile-subtitle-font-size);
  }
  
 /* Modal
@@ -77,33 +77,29 @@
  *********************************************************/
 @media (min-width: 720px) {
   #home .carousel-caption h1 {
-    font-size: 3.5rem;
+    font-size: var(--desktop-h1-font-size);
   }
   
   #home .carousel-caption p {
     margin-bottom: 1.25rem;
-    font-size: 1.25rem;
+    font-size: var(--desktop-p-font-size);
     line-height: 1.4;
   }
 
   #home .features h2 {
-    font-size: 2.25rem;
+    font-size: var(--desktop-h2-font-size);
   }
   
   #home .features p {
-    font-size: 1.25rem;
+    font-size: var(--desktop-p-font-size);
   }
   
   #home .news-heading {
     font-size: 50px;
   }
   
-  #home .news p {
-    font-size: 1.4rem;
-  }
-  
-  #home .subtitle {
-    font-size: 1.4rem;
+  #home .news .subtitle {
+    font-size: var(--desktop-subtitle-font-size);
   }
   
   #home .modal-footer button {

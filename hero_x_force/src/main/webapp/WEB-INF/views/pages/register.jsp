@@ -16,7 +16,7 @@
   <!--  Start: Title -->
   <div id="register-title" class="row">
     <div class="col text-center">
-      <h1 class="h2 mt-3 mb-3 font-weight-normal"><spring:message code="register.label"/></h1>
+      <h2 class="h2 mt-3 mb-3 font-weight-normal"><spring:message code="register.label"/></h2>
     </div>
   </div>
   <!-- End: Title -->
@@ -63,8 +63,8 @@
   </form>
   <!-- End: Register -->
   
-  <!-- Start: Back to top button -->
+  <!-- Start: Top button -->
   <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
-  <!-- End: Back to top button -->
+  <!-- End: Top button -->
 </section>
-<!-- End: Section -->
+<!-- End: Register -->

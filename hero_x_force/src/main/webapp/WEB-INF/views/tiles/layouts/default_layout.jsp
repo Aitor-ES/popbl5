@@ -37,7 +37,7 @@
     <!-- D3 JavaScript -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
     
-     <!-- Charts JS -->
+    <!-- Charts JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     
     <!-- DataTables CSS -->
@@ -60,28 +60,29 @@
     
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/default.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck_list.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck_form.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck_data.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card_data.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/menu.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/header.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/footer.css"/>"/>  
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/home.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/login.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/register.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/forgot.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/menu.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/profile.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/percentage_chart.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/decks.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck_list.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck_form.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck_data.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card_data.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_list.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_battle.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/percentage_chart.css"/>"/>
-    
+
     <!-- Custom js -->
     <script src="<c:url value='/static/js/default.js'/>"></script>
-    <script src="<c:url value='/static/js/message.js'/>"></script>
     <script src="<c:url value='/static/js/deck_form.js'/>"></script>
-    <script src="<c:url value='/static/js/radar_chart.js'/>"></script>
     <script src="<c:url value='/static/js/cardHeaderSize.js'/>"></script>
+    <script src="<c:url value='/static/js/radar_chart.js'/>"></script>
     <script src="<c:url value='/static/js/hbar_chart.js'/>"></script>
     <script src="<c:url value='/static/js/pie_chart.js'/>"></script>
     
@@ -89,11 +90,6 @@
     <title><tiles:getAsString name="title"/> - <spring:message code="header.appName"/></title> 
   </head>
   <body>
-    <!-- Current application context -->
-    <script>
-    	var MAIN_CONTEXT = '${pageContext.request.contextPath}';
-    </script>
-    
     <!-- Tiles templates -->
     <tiles:insertAttribute name="header"/>
     <c:if test="${not empty sessionScope.user}">

@@ -202,8 +202,8 @@
   </div>
   <!-- End: Modal -->
     
-  <!-- Start: Back to top button -->
+  <!-- Start: Top button -->
   <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
-  <!-- End: Back to top button -->
+  <!-- End: Top button -->
 </section>
-<!-- End: Section -->
+<!-- End: Home -->
