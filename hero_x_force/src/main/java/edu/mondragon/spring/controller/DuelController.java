@@ -29,10 +29,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -42,7 +43,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import edu.mondragon.card.Card;
 import edu.mondragon.deck.Deck;
 import edu.mondragon.deck.DeckService;
@@ -181,21 +182,31 @@ public class DuelController {
 	 * @param model   A holder for model attributes
 	 * @return String
 	 */
-	@RequestMapping(value = { "/duel/{id}/loadBattle" }, method = RequestMethod.POST)
-	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model,	RedirectAttributes redirectAttributes) {
+	@RequestMapping(value = { "/duel/{id}/battle" }, method = RequestMethod.POST)
+	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model) {
 		String view = "home";
 
 		if (checkIfUserIsLogged(request, model)) {
 			if (request.getParameter("action").equals("accept")) {
-				HttpSession session = request.getSession(true);
 				Match match = matchService.getMatchById(id);
-
-				Integer myDeck_id = Integer.valueOf(request.getParameter("deck-picker-" + id));
-				match.setDeck_2(deckService.getDeckById(myDeck_id));
-
+				
 				if (match.getWinner() == null) {
-					session.setAttribute("match", match);
+					Deck deck2 = deckService.getDeckById(Integer.valueOf(request.getParameter("deck-picker-" + id)));
+					match.setDeck_2(deck2);
+					
 					this.battleLog = new ArrayList<>();
+
+					if (this.startBattle(match)) {
+						match.setWinner(match.getUser_1());
+						match.getUser_1().setWins(match.getUser_1().getWins() + 1);
+						match.getUser_2().setLoses(match.getUser_2().getLoses() + 1);
+					} else {
+						match.setWinner(match.getUser_2());
+						match.getUser_2().setWins(match.getUser_2().getWins() + 1);
+						match.getUser_1().setLoses(match.getUser_1().getLoses() + 1);
+					}
+					matchService.updateMatch(match);
+					model.addAttribute("match", match);
 
 					view = "duel/battle";
 				}
@@ -211,72 +222,22 @@ public class DuelController {
 
 	/**
 	 * @brief
-	 * @param request
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = { "/duel/battle" }, method = RequestMethod.GET)
-	public String battlePage(HttpServletRequest request, Model model) {
-		String view = "home";
-
-		if (checkIfUserIsLogged(request, model)) {
-			HttpSession session = request.getSession(true);
-			Match match = (Match) session.getAttribute("match");
-			if (match != null) {
-				Deck deck_1 = match.getDeck_1();
-				Deck deck_2 = match.getDeck_2();
-
-				this.startBattle(deck_1, deck_2);
-
-				session.setAttribute("match", null);
-				view = "profile/data";
-			}
-		}
-		return view;
-	}
-
-	/**
-	 * @brief
-	 * @return
-	 */
-	@RequestMapping(value = "/duel/battle/update", method = RequestMethod.POST)
-	@ResponseBody
-	public String ajaxUpdateBattleLog(/* @RequestParam("id")String id */) {
-		JSONArray jsonArray = new JSONArray();
-
-		for (String string : battleLog) {
-			// Generate String JSON Object
-			JSONObject jsonString = new JSONObject();
-
-			// Put the string inside the JSON Object
-			jsonString.put("battleLogLine", string);
-
-			// Put the JSON Object in the JSON Array
-			jsonArray.put(jsonString);
-		}
-		/*
-		 * It's important to call toString() so that it returns a char string. So it
-		 * transforms the JSON Object/Array to a normal string. Then the client will
-		 * transform back to JSON
-		 */
-		return jsonArray.toString();
-	}
-
-	/**
-	 * @brief
 	 * @param deck_1
 	 * @param deck_2
 	 * @return
 	 */
-	public boolean startBattle(Deck deck_1, Deck deck_2) {
+	public boolean startBattle(Match match) {
+		Deck deck1 = match.getDeck_1();
+		Deck deck2 = match.getDeck_2();
+		
 		Card hero_1;
 		Card hero_2;
 
 		int player_1_points = 0;
 		int player_2_points = 0;
 
-		Iterator<DeckCardMap> it_1 = deck_1.getDeckCardMaps().iterator();
-		Iterator<DeckCardMap> it_2 = deck_2.getDeckCardMaps().iterator();
+		Iterator<DeckCardMap> it_1 = deck1.getDeckCardMaps().iterator();
+		Iterator<DeckCardMap> it_2 = deck2.getDeckCardMaps().iterator();
 
 		int i = 1;
 
@@ -298,12 +259,6 @@ public class DuelController {
 		this.battleLog.add("ROUNDS WON BY PLAYER 1: " + player_1_points);
 		this.battleLog.add("ROUNDS WON BY PLAYER 2: " + player_2_points);
 		this.battleLog.add("PLAYER " + ((player_1_points > player_2_points) ? "1" : "2") + " WINS!");
-
-		try {
-			TimeUnit.SECONDS.sleep(3);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 
 		return (player_1_points > player_2_points);
 	}
@@ -335,12 +290,6 @@ public class DuelController {
 			is_hero_1_winner = false;
 		}
 
-		try {
-			TimeUnit.SECONDS.sleep(3);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
 		return is_hero_1_winner;
 	}
 
@@ -368,12 +317,6 @@ public class DuelController {
 				this.battleLog.add("Now moves " + hero_1.getName());
 				move(hero_1, hero_2);
 			}
-		}
-
-		try {
-			TimeUnit.SECONDS.sleep(3);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -450,6 +393,33 @@ public class DuelController {
 			this.battleLog.add(attacker.getName() + " dealt " + dmg + " damage to " + defender.getName());
 			this.battleLog.add(defender.getName() + " has " + defender.getHp() + " HP remaining");
 		}
+	}
+
+	/**
+	 * @brief
+	 * @return
+	 */
+	@RequestMapping(value = "/duel/battle/update", method = RequestMethod.POST)
+	@ResponseBody
+	public String ajaxUpdateBattleLog(/* @RequestParam("id")String id */) {
+		JSONArray jsonArray = new JSONArray();
+
+		for (String string : battleLog) {
+			// Generate String JSON Object
+			JSONObject jsonString = new JSONObject();
+
+			// Put the string inside the JSON Object
+			jsonString.put("battleLogLine", string);
+
+			// Put the JSON Object in the JSON Array
+			jsonArray.put(jsonString);
+		}
+		/*
+		 * It's important to call toString() so that it returns a char string. So it
+		 * transforms the JSON Object/Array to a normal string. Then the client will
+		 * transform back to JSON
+		 */
+		return jsonArray.toString();
 	}
 
 }

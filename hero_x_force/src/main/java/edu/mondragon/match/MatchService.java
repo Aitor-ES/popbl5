@@ -22,6 +22,13 @@ public interface MatchService {
 	 * @return void
 	 */
 	void addMatch(Match match);
+	
+	/**
+	 * @brief This method updates a match
+	 * @param match Match object
+	 * @return void
+	 */
+	void updateMatch(Match match);
 
 	/**
 	 * @brief This method obtains the match list

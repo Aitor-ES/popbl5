@@ -22,12 +22,19 @@ public interface MatchDao {
 	 * @return void
 	 */
 	void addMatch(Match match);
+	
+	/**
+	 * @brief This method updates a match
+	 * @param match Match object
+	 * @return void
+	 */
+	void updateMatch(Match match);
 
 	/**
 	 * @brief This method obtains the match list
 	 * @return List<Match>
 	 */
-	List<Match> listMatchs();
+	List<Match> listMatches();
 	
 	/**
 	 * @brief This method the returns the match which has the indicated id

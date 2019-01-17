@@ -10,6 +10,9 @@
 <section id="duel-result">
   <div class="container-fluid">
     <h2>Duel Result</h2>
-    
+    <div id="battle-result">
+      <p>${match.winner.name} is the winner!</p>
+    </div>
+    <a class="btn bd-highlight mr-1" href="${pageContext.request.contextPath}/profile/data" role="button">Back</a>
   </div>
 </section>
