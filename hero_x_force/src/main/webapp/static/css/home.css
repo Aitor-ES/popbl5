@@ -1,23 +1,24 @@
-/* CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
+/* Carousel 
+ *********************************************************/
+#home #myCarousel {
   margin-bottom: 5rem;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  bottom: 2rem;
-  z-index: 10;
+  box-shadow: 0px 0px 5px red;
 }
 
-/* Declare heights because of positioning of img element */
-.carousel-item {
+#home .carousel-caption {
+  bottom: 4rem;
+}
+
+#home .carousel-caption h1 {
+  font-size: var(--movile-h1-font-size);
+}
+
+#home .carousel-item {
   height: 32rem;
   background-color: #777;
 }
 
-.carousel-item > img {
+#home .carousel-item > img {
   position: absolute;
   top: 0;
   left: 0;
@@ -25,74 +26,83 @@
   height: 32rem;
 }
 
-.carousel-text span {
+#home .carousel-text span {
   background-color: #00000080;
 }
 
-
-/* FEATURES
--------------------------------------------------- */
-
-/* Center align the text within the four columns */
-.features .col-lg-3 {
-  text-align: center;
-}
-.features h2 {
-  font-weight: 400;
-}
-.features .col-lg-3 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
+/* Features
+ *********************************************************/
+#home .rounded-circle {
+  box-shadow: 0px 0px 10px black;
 }
 
-
-/* NEWS
--------------------------------------------------- */
-
-.news-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+/* News
+ *********************************************************/
+#home .news-divider {
+  margin: 5rem 0;
 }
 
-/* Thin out the marketing headings */
-.news-heading {
+#home .news-heading {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -.05rem;
 }
 
+#home .news p {
+  font-size: var(--movile-p-font-size);
+}
 
-/* MODAL
--------------------------------------------------- */
+#home .news img {
+  box-shadow: 0px 0px 10px black;
+}
 
-.modal-footer {
+/* Jumbotron
+ *********************************************************/
+#home .jumbotron h1 {
+  font-size: var(--movile-h1-font-size)
+ }
+ 
+#home .subtitle {
+  font-size: var(--movile-subtitle-font-size);
+ }
+ 
+/* Modal
+ *********************************************************/
+#home .modal-footer {
   display:flex;
   justify-content: space-between;
 }
 
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-@media (min-width: 40em) {
-  .carousel-caption p {
+/* Responsive (sm<540px - md<720px - lg<960px)
+ *********************************************************/
+@media (min-width: 720px) {
+  #home .carousel-caption h1 {
+    font-size: var(--desktop-h1-font-size);
+  }
+  
+  #home .carousel-caption p {
     margin-bottom: 1.25rem;
-    font-size: 1.25rem;
+    font-size: var(--desktop-p-font-size);
     line-height: 1.4;
   }
 
-  .news-heading {
+  #home .features h2 {
+    font-size: var(--desktop-h2-font-size);
+  }
+  
+  #home .features p {
+    font-size: var(--desktop-p-font-size);
+  }
+  
+  #home .news-heading {
     font-size: 50px;
   }
-}
-
-@media (min-width: 62em) {
-  .news-heading {
-    margin-top: 7rem;
+  
+  #home .news .subtitle {
+    font-size: var(--desktop-subtitle-font-size);
   }
-}
-
-@media (max-width: 40em) {
-    .modal-footer button {
-    font-size: 90%;
+  
+  #home .modal-footer button {
+    font-size: 100%;
   }
 }

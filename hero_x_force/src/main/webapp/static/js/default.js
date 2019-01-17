@@ -1,7 +1,41 @@
-// When the user scrolls down 200px from the top of the document, show the button
+/* Success message remover
+ *********************************************************/
+window.setTimeout(function() {
+	// console.log("Function loaded");
+    $(".alert-success").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 5000);
+
+/* Error message remover
+ *********************************************************/
+window.setTimeout(function() {
+	// console.log("Function loaded");
+    $(".alert-danger").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 10000);
+
+
+/* Top button: show & hide
+ *********************************************************/
 window.onscroll = function() {scrollFunction()};
 
-// DataTables initialization
+function scrollFunction() {
+	  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+	    document.getElementById("topButton").style.display = "block";
+	  } else {
+	    document.getElementById("topButton").style.display = "none";
+	  }
+	}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+/* Databases: initialize
+ *********************************************************/
 $(document).ready(function() {
     $('.myTable	').DataTable();
 } );
@@ -13,32 +47,19 @@ $(document).ready(function() {
     });
 } );
 
-// Top button display
-function scrollFunction() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    document.getElementById("topButton").style.display = "block";
-  } else {
-    document.getElementById("topButton").style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
+/* Nav: set active link
+ *********************************************************/
 $(document).ready(function() {
-  // When the user clicks on a link, change status to active to show it activated
   $('li.active').removeClass('active');
   $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
 });
 
-// Contact us progress bar
-function contactUsProgress() {
-	var username = document.forms["contactUs"]["username"].value;
-    var subject = document.forms["contactUs"]["subject"].value;
-    var message = document.forms["contactUs"]["message"].value;
+/* Progress bar: show
+ *********************************************************/
+function homeProgress() {
+	var username = document.forms["homeForm"]["username"].value;
+    var subject = document.forms["homeForm"]["subject"].value;
+    var message = document.forms["homeForm"]["message"].value;
     
     if (username != "" && subject != "" && message != "")
     {
@@ -46,7 +67,6 @@ function contactUsProgress() {
     }
 }
 
-// Forgot progress bar
 function forgotProgress() {
 	var email = document.forms["forgotForm"]["email"].value;
 
@@ -55,7 +75,6 @@ function forgotProgress() {
 	}
 }
 
-// Register & Profile edit progress bar
 function userProgress() {
 	var username = document.forms["userForm"]["username"].value;
     var email = document.forms["userForm"]["email"].value;

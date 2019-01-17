@@ -182,8 +182,7 @@ public class DuelController {
 	 * @return String
 	 */
 	@RequestMapping(value = { "/duel/{id}/loadBattle" }, method = RequestMethod.POST)
-	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model,
-			RedirectAttributes redirectAttributes) {
+	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model,	RedirectAttributes redirectAttributes) {
 		String view = "home";
 
 		if (checkIfUserIsLogged(request, model)) {

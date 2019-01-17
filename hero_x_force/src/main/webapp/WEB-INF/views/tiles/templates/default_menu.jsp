@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<div id="menu">
+<!-- Start: Menu  -->
+<section id="menu">
+
   <div class="navbar navbar-expand-md navbar-dark bg-dark">
-    <!-- Navbar toggler -->
+  
+    <!-- Start: Navbar button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- Navbar items -->
+    <!-- End: Navbar button -->
+    
+    <!-- Start: Navbar links -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-fill w-100">
         <li class="nav-item">
@@ -38,5 +43,8 @@
         </li>
       </ul>
     </div>
+    <!-- End: Navbar links -->
+    
   </div>
-</div>
+</section>
+<!-- End: Menu -->

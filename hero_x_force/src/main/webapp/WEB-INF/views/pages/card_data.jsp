@@ -147,7 +147,7 @@
       
       <div class="col-12 col-sm-4">
         <h2 class="title-style"><spring:message code="card.data.bar.title"/></h2>
-        <canvas class="col-12 mt-5"id="horizontalBar" ></canvas>
+        <canvas class="col-12 mt-5" id="horizontalBar" ></canvas>
        
       </div>
       

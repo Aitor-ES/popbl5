@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
+<!-- Start: Profile data -->
 <section id="profile-data">
   <div class="container-fluid">
     <div class="row px-4 pt-4">
@@ -139,8 +140,9 @@
       </div>
     </div>
   </div>
-  
-  <!-- Start: Back to top button -->
-  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
-  <!-- End: Back to top button -->
+    
+  <!-- Start: Top button -->
+  <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+  <!-- End: Top button -->
 </section>
+<!-- End: Profile data -->

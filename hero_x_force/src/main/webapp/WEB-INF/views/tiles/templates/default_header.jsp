@@ -2,14 +2,19 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!-- Start: Header  -->
 <header id="header" class="navbar navbar-expand navbar-dark d-flex justify-content-between">
-  <!-- Logo -->
+
+  <!-- Start: Logo -->
   <a class="navbar-brand" href="${pageContext.request.contextPath}/">
     <img src="${pageContext.request.contextPath}/static/img/default/horizontal_logo.png" width="100" height="40" alt="Hero X-Force">
   </a>
+  <!-- End: Logo -->
   
-  <!-- Options -->
+  <!-- Start: Navbar -->
   <ul class="navbar-nav">
+  
+    <!-- List: Links & Button -->
     <c:choose>
       <c:when test="${not empty sessionScope.user}">
         <li class="nav-item">
@@ -44,7 +49,7 @@
       </c:otherwise>
     </c:choose>
 
-    <!-- Enable language changing -->
+    <!-- Dropdown: Language -->
     <li class="nav-item dropdown" id="language-select">
       <a class="nav-link dropdown-toggle" href="#" id="navdrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <c:choose>
@@ -62,7 +67,6 @@
           </c:otherwise>
         </c:choose>
       </a>
-
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=en" role="button">
           <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">
@@ -77,4 +81,7 @@
     </li>
 
   </ul>
+  <!-- End: Navbar -->
+  
 </header>
+<!-- End: Header -->
