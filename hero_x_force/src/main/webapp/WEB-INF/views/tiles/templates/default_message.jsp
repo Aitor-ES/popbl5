@@ -8,7 +8,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <strong>Error! </strong> <spring:message code="${error}"/>
+    <strong><spring:message code="action.error"/> </strong> <spring:message code="${error}"/>
   </div>
 </c:if>
 <!-- End: Error messages -->
@@ -19,7 +19,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <strong>Success! </strong> <spring:message code="${message}"/>
+    <strong><spring:message code="action.success"/> </strong> <spring:message code="${message}"/>
   </div>
 </c:if>
 <!-- End: Success messages -->

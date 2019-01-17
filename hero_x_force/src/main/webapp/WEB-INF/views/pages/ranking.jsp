@@ -46,7 +46,7 @@
     <!-- End: Table -->
  
     <!-- Start: Top button -->
-    <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
     <!-- End: Top button -->
   
   </div>

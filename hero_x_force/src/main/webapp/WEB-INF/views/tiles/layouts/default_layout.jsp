@@ -76,7 +76,6 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_list.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_battle.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/tournament.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/error.css"/>"/>
 
     <!-- Custom js -->
     <script src="<c:url value='/static/js/default.js'/>"></script>
