@@ -67,6 +67,8 @@ public class ProfileController {
 		String view = "home";
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
+			session.setAttribute("user", userService.getUserById(((User) session.getAttribute("user")).getUserId()));
+			
 			Set<UserAchievementMap> achievementMapList = userService
 					.getUserAchievements(((User) session.getAttribute("user")).getUserId());
 

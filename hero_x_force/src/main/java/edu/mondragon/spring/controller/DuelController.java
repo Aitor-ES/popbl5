@@ -199,6 +199,8 @@ public class DuelController {
 				Match match = matchService.getMatchById(id);
 				
 				if (match.getWinner() == null) {
+					HttpSession session = request.getSession(true);
+					
 					Deck deck2 = deckService.getDeckById(Integer.valueOf(request.getParameter("deck-picker-" + id)));
 					match.setDeck2(deck2);
 					
@@ -215,6 +217,12 @@ public class DuelController {
 						
 						userService.updateUser(user1);
 						userService.updateUser(user2);
+						
+						if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+							session.setAttribute("user", user1);
+						} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+							session.setAttribute("user", user2);
+						}
 					} else {
 						match.setWinner(match.getUser2());
 						
@@ -226,6 +234,12 @@ public class DuelController {
 						
 						userService.updateUser(user1);
 						userService.updateUser(user2);
+						
+						if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+							session.setAttribute("user", user1);
+						} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+							session.setAttribute("user", user2);
+						}
 					}
 					matchService.updateMatch(match);
 					model.addAttribute("match", match);
