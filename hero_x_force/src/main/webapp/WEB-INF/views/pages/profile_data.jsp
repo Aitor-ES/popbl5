@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <!-- Start: Profile data -->
 <section id="profile-data">
   <div class="container-fluid">
-    <div class="row px-4 pt-4">
-      <div class="col-lg-10">
+  
+    <!-- Start: Title & Button -->
+    <div class="row px-sm-4 pt-4">
+    
+      <!-- Title -->
+      <div class="col col-sm-10">
         <c:choose>
           <c:when test="${pageContext.response.locale.language == 'es'}">
             <h2 class="title-style"><spring:message code="profile.data.subTitle" /> ${user.username}</h2>
@@ -16,15 +20,23 @@
           </c:otherwise>
         </c:choose>
       </div>
-      <div class="col-lg-2 d-flex justify-content-end align-items-center">
-          <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/edit" role="button">
+      
+      <!-- Button -->
+      <div class="col col-sm-2 d-flex justify-content-end align-items-center">
+          <a class="button-style btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/edit" role="button">
             <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
           </a>
       </div>
     </div>
+    <!-- End: Title & Button -->
     
-    <div class="row px-5">
-      <div class="col-lg-6">
+    <!-- Start: Data & Graph -->
+    <div class="row px-sm-5 mt-4 mt-sm-2">
+      
+      <!-- Options -->
+      <div class="col-lg-6 p-0">
+      
+        <!-- User name -->
         <div class="row">
           <div class="col">
             <label><spring:message code="profile.data.username" /></label>
@@ -35,8 +47,9 @@
               <input type="text" class="form-control" value="${user.username}" readonly>
             </div>
           </div>
-         </div>
+        </div>
       
+        <!-- Email -->
         <div class="row mt-2">
           <div class="col">
             <label><spring:message code="profile.data.email" /></label>
@@ -48,7 +61,8 @@
             </div>
           </div>
          </div>
-                 
+         
+        <!-- Points -->
         <div class="row mt-2">
           <div class="col">
             <label><spring:message code="profile.data.points" /></label>
@@ -60,7 +74,8 @@
             </div>
           </div>
          </div>
-               
+        
+        <!-- Wins -->
         <div class="row mt-2">
           <div class="col">
             <label><spring:message code="profile.data.battlesWon" /></label>
@@ -72,7 +87,8 @@
             </div>
           </div>
          </div>
-         
+        
+        <!-- Loses -->
         <div class="row mt-2">
           <div class="col">
             <label><spring:message code="profile.data.battlesLost" /></label>
@@ -86,47 +102,55 @@
         </div>
       </div>
       
+      <!-- Graph -->
       <div class="col-lg-6">
         <div id="win-chart" class="mt-4">
           <canvas id="pieChart"></canvas>
-          <script>
-            pieChart(${user.wins}, ${user.loses})
-          </script>
+          <script>pieChart(${user.wins}, ${user.loses});</script>
         </div>
       </div>
     </div>
+    <!-- End: Data & Graph -->
     
-    <div class="row px-4 pt-5">
+    <!-- Start: Achievement title -->
+    <div class="row px-sm-4 pt-5">
     	<div class="col">
         <h2 class="title-style"><spring:message code="profile.data.achievement.title" /></h2>
       </div>
     </div>
+    <!-- End: Achievement title -->
     
-    <div class="row px-4 mb-5">
-      <div class="col-lg-8">
-        <table class="table ach-table">
-          <thead>
-            <tr>
-              <th class="ach-table-header ach-table-data"><spring:message code="profile.data.achievement.name" /></th>
-              <th class="ach-table-header ach-table-date"><spring:message code="profile.data.achievement.unlockedDate" /></th>
-              <th class="ach-table-header ach-table-date"><spring:message code="profile.data.achievement.points" /></th>
-              <th class="ach-table-header ach-table-date"><spring:message code="profile.data.achievement.description" /></th>
-            </tr>
-          </thead>
-          <tbody>
-            <c:forEach items="${achievementList}" var="achievement">
+    <!-- Start: Table & Chart -->
+    <div class="row px-sm-5 pt-3 mb-4">
+    
+      <!-- Table -->
+      <div class="col-sm-6">
+        <div class="table-overflow-x">
+          <table class="mySimpleTable table table-hover">
+            <thead class="thead-dark">
               <tr>
-                <td>${achievement.name}</td>
-                <td>${achievement.date}</td>
-                <td>${achievement.points}</td>
-                <td>${achievement.description}</td>
+                <th><spring:message code="profile.data.achievement.name" /></th>
+                <th><spring:message code="profile.data.achievement.unlockedDate" /></th>
+                <th><spring:message code="profile.data.achievement.points" /></th>
+                <th><spring:message code="profile.data.achievement.description" /></th>
               </tr>
-            </c:forEach>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <c:forEach items="${achievementList}" var="achievement">
+                <tr>
+                  <td>${achievement.name}</td>
+                  <td>${achievement.date}</td>
+                  <td>${achievement.points}</td>
+                  <td>${achievement.description}</td>
+                </tr>
+              </c:forEach>
+            </tbody>
+          </table>
+        </div>
       </div>
-     
-      <div class="col-lg-4">
+      
+      <!-- Graph -->
+      <div class="col-sm-6 mt-2 mt-sm-0 d-flex justify-content-center">
         <!-- Circle chart -->
           <div id="achievement-chart" class="mt-4">
             <div class="c100 p50 big orange">
@@ -139,10 +163,12 @@
           </div>
       </div>
     </div>
+    <!-- End: Table & Chart -->
+  
+    <!-- Start: Top button -->
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <!-- End: Top button -->
+  
   </div>
-    
-  <!-- Start: Top button -->
-  <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
-  <!-- End: Top button -->
 </section>
 <!-- End: Profile data -->

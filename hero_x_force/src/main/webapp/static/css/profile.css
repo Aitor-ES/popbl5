@@ -1,46 +1,40 @@
-/* Global
- *********************************************************/
-
-/* The style of the titles (The Username and Achievements)*/
-
-
 /* Win chart
  *********************************************************/
-#win-chart {
+#profile-data #win-chart {
   width: 100%; 
   margin: 0 auto;
 }
 
-@media(min-width: 768px) {
-  .title-style {
-    font-size: 3.125rem;
-  }
-  
-  #win-chart {
-    width: 60%; 
-  }
-}
-
 /* Achievement chart
  *********************************************************/
-#achievement-chart {
+#profile-data #achievement-chart {
   display: flex;
   justify-content: center;
 }
 
-/* Achievement table
+/* Responsive 
+ * sm >= 576px | md >= 768px | lg >= 992px | xl >= 1200px
  *********************************************************/
-.ach-table{
-  margin-left: 1.25rem;
+@media (min-width: 576px) {
+  #profile-data #win-chart {
+    width: 80%; 
+  }
 }
-.ach-table-header{
-   font-weight: bolder !important;
+ 
+@media (min-width: 768px) {
+  #profile-data #win-chart {
+    width: 60%; 
+  }
 }
-.ach-table-data{
-  border-top: 0.25rem solid var(--borderColorData) !important;
-  font-weight: lighter;
+
+@media (min-width: 992px) {
+  #profile-data #win-chart {
+    width: 70%; 
+  }
 }
-.ach-table-date{
-  border-top: 0.25rem solid var(--borderColorData) !important;
-  font-weight: lighter;
+
+@media (min-width: 1200px) {
+  #profile-data #win-chart {
+    width: 50%; 
+  }
 }

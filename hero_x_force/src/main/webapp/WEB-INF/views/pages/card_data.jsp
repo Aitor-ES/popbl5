@@ -159,7 +159,7 @@
         </div>
       </div>
       <div class="col-2 radar-col">
-         <div id="chart" class="radar-chart">
+         <div class="radar-chart">
  
        <script>
         var config = {

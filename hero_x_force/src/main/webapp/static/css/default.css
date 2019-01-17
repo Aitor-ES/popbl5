@@ -1,16 +1,28 @@
 /* Default
  *********************************************************/
 :root {
+  --movile-title-font-size: 2rem;
+  --desktop-title-font-size: 3.25rem;
+  
   --movile-h1-font-size: 2.4rem;
-  --desktop-h1-font-size: 3.5rem;
+  --desktop-h1-font-size: 3.25rem;
   
   --desktop-h2-font-size: 2.25rem;
+  
+  --movile-h3-font-size: 1.15rem;
+  --desktop-h3-font-size: 1.85rem;
   
   --movile-subtitle-font-size: 1.15rem;
   --desktop-subtitle-font-size: 1.4rem;
   
   --movile-p-font-size: 1.15rem;
   --desktop-p-font-size: 1.25rem;
+  
+  --movile-table-font-size: 0.85rem;
+  --desktop-table-font-size: 1rem;
+  
+  --movile-button-font-size: 1rem;
+  --desktop-button-font-size: 1.25rem;
 }
 
 /* Global
@@ -33,9 +45,14 @@ body {
   color: #494949;
 }
 
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 .row {
-    margin-right: 0;
-    margin-left: 0;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 @font-face {
@@ -43,10 +60,30 @@ body {
     src: url('../font/orbitron.ttf'); /* URL to the custom font */
 }
 
+.a:hover {
+  text-decoration: none;
+}
+
 /* Datatables
  *********************************************************/
 .table-overflow-x {
   overflow-x: auto;
+}
+
+.mySimpleTable th {
+  font-size: var(--movile-table-font-size);
+}
+
+.mySimpleTable td {
+  font-size: var(--movile-table-font-size);
+}
+
+.myTable th {
+  font-size: var(--movile-table-font-size);
+}
+
+.myTable td {
+  font-size: var(--movile-table-font-size);
 }
 
 /* Top button
@@ -61,10 +98,43 @@ body {
 
 /* Menus
  *********************************************************/
-.title-style{
-  margin-bottom: 1.25rem;
+.title-style {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
   border-left: 1rem solid #dc3545; 
   padding: 0.625rem;
-  font-size: 2.125rem;
+  font-size: var(--movile-title-font-size);
   font-weight: bolder;
+}
+
+.button-style {
+  font-size: var(--movile-button-font-size);
+}
+
+/* Responsive (sm<540px - md<720px - lg<960px)
+ *********************************************************/
+@media (min-width: 720px) {
+  .title-style {
+     font-size: var(--desktop-title-font-size);
+  }
+  
+  .button-style {
+    font-size: var(--desktop-button-font-size);
+  }
+  
+  .mySimpleTable th {
+    font-size: var(--desktop-table-font-size);
+  }
+
+  .mySimpleTable td {
+    font-size: var(--desktop-table-font-size);
+  }
+  
+  .myTable th {
+    font-size: var(--desktop-table-font-size);
+  }
+
+  .myTable td {
+    font-size: var(--desktop-table-font-size);
+  }
 }
