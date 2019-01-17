@@ -1,30 +1,13 @@
 /*DECK L
 -------------------------------------------------- */
 body{
-   
-  --backgroundVar: transparent important!;
-  --backgroundButton: orange;
   --borderColorBox: black;
-  --borderColorData: transparent/*#343A40*/;
-  --borderColorButton:orange;
   --colorDeckTitle: #343A40;
-  --textShadowVar:0rem 0.125rem 0.125rem #ffffff7F;/*White, 70% op.*/
-}
-.deck-list-title{
-  margin-bottom: 1.25rem;
-  border-left: 1rem solid var(--borderColorData); 
-  padding: 0.625rem;
-  font-size: 3.125rem;
-  font-weight: bolder;
-  text-shadow: var(--textShadowVar);  padding: 1rem;
-  margin: 1.875rem;
 }
 
 .deck-list-data-box{  
   padding: 1rem;
   border: 0.0625rem solid var(--borderColorBox);
-  background-color:   var(--backgroundVar); /*Black, 70% op.*/
-  color: var(--fontColorVar);
   margin: 1.875rem;
 }
 

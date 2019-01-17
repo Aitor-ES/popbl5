@@ -37,7 +37,7 @@
                     src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(deckCardMap.card.type)}-template.png"
                     alt="edit icon">
                   <div class="titleArea">
-                    <div class="heroName" id="${deckCardMap.card.name}">${deckCardMap.card.name}</div>
+                    <div class="heroName">${deckCardMap.card.name}</div>
                   </div>
                   <div class="stats">
                     <div class="ATK statName"><spring:message code="card.atk.physical" /></div>

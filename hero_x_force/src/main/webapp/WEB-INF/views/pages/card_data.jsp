@@ -21,7 +21,7 @@
               alt="edit icon">
             <div class="titleArea">
             <script>changeTitleFontSize();</script>
-              <div class="heroName" id="${card.name}">${card.name}</div>
+              <div class="heroName">${card.name}</div>
             </div>
             <div class="stats">
               <div class="ATK statName">ATK</div>

@@ -92,7 +92,7 @@
                 src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
                 alt="edit icon" draggable="false">
               <div class="titleArea">
-                <div class="heroName" id="${card.name}">${card.name}</div>
+                <div class="heroName">${card.name}</div>
               </div>
               <div class="stats">
                 <div class="ATK statName"><spring:message code="card.atk.physical" /></div>
