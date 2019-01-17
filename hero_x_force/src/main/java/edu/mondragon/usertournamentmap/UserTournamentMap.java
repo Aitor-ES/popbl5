@@ -66,6 +66,16 @@ public class UserTournamentMap {
 	public UserTournamentMap() {
 		this.date = LocalDateTime.now();
 	}
+	
+	/**
+	 * @brief Class constructor with parameters
+	 */
+	public UserTournamentMap(User user, Tournament tournament) {
+		this.date = LocalDateTime.now();
+		
+		this.user = user;
+		this.tournament = tournament;
+	}
 
 	/*
 	 * @brief Getters and setters

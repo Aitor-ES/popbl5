@@ -29,7 +29,7 @@ public class TournamentServiceImp implements TournamentService {
 	private TournamentDao tournamentDao;
 
 	/**
-	 * @brief Method to add tournaments to the dao
+	 * @brief Method to add a tournament to the dao
 	 * @param tournament Tournament object
 	 * @return void
 	 */
@@ -47,6 +47,17 @@ public class TournamentServiceImp implements TournamentService {
 	@Override
 	public List<Tournament> listTournaments() {
 		return tournamentDao.listTournaments();
+	}
+
+	/**
+	 * @brief Method to obtain the tournament using the id from the dao
+	 * @param id Tournament id
+	 * @return Tournament
+	 */
+	@Transactional(readOnly = true)
+	@Override
+	public Tournament getTournamentById(int tournamentId) {
+		return tournamentDao.getTournamentById(tournamentId);
 	}
 
 }

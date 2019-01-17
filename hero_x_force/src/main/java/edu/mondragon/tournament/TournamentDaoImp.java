@@ -51,6 +51,17 @@ public class TournamentDaoImp implements TournamentDao {
 		TypedQuery<Tournament> query = getCurrentSession().createQuery("FROM Tournament");
 		return query.getResultList();
 	}
+
+	/**
+	 * @brief Method to find a tournament using the id
+	 * @param tournamentId Tournament id int
+	 * @return User
+	 */
+	@Override
+	public Tournament getTournamentById(int tournamentId) {
+		Tournament tournament = getCurrentSession().find(Tournament.class, tournamentId);
+		return tournament;
+	}
 	
 	/**
 	 * @brief Method to obtain the current session
