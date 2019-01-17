@@ -44,7 +44,7 @@ public class Tournament {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "TOURNAMENT_ID")
-	private Integer tournament_id;
+	private Integer tournamentId;
 
 	/**
 	 * @brief Tournament name
@@ -56,7 +56,7 @@ public class Tournament {
 	 * @brief Tournament number of participants
 	 */
 	@Column(name = "NUM_PARTICIPANTS")
-	private Integer num_participants;
+	private Integer numParticipants;
 
 	/**
 	 * @brief Tournament date
@@ -101,9 +101,9 @@ public class Tournament {
 	 * @param num_participants Tournament participants
 	 * @param date             Tournament start date
 	 */
-	public Tournament(String name, Integer num_participants) {
+	public Tournament(String name, Integer numParticipants) {
 		this.name = name;
-		this.num_participants = num_participants;
+		this.numParticipants = numParticipants;
 		this.date = parseCurrentDate(LocalDateTime.now());
 		this.hour = parseCurrentHour(LocalDateTime.now());
 	}
@@ -127,12 +127,12 @@ public class Tournament {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getTournament_id() {
-		return tournament_id;
+	public Integer getTournamentId() {
+		return tournamentId;
 	}
 
-	public void setTournament_id(Integer tournament_id) {
-		this.tournament_id = tournament_id;
+	public void setTournamentId(Integer tournament_id) {
+		this.tournamentId = tournament_id;
 	}
 
 	public String getName() {
@@ -143,12 +143,12 @@ public class Tournament {
 		this.name = name;
 	}
 
-	public Integer getNum_participants() {
-		return num_participants;
+	public Integer getNumParticipants() {
+		return numParticipants;
 	}
 
-	public void setNum_participants(Integer num_participants) {
-		this.num_participants = num_participants;
+	public void setNumParticipants(Integer num_participants) {
+		this.numParticipants = num_participants;
 	}
 
 	public String getDate() {

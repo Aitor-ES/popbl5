@@ -34,20 +34,20 @@
     <!-- Start: List -->
     <div class="row px-sm-4 pt-3 mb-4">
       <div class="col">
-        <c:forEach items="${matchesAsUser_2}" var="matchAsUser_2">
-          <form name="duelListForm" action="${pageContext.request.contextPath}/duel/${matchAsUser_2.match_id}/battle" method='POST'>
+        <c:forEach items="${matchesAsUser2}" var="matchAsUser2">
+          <form name="duelListForm" action="${pageContext.request.contextPath}/duel/${matchAsUser2.matchId}/battle" method='POST'>
             <div class="panel bg-white border border-danger p-3 mb-3">
               <div class="panel-body d-flex align-items-center bd-highlight">
-                <span class="mr-auto bd-highlight">${matchAsUser_2.user_1.username}</span>
+                <span class="mr-auto bd-highlight">${matchAsUser2.user1.username}</span>
               
                 <div class="input-group col-sm-5">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
                   </div>
-                  <select class="selectpicker form-control" name="deck-picker-${matchAsUser_2.match_id}" data-size="5"
+                  <select class="selectpicker form-control" name="deck-picker-${matchAsUser2.matchId}" data-size="5"
                     data-live-search="true" title="Choose one of the following..." required>
                     <c:forEach items="${deckList}" var="deck">
-                      <option value="${deck.deck_id}">${deck.name}</option>
+                      <option value="${deck.deckId}">${deck.name}</option>
                     </c:forEach>
                   </select>
                 </div>

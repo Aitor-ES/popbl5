@@ -12,6 +12,7 @@ package edu.mondragon.spring.controller;
  * @brief Package edu.mondragon.controllers
  */
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -58,17 +59,20 @@ public class TournamentController {
 			HttpSession session = request.getSession(true);
 
 			List<Tournament> availableTournamentList = tournamentService.listTournaments();
+			List<Tournament> joinedTournamentList = new ArrayList<>();
 
 			ListIterator<Tournament> it = availableTournamentList.listIterator();
 			while (it.hasNext()) {
 				Tournament tournament = it.next();
 				for (UserTournamentMap userTournamentMap : tournament.getUserTournamentMaps()) {
 					if (userTournamentMap.getUser().getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+						joinedTournamentList.add(tournament);
 						it.remove();
 					}
 				}
 			}
-			model.addAttribute("tournamentList", availableTournamentList);
+			model.addAttribute("availableTournamentList", availableTournamentList);
+			model.addAttribute("joinedTournamentList", joinedTournamentList);
 
 			view = "tournament/list";
 		}
@@ -129,7 +133,7 @@ public class TournamentController {
 
 		if (checkIfUserIsLogged(request, model)) {
 			Tournament tournament = tournamentService.getTournamentById(id);
-			if (tournament.getUserTournamentMaps().size() < tournament.getNum_participants()) {
+			if (tournament.getUserTournamentMaps().size() < tournament.getNumParticipants()) {
 				HttpSession session = request.getSession(true);
 				
 				UserTournamentMap userTournamentMap = new UserTournamentMap((User) session.getAttribute("user"), tournament);
