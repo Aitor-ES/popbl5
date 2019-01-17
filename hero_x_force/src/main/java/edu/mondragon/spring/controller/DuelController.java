@@ -100,13 +100,13 @@ public class DuelController {
 			Set<Match> matchesAsUser2 = userService
 					.getMatchesAsUser2(((User) session.getAttribute("user")).getUserId());
 			
-			Iterator<Match> it = matchesAsUser2.iterator();
+			/*Iterator<Match> it = matchesAsUser2.iterator();
 			while (it.hasNext()) {
 				Match match = it.next();
 				if (match.getWinner() != null) {
 					it.remove();
 				}
-			}
+			}*/
 			model.addAttribute("matchesAsUser2", matchesAsUser2);
 
 			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
@@ -199,6 +199,8 @@ public class DuelController {
 				Match match = matchService.getMatchById(id);
 				
 				if (match.getWinner() == null) {
+					HttpSession session = request.getSession(true);
+					
 					Deck deck2 = deckService.getDeckById(Integer.valueOf(request.getParameter("deck-picker-" + id)));
 					match.setDeck2(deck2);
 					
@@ -206,12 +208,38 @@ public class DuelController {
 
 					if (this.startBattle(match)) {
 						match.setWinner(match.getUser1());
-						match.getUser1().setWins(match.getUser1().getWins() + 1);
-						match.getUser2().setLoses(match.getUser2().getLoses() + 1);
+						
+						User user1 = userService.getUserById(match.getUser1().getUserId());
+						User user2 = userService.getUserById(match.getUser2().getUserId());
+						
+						user1.setWins(user1.getWins() + 1);
+						user2.setLoses(user2.getLoses() + 1);
+						
+						userService.updateUser(user1);
+						userService.updateUser(user2);
+						
+						if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+							session.setAttribute("user", user1);
+						} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+							session.setAttribute("user", user2);
+						}
 					} else {
 						match.setWinner(match.getUser2());
-						match.getUser2().setWins(match.getUser2().getWins() + 1);
-						match.getUser1().setLoses(match.getUser1().getLoses() + 1);
+						
+						User user1 = userService.getUserById(match.getUser1().getUserId());
+						User user2 = userService.getUserById(match.getUser2().getUserId());
+
+						user1.setLoses(user1.getLoses() + 1);
+						user2.setWins(user2.getWins() + 1);
+						
+						userService.updateUser(user1);
+						userService.updateUser(user2);
+						
+						if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+							session.setAttribute("user", user1);
+						} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+							session.setAttribute("user", user2);
+						}
 					}
 					matchService.updateMatch(match);
 					model.addAttribute("match", match);

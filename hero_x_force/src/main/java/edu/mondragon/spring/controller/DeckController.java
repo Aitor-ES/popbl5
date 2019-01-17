@@ -83,14 +83,12 @@ public class DeckController {
 
 		if (checkIfUserIsLogged(request, model)) {
 			/**
-			 * @brief TODO: future lines
-			 *        HttpSession session = request.getSession(true);
-			 *        Set<UserCardMap> cardMapList = userService.getUserCards(((User) session.getAttribute("user")).getUser_id());
+			 * @brief TODO: future lines HttpSession session = request.getSession(true);
+			 *        Set<UserCardMap> cardMapList = userService.getUserCards(((User)
+			 *        session.getAttribute("user")).getUser_id());
 			 * 
-			 *        List<Card> cardList = new ArrayList<>();
-			 *        for (UserCardMap userCardMap : cardMapList) {
-			 *            cardList.add(userCardMap.getCard());
-			 *        }
+			 *        List<Card> cardList = new ArrayList<>(); for (UserCardMap userCardMap
+			 *        : cardMapList) { cardList.add(userCardMap.getCard()); }
 			 */
 			List<Card> cardList = cardService.listCards();
 			model.addAttribute("cardList", cardList);
@@ -109,13 +107,14 @@ public class DeckController {
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/{id}/form" }, method = RequestMethod.GET)
-	public String deckIdFormPage(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String deckIdFormPage(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response,
+			Model model) {
 		String view = "home";
 
 		if (checkIfUserIsLogged(request, model)) {
 			Deck deck = deckService.getDeckById(id);
 			model.addAttribute("deck", deck);
-			
+
 			List<Card> cardList = cardService.listCards();
 			model.addAttribute("cardList", cardList);
 
@@ -124,82 +123,80 @@ public class DeckController {
 		return view;
 	}
 
+	/**
+	 * @brief Method to save deck from deck form
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @return String
+	 */
 	@RequestMapping(value = { "/deck/form/save" }, method = RequestMethod.POST)
 	public String deckSave(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
-		
+
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
-			
+
 			String deckIdAsString = request.getParameter("deck_id");
-			
+
 			if (deckIdAsString == null) {
 				String deckName = request.getParameter("deckName");
 				Deck deck = new Deck(deckName, (User) session.getAttribute("user"));
 				deckService.addDeck(deck);
-				
-				String cardId1 = request.getParameter("selected-card-id-1").split("#")[1];
-				String cardId2 = request.getParameter("selected-card-id-2").split("#")[1];
-				String cardId3 = request.getParameter("selected-card-id-3").split("#")[1];
-				String cardId4 = request.getParameter("selected-card-id-4").split("#")[1];
-				String cardId5 = request.getParameter("selected-card-id-5").split("#")[1];
-				
-				DeckCardMap deckCardMap1 = new DeckCardMap(1, deck, cardService.getCardById(Integer.parseInt(cardId1)));
-				DeckCardMap deckCardMap2 = new DeckCardMap(2, deck, cardService.getCardById(Integer.parseInt(cardId2)));
-				DeckCardMap deckCardMap3 = new DeckCardMap(3, deck, cardService.getCardById(Integer.parseInt(cardId3)));
-				DeckCardMap deckCardMap4 = new DeckCardMap(4, deck, cardService.getCardById(Integer.parseInt(cardId4)));
-				DeckCardMap deckCardMap5 = new DeckCardMap(5, deck, cardService.getCardById(Integer.parseInt(cardId5)));
-				
-				deckCardMapService.addDeckCardMap(deckCardMap1);
-				deckCardMapService.addDeckCardMap(deckCardMap2);
-				deckCardMapService.addDeckCardMap(deckCardMap3);
-				deckCardMapService.addDeckCardMap(deckCardMap4);
-				deckCardMapService.addDeckCardMap(deckCardMap5);
+
+				for (int i = 1; i <= 5; i++) {
+					String cardId = request.getParameter("selected-card-id-" + i).split("#")[1];
+					DeckCardMap deckCardMap = new DeckCardMap(i, deck,
+							cardService.getCardById(Integer.parseInt(cardId)));
+					deckCardMapService.addDeckCardMap(deckCardMap);
+				}
 			} else {
 				int deckId = Integer.parseInt(deckIdAsString);
-				
+
 				Deck deck = deckService.getDeckById(deckId);
 				deck.setName(request.getParameter("deckName"));
 				deckService.updateDeck(deck);
-				
+
 				List<DeckCardMap> listAllMaps = deckCardMapService.listDeckCardMaps();
 				List<DeckCardMap> listOurMaps = new ArrayList<>();
-				
+
 				for (DeckCardMap map : listAllMaps) {
 					if (map.getDeck().getDeckId() == deckId) {
 						listOurMaps.add(map);
 					}
 				}
-				
-				String cardId1 = request.getParameter("selected-card-id-1").split("#")[1];
-				String cardId2 = request.getParameter("selected-card-id-2").split("#")[1];
-				String cardId3 = request.getParameter("selected-card-id-3").split("#")[1];
-				String cardId4 = request.getParameter("selected-card-id-4").split("#")[1];
-				String cardId5 = request.getParameter("selected-card-id-5").split("#")[1];
-				
-				for (DeckCardMap map : listOurMaps) {
-					if (map.getPosition() == 1) {
-						map.setCard(cardService.getCardById(Integer.parseInt(cardId1)));
-						deckCardMapService.updateDeckCardMap(map);
+
+				for (int i = 0; i < 5; i++) {
+					if (listOurMaps.get(i).getPosition() == (i + 1)) {
+						String cardId = request.getParameter("selected-card-id-" + (i + 1)).split("#")[1];
+						listOurMaps.get(i).setCard(cardService.getCardById(Integer.parseInt(cardId)));
+						deckCardMapService.updateDeckCardMap(listOurMaps.get(i));
 					}
-					if (map.getPosition() == 2) {
-						map.setCard(cardService.getCardById(Integer.parseInt(cardId2)));
-						deckCardMapService.updateDeckCardMap(map);
-					}
-					if (map.getPosition() == 3) {
-						map.setCard(cardService.getCardById(Integer.parseInt(cardId3)));
-						deckCardMapService.updateDeckCardMap(map);
-					}
-					if (map.getPosition() == 4) {
-						map.setCard(cardService.getCardById(Integer.parseInt(cardId4)));
-						deckCardMapService.updateDeckCardMap(map);
-					}
-					if (map.getPosition() == 5) {
-						map.setCard(cardService.getCardById(Integer.parseInt(cardId5)));
-						deckCardMapService.updateDeckCardMap(map);
-					}
+
 				}
 			}
+
+			view = "redirect:/deck/list";
+		}
+		return view;
+	}
+
+	/**
+	 * @brief Method to delete deck
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param id       To know which deck we are deleting
+	 * @return String
+	 */
+	@RequestMapping(value = { "/deck/{id}/delete" }, method = RequestMethod.GET)
+	public String deleteDeck(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response,
+			Model model) {
+		String view = "home";
+
+		if (checkIfUserIsLogged(request, model)) {
+			Deck deck = deckService.getDeckById(id);
+			deckService.removeDeck(deck);
 
 			view = "redirect:/deck/list";
 		}
