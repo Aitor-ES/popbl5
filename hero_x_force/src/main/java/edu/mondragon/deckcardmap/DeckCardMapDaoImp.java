@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 13/11/2018
- * @brief Package edu.mondragon.dao
+ * @brief Package edu.mondragon.deckcardmap
  */
 
 package edu.mondragon.deckcardmap;
@@ -41,6 +41,11 @@ public class DeckCardMapDaoImp implements DeckCardMapDao {
 		getCurrentSession().save(deckCardMap);
 	}
 
+	/**
+	 * @brief This method updates a deckCardMap
+	 * @param deckCardMap DeckCardMap object
+	 * @return void
+	 */
 	@Override
 	public void updateDeckCardMap(DeckCardMap deckCardMap) {
 		getCurrentSession().update(deckCardMap);

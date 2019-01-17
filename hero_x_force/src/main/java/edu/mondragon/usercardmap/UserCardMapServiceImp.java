@@ -1,6 +1,6 @@
 /**
- * @file UserserviceImp.java
- * @brief Class to manage the user dao
+ * @file UserCardMapServiceImp.java
+ * @brief Class to manage the UserCardMapServiceImp dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 13/11/2018
- * @brief Package edu.mondragon.model
+ * @brief Package edu.mondragon.usercardmap
  */
 
 package edu.mondragon.usercardmap;

@@ -1,3 +1,15 @@
+/**
+ * @file DataBaseInitializer.java
+ * @brief Class to initialize the data base
+ * @author Name  | Surname   | Email                        |
+ * ------|-----------|--------------------------------------|
+ * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
+ * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
+ * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
+ * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.spring.configuration
+ */
 package edu.mondragon.spring.configuration;
 
 import java.util.Properties;
@@ -19,6 +31,10 @@ public class DataBaseInitializer {
 	 */
 	private AnnotationConfigApplicationContext context;
 
+	/**
+	 * @brief Class constructor
+	 * @param context AnnotationConfigApplicationContext object
+	 */
 	public DataBaseInitializer(AnnotationConfigApplicationContext context) {
 		this.context = context;
 
@@ -35,6 +51,10 @@ public class DataBaseInitializer {
 		}
 	}
 
+	/**
+	 * @brief Method to insert values in data base
+	 * @return void
+	 */
 	private void insertValuesInDB() {
 		/* 1. USER INSERTS */
 		UserService userService = context.getBean(UserService.class);

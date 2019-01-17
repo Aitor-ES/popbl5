@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.dao
+ * @brief Package edu.mondragon.card
  */
 
 package edu.mondragon.card;

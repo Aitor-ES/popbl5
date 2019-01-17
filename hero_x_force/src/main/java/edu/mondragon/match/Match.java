@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.model
+ * @brief Package edu.mondragon.match
  */
 
 package edu.mondragon.match;
@@ -105,6 +105,11 @@ public class Match {
 		this.hour = parseCurrentHour(LocalDateTime.now());
 	}
 
+	/**
+	 * @brief This method parses the current date
+	 * @param date LocalDateTime object
+	 * @return String
+	 */
 	private String parseCurrentDate(LocalDateTime date) {
 		String pattern = "YYYY-MM-dd";
 
@@ -113,6 +118,11 @@ public class Match {
 		return date.format(formatter);
 	}
 
+	/**
+	 * @brief This method parses the current hour
+	 * @param date LocalDateTime object
+	 * @return String
+	 */
 	private String parseCurrentHour(LocalDateTime date) {
 		String pattern = "HH:mm";
 

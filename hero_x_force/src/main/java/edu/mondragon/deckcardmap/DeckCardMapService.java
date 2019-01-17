@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.model
+ * @brief Package edu.mondragon.deckcardmap
  */
 
 package edu.mondragon.deckcardmap;
@@ -16,11 +16,30 @@ package edu.mondragon.deckcardmap;
 import java.util.List;
 
 public interface DeckCardMapService {
+	/**
+	 * @brief This method adds a deck card map
+	 * @param deckCardMap DeckCardMap object
+	 * @return void
+	 */
 	void addDeckCardMap(DeckCardMap deckCardMap);
 	
+	/**
+	 * @brief This method updates a deck card map
+	 * @param deckCardMap DeckCardMap object
+	 * @return void
+	 */
 	void updateDeckCardMap(DeckCardMap deckCardMap);
 
+	/**
+	 * @brief This method obtains the deck card map list
+	 * @return List<DeckCardMap>
+	 */
 	List<DeckCardMap> listDeckCardMaps();
 
+	/**
+	 * @brief This method the returns the deck card map which has the indicated id
+	 * @param deckCardMap_id DeckCardMap id int
+	 * @return DeckCardMap
+	 */
 	DeckCardMap getDeckCardMapById(int deckCardMap_id);
 }

@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.model
+ * @brief Package edu.mondragon.usercardmap
  */
 
 package edu.mondragon.usercardmap;
@@ -74,7 +74,12 @@ public class UserCardMap {
 		this.date = parseCurrentDate(LocalDateTime.now());
 		this.hour = parseCurrentHour(LocalDateTime.now());
 	}
-
+	
+	/**
+	 * @brief Method that parses the current date
+	 * @param date LocalDateTime object
+	 * @return String
+	 */
 	private String parseCurrentDate(LocalDateTime date) {
 		String pattern = "YYYY-MM-dd";
 		
@@ -83,6 +88,11 @@ public class UserCardMap {
 		return date.format(formatter);
 	}
 	
+	/**
+	 * @brief Method that parses the current hour
+	 * @param date LocalDateTime object
+	 * @return String
+	 */
 	private String parseCurrentHour(LocalDateTime date) {
 		String pattern = "HH:mm";
 		

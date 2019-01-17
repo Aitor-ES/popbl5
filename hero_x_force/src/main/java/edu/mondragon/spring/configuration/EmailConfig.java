@@ -1,3 +1,15 @@
+/**
+ * @file EmailConfig.java
+ * @brief Email configuration class
+ * @author Name  | Surname   | Email                        |
+ * ------|-----------|--------------------------------------|
+ * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
+ * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
+ * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
+ * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.spring.configuration
+ */
 package edu.mondragon.spring.configuration;
 
 import java.util.Properties;
@@ -17,9 +29,16 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @ComponentScan(basePackages = "edu.mondragon.email")
 public class EmailConfig {
 	
+	/**
+	 * @brief Enviroment
+	 */
 	@Autowired
 	private Environment env;
 	
+	/**
+	 * @brief Simple email message
+	 * @return SimpleEmailMessage
+	 */
 	@Bean
     public SimpleMailMessage templateSimpleMessage() {
 	    SimpleMailMessage message = new SimpleMailMessage();
@@ -27,6 +46,10 @@ public class EmailConfig {
 	    return message;
 	}
 	
+	/**
+	 * @brief Method to get the JavaMailSender
+	 * @return JavaMailSender
+	 */
 	@Bean
 	public JavaMailSender getJavaMailSender() {
 	    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();

@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.model
+ * @brief Package edu.mondragon.achievement
  */
 
 package edu.mondragon.achievement;
@@ -16,9 +16,23 @@ package edu.mondragon.achievement;
 import java.util.List;
 
 public interface AchievementService {
+	/**
+	 * @brief This adds an achievement
+	 * @param achievement Achievement object
+	 * @return void
+	 */
 	void addAchievement(Achievement achievement);
 
+	/**
+	 * @brief This method obtains the achievement list
+	 * @return List<Achievement>
+	 */
 	List<Achievement> listAchievements();
 	
+	/**
+	 * @brief This method obtains the achievement which has the indicated id
+	 * @param id Id class int
+	 * @return Achievement
+	 */
 	Achievement getAchievementById(int achievement_id);
 }

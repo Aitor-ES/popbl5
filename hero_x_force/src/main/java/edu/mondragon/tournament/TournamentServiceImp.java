@@ -1,6 +1,6 @@
 /**
- * @file UserserviceImp.java
- * @brief Class to manage the user dao
+ * @file TournamentServiceImp.java
+ * @brief Class to manage the tournament dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
