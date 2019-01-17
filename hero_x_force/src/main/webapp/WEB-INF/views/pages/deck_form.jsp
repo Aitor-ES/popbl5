@@ -3,18 +3,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<!-- Start: Deck list -->
 <section id="deck-form">
-    <!-- Start: Title -->
-    <div class="row px-4 pt-4">
-      <div class="col">
+  <div class="container-fluid">
+  
+    <!-- Start: Title & Info-->
+    <div class="row px-sm-4 mt-4">
+    
+      <!-- Start: Title -->
+      <div class="col-sm-6">
         <h2 class="title-style"><spring:message code="deck.form.title.create"/></h2>
-        <p><spring:message code="deck.form.instructions"/></p>  
+      </div>
+      
+      <!-- Start: Info -->
+      <div class="col-sm-6 mt-2 mt-sm-0 d-flex justify-content-end align-items-center">
+        <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="deck.form.instructions"/></span></p>
       </div>
     </div>
-    <!-- End: Title -->
-    
+    <!-- End: Title & Buttons -->
+
     <!-- Start: Form -->
     <form name="userForm" action="${pageContext.request.contextPath}/deck/form/save" method='POST'>
+      
       <!-- Start: ID and name inputs and buttons -->
       <div class="row px-5">
         <div class="col-4 d-flex justify-content-end align-items-center">
@@ -125,12 +135,15 @@
         </div>
       </c:forEach>
     </div>
-    <!-- End: Card HTML -->
+   <!-- End: Deck list -->
   
-  <!-- Start: Back to top button -->
-  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
-  <!-- End: Back to top button -->
+    <!-- Start: Top button -->
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <!-- End: Top button -->
+  
+  </div>
 </section>
+<!-- End: Deck list -->
 
 <!-- Reduce long card titles -->
 <script>changeTitleFontSize();</script>

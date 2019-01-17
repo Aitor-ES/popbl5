@@ -69,8 +69,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/menu.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/profile.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/percentage_chart.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck_list.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck_form.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card_data.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_list.css"/>"/>

@@ -1,3 +1,5 @@
+/* Card: photoshop css
+ *********************************************************/
 :root {
   --dark-color: #b27ce5;
   --earth-color: #bb7514;
@@ -206,7 +208,9 @@
   height: 16px;
 }
 
-.heroCardFather {
+/* Card: custom css
+ *********************************************************/
+ .heroCardFather {
   width: 231.75px;
   height: 375px;
   margin-left: 0px;
@@ -218,6 +222,8 @@
   height: 375px;
   margin-left: 0px;
   margin-right: 0px;
+    box-shadow: 0px 0px 10px black;
+  border-radius: 10px;
 }
 
 #deck-form #selected-card-slots .heroCardFather {

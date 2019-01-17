@@ -1,0 +1,46 @@
+/* Desk list
+ *********************************************************/
+#deck-list .card {
+  border-color: black;
+  box-shadow: 0px 0px 5px black;
+}
+
+/* Desk Form
+ *********************************************************/
+#deck-form .modal-content {
+   background-color: #3b4652;
+   opacity: .85;
+   box-shadow: 0px 0px 3px #848484;
+   color: white;
+}
+
+#deck-form .modal-content {
+   font-size: var(--movile-p-font-size);
+}
+
+/* Responsive 
+ * sm >= 576px | md >= 768px | lg >= 992px | xl >= 1200px
+ *********************************************************/
+@media (min-width: 768px) {
+  #deck-form .modal-content {
+     font-size: var(--desktop-p-font-size);
+  }
+}
+
+#deck-form form {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #f5f5f5;
+}
+
+#deck-form #selected-card-slots .selected-card-slot {
+  width: 200px;
+  height: 150px;
+  
+  margin: 1rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
