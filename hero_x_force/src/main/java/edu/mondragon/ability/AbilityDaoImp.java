@@ -1,4 +1,15 @@
-package edu.mondragon.ability;
+/**
+ * @file AbilityDaoImp.java
+ * @brief The ability dao implementation class
+ * @author Name  | Surname   | Email                        |
+ * ------|-----------|--------------------------------------|
+ * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
+ * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
+ * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
+ * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.ability
+ */package edu.mondragon.ability;
 
 import java.util.List;
 

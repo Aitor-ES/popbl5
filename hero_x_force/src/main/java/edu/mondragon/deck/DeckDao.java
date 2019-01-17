@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.dao
+ * @brief Package edu.mondragon.deck
  */
 
 package edu.mondragon.deck;
@@ -16,11 +16,29 @@ package edu.mondragon.deck;
 import java.util.List;
 
 public interface DeckDao {
+	/**
+	 * @brief This method adds a deck
+	 * @param deck Deck object
+	 * @return void
+	 */
 	void addDeck(Deck deck);
 	
+	/**
+	 * @brief This method update the deck data
+	 * @param deck Deck object
+	 * @return void
+	 */
 	void updateDeck(Deck deck);
 
+	/**
+	 * @brief This method obtains the deck list
+	 * @return List<Deck>
+	 */
 	List<Deck> listDecks();
 	
+	/**
+	 * @brief This method returns the deck number
+	 * @return int
+	 */
 	Deck getDeckById(int deck_id);
 }

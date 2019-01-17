@@ -1,16 +1,15 @@
 /**
- * @file LoginController.java
- * @brief This class loads the application configuration
+ * @file HomeController.java
+ * @brief Home controller class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.controllers
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.spring.controller
  */
-
 package edu.mondragon.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;

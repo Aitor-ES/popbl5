@@ -1,5 +1,5 @@
 /**
- * @file UserDao.java
+ * @file TournamentDao.java
  * @brief This class is the interface for the Dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 13/11/2018
- * @brief Package edu.mondragon.dao
+ * @brief Package edu.mondragon.tournament
  */
 
 package edu.mondragon.tournament;
@@ -16,7 +16,16 @@ package edu.mondragon.tournament;
 import java.util.List;
 
 public interface TournamentDao {
+	/**
+	 * @brief Method to add a tournament
+	 * @param tournament Tournament object
+	 * "return void
+	 */
 	void addTournament(Tournament tournament);
 
+	/**
+	 * @brief Method to obtain the tournament list
+	 * @return List<Tournament>
+	 */
 	List<Tournament> listTournaments();
 }

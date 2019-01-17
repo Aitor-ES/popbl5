@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 13/11/2018
- * @brief Package edu.mondragon.configuration
+ * @brief Package edu.mondragon.spring.configuration
  */
 
 package edu.mondragon.spring.configuration;

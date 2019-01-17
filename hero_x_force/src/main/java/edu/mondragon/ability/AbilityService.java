@@ -16,9 +16,23 @@ package edu.mondragon.ability;
 import java.util.List;
 
 public interface AbilityService {
+	/**
+	 * @brief Method o add an ability
+	 * @param ability Ability object
+	 * @return void
+	 */
 	void addAbility(Ability ability);
 
+	/**
+	 * @brief Method to obtain the abilities list
+	 * @return List<Ability>
+	 */
 	List<Ability> listAbilities();
 
+	/**
+	 * @brief Method to get an ability
+	 * @param ability_id Ability id int
+	 * @return Ability
+	 */
 	Ability getAbilityById(int ability_id);
 }

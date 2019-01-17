@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.model
+ * @brief Package edu.mondragon.match
  */
 
 package edu.mondragon.match;
@@ -60,6 +60,11 @@ public class MatchServiceImp implements MatchService {
 		return matchDao.listMatchs();
 	}
 
+	/**
+	 * @brief Method to remove a match
+	 * @param match Match object
+	 * @return void
+	 */
 	@Override
 	public void removeMatch(Match match) {
 		matchDao.removeMatch(match);		

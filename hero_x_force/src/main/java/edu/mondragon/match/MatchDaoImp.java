@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.dao
+ * @brief Package edu.mondragon.match
  */
 
 package edu.mondragon.match;
@@ -71,6 +71,10 @@ public class MatchDaoImp implements MatchDao {
         return sessionFactory.getCurrentSession();
     }
 
+	/**
+	 * @brief Method to remove a match
+	 * @return void
+	 */
 	@Override
 	public void removeMatch(Match match) {
 		getCurrentSession().remove(match);

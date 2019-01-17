@@ -1,5 +1,5 @@
 /**
- * @file HibernateApplicationConfiguration.java
+ * @file HibernateConfig.java
  * @brief Hibernate configuration file
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.configuration
+ * @brief Package edu.mondragon.spring.configuration
  */
 
 package edu.mondragon.spring.configuration;
