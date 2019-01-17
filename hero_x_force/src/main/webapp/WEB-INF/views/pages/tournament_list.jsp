@@ -10,13 +10,13 @@
     <div class="row px-sm-4 pt-4">
     
       <!-- Title -->
-      <div class="col-sm-10">
+      <div class="col col-sm-10">
         <h2 class="title-style"><spring:message code="tournament.list.create.header" /></h2>
       </div>
       
       <!-- Button -->
-      <div class="col-sm-2 d-flex justify-content-end align-items-center">
-        <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/tournament/create" role="button">
+      <div class="col col-sm-2 d-flex justify-content-end align-items-center">
+        <a class="button-style btn btn-lg btn-warning" href="${pageContext.request.contextPath}/tournament/create" role="button">
           <i class="fas fa-plus"></i> <spring:message code="action.create"/>
         </a>
       </div>
@@ -75,7 +75,7 @@
     <!-- End: List -->
     
     <!-- Start: Top button -->
-    <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
     <!-- End: Top button -->
   
   </div>

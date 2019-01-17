@@ -1,27 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!-- Start: Duel list -->
 <section id="duel_list">
   <div class="container-fluid">
-    <div class="row px-4 pt-4">
-      <div class="col-10">
+  
+    <!-- Start: Title & Button -->
+    <div class="row px-sm-4 pt-4">
+    
+      <!-- Title -->
+      <div class="col col-sm-10">
         <h2 class="title-style"><spring:message code="duel.list.title" /></h2>
       </div>
-      <div class="col-2 d-flex justify-content-end align-items-center">
-        <a class="btn btn-lg btn-warning mt-3 mb-3" href="${pageContext.request.contextPath}/duel/create" role="button">
+      
+      <!-- Button -->
+      <div class="col col-sm-2 d-flex justify-content-end align-items-center">
+        <a class="btn btn-lg btn-warning button-style" href="${pageContext.request.contextPath}/duel/create" role="button">
           <i class="fas fa-plus"></i> <spring:message code="action.create"/>
         </a>
       </div>
     </div>
+    <!-- End: Title & Button -->
     
-    <div class="row px-4 pt-4">
+    <!-- Start: Play title -->
+    <div class="row px-sm-4 pt-5">
       <div class="col">
         <h2 class="title-style"><spring:message code="duel.list.join"/></h2>
       </div>
     </div>
+    <!-- End: Play title -->
     
-    <div class="row px-4 pt-2">
+    <!-- Start: List -->
+    <div class="row px-sm-4 pt-3 mb-4">
       <div class="col">
         <c:forEach items="${matchesAsUser_2}" var="matchAsUser_2">
           <form name="duelListForm" action="${pageContext.request.contextPath}/duel/${matchAsUser_2.match_id}/loadBattle" method='POST'>

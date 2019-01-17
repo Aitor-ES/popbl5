@@ -10,13 +10,13 @@
     <div class="row px-sm-4 pt-4">
     
       <!-- Title -->
-      <div class="col-sm-10">
+      <div class="col col-sm-10">
         <h2 class="title-style"><spring:message code="profile.edit.title" /></h2>
       </div>
       
       <!-- Button -->
-      <div class="col-sm-2 d-flex justify-content-end align-items-center">
-        <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/data" role="button">
+      <div class="col col-sm-2 d-flex justify-content-end align-items-center">
+        <a class="button-style btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/data" role="button">
           <i class="fas fa-times-circle"></i> <spring:message code="action.cancel"/>
         </a>
       </div>
@@ -69,7 +69,7 @@
       </div>
       
       <!-- Confirm password -->
-      <div class="row px-sm-5 mt-2">
+      <div class="row px-sm-5 mt-2 mb-3">
         <div class="col col-lg-6">
           <label><spring:message code="profile.edit.password.confirm.title"/></label>
           <div class="input-group">
@@ -83,7 +83,7 @@
       </div>
       
       <!-- Progress bar -->
-      <div class="row px-sm-5 mt-3 mb-3">
+      <div class="row px-sm-5">
          <div class="col col-lg-6">
           <div class="progress" id="myProgressBar" style="display: none">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
@@ -94,9 +94,9 @@
       </div>  
       
       <!-- Button -->   
-      <div class="row px-sm-5">
+      <div class="row px-sm-5 mt-3">
         <div class="col">  
-           <button class="btn btn-lg btn-warning" type="submit" name="submit" onclick="userProgress()">
+           <button class="button-style btn btn-lg btn-warning" type="submit" name="submit" onclick="userProgress()">
              <i class="fas fa-check-circle"></i> <spring:message code="action.accept" />
           </button>
         </div> 
@@ -104,7 +104,7 @@
   	</form>
   
     <!-- Start: Top button -->
-    <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
     <!-- End: Top button -->
   
   </div>

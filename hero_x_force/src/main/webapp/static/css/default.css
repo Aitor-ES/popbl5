@@ -20,6 +20,9 @@
   
   --movile-table-font-size: 0.85rem;
   --desktop-table-font-size: 1rem;
+  
+  --movile-button-font-size: 1rem;
+  --desktop-button-font-size: 1.25rem;
 }
 
 /* Global
@@ -96,11 +99,16 @@ body {
 /* Menus
  *********************************************************/
 .title-style {
-  margin-bottom: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
   border-left: 1rem solid #dc3545; 
   padding: 0.625rem;
   font-size: var(--movile-title-font-size);
   font-weight: bolder;
+}
+
+.button-style {
+  font-size: var(--movile-button-font-size);
 }
 
 /* Responsive (sm<540px - md<720px - lg<960px)
@@ -108,6 +116,10 @@ body {
 @media (min-width: 720px) {
   .title-style {
      font-size: var(--desktop-title-font-size);
+  }
+  
+  .button-style {
+    font-size: var(--desktop-button-font-size);
   }
   
   .mySimpleTable th {

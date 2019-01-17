@@ -10,7 +10,7 @@
     <div class="row px-sm-4 pt-4">
     
       <!-- Title -->
-      <div class="col-sm-10">
+      <div class="col col-sm-10">
         <c:choose>
           <c:when test="${pageContext.response.locale.language == 'es'}">
             <h2 class="title-style"><spring:message code="profile.data.subTitle" /> ${user.username}</h2>
@@ -22,8 +22,8 @@
       </div>
       
       <!-- Button -->
-      <div class="col-sm-2 d-flex justify-content-end align-items-center">
-          <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/edit" role="button">
+      <div class="col col-sm-2 d-flex justify-content-end align-items-center">
+          <a class="button-style btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/edit" role="button">
             <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
           </a>
       </div>
@@ -166,7 +166,7 @@
     <!-- End: Table & Chart -->
   
     <!-- Start: Top button -->
-    <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
     <!-- End: Top button -->
   
   </div>
