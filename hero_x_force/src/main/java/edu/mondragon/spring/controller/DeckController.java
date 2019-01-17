@@ -207,19 +207,6 @@ public class DeckController {
 	}
 
 	/**
-	 * @brief Method to redirect to deck-form view
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
-	 * @return String
-	 */
-	@RequestMapping(value = { "/deck/data" }, method = RequestMethod.GET)
-	public String deckDataPage(HttpServletRequest request, HttpServletResponse response, Model model) {
-		return checkIfUserIsLogged(request, model) ? "deck/data" : "home";
-	}
-
-	/**
 	 * @brief Method that checks if users is logged
 	 * @param request Provides request information for the servlets
 	 * @param model   A holder for model attributes

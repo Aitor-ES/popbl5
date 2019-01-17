@@ -19,7 +19,7 @@
     <c:forEach items="${deckList}" var="deck">
       <div class="deck-list-data-box">
         <div class="row deck-list-title-row mr-3">
-          <h3><a class="deck-title" href="${pageContext.request.contextPath}/deck/data">${deck.name}</a></h3>
+          <h3>${deck.name}</h3>
           <div class="d-flex justify-content-end">
             <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/${deck.deckId}/form" role="button">
               <i class="fas fa-cog"></i> <spring:message code="action.edit"/>

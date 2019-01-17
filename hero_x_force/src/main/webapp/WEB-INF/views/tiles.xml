@@ -76,13 +76,6 @@
       value="/WEB-INF/views/pages/deck_form.jsp" />
   </definition>
   
-  <!-- Deck Data screen layout -->
-  <definition name="deck/data" extends="template-default">
-    <put-attribute name="title" value="Deck Data" />
-    <put-attribute name="main"
-      value="/WEB-INF/views/pages/deck_data.jsp" />
-  </definition>
-  
   <!-- Heroes screen layout -->
   <definition name="heroes" extends="template-default">
     <put-attribute name="title" value="Heroes" />
