@@ -1,58 +1,6 @@
-/*DECK L
--------------------------------------------------- */
-body{
-  --borderColorBox: black;
-  --colorDeckTitle: #343A40;
-}
-
-.deck-list-data-box{  
-  padding: 1rem;
-  border: 0.0625rem solid var(--borderColorBox);
-  margin: 1.875rem;
-}
-
-.deck-list-title-row{
-  display:flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  justify-content: space-between;
-  
-}
-
-.deck-title{ 
-  margin-left: 1rem;
-  padding: 0.5rem;
-  border-left: 0.5rem solid var(--borderColorVar) ; 
-  color:var(--colorDeckTitle);
-  
-  -webkit-transition: color 1s ease-out;
-  -moz-transition: color 1s ease-out;
-  -o-transition: color 1s ease-out;
-  transition: color 1s ease-out;
-}
-
-.deck-title:link, deck-title:visited{
- text-decoration: none;
-}
- .deck-title:hover{
- color:#f6a305 !important;
-}
-
-
-/* EACH CARD OF THE DECK
--------------------------------------------------- */
-.deck-list-card > img{
--webkit-transition:all .9s ease; /* Safari y Chrome */
--moz-transition:all .9s ease; /* Firefox */
--o-transition:all .9s ease; /* IE 9 */
--ms-transition:all .9s ease; /* Opera */
-}
-
-.deck-list-card > img:hover{
- -webkit-transform:scale(1.15);
--moz-transform:scale(1.15);
--ms-transform:scale(1.15);
--o-transform:scale(1.15);
-transform:scale(1.15);
-  
+/* Desk list
+ *********************************************************/
+#deck-list .card {
+  border-color: black;
+  box-shadow: 0px 0px 5px black;
 }

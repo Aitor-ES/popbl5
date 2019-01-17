@@ -121,7 +121,7 @@
     <!-- End: Achievement title -->
     
     <!-- Start: Table & Chart -->
-    <div class="row px-sm-5 pt-3 mb-4">
+    <div class="row px-sm-5 pt-4 mb-4">
     
       <!-- Table -->
       <div class="col-sm-6">
