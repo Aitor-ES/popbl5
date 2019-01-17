@@ -1,4 +1,4 @@
-/* Default
+/* Global
  *********************************************************/
 :root {
   --movile-title-font-size: 2rem;
@@ -25,7 +25,7 @@
   --desktop-button-font-size: 1.25rem;
 }
 
-/* Global
+/* Default
  *********************************************************/
 html {
   position: relative;
@@ -111,9 +111,10 @@ body {
   font-size: var(--movile-button-font-size);
 }
 
-/* Responsive (sm<540px - md<720px - lg<960px)
+/* Responsive 
+ * sm >= 576px | md >= 768px | lg >= 992px | xl >= 1200px
  *********************************************************/
-@media (min-width: 720px) {
+@media (min-width: 768px) {
   .title-style {
      font-size: var(--desktop-title-font-size);
   }
