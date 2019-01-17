@@ -155,7 +155,7 @@ public class LoginController {
 			"This account has been registered." +
 			"\n\nUsername: " + username + 
 			"\n\nEmail: " + email + 
-			"\n\nTotal users: " + userService.getUserByName(username).getUser_id());
+			"\n\nTotal users: " + userService.getUserByName(username).getUserId());
 	}
 
 	/**

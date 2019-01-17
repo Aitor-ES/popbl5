@@ -102,13 +102,13 @@ public class CardController {
 		
 		json = new JSONObject();
 		json.put("area", "Mag ATK");
-		json.put("value", card.getMag_atk());
+		json.put("value", card.getMagAtk());
 		
 		ja.put(json);
 		
 		json = new JSONObject();
 		json.put("area", "Mag DEF");
-		json.put("value", card.getMag_def());
+		json.put("value", card.getMagDef());
 		
 		ja.put(json);
 		

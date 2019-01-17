@@ -64,12 +64,12 @@ public class DeckCardMapDaoImp implements DeckCardMapDao {
 
 	/**
 	 * @brief Method to find a deckCardMap using the id
-	 * @param id DeckCardMaps id
+	 * @param deckCardMapId DeckCardMaps id int
 	 * @return DeckCardMap
 	 */
 	@Override
-	public DeckCardMap getDeckCardMapById(int deckCardMap_id) {
-		DeckCardMap deckCardMap = getCurrentSession().find(DeckCardMap.class, deckCardMap_id);
+	public DeckCardMap getDeckCardMapById(int deckCardMapId) {
+		DeckCardMap deckCardMap = getCurrentSession().find(DeckCardMap.class, deckCardMapId);
 		return deckCardMap;
 	}
 

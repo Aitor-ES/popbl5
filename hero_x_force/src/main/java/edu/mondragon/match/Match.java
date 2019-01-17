@@ -40,7 +40,7 @@ public class Match {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MATCH_ID")
-	private Integer match_id;
+	private Integer matchId;
 
 	/**
 	 * @brief Match date
@@ -60,28 +60,28 @@ public class Match {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_1_ID", referencedColumnName = "USER_ID")
-	private User user_1;
+	private User user1;
 
 	/**
 	 * @brief user_2 user_id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_2_ID", referencedColumnName = "USER_ID")
-	private User user_2;
+	private User user2;
 
 	/**
 	 * @brief deck_1 deck_id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DECK_1_ID", referencedColumnName = "DECK_ID")
-	private Deck deck_1;
+	private Deck deck1;
 
 	/**
 	 * @brief deck_2 deck_id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DECK_2_ID", referencedColumnName = "DECK_ID")
-	private Deck deck_2;
+	private Deck deck2;
 
 	/**
 	 * @brief Tournament id (FK)
@@ -134,12 +134,12 @@ public class Match {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getMatch_id() {
-		return match_id;
+	public Integer getMatchId() {
+		return matchId;
 	}
 
-	public void setMatch_id(Integer match_id) {
-		this.match_id = match_id;
+	public void setMatchId(Integer matchId) {
+		this.matchId = matchId;
 	}
 
 	public String getDate() {
@@ -150,8 +150,8 @@ public class Match {
 		this.date = date;
 	}
 
-	public User getUser_1() {
-		return user_1;
+	public User getUser1() {
+		return user1;
 	}
 
 	public String getHour() {
@@ -162,32 +162,32 @@ public class Match {
 		this.hour = hour;
 	}
 
-	public void setUser_1(User user_1) {
-		this.user_1 = user_1;
+	public void setUser1(User user1) {
+		this.user1 = user1;
 	}
 
-	public User getUser_2() {
-		return user_2;
+	public User getUser2() {
+		return user2;
 	}
 
-	public void setUser_2(User user_2) {
-		this.user_2 = user_2;
+	public void setUser2(User user2) {
+		this.user2 = user2;
 	}
 
-	public Deck getDeck_1() {
-		return deck_1;
+	public Deck getDeck1() {
+		return deck1;
 	}
 
-	public void setDeck_1(Deck deck_1) {
-		this.deck_1 = deck_1;
+	public void setDeck1(Deck deck1) {
+		this.deck1 = deck1;
 	}
 
-	public Deck getDeck_2() {
-		return deck_2;
+	public Deck getDeck2() {
+		return deck2;
 	}
 
-	public void setDeck_2(Deck deck_2) {
-		this.deck_2 = deck_2;
+	public void setDeck2(Deck deck2) {
+		this.deck2 = deck2;
 	}
 
 	public Tournament getTournament() {

@@ -31,7 +31,7 @@
             <tbody>
               <c:forEach items="${ranking}" var="user">
                 <tr>
-                  <td>${user.user_id}</td>
+                  <td>${user.userId}</td>
                   <td>${user.username}</td>
                   <td>${user.wins}</td>
                   <td>${user.loses}</td>

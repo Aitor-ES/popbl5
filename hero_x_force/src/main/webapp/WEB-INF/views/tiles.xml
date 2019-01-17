@@ -76,13 +76,6 @@
       value="/WEB-INF/views/pages/deck_form.jsp" />
   </definition>
   
-  <!-- Deck Data screen layout -->
-  <definition name="deck/data" extends="template-default">
-    <put-attribute name="title" value="Deck Data" />
-    <put-attribute name="main"
-      value="/WEB-INF/views/pages/deck_data.jsp" />
-  </definition>
-  
   <!-- Heroes screen layout -->
   <definition name="heroes" extends="template-default">
     <put-attribute name="title" value="Heroes" />
@@ -123,13 +116,6 @@
     <put-attribute name="title" value="Duel Battle" />
     <put-attribute name="main"
       value="/WEB-INF/views/pages/duel_battle.jsp" />
-  </definition>
-  
-  <!-- Duel Result screen layout -->
-  <definition name="duel/result" extends="template-default">
-    <put-attribute name="title" value="Duel Result" />
-    <put-attribute name="main"
-      value="/WEB-INF/views/pages/duel_result.jsp" />
   </definition>
   
   <!-- Tournament List screen layout -->

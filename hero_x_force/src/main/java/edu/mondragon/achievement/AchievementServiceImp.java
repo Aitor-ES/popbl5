@@ -41,13 +41,13 @@ public class AchievementServiceImp implements AchievementService {
 	
 	/**
 	 * @brief Method to obtain the achievement using the id from the dao
-	 * @param id Achievement id
+	 * @param achievementId Achievement id int
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public Achievement getAchievementById(int achievement_id) {
-		return achievementDao.getAchievementById(achievement_id);
+	public Achievement getAchievementById(int achievementId) {
+		return achievementDao.getAchievementById(achievementId);
 	}
 	
 	/**

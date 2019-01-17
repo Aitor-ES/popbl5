@@ -31,8 +31,8 @@ public interface UserTournamentMapService {
 
 	/**
 	 * @brief Method to obtain an UserTournamentMap object
-	 * @param userTournamentMap_id UserTournamentMap object id int
+	 * @param userTournamentMapId UserTournamentMap object id int
 	 * @return UserTournamentMap
 	 */
-	UserTournamentMap getUserTournamentMapById(int userTournamentMap_id);
+	UserTournamentMap getUserTournamentMapById(int userTournamentMapId);
 }

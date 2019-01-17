@@ -31,8 +31,8 @@ public interface UserAchievementMapService {
 
 	/**
 	 * @brief This method gets an UserAchievementMap
-	 * @param userAchievementMap_id UserAchievementMap object id int
+	 * @param userAchievementMapId UserAchievementMap object id int
 	 * @return UserAchievementMap
 	 */
-	UserAchievementMap getUserAchievementMapById(int userAchievementMap_id);
+	UserAchievementMap getUserAchievementMapById(int userAchievementMapId);
 }

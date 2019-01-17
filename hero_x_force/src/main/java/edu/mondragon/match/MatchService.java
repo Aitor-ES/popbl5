@@ -22,6 +22,13 @@ public interface MatchService {
 	 * @return void
 	 */
 	void addMatch(Match match);
+	
+	/**
+	 * @brief This method updates a match
+	 * @param match Match object
+	 * @return void
+	 */
+	void updateMatch(Match match);
 
 	/**
 	 * @brief This method obtains the match list
@@ -31,10 +38,10 @@ public interface MatchService {
 
 	/**
 	 * @brief This method the returns the match which has the indicated id
-	 * @param match_id Match id int
+	 * @param matchId Match id int
 	 * @return Match
 	 */
-	Match getMatchById(int match_id);
+	Match getMatchById(int matchId);
 	
 	/**
 	 * @brief This method removes a match

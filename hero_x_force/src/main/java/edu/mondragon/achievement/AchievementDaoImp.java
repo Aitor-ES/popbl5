@@ -54,12 +54,12 @@ public class AchievementDaoImp implements AchievementDao {
 	
 	/**
 	 * @brief Method to find a achievement using the id
-	 * @param id Achievements id
+	 * @param achievementId Achievements id int
 	 * @return Achievement
 	 */
 	@Override
-	public Achievement getAchievementById(int achievement_id) {
-		Achievement achievement = getCurrentSession().find(Achievement.class, achievement_id);
+	public Achievement getAchievementById(int achievementId) {
+		Achievement achievement = getCurrentSession().find(Achievement.class, achievementId);
 		return achievement;
 	}
 	

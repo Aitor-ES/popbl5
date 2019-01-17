@@ -51,13 +51,13 @@ public class UserTournamentMapServiceImp implements UserTournamentMapService {
 	
 	/**
 	 * @brief Method to obtain the userTournamentMap using the id from the dao
-	 * @param id UserTournamentMaps id
+	 * @param userTournamentMapId UserTournamentMaps id int
 	 * @return UserTournamentMap
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public UserTournamentMap getUserTournamentMapById(int userTournamentMap_id) {
-		return userTournamentMapDao.getUserTournamentMapById(userTournamentMap_id);
+	public UserTournamentMap getUserTournamentMapById(int userTournamentMapId) {
+		return userTournamentMapDao.getUserTournamentMapById(userTournamentMapId);
 	}
 
 }

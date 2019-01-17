@@ -41,13 +41,13 @@ public class CardServiceImp implements CardService {
 	
 	/**
 	 * @brief Method to obtain the card using the id from the dao
-	 * @param id Card id
+	 * @param cardId Card id int
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public Card getCardById(int card_id) {
-		return cardDao.getCardById(card_id);
+	public Card getCardById(int cardId) {
+		return cardDao.getCardById(cardId);
 	}
 	
 	/**

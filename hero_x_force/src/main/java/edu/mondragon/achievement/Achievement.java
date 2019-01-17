@@ -40,7 +40,7 @@ public class Achievement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ACHIEVEMENT_ID")
-	private Integer achievement_id;
+	private Integer achievementId;
 
 	/**
 	 * @brief Achievement name
@@ -76,7 +76,7 @@ public class Achievement {
 	 * @brief User achievement map id (FK)
 	 */
 	@OneToMany(mappedBy="achievement", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserAchievementMap> userAchievementMaps = new HashSet<UserAchievementMap>();
+	private Set<UserAchievementMap> userAchievementMaps = new HashSet<>();
 	
 	/**
 	 * @brief Empty constructor
@@ -117,12 +117,12 @@ public class Achievement {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getAchievement_id() {
-		return achievement_id;
+	public Integer getAchievementId() {
+		return achievementId;
 	}
 
-	public void setAchievement_id(Integer achievement_id) {
-		this.achievement_id = achievement_id;
+	public void setAchievement_id(Integer achievementId) {
+		this.achievementId = achievementId;
 	}
 
 	public String getName() {

@@ -40,14 +40,25 @@ public class MatchServiceImp implements MatchService {
 	}
 	
 	/**
+	 * @brief This method updates a match
+	 * @param match Match object
+	 * @return void
+	 */
+	@Transactional
+	@Override
+	public void updateMatch(Match match) {
+		matchDao.updateMatch(match);
+	}
+	
+	/**
 	 * @brief Method to obtain the match using the id from the dao
-	 * @param id Match id
+	 * @param matchId Match id int
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public Match getMatchById(int match_id) {
-		return matchDao.getMatchById(match_id);
+	public Match getMatchById(int matchId) {
+		return matchDao.getMatchById(matchId);
 	}
 	
 	/**
@@ -57,7 +68,7 @@ public class MatchServiceImp implements MatchService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Match> listMatches() {
-		return matchDao.listMatchs();
+		return matchDao.listMatches();
 	}
 
 	/**

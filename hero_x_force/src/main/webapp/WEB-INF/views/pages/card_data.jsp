@@ -13,7 +13,7 @@
     
     <div class="row">
       <div class="col-sm-5 col-12 ml-5">
-        <div class="heroCardFather" id="card${card.card_id}">
+        <div class="heroCardFather" id="card${card.cardId}">
           <div class="heroCardStatic">
             <div class="cardImg" style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
             <img class="templateImg"
@@ -21,7 +21,7 @@
               alt="edit icon">
             <div class="titleArea">
             <script>changeTitleFontSize();</script>
-              <div class="heroName" id="${card.name}">${card.name}</div>
+              <div class="heroName">${card.name}</div>
             </div>
             <div class="stats">
               <div class="ATK statName">ATK</div>
@@ -34,8 +34,8 @@
                 <div class="DEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.def}</div>
                 <div class="SPD_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.spd}</div>
                 <div class="HP_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.hp}</div>
-                <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_atk}</div>
-                <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_def}</div>
+                <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.magAtk}</div>
+                <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.magDef}</div>
             </div>
             <div class="sagaArea">
               <div class="saga">${card.saga}</div>
@@ -130,11 +130,11 @@
               </tr>
               <tr>
                 <td><spring:message code="card.data.stats.table.stats.magicAttack"/></td>
-                <td>${card.mag_atk}</td>
+                <td>${card.magAtk}</td>
               </tr>
               <tr>
                 <td><spring:message code="card.data.stats.table.stats.magicDefense"/></td>
-                <td>${card.mag_def}</td>
+                <td>${card.magDef}</td>
               </tr>
               <tr>
                 <td><spring:message code="card.data.stats.table.stats.speed"/></td>
@@ -169,7 +169,7 @@
                 fontSize: "1.3rem"
           }
           $.ajax({
-          	  data: {id: "${card.card_id}"},
+          	  data: {id: "${card.cardId}"},
           	  url: "${pageContext.request.contextPath}/card/stats",
           	  type: 'get',
           	  beforeSend: function(){

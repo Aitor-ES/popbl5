@@ -35,7 +35,7 @@
     <div class="row px-sm-4 pt-3 mb-4">
       <div class="col">
         <c:forEach items="${matchesAsUser_2}" var="matchAsUser_2">
-          <form name="duelListForm" action="${pageContext.request.contextPath}/duel/${matchAsUser_2.match_id}/loadBattle" method='POST'>
+          <form name="duelListForm" action="${pageContext.request.contextPath}/duel/${matchAsUser_2.match_id}/battle" method='POST'>
             <div class="panel bg-white border border-danger p-3 mb-3">
               <div class="panel-body d-flex align-items-center bd-highlight">
                 <span class="mr-auto bd-highlight">${matchAsUser_2.user_1.username}</span>

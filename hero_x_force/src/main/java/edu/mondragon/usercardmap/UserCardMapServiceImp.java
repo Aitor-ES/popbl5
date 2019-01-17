@@ -51,13 +51,13 @@ public class UserCardMapServiceImp implements UserCardMapService {
 	
 	/**
 	 * @brief Method to obtain the userCardMap using the id from the dao
-	 * @param id UserCardMaps id
+	 * @param userCardMapId UserCardMaps id int
 	 * @return UserCardMap
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public UserCardMap getUserCardMapById(int userCardMap_id) {
-		return userCardMapDao.getUserCardMapById(userCardMap_id);
+	public UserCardMap getUserCardMapById(int userCardMapId) {
+		return userCardMapDao.getUserCardMapById(userCardMapId);
 	}
 
 }
