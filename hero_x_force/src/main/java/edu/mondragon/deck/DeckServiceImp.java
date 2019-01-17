@@ -38,11 +38,27 @@ public class DeckServiceImp implements DeckService {
 	public void addDeck(Deck deck) {
 		deckDao.addDeck(deck);
 	}
-
+	
+	/**
+	 * @brief This method update the deck data
+	 * @param deck Deck object
+	 * @return void
+	 */
 	@Transactional
 	@Override
 	public void updateDeck(Deck deck) {
 		deckDao.updateDeck(deck);
+	}
+
+	/**
+	 * @bried This method removes a deck
+	 * @param deck
+	 * @return void
+	 */
+	@Transactional
+	@Override
+	public void removeDeck(Deck deck) {
+		deckDao.removeDeck(deck);
 	}
 	
 	/**

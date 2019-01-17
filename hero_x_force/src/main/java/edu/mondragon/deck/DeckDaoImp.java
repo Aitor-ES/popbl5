@@ -40,10 +40,25 @@ public class DeckDaoImp implements DeckDao {
 	public void addDeck(Deck deck) {
 		getCurrentSession().save(deck);
 	}
-
+	
+	/**
+	 * @brief This method update the deck data
+	 * @param deck Deck object
+	 * @return void
+	 */
 	@Override
 	public void updateDeck(Deck deck) {
 		getCurrentSession().update(deck);
+	}
+
+	/**
+	 * @bried This method removes a deck
+	 * @param deck
+	 * @return void
+	 */
+	@Override
+	public void removeDeck(Deck deck) {
+		getCurrentSession().remove(deck);
 	}
 
 	/**

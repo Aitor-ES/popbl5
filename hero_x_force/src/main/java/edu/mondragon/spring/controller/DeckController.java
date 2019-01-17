@@ -123,6 +123,13 @@ public class DeckController {
 		return view;
 	}
 
+	/**
+	 * @brief Method to save deck from deck form
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @return String
+	 */
 	@RequestMapping(value = { "/deck/form/save" }, method = RequestMethod.POST)
 	public String deckSave(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
@@ -168,6 +175,28 @@ public class DeckController {
 
 				}
 			}
+
+			view = "redirect:/deck/list";
+		}
+		return view;
+	}
+
+	/**
+	 * @brief Method to delete deck
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param id       To know which deck we are deleting
+	 * @return String
+	 */
+	@RequestMapping(value = { "/deck/{id}/delete" }, method = RequestMethod.GET)
+	public String deleteDeck(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response,
+			Model model) {
+		String view = "home";
+
+		if (checkIfUserIsLogged(request, model)) {
+			Deck deck = deckService.getDeckById(id);
+			deckService.removeDeck(deck);
 
 			view = "redirect:/deck/list";
 		}

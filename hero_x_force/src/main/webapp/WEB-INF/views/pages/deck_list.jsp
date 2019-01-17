@@ -22,8 +22,9 @@
           <h3>${deck.name}</h3>
           <div class="d-flex justify-content-end">
             <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/${deck.deckId}/form" role="button">
-              <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
-            </a>
+              <i class="fas fa-cog"></i> <spring:message code="action.edit"/></a>
+            <a class="btn btn-lg btn-danger" href="${pageContext.request.contextPath}/deck/${deck.deckId}/delete" role="button">
+              <i class="fas fa-trash-alt"></i> <spring:message code="action.delete"/></a>
           </div>
         </div>
         <div class="deck-cards row">

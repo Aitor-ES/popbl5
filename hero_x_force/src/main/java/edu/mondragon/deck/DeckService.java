@@ -31,6 +31,13 @@ public interface DeckService {
 	void updateDeck(Deck deck);
 
 	/**
+	 * @bried This method removes a deck
+	 * @param deck
+	 * @return void
+	 */
+	void removeDeck(Deck deck);
+
+	/**
 	 * @brief This method obtains the deck list
 	 * @return List<Deck>
 	 */
