@@ -1,23 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!-- Start: Profile edit -->
 <section id="profile-edit">
   <div class="container-fluid">
-    <div class="row px-4 pt-4">
-      <div class="col-10">
+  
+    <!-- Start: Title & Button -->
+    <div class="row px-sm-4 pt-4">
+    
+      <!-- Title -->
+      <div class="col-sm-10">
         <h2 class="title-style"><spring:message code="profile.edit.title" /></h2>
       </div>
-      <div class="col-2 d-flex justify-content-end align-items-center">
-        <a class="btn btn-lg btn-warning mt-3 mb-3" href="${pageContext.request.contextPath}/profile/data" role="button">
+      
+      <!-- Button -->
+      <div class="col-sm-2 d-flex justify-content-end align-items-center">
+        <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/profile/data" role="button">
           <i class="fas fa-times-circle"></i> <spring:message code="action.cancel"/>
         </a>
       </div>
     </div>
-
+    <!-- End: Title & Button -->
+    
+    <!-- Start: Data -->
     <form name="userForm" action="${pageContext.request.contextPath}/profile/form" method='POST'> 
-      <div class="row px-5">
-        <div class="col">
+    
+      <!-- User name -->
+      <div class="row px-sm-5 mt-4 mt-sm-2">
+        <div class="col col-lg-6">
           <label><spring:message code="profile.edit.username.title"/></label>
           <div class="input-group">
             <div class="input-group-prepend">
@@ -29,8 +40,9 @@
         </div>
       </div>
       
-      <div class="row px-5 mt-3">
-        <div class="col">
+      <!-- Email -->
+      <div class="row px-sm-5 mt-2">
+        <div class="col col-lg-6">
           <label><spring:message code="profile.edit.email.title"/></label>
           <div class="input-group">
             <div class="input-group-prepend">
@@ -42,8 +54,9 @@
         </div>
       </div>
       
-      <div class="row px-5 mt-3">
-        <div class="col">
+      <!-- Password -->
+      <div class="row px-sm-5 mt-2">
+        <div class="col col-lg-6">
           <label><spring:message code="profile.edit.password.title"/></label>
           <div class="input-group">
             <div class="input-group-prepend">
@@ -55,8 +68,9 @@
         </div>
       </div>
       
-      <div class="row px-5 mt-3">
-        <div class="col">
+      <!-- Confirm password -->
+      <div class="row px-sm-5 mt-2">
+        <div class="col col-lg-6">
           <label><spring:message code="profile.edit.password.confirm.title"/></label>
           <div class="input-group">
             <div class="input-group-prepend">
@@ -67,18 +81,20 @@
           </div>
         </div> 
       </div>
-       
-      <div class="row px-5">
-         <div class="col">
-          <div class="progress mt-3" id="myProgressBar" style="display: none">
+      
+      <!-- Progress bar -->
+      <div class="row px-sm-5 mt-3 mb-3">
+         <div class="col col-lg-6">
+          <div class="progress" id="myProgressBar" style="display: none">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
               aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
             </div>
           </div>
         </div> 
       </div>  
-          
-      <div class="row px-5 mt-3">
+      
+      <!-- Button -->   
+      <div class="row px-sm-5">
         <div class="col">  
            <button class="btn btn-lg btn-warning" type="submit" name="submit" onclick="userProgress()">
              <i class="fas fa-check-circle"></i> <spring:message code="action.accept" />
@@ -86,5 +102,11 @@
         </div> 
       </div> 
   	</form>
+  
+    <!-- Start: Top button -->
+    <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <!-- End: Top button -->
+  
   </div>
 </section>
+<!-- End: Profile edit -->

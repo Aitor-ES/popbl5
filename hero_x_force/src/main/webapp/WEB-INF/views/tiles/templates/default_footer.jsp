@@ -3,7 +3,7 @@
 
 <!-- Start: Footer  -->
 <footer class="footer bg-dark">
-  <div class="container">
+  <div class="container-fluid">
     <p class="text-center text-white m-0"><spring:message code="footer.copyright"/> <i class="far fa-copyright"></i> <spring:message code="footer.company"/> <spring:message code="footer.year"/></p>
   </div>
 </footer>

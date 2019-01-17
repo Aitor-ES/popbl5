@@ -67,7 +67,7 @@
           </c:otherwise>
         </c:choose>
       </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <div class="dropdown-menu">
         <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=en" role="button">
           <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">
         </a>

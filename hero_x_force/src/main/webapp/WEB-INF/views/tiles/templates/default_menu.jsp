@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!-- Start: Menu  -->
-<section id="menu">
+<div id="menu">
 
   <div class="navbar navbar-expand-md navbar-dark bg-dark">
   
@@ -46,5 +46,5 @@
     <!-- End: Navbar links -->
     
   </div>
-</section>
+</div>
 <!-- End: Menu -->
