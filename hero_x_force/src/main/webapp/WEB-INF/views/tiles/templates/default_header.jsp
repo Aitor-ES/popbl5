@@ -17,32 +17,32 @@
     <!-- List: Links & Button -->
     <c:choose>
       <c:when test="${not empty sessionScope.user}">
-        <li class="nav-item">
+        <li class="nav-item d-flex align-items-center mr-3">
           <form action="${pageContext.request.contextPath}/logout">
-            <button class="btn btn-lg btn-danger" id="header_button" type="submit" name="action" value="logout"><i class="fas fa-sign-in-alt"></i> <spring:message code="action.logout"/></button>
+            <button class="button-style btn btn-lg btn-danger" id="header_button" type="submit" name="action" value="logout"><i class="fas fa-sign-in-alt"></i> <spring:message code="action.logout"/></button>
           </form>
         </li>
       </c:when>
       <c:otherwise>
         <c:choose>
           <c:when test="${springViewName == 'home'}">
-            <li class="nav-item">
-              <a class="nav-link text-light" id="header_link" href="${pageContext.request.contextPath}/login"><i class="fas fa-chevron-right"></i> <spring:message code="action.login"/></a> 
+            <li class="nav-item d-flex align-items-center mr-3">
+              <a class="nav-link text-light" href="${pageContext.request.contextPath}/login"><spring:message code="action.login"/> <i class="fas fa-chevron-right"></i></a> 
              </li>
           </c:when>
           <c:when test="${springViewName == 'register'}">
-            <li class="nav-item">
-              <a class="nav-link text-light" id="header_link" href="${pageContext.request.contextPath}/login"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToLogin"/></a> 
+            <li class="nav-item d-flex align-items-center mr-3">
+              <a class="nav-link text-light" href="${pageContext.request.contextPath}/login"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToLogin"/></a> 
              </li>
           </c:when>
           <c:when test="${springViewName == 'forgot'}">
-            <li class="nav-item">
-              <a class="nav-link text-light" id="header_link" href="${pageContext.request.contextPath}/login"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToLogin"/></a> 
+            <li class="nav-item d-flex align-items-center mr-3">
+              <a class="nav-link text-light" href="${pageContext.request.contextPath}/login"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToLogin"/></a> 
              </li>
           </c:when>
           <c:otherwise>
-            <li class="nav-item">
-              <a class="nav-link text-light" id="header_link" href="${pageContext.request.contextPath}/"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToHome"/></a> 
+            <li class="nav-item d-flex align-items-center mr-3">
+              <a class="nav-link text-light" href="${pageContext.request.contextPath}/"><i class="fas fa-chevron-left"></i> <spring:message code="header.backToHome"/></a> 
             </li>
           </c:otherwise>
         </c:choose>
@@ -67,7 +67,7 @@
           </c:otherwise>
         </c:choose>
       </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <div class="dropdown-menu">
         <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=en" role="button">
           <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">
         </a>

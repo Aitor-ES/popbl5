@@ -38,7 +38,8 @@ public interface DeckCardMapDao {
 
 	/**
 	 * @brief This method the returns the deck card map which has the indicated id
+	 * @param deckCardMapId DeckCardMap id int
 	 * @return DeckCardMap
 	 */
-	DeckCardMap getDeckCardMapById(int deckCardMap_id);
+	DeckCardMap getDeckCardMapById(int deckCardMapId);
 }

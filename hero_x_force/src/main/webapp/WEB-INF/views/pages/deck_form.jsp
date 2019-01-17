@@ -24,7 +24,7 @@
             </div>
             <c:if test="${not empty deck}">
               <input type="text" class="form-control" name='deck_id'
-                value="${deck.deck_id}" required readonly>
+                value="${deck.deckId}" required readonly>
             </c:if>
             <input type="text" class="form-control" name='deckName'
               placeholder="<spring:message code="deck.form.name.placeholder"/>" value="${deck.name}" required>
@@ -48,7 +48,7 @@
               <input type="text" class="selected-card-name form-control col mx-3" id="selected-card-name-${deckCardMap.position}"
                 name='selected-card-id-${deckCardMap.position}'
                 placeholder="<spring:message code="deck.form.slot-${deckCardMap.position}.placeholder"/>"
-                value="Hero #${deckCardMap.card.card_id}" required readonly>
+                value="Hero #${deckCardMap.card.cardId}" required readonly>
             </c:forEach>
           </div>
           <div class="row mx-5 mt-2" id="selected-card-slots">
@@ -84,7 +84,7 @@
     <div class="row mx-3 mt-3" id="available-cards">
       <c:forEach items="${cardList}" var="card">
         <div class="col-sm-3 px-3 mb-5 d-flex justify-content-center" ondragover="allowDrop(event)" ondrop="drop(event)">
-          <div class="heroCardFather" id="${card.card_id}" draggable="true" ondragstart="drag(event)">
+          <div class="heroCardFather" id="${card.cardId}" draggable="true" ondragstart="drag(event)">
             <div class="heroCard" draggable="false">
               <div class="cardImg"
                 style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
@@ -92,7 +92,7 @@
                 src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
                 alt="edit icon" draggable="false">
               <div class="titleArea">
-                <div class="heroName" id="${card.name}">${card.name}</div>
+                <div class="heroName">${card.name}</div>
               </div>
               <div class="stats">
                 <div class="ATK statName"><spring:message code="card.atk.physical" /></div>
@@ -105,8 +105,8 @@
                 <div class="DEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.def}</div>
                 <div class="SPD_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.spd}</div>
                 <div class="HP_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.hp}</div>
-                <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_atk}</div>
-                <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_def}</div>
+                <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.magAtk}</div>
+                <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.magDef}</div>
               </div>
               <div class="sagaArea">
                 <div class="saga">${card.saga}</div>

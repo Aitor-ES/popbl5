@@ -51,13 +51,13 @@ public class UserAchievementMapServiceImp implements UserAchievementMapService {
 	
 	/**
 	 * @brief Method to obtain the userAchievementMap using the id from the dao
-	 * @param id UserAchievementMaps id
+	 * @param userAchievementMapId UserAchievementMaps id int
 	 * @return UserAchievementMap
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public UserAchievementMap getUserAchievementMapById(int userAchievementMap_id) {
-		return userAchievementMapDao.getUserAchievementMapById(userAchievementMap_id);
+	public UserAchievementMap getUserAchievementMapById(int userAchievementMapId) {
+		return userAchievementMapDao.getUserAchievementMapById(userAchievementMapId);
 	}
 
 }

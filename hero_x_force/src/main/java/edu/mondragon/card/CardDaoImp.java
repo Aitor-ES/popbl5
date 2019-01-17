@@ -54,12 +54,12 @@ public class CardDaoImp implements CardDao {
 	
 	/**
 	 * @brief Method to find a card using the id
-	 * @param id Cards id
+	 * @param cardId Card id int
 	 * @return Card
 	 */
 	@Override
-	public Card getCardById(int card_id) {
-		Card card = getCurrentSession().find(Card.class, card_id);
+	public Card getCardById(int cardId) {
+		Card card = getCurrentSession().find(Card.class, cardId);
 		return card;
 	}
 	

@@ -61,7 +61,7 @@ public class DeckController {
 
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
-			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUser_id());
+			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
 			model.addAttribute("deckList", deckList);
 
 			view = "deck/list";
@@ -131,34 +131,34 @@ public class DeckController {
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			
-			String deck_id_asString = request.getParameter("deck_id");
+			String deckIdAsString = request.getParameter("deck_id");
 			
-			if (deck_id_asString == null) {
+			if (deckIdAsString == null) {
 				String deckName = request.getParameter("deckName");
 				Deck deck = new Deck(deckName, (User) session.getAttribute("user"));
 				deckService.addDeck(deck);
 				
-				String card_id_1 = request.getParameter("selected-card-id-1").split("#")[1];
-				String card_id_2 = request.getParameter("selected-card-id-2").split("#")[1];
-				String card_id_3 = request.getParameter("selected-card-id-3").split("#")[1];
-				String card_id_4 = request.getParameter("selected-card-id-4").split("#")[1];
-				String card_id_5 = request.getParameter("selected-card-id-5").split("#")[1];
+				String cardId1 = request.getParameter("selected-card-id-1").split("#")[1];
+				String cardId2 = request.getParameter("selected-card-id-2").split("#")[1];
+				String cardId3 = request.getParameter("selected-card-id-3").split("#")[1];
+				String cardId4 = request.getParameter("selected-card-id-4").split("#")[1];
+				String cardId5 = request.getParameter("selected-card-id-5").split("#")[1];
 				
-				DeckCardMap deckCardMap_1 = new DeckCardMap(1, deck, cardService.getCardById(Integer.parseInt(card_id_1)));
-				DeckCardMap deckCardMap_2 = new DeckCardMap(2, deck, cardService.getCardById(Integer.parseInt(card_id_2)));
-				DeckCardMap deckCardMap_3 = new DeckCardMap(3, deck, cardService.getCardById(Integer.parseInt(card_id_3)));
-				DeckCardMap deckCardMap_4 = new DeckCardMap(4, deck, cardService.getCardById(Integer.parseInt(card_id_4)));
-				DeckCardMap deckCardMap_5 = new DeckCardMap(5, deck, cardService.getCardById(Integer.parseInt(card_id_5)));
+				DeckCardMap deckCardMap1 = new DeckCardMap(1, deck, cardService.getCardById(Integer.parseInt(cardId1)));
+				DeckCardMap deckCardMap2 = new DeckCardMap(2, deck, cardService.getCardById(Integer.parseInt(cardId2)));
+				DeckCardMap deckCardMap3 = new DeckCardMap(3, deck, cardService.getCardById(Integer.parseInt(cardId3)));
+				DeckCardMap deckCardMap4 = new DeckCardMap(4, deck, cardService.getCardById(Integer.parseInt(cardId4)));
+				DeckCardMap deckCardMap5 = new DeckCardMap(5, deck, cardService.getCardById(Integer.parseInt(cardId5)));
 				
-				deckCardMapService.addDeckCardMap(deckCardMap_1);
-				deckCardMapService.addDeckCardMap(deckCardMap_2);
-				deckCardMapService.addDeckCardMap(deckCardMap_3);
-				deckCardMapService.addDeckCardMap(deckCardMap_4);
-				deckCardMapService.addDeckCardMap(deckCardMap_5);
+				deckCardMapService.addDeckCardMap(deckCardMap1);
+				deckCardMapService.addDeckCardMap(deckCardMap2);
+				deckCardMapService.addDeckCardMap(deckCardMap3);
+				deckCardMapService.addDeckCardMap(deckCardMap4);
+				deckCardMapService.addDeckCardMap(deckCardMap5);
 			} else {
-				int deck_id = Integer.parseInt(deck_id_asString);
+				int deckId = Integer.parseInt(deckIdAsString);
 				
-				Deck deck = deckService.getDeckById(deck_id);
+				Deck deck = deckService.getDeckById(deckId);
 				deck.setName(request.getParameter("deckName"));
 				deckService.updateDeck(deck);
 				
@@ -166,36 +166,36 @@ public class DeckController {
 				List<DeckCardMap> listOurMaps = new ArrayList<>();
 				
 				for (DeckCardMap map : listAllMaps) {
-					if (map.getDeck().getDeck_id() == deck_id) {
+					if (map.getDeck().getDeckId() == deckId) {
 						listOurMaps.add(map);
 					}
 				}
 				
-				String card_id_1 = request.getParameter("selected-card-id-1").split("#")[1];
-				String card_id_2 = request.getParameter("selected-card-id-2").split("#")[1];
-				String card_id_3 = request.getParameter("selected-card-id-3").split("#")[1];
-				String card_id_4 = request.getParameter("selected-card-id-4").split("#")[1];
-				String card_id_5 = request.getParameter("selected-card-id-5").split("#")[1];
+				String cardId1 = request.getParameter("selected-card-id-1").split("#")[1];
+				String cardId2 = request.getParameter("selected-card-id-2").split("#")[1];
+				String cardId3 = request.getParameter("selected-card-id-3").split("#")[1];
+				String cardId4 = request.getParameter("selected-card-id-4").split("#")[1];
+				String cardId5 = request.getParameter("selected-card-id-5").split("#")[1];
 				
 				for (DeckCardMap map : listOurMaps) {
 					if (map.getPosition() == 1) {
-						map.setCard(cardService.getCardById(Integer.parseInt(card_id_1)));
+						map.setCard(cardService.getCardById(Integer.parseInt(cardId1)));
 						deckCardMapService.updateDeckCardMap(map);
 					}
 					if (map.getPosition() == 2) {
-						map.setCard(cardService.getCardById(Integer.parseInt(card_id_2)));
+						map.setCard(cardService.getCardById(Integer.parseInt(cardId2)));
 						deckCardMapService.updateDeckCardMap(map);
 					}
 					if (map.getPosition() == 3) {
-						map.setCard(cardService.getCardById(Integer.parseInt(card_id_3)));
+						map.setCard(cardService.getCardById(Integer.parseInt(cardId3)));
 						deckCardMapService.updateDeckCardMap(map);
 					}
 					if (map.getPosition() == 4) {
-						map.setCard(cardService.getCardById(Integer.parseInt(card_id_4)));
+						map.setCard(cardService.getCardById(Integer.parseInt(cardId4)));
 						deckCardMapService.updateDeckCardMap(map);
 					}
 					if (map.getPosition() == 5) {
-						map.setCard(cardService.getCardById(Integer.parseInt(card_id_5)));
+						map.setCard(cardService.getCardById(Integer.parseInt(cardId5)));
 						deckCardMapService.updateDeckCardMap(map);
 					}
 				}

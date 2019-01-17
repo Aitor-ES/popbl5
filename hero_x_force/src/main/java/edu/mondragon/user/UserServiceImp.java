@@ -84,8 +84,8 @@ public class UserServiceImp implements UserService {
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public User getUserById(int user_id) {
-		return userDao.getUserById(user_id);
+	public User getUserById(int userId) {
+		return userDao.getUserById(userId);
 	}
 
 	/**
@@ -112,31 +112,31 @@ public class UserServiceImp implements UserService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<UserAchievementMap> getUserAchievements(int user_id) {
-		return userDao.getUserAchievements(user_id);
+	public Set<UserAchievementMap> getUserAchievements(int userId) {
+		return userDao.getUserAchievements(userId);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<UserCardMap> getUserCards(int user_id) {
-		return userDao.getUserCards(user_id);
+	public Set<UserCardMap> getUserCards(int userId) {
+		return userDao.getUserCards(userId);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<Deck> getUserDecks(int user_id) {
-		return userDao.getUserDecks(user_id);
+	public Set<Deck> getUserDecks(int userId) {
+		return userDao.getUserDecks(userId);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<Match> getMatchesAsUser_1(int user_id) {
-		return userDao.getMatchesAsUser_1(user_id);
+	public Set<Match> getMatchesAsUser1(int userId) {
+		return userDao.getMatchesAsUser1(userId);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public Set<Match> getMatchesAsUser_2(int user_id) {
-		return userDao.getMatchesAsUser_2(user_id);
+	public Set<Match> getMatchesAsUser2(int userId) {
+		return userDao.getMatchesAsUser2(userId);
 	}
 }

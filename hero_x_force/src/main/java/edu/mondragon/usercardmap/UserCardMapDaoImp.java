@@ -54,12 +54,12 @@ public class UserCardMapDaoImp implements UserCardMapDao {
 
 	/**
 	 * @brief Method to find a userCardMap using the id
-	 * @param id UserCardMaps id
+	 * @param userCardMapId UserCardMaps id int
 	 * @return UserCardMap
 	 */
 	@Override
-	public UserCardMap getUserCardMapById(int userCardMap_id) {
-		UserCardMap userCardMap = getCurrentSession().find(UserCardMap.class, userCardMap_id);
+	public UserCardMap getUserCardMapById(int userCardMapId) {
+		UserCardMap userCardMap = getCurrentSession().find(UserCardMap.class, userCardMapId);
 		return userCardMap;
 	}
 

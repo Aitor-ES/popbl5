@@ -64,12 +64,12 @@ public class MatchDaoImp implements MatchDao {
 	
 	/**
 	 * @brief Method to find a match using the id
-	 * @param id Matchs id
+	 * @param matchId Matchs id int
 	 * @return Match
 	 */
 	@Override
-	public Match getMatchById(int match_id) {
-		Match match = getCurrentSession().find(Match.class, match_id);
+	public Match getMatchById(int matchId) {
+		Match match = getCurrentSession().find(Match.class, matchId);
 		return match;
 	}
 	

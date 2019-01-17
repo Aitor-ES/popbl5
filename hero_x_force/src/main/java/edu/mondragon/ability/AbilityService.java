@@ -31,8 +31,8 @@ public interface AbilityService {
 
 	/**
 	 * @brief Method to get an ability
-	 * @param ability_id Ability id int
+	 * @param abilityId Ability id int
 	 * @return Ability
 	 */
-	Ability getAbilityById(int ability_id);
+	Ability getAbilityById(int abilityId);
 }

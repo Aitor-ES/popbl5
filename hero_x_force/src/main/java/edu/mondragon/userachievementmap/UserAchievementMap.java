@@ -38,7 +38,7 @@ public class UserAchievementMap {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ACHIEVEMENT_MAP_ID")
-	private Integer user_achievement_map_id;
+	private Integer userAchievementMapId;
 
 	/**
 	 * @brief Unlock date
@@ -70,12 +70,12 @@ public class UserAchievementMap {
 	/*
 	 * @brief Getters and setters
 	 */	
-	public Integer getUser_achievement_map_id() {
-		return user_achievement_map_id;
+	public Integer getUserAchievementMapId() {
+		return userAchievementMapId;
 	}
 
-	public void setUser_achievement_map_id(Integer user_achievement_map_id) {
-		this.user_achievement_map_id = user_achievement_map_id;
+	public void setUserAchievementMapId(Integer userAchievementMapId) {
+		this.userAchievementMapId = userAchievementMapId;
 	}
 
 	public LocalDateTime getDate() {

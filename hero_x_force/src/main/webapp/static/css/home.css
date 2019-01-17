@@ -73,9 +73,10 @@
   justify-content: space-between;
 }
 
-/* Responsive (sm<540px - md<720px - lg<960px)
+/* Responsive 
+ * sm >= 576px | md >= 768px | lg >= 992px | xl >= 1200px
  *********************************************************/
-@media (min-width: 720px) {
+@media (min-width: 768px) {
   #home .carousel-caption h1 {
     font-size: var(--desktop-h1-font-size);
   }

@@ -46,10 +46,10 @@ public class TournamentController {
 		String view = "home";
 		
 		if (checkIfUserIsLogged(request, model)) {
-			List<Tournament> availableTournamentList = tournamentService.listTournaments();
-			model.addAttribute("availableTournamentList", availableTournamentList);
-			for (Tournament t : availableTournamentList) {
-				System.out.println(t.getName());
+			List<Tournament> tournamentList = tournamentService.listTournaments();
+			model.addAttribute("tournamentList", tournamentList);
+			for (Tournament tournament : tournamentList) {
+				System.out.println(tournament.getName());
 			}
 			view = "tournament/list";
 		}

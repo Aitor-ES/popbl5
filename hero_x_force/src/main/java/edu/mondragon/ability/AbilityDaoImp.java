@@ -52,12 +52,12 @@ public class AbilityDaoImp implements AbilityDao {
 
 	/**
 	 * @brief Method to find a ability using the id
-	 * @param id Ability id
+	 * @param abilityId Ability id
 	 * @return Ability
 	 */
 	@Override
-	public Ability getAbilityById(int ability_id) {
-		Ability ability = getCurrentSession().find(Ability.class, ability_id);
+	public Ability getAbilityById(int abilityId) {
+		Ability ability = getCurrentSession().find(Ability.class, abilityId);
 		return ability;
 	}
 

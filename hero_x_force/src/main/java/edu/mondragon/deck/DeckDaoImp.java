@@ -59,12 +59,12 @@ public class DeckDaoImp implements DeckDao {
 	
 	/**
 	 * @brief Method to find a deck using the id
-	 * @param id Decks id
+	 * @param deckId Decks id int
 	 * @return Deck
 	 */
 	@Override
-	public Deck getDeckById(int deck_id) {
-		Deck deck = getCurrentSession().find(Deck.class, deck_id);
+	public Deck getDeckById(int deckId) {
+		Deck deck = getCurrentSession().find(Deck.class, deckId);
 		return deck;
 	}
 	

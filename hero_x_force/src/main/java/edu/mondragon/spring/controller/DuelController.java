@@ -97,11 +97,11 @@ public class DuelController {
 
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
-			Set<Match> matchesAsUser_2 = userService
-					.getMatchesAsUser_2(((User) session.getAttribute("user")).getUser_id());
-			model.addAttribute("matchesAsUser_2", matchesAsUser_2);
+			Set<Match> matchesAsUser2 = userService
+					.getMatchesAsUser2(((User) session.getAttribute("user")).getUserId());
+			model.addAttribute("matchesAsUser2", matchesAsUser2);
 
-			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUser_id());
+			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
 			model.addAttribute("deckList", deckList);
 
 			view = "duel/list";
@@ -128,7 +128,7 @@ public class DuelController {
 			List<User> userList = userService.listUsers();
 			ListIterator<User> iterator = userList.listIterator();
 			while (iterator.hasNext()) {
-				if (iterator.next().getUser_id() == sessionUser.getUser_id()) {
+				if (iterator.next().getUserId() == sessionUser.getUserId()) {
 					iterator.remove();
 				}
 			}
@@ -136,7 +136,7 @@ public class DuelController {
 			model.addAttribute("userList", userList);
 
 			// Add deck list to create page
-			Set<Deck> deckList = userService.getUserDecks(sessionUser.getUser_id());
+			Set<Deck> deckList = userService.getUserDecks(sessionUser.getUserId());
 			model.addAttribute("deckList", deckList);
 
 			view = "duel/create";
@@ -156,17 +156,17 @@ public class DuelController {
 	public String registerFormPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		String view = "redirect:/duel/list";
 
-		Integer opponent_id = Integer.valueOf(request.getParameter("opponent_id"));
-		Integer myDeck_id = Integer.valueOf(request.getParameter("myDeck_id"));
+		Integer opponentId = Integer.valueOf(request.getParameter("opponentId"));
+		Integer myDeckId = Integer.valueOf(request.getParameter("myDeckId"));
 
 		Match match = new Match();
 		// Creator
 		HttpSession session = request.getSession(true);
-		match.setUser_1(userService.getUserById(((User) session.getAttribute("user")).getUser_id()));
-		match.setDeck_1(deckService.getDeckById(myDeck_id));
+		match.setUser1(userService.getUserById(((User) session.getAttribute("user")).getUserId()));
+		match.setDeck1(deckService.getDeckById(myDeckId));
 
 		// Opponent
-		match.setUser_2(userService.getUserById(opponent_id));
+		match.setUser2(userService.getUserById(opponentId));
 
 		matchService.addMatch(match);
 		model.addAttribute("message", "duel.create.success");
@@ -192,18 +192,18 @@ public class DuelController {
 				
 				if (match.getWinner() == null) {
 					Deck deck2 = deckService.getDeckById(Integer.valueOf(request.getParameter("deck-picker-" + id)));
-					match.setDeck_2(deck2);
+					match.setDeck2(deck2);
 					
 					this.battleLog = new ArrayList<>();
 
 					if (this.startBattle(match)) {
-						match.setWinner(match.getUser_1());
-						match.getUser_1().setWins(match.getUser_1().getWins() + 1);
-						match.getUser_2().setLoses(match.getUser_2().getLoses() + 1);
+						match.setWinner(match.getUser1());
+						match.getUser1().setWins(match.getUser1().getWins() + 1);
+						match.getUser2().setLoses(match.getUser2().getLoses() + 1);
 					} else {
-						match.setWinner(match.getUser_2());
-						match.getUser_2().setWins(match.getUser_2().getWins() + 1);
-						match.getUser_1().setLoses(match.getUser_1().getLoses() + 1);
+						match.setWinner(match.getUser2());
+						match.getUser2().setWins(match.getUser2().getWins() + 1);
+						match.getUser1().setLoses(match.getUser1().getLoses() + 1);
 					}
 					matchService.updateMatch(match);
 					model.addAttribute("match", match);
@@ -227,40 +227,40 @@ public class DuelController {
 	 * @return
 	 */
 	public boolean startBattle(Match match) {
-		Deck deck1 = match.getDeck_1();
-		Deck deck2 = match.getDeck_2();
+		Deck deck1 = match.getDeck1();
+		Deck deck2 = match.getDeck2();
 		
-		Card hero_1;
-		Card hero_2;
+		Card hero1;
+		Card hero2;
 
-		int player_1_points = 0;
-		int player_2_points = 0;
+		int player1Points = 0;
+		int player2Points = 0;
 
-		Iterator<DeckCardMap> it_1 = deck1.getDeckCardMaps().iterator();
-		Iterator<DeckCardMap> it_2 = deck2.getDeckCardMaps().iterator();
+		Iterator<DeckCardMap> it1 = deck1.getDeckCardMaps().iterator();
+		Iterator<DeckCardMap> it2 = deck2.getDeckCardMaps().iterator();
 
 		int i = 1;
 
-		while (it_1.hasNext() && it_2.hasNext()) {
+		while (it1.hasNext() && it2.hasNext()) {
 			this.battleLog.add("ROUND " + i);
 
-			hero_1 = it_1.next().getCard();
-			hero_2 = it_2.next().getCard();
+			hero1 = it1.next().getCard();
+			hero2 = it2.next().getCard();
 
-			if (startRound(hero_1, hero_2)) {
-				player_1_points++;
+			if (startRound(hero1, hero2)) {
+				player1Points++;
 				this.battleLog.add("PLAYER 1 WON ROUND " + i);
 			} else {
-				player_2_points++;
+				player2Points++;
 				this.battleLog.add("PLAYER 2 WON ROUND " + i);
 			}
 			i++;
 		}
-		this.battleLog.add("ROUNDS WON BY PLAYER 1: " + player_1_points);
-		this.battleLog.add("ROUNDS WON BY PLAYER 2: " + player_2_points);
-		this.battleLog.add("PLAYER " + ((player_1_points > player_2_points) ? "1" : "2") + " WINS!");
+		this.battleLog.add("ROUNDS WON BY PLAYER 1: " + player1Points);
+		this.battleLog.add("ROUNDS WON BY PLAYER 2: " + player2Points);
+		this.battleLog.add("PLAYER " + ((player1Points > player2Points) ? "1" : "2") + " WINS!");
 
-		return (player_1_points > player_2_points);
+		return (player1Points > player2Points);
 	}
 
 	/**
@@ -269,53 +269,53 @@ public class DuelController {
 	 * @param hero_2
 	 * @return
 	 */
-	private boolean startRound(Card hero_1, Card hero_2) {
-		boolean is_hero_1_winner;
+	private boolean startRound(Card hero1, Card hero2) {
+		boolean isHero1Winner;
 
-		this.battleLog.add("Hero 1: " + hero_1.getName());
-		this.battleLog.add("Hero 2: " + hero_2.getName());
+		this.battleLog.add("Hero 1: " + hero1.getName());
+		this.battleLog.add("Hero 2: " + hero2.getName());
 		int i = 1;
 
 		do {
 			this.battleLog.add("TURN " + i);
 
-			startTurn(hero_1, hero_2);
+			startTurn(hero1, hero2);
 
 			i++;
-		} while (hero_1.getHp() > 0 && hero_2.getHp() > 0);
+		} while (hero1.getHp() > 0 && hero2.getHp() > 0);
 
-		if (hero_1.getHp() > 0) {
-			is_hero_1_winner = true;
+		if (hero1.getHp() > 0) {
+			isHero1Winner = true;
 		} else {
-			is_hero_1_winner = false;
+			isHero1Winner = false;
 		}
 
-		return is_hero_1_winner;
+		return isHero1Winner;
 	}
 
 	/**
 	 * @brief
-	 * @param hero_1
-	 * @param hero_2
+	 * @param hero1
+	 * @param hero2
 	 */
-	private void startTurn(Card hero_1, Card hero_2) {
-		double speedComparison = hero_1.getSpd() / hero_2.getSpd();
+	private void startTurn(Card hero1, Card hero2) {
+		double speedComparison = hero1.getSpd() / hero2.getSpd();
 
 		if (Math.random() < ((speedComparison >= 1) ? (0.5 * speedComparison) : (0.5 / speedComparison))) {
-			this.battleLog.add(hero_1.getName() + " moves first");
-			move(hero_1, hero_2);
+			this.battleLog.add(hero1.getName() + " moves first");
+			move(hero1, hero2);
 
-			if (hero_2.getHp() > 0) {
-				this.battleLog.add("Now moves " + hero_2.getName());
-				move(hero_2, hero_1);
+			if (hero2.getHp() > 0) {
+				this.battleLog.add("Now moves " + hero2.getName());
+				move(hero2, hero1);
 			}
 		} else {
-			this.battleLog.add(hero_2.getName() + " moves first");
-			move(hero_2, hero_1);
+			this.battleLog.add(hero2.getName() + " moves first");
+			move(hero2, hero1);
 
-			if (hero_1.getHp() > 0) {
-				this.battleLog.add("Now moves " + hero_1.getName());
-				move(hero_1, hero_2);
+			if (hero1.getHp() > 0) {
+				this.battleLog.add("Now moves " + hero1.getName());
+				move(hero1, hero2);
 			}
 		}
 	}
@@ -331,9 +331,9 @@ public class DuelController {
 		boolean fail;
 
 		double physicalRelation = ((double) attacker.getAtk()) / defender.getDef();
-		double magicalRelation = ((double) attacker.getMag_atk()) / defender.getMag_def();
+		double magicalRelation = ((double) attacker.getMagAtk()) / defender.getMagDef();
 		double physicalMagicalRelation = physicalRelation / magicalRelation;
-		double hero_2_tankiness;
+		double hero2tankiness;
 
 		double type = 1;
 		double ability = 1;
@@ -348,7 +348,7 @@ public class DuelController {
 		this.battleLog
 				.add(attacker.getName() + " will use a " + (physicalOrMagical ? "physical" : "magic") + " attack");
 
-		if (defender.getAbility().getAbility_id() == 15) { // Bad Time Ability (Sans)
+		if (defender.getAbility().getAbilityId() == 15) { // Bad Time Ability (Sans)
 			dodgeOrBlock = true;
 			this.battleLog.add(defender.getName() + " will try to dodge the attack");
 
@@ -358,12 +358,12 @@ public class DuelController {
 				fail = true;
 			}
 		} else { // Everybody else: Around 12.5% chance of dodging/blocking
-			hero_2_tankiness = ((defender.getHp() + ((physicalOrMagical) ? defender.getDef() : defender.getMag_def()))
+			hero2tankiness = ((defender.getHp() + ((physicalOrMagical) ? defender.getDef() : defender.getMagDef()))
 					/ 2);
 
-			if (defender.getSpd() > hero_2_tankiness) {
+			if (defender.getSpd() > hero2tankiness) {
 				dodgeOrBlock = true;
-			} else if (defender.getSpd() < hero_2_tankiness) {
+			} else if (defender.getSpd() < hero2tankiness) {
 				dodgeOrBlock = false;
 			} else {
 				dodgeOrBlock = (Math.random() < 0.5) ? true : false;

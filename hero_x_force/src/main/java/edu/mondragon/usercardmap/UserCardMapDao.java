@@ -31,8 +31,8 @@ public interface UserCardMapDao {
 
 	/**
 	 * @brief Method to obtain an UserCardMap
-	 * @param userCardMap_id UserCardMap object id
+	 * @param userCardMapId UserCardMap object id int
 	 * @return UserCardMap
 	 */
-	UserCardMap getUserCardMapById(int userCardMap_id);
+	UserCardMap getUserCardMapById(int userCardMapId);
 }

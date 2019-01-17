@@ -54,12 +54,12 @@ public class UserTournamentMapDaoImp implements UserTournamentMapDao {
 
 	/**
 	 * @brief Method to find a userTournamentMap using the id
-	 * @param id UserTournamentMaps id
+	 * @param userTournamentMapId UserTournamentMaps id int
 	 * @return UserTournamentMap
 	 */
 	@Override
-	public UserTournamentMap getUserTournamentMapById(int userTournamentMap_id) {
-		UserTournamentMap userTournamentMap = getCurrentSession().find(UserTournamentMap.class, userTournamentMap_id);
+	public UserTournamentMap getUserTournamentMapById(int userTournamentMapId) {
+		UserTournamentMap userTournamentMap = getCurrentSession().find(UserTournamentMap.class, userTournamentMapId);
 		return userTournamentMap;
 	}
 

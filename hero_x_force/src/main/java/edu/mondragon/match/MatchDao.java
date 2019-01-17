@@ -38,10 +38,10 @@ public interface MatchDao {
 	
 	/**
 	 * @brief This method the returns the match which has the indicated id
-	 * @param match_id Match id int
+	 * @param matchId Match id int
 	 * @return Match
 	 */
-	Match getMatchById(int match_id);
+	Match getMatchById(int matchId);
 	
 	/**
 	 * @brief This method removes a match

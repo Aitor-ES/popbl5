@@ -38,7 +38,7 @@ public class Ability {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ABILITY_ID")
-	private Integer ability_id;
+	private Integer abilityId;
 
 	/**
 	 * @brief Ability name
@@ -56,7 +56,7 @@ public class Ability {
 	 * @brief Card id (FK)
 	 */
 	@OneToMany(mappedBy="ability", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<Card> cards = new HashSet<Card>();
+	private Set<Card> cards = new HashSet<>();
 	
 	/**
 	 * @brief Empty constructor
@@ -66,8 +66,8 @@ public class Ability {
 	
 	/**
 	 * @brief Class constructor
-	 * @param name
-	 * @param description
+	 * @param name String name
+	 * @param description String description
 	 */
 	public Ability(String name, String description) {
 		this.name = name;
@@ -77,12 +77,12 @@ public class Ability {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getAbility_id() {
-		return ability_id;
+	public Integer getAbilityId() {
+		return abilityId;
 	}
 
-	public void setAbility_id(Integer ability_id) {
-		this.ability_id = ability_id;
+	public void setAbility_id(Integer abilityId) {
+		this.abilityId = abilityId;
 	}
 
 	public String getName() {

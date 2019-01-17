@@ -38,7 +38,8 @@ public interface DeckService {
 
 	/**
 	 * @brief This method returns the deck number
-	 * @return int
+	 * @param deckId Deck id int
+	 * @return Deck
 	 */
-	Deck getDeckById(int deck_id);
+	Deck getDeckById(int deckId);
 }

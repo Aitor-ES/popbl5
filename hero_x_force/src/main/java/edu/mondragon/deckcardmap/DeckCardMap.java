@@ -36,7 +36,7 @@ public class DeckCardMap {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "DECK_CARD_MAP_ID")
-	private Integer deck_card_map_id;
+	private Integer deckCardMapId;
 
 	/**
 	 * @brief Formed date
@@ -77,12 +77,12 @@ public class DeckCardMap {
 	/*
 	 * @brief Getters and setters
 	 */	
-	public Integer getDeck_card_map_id() {
-		return deck_card_map_id;
+	public Integer getDeckCardMapId() {
+		return deckCardMapId;
 	}
 
-	public void setDeck_card_map_id(Integer deck_card_map_id) {
-		this.deck_card_map_id = deck_card_map_id;
+	public void setDeckCardMapId(Integer deckCardMapId) {
+		this.deckCardMapId = deckCardMapId;
 	}
 
 	public Integer getPosition() {
