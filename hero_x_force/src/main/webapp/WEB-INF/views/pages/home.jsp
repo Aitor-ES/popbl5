@@ -22,7 +22,7 @@
             <div class="carousel-caption text-left">
               <h1><span><spring:message code="home.carousel.first.label"/></span></h1>
               <p><span><spring:message code="home.carousel.first.text"/></span></p>
-              <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/register" role="button"><spring:message code="home.carousel.first.button"/></a>
+              <a class="button-style btn btn-lg btn-warning" href="${pageContext.request.contextPath}/register" role="button"><spring:message code="home.carousel.first.button"/></a>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
             <div class="carousel-caption">
               <h1><span><spring:message code="home.carousel.second.label"/></span></h1>
               <p><span><spring:message code="home.carousel.second.text"/></span></p>
-              <a class="btn btn-lg btn-warning" href="#checkpoint1" role="button"><spring:message code="home.carousel.second.button"/></a>
+              <a class="button-style btn btn-lg btn-warning" href="#checkpoint1" role="button"><spring:message code="home.carousel.second.button"/></a>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
             <div class="carousel-caption text-right">
               <h1><span><spring:message code="home.carousel.third.label"/></span></h1>
               <p><span><spring:message code="home.carousel.third.text"/></span></p>
-              <a class="btn btn-lg btn-warning" href="#checkpoint2" role="button"><spring:message code="home.carousel.third.button"/></a>
+              <a class="button-style btn btn-lg btn-warning" href="#checkpoint2" role="button"><spring:message code="home.carousel.third.button"/></a>
             </div>
           </div>
         </div>
@@ -147,18 +147,18 @@
       <p class="subtitle"><spring:message code="home.contact.text"/></p>
       <hr class="my-4">
       <p><spring:message code="home.contact.info"/></p>
-      <a class="btn btn-lg btn-warning" data-toggle="modal" data-target="#exampleModal"><spring:message code="home.contact.button"/></a>
+      <a class="button-style btn btn-lg btn-warning mt-3" data-toggle="modal" data-target="#contactUsModal" role="button"><spring:message code="home.contact.button"/></a>
     </div>
     <!-- End: Jumbotron -->
     
     <!-- Start: Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="contactUsModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
         
           <!-- Header -->
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><spring:message code="home.contact.label"/></h5>
+            <h5 class="modal-title"><spring:message code="home.contact.label"/></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -196,8 +196,8 @@
               
               <!-- Footer -->
               <div class="modal-footer mt-3">
-                <button class="btn btn-lg btn-warning mt-3" data-dismiss="modal"><i class="fas fa-times-circle"></i> <spring:message code="action.cancel"/></button>
-                <button class="btn btn-lg btn-warning mt-3" type="submit" name="submit" onclick="homeProgress()"><i class="fas fa-paper-plane"></i> <spring:message code="action.send"/></button>
+                <button class="button-style btn btn-lg btn-warning mt-3" data-dismiss="modal"><i class="fas fa-times-circle"></i> <spring:message code="action.cancel"/></button>
+                <button class="button-style btn btn-lg btn-warning mt-3" type="submit" name="submit" onclick="homeProgress()"><i class="fas fa-paper-plane"></i> <spring:message code="action.send"/></button>
               </div>
             </form>
           </div>
@@ -207,7 +207,7 @@
     <!-- End: Modal -->
   
     <!-- Start: Top button -->
-    <button class="btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
     <!-- End: Top button -->
   
   </div>

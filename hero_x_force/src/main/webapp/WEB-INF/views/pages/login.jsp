@@ -40,7 +40,7 @@
           </div>
           
           <!-- Button -->
-          <button class="btn btn-lg btn-warning mt-3" type="submit" name="submit"><i class="fas fa-sign-in-alt"></i> <spring:message code="login.singIn"/></button>
+          <button class="button-style btn btn-lg btn-warning mt-3" type="submit" name="submit"><i class="fas fa-sign-in-alt"></i> <spring:message code="login.singIn"/></button>
           
           <div class="row">
           
