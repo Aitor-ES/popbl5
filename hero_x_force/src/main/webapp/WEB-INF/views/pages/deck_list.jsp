@@ -21,7 +21,7 @@
         <div class="row deck-list-title-row mr-3">
           <h3><a class="deck-title" href="${pageContext.request.contextPath}/deck/data">${deck.name}</a></h3>
           <div class="d-flex justify-content-end">
-            <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/${deck.deck_id}/form" role="button">
+            <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/${deck.deckId}/form" role="button">
               <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
             </a>
           </div>
@@ -29,7 +29,7 @@
         <div class="deck-cards row">
           <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
             <div class="col px-3 mb-5 d-flex justify-content-center">
-              <div class="heroCardDeckFather" id="${deckCardMap.card.card_id}" draggable="true" ondragstart="drag(event)">
+              <div class="heroCardDeckFather" id="${deckCardMap.card.cardId}" draggable="true" ondragstart="drag(event)">
                 <div class="heroCardDeck" draggable="false">
                   <div class="cardImg"
                     style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${deckCardMap.card.name}.png')"></div>
@@ -55,9 +55,9 @@
                     <div class="HP_VAL statValue"
                       style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.hp}</div>
                     <div class="MATK_VAL statValue"
-                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.mag_atk}</div>
+                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.magAtk}</div>
                     <div class="MDEF_VAL statValue"
-                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.mag_def}</div>
+                      style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.magDef}</div>
                   </div>
                   <div class="sagaArea">
                     <div class="saga">${deckCardMap.card.saga}</div>
@@ -69,7 +69,7 @@
                   </div>
                   <div class="abilityArea">
                     <div class="abilityTitle"><spring:message code="card.ability" /></div>
-                    <div class="abilityName">${deckCardMap.card.ability.name}</div>
+                    <div class="abilityName" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.ability.name}</div>
                   </div>
                 </div>
               </div>
@@ -77,6 +77,7 @@
           </c:forEach>
         </div>
       </div>
+      
     </c:forEach>
   </div>
   

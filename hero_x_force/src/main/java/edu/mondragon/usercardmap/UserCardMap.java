@@ -39,7 +39,7 @@ public class UserCardMap {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_CARD_MAP_ID")
-	private Integer user_card_map_id;
+	private Integer userCardMapId;
 
 	/**
 	 * @brief Match date
@@ -104,12 +104,12 @@ public class UserCardMap {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getUser_card_map_id() {
-		return user_card_map_id;
+	public Integer getUserCardMapId() {
+		return userCardMapId;
 	}
 
-	public void setUser_card_map_id(Integer user_card_map_id) {
-		this.user_card_map_id = user_card_map_id;
+	public void setUser_card_map_id(Integer userCardMapId) {
+		this.userCardMapId = userCardMapId;
 	}
 
 	public String getDate() {

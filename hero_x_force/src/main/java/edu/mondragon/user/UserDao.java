@@ -49,10 +49,10 @@ public interface UserDao {
 
 	/**
 	 * @brief Method to find a user using the id
-	 * @param user_id Users id
+	 * @param userId User id int
 	 * @return User
 	 */
-	User getUserById(int user_id);
+	User getUserById(int userId);
 
 	/**
 	 * @brief Method to find a user using the username
@@ -73,33 +73,33 @@ public interface UserDao {
 	 * @param email Users email
 	 * @return User
 	 */
-	Set<UserAchievementMap> getUserAchievements(int user_id);
+	Set<UserAchievementMap> getUserAchievements(int userId);
+
+	/**
+	 * @brief
+	 * @param userId User id int
+	 * @return
+	 */
+	Set<UserCardMap> getUserCards(int userId);
 
 	/**
 	 * @brief
 	 * @param user_id
 	 * @return
 	 */
-	Set<UserCardMap> getUserCards(int user_id);
+	Set<Deck> getUserDecks(int userId);
 
 	/**
 	 * @brief
-	 * @param user_id
+	 * @param userId User id int
 	 * @return
 	 */
-	Set<Deck> getUserDecks(int user_id);
+	Set<Match> getMatchesAsUser1(int userId);
 
 	/**
 	 * @brief
-	 * @param user_id
+	 * @param userId User id int
 	 * @return
 	 */
-	Set<Match> getMatchesAsUser_1(int user_id);
-
-	/**
-	 * @brief
-	 * @param user_id
-	 * @return
-	 */
-	Set<Match> getMatchesAsUser_2(int user_id);
+	Set<Match> getMatchesAsUser2(int userId);
 }

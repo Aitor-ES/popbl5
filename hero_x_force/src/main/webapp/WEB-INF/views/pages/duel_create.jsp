@@ -25,7 +25,7 @@
             </div>
             <select class="selectpicker form-control" name="opponent_id" data-size="5" data-live-search="true" title="Choose one of the following..." required>
               <c:forEach items="${userList}" var="user">
-                <option value="${user.user_id}">${user.username}</option>
+                <option value="${user.userId}">${user.username}</option>
               </c:forEach>
             </select>
           </div>
@@ -40,7 +40,7 @@
             </div>
             <select class="selectpicker form-control" name="myDeck_id" data-size="5" data-live-search="true" title="Choose one of the following..." required>
               <c:forEach items="${deckList}" var="deck">
-                <option value="${deck.deck_id}">${deck.name}</option>
+                <option value="${deck.deckId}">${deck.name}</option>
               </c:forEach>
             </select>
           </div>

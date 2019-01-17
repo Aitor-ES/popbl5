@@ -47,13 +47,13 @@ public class DeckServiceImp implements DeckService {
 	
 	/**
 	 * @brief Method to obtain the deck using the id from the dao
-	 * @param id Deck id
+	 * @param deckId Deck id int
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public Deck getDeckById(int deck_id) {
-		return deckDao.getDeckById(deck_id);
+	public Deck getDeckById(int deckId) {
+		return deckDao.getDeckById(deckId);
 	}
 	
 	/**

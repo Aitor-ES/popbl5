@@ -42,7 +42,7 @@ public class Deck {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "DECK_ID")
-	private Integer deck_id;
+	private Integer deckId;
 
 	/**
 	 * @brief Deck name
@@ -61,19 +61,19 @@ public class Deck {
 	 * @brief DeckCardMap list (FK)
 	 */
 	@OneToMany(mappedBy="deck", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<DeckCardMap> deckCardMaps = new HashSet<DeckCardMap>();
+	private Set<DeckCardMap> deckCardMaps = new HashSet<>();
 	
 	/**
 	 * @brief Card id (FK)
 	 */
-	@OneToMany(mappedBy="deck_1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<Match> matches_1 = new HashSet<Match>();
+	@OneToMany(mappedBy="deck1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Match> matches1 = new HashSet<>();
 	
 	/**
 	 * @brief Card id (FK)
 	 */
-	@OneToMany(mappedBy="deck_2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<Match> matches_2 = new HashSet<Match>();
+	@OneToMany(mappedBy="deck2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	private Set<Match> matches2 = new HashSet<>();
 	
 	/**
 	 * @brief Empty constructor
@@ -94,12 +94,12 @@ public class Deck {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getDeck_id() {
-		return deck_id;
+	public Integer getDeckId() {
+		return deckId;
 	}
 
-	public void setDeck_id(Integer deck_id) {
-		this.deck_id = deck_id;
+	public void setDeckId(Integer deckId) {
+		this.deckId = deckId;
 	}
 
 	public String getName() {
@@ -126,20 +126,20 @@ public class Deck {
 		this.deckCardMaps = deckCardMaps;
 	}
 
-	public Set<Match> getMatches_1() {
-		return matches_1;
+	public Set<Match> getMatches1() {
+		return matches1;
 	}
 
-	public void setMatches_1(Set<Match> matches_1) {
-		this.matches_1 = matches_1;
+	public void setMatches1(Set<Match> matches1) {
+		this.matches1 = matches1;
 	}
 
-	public Set<Match> getMatches_2() {
-		return matches_2;
+	public Set<Match> getMatches2() {
+		return matches2;
 	}
 
-	public void setMatches_2(Set<Match> matches_2) {
-		this.matches_2 = matches_2;
+	public void setMatches_2(Set<Match> matches2) {
+		this.matches2 = matches2;
 	}
 
 }

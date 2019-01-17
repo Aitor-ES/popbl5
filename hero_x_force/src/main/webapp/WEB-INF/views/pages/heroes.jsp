@@ -14,11 +14,11 @@
     <div class="row mx-3 mt-3">
       <c:forEach items="${heroesList}" var="card">
         <div class="col-sm-3 px-3 mb-5 d-flex justify-content-center">
-          <div class="heroCardFather" id="${card.card_id}">
+          <div class="heroCardFather" id="${card.cardId}">
             <div class="heroCard">
               <div class="cardImg"
                 style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
-              <a href="${pageContext.request.contextPath}/card/${card.card_id}/data">
+              <a href="${pageContext.request.contextPath}/card/${card.cardId}/data">
                 <img class="templateImg"
                 src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
                 alt="edit icon">
@@ -37,8 +37,8 @@
                 <div class="DEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.def}</div>
                 <div class="SPD_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.spd}</div>
                 <div class="HP_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.hp}</div>
-                <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_atk}</div>
-                <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.mag_def}</div>
+                <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.magAtk}</div>
+                <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.magDef}</div>
               </div>
               <div class="sagaArea">
                 <div class="saga">${card.saga}</div>

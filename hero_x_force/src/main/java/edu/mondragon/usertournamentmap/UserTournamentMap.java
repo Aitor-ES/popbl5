@@ -38,7 +38,7 @@ public class UserTournamentMap {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_TOURNAMENT_MAP_ID")
-	private Integer user_tournament_map_id;
+	private Integer userTournamentMapId;
 
 	/**
 	 * @brief Joined date
@@ -70,12 +70,12 @@ public class UserTournamentMap {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getUser_tournament_map_id() {
-		return user_tournament_map_id;
+	public Integer getUserTournamentMapId() {
+		return userTournamentMapId;
 	}
 
-	public void setUser_tournament_map_id(Integer user_tournament_map_id) {
-		this.user_tournament_map_id = user_tournament_map_id;
+	public void setUserTournamentMapId(Integer userTournamentMapId) {
+		this.userTournamentMapId = userTournamentMapId;
 	}
 
 	public LocalDateTime getDate() {

@@ -29,9 +29,9 @@ public interface UserCardMapService {
 	 */
 	List<UserCardMap> listUserCardMaps();
 
-	/**
-	 * @param userCardMap_id UserCardMap object id
+	/**@brief Method to get a user
+	 * @param userCardMapId UserCardMap object id
 	 * @return UserCardMap
 	 */
-	UserCardMap getUserCardMapById(int userCardMap_id);
+	UserCardMap getUserCardMapById(int userCardMapId);
 }

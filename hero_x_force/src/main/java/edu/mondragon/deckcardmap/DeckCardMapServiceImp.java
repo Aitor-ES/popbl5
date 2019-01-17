@@ -62,13 +62,13 @@ public class DeckCardMapServiceImp implements DeckCardMapService {
 	
 	/**
 	 * @brief Method to obtain the deckCardMap using the id from the dao
-	 * @param id DeckCardMaps id
+	 * @param deckCardMapId DeckCardMaps id int
 	 * @return DeckCardMap
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public DeckCardMap getDeckCardMapById(int deckCardMap_id) {
-		return deckCardMapDao.getDeckCardMapById(deckCardMap_id);
+	public DeckCardMap getDeckCardMapById(int deckCardMapId) {
+		return deckCardMapDao.getDeckCardMapById(deckCardMapId);
 	}
 
 }

@@ -41,13 +41,13 @@ public class MatchServiceImp implements MatchService {
 	
 	/**
 	 * @brief Method to obtain the match using the id from the dao
-	 * @param id Match id
+	 * @param matchId Match id int
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public Match getMatchById(int match_id) {
-		return matchDao.getMatchById(match_id);
+	public Match getMatchById(int matchId) {
+		return matchDao.getMatchById(matchId);
 	}
 	
 	/**

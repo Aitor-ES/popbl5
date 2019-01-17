@@ -87,12 +87,12 @@ public class UserDaoImp implements UserDao {
 
 	/**
 	 * @brief Method to find a user using the id
-	 * @param id Users id
+	 * @param userId Users id int
 	 * @return User
 	 */
 	@Override
-	public User getUserById(int user_id) {
-		User user = getCurrentSession().find(User.class, user_id);
+	public User getUserById(int userId) {
+		User user = getCurrentSession().find(User.class, userId);
 		return user;
 	}
 
@@ -123,32 +123,32 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public Set<UserAchievementMap> getUserAchievements(int user_id) {
-		User user = getCurrentSession().find(User.class, user_id);
+	public Set<UserAchievementMap> getUserAchievements(int userId) {
+		User user = getCurrentSession().find(User.class, userId);
 		return user.getUserAchievementMaps();
 	}
 
 	@Override
-	public Set<UserCardMap> getUserCards(int user_id) {
-		User user = getCurrentSession().find(User.class, user_id);
+	public Set<UserCardMap> getUserCards(int userId) {
+		User user = getCurrentSession().find(User.class, userId);
 		return user.getUserCardMaps();
 	}
 
 	@Override
-	public Set<Deck> getUserDecks(int user_id) {
-		User user = getCurrentSession().find(User.class, user_id);
+	public Set<Deck> getUserDecks(int userId) {
+		User user = getCurrentSession().find(User.class, userId);
 		return user.getDecks();
 	}
 
 	@Override
-	public Set<Match> getMatchesAsUser_1(int user_id) {
-		User user = getCurrentSession().find(User.class, user_id);
-		return user.getMatchesAsUser_1();
+	public Set<Match> getMatchesAsUser1(int userId) {
+		User user = getCurrentSession().find(User.class, userId);
+		return user.getMatchesAsUser1();
 	}
 
 	@Override
-	public Set<Match> getMatchesAsUser_2(int user_id) {
-		User user = getCurrentSession().find(User.class, user_id);
-		return user.getMatchesAsUser_2();
+	public Set<Match> getMatchesAsUser2(int userId) {
+		User user = getCurrentSession().find(User.class, userId);
+		return user.getMatchesAsUser2();
 	}
 }

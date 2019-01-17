@@ -43,7 +43,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ID")
-	private Integer user_id;
+	private Integer userId;
 
 	/**
 	 * @brief User name
@@ -85,49 +85,49 @@ public class User {
 	 * @brief Deck list (FK)
 	 */
 	@OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<Deck> decks = new HashSet<Deck>();
+	private Set<Deck> decks = new HashSet<>();
 
 	/**
 	 * @brief Matches list (FK): Winner
 	 */
 	@OneToMany(mappedBy = "winner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<Match> wonMatches = new HashSet<Match>();
+	private Set<Match> wonMatches = new HashSet<>();
 
 	/**
 	 * @brief Tournament list (FK): Winner
 	 */
 	@OneToMany(mappedBy = "winner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<Tournament> tournaments = new HashSet<Tournament>();
+	private Set<Tournament> tournaments = new HashSet<>();
 
 	/**
 	 * @brief UserTournamentMap list (FK): Participant
 	 */
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();
+	private Set<UserTournamentMap> userTournamentMaps = new HashSet<>();
 
 	/**
 	 * @brief user_1_matchMap list (FK): Participant
 	 */
-	@OneToMany(mappedBy = "user_1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<Match> matchesAsUser_1 = new HashSet<Match>();
+	@OneToMany(mappedBy = "user1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private Set<Match> matchesAsUser1 = new HashSet<>();
 
 	/**
 	 * @brief user_2_matchMap list (FK): Participant
 	 */
-	@OneToMany(mappedBy = "user_2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<Match> matchesAsUser_2 = new HashSet<Match>();
+	@OneToMany(mappedBy = "user2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private Set<Match> matchesAsUser2 = new HashSet<>();
 
 	/**
 	 * @brief UserAchievementMap list (FK)
 	 */
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<UserAchievementMap> userAchievementMaps = new HashSet<UserAchievementMap>();
+	private Set<UserAchievementMap> userAchievementMaps = new HashSet<>();
 
 	/**
 	 * @brief UserCardMap list (FK)
 	 */
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<UserCardMap> userCardMaps = new HashSet<UserCardMap>();
+	private Set<UserCardMap> userCardMaps = new HashSet<>();
 
 	/**
 	 * @brief Empty constructor
@@ -153,12 +153,12 @@ public class User {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getUser_id() {
-		return user_id;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {
@@ -217,20 +217,20 @@ public class User {
 		this.decks = decks;
 	}
 
-	public Set<Match> getMatchesAsUser_1() {
-		return matchesAsUser_1;
+	public Set<Match> getMatchesAsUser1() {
+		return matchesAsUser1;
 	}
 
-	public void setMatchesAsUser_1(Set<Match> matchesAsUser_1) {
-		this.matchesAsUser_1 = matchesAsUser_1;
+	public void setMatchesAsUser1(Set<Match> matchesAsUser1) {
+		this.matchesAsUser1 = matchesAsUser1;
 	}
 
-	public Set<Match> getMatchesAsUser_2() {
-		return matchesAsUser_2;
+	public Set<Match> getMatchesAsUser2() {
+		return matchesAsUser2;
 	}
 
-	public void setMatchesAsUser_2(Set<Match> matchesAsUser_2) {
-		this.matchesAsUser_2 = matchesAsUser_2;
+	public void setMatchesAsUser2(Set<Match> matchesAsUser2) {
+		this.matchesAsUser2 = matchesAsUser2;
 	}
 
 	public Set<Tournament> getTournaments() {

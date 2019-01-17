@@ -54,12 +54,12 @@ public class UserAchievementMapDaoImp implements UserAchievementMapDao {
 
 	/**
 	 * @brief Method to find a userAchievementMap using the id
-	 * @param id UserAchievementMaps id
+	 * @param userAchievementMapId UserAchievementMaps id int
 	 * @return UserAchievementMap
 	 */
 	@Override
-	public UserAchievementMap getUserAchievementMapById(int userAchievementMap_id) {
-		UserAchievementMap userAchievementMap = getCurrentSession().find(UserAchievementMap.class, userAchievementMap_id);
+	public UserAchievementMap getUserAchievementMapById(int userAchievementMapId) {
+		UserAchievementMap userAchievementMap = getCurrentSession().find(UserAchievementMap.class, userAchievementMapId);
 		return userAchievementMap;
 	}
 

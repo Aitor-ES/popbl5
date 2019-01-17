@@ -31,10 +31,10 @@ public interface CardService {
 
 	/**
 	 * @brief This method obtains the card which has the indicated id
-	 * @param id Id card int
+	 * @param cardId Card id int
 	 * @return Achievement
 	 */
-	Card getCardById(int card_id);
+	Card getCardById(int cardId);
 	
 	/**
 	 * @brief This method returns the hero number

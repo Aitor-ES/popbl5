@@ -31,8 +31,8 @@ public interface AchievementService {
 	
 	/**
 	 * @brief This method obtains the achievement which has the indicated id
-	 * @param id Id class int
+	 * @param achievementId Achievement id int
 	 * @return Achievement
 	 */
-	Achievement getAchievementById(int achievement_id);
+	Achievement getAchievementById(int achievementId);
 }

@@ -42,7 +42,7 @@ public class Card {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CARD_ID")
-	private Integer card_id;
+	private Integer cardId;
 
 	/**
 	 * @brief Card name
@@ -96,13 +96,13 @@ public class Card {
 	 * @brief Card magic attack
 	 */
 	@Column(name = "MAG_ATK")
-	private Integer mag_atk;
+	private Integer magAtk;
 	
 	/**
 	 * @brief Card magic defense
 	 */
 	@Column(name = "MAG_DEF")
-	private Integer mag_def;
+	private Integer magDef;
 	
 	/**
 	 * @brief Card speed
@@ -127,13 +127,13 @@ public class Card {
 	 * @brief UserCardMap list (FK)
 	 */
 	@OneToMany(mappedBy="card", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<UserCardMap> userCardMaps = new HashSet<UserCardMap>();
+	private Set<UserCardMap> userCardMaps = new HashSet<>();
 	
 	/**
 	 * @brief DeckCardMap list (FK)
 	 */
 	@OneToMany(mappedBy="card", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
-	private Set<DeckCardMap> deckCardMaps = new HashSet<DeckCardMap>();
+	private Set<DeckCardMap> deckCardMaps = new HashSet<>();
 	
 	/**
 	 * @brief Empty constructor
@@ -147,7 +147,7 @@ public class Card {
 	 * @param description
 	 * @param points
 	 */
-	public Card(String name, String saga, String img, String alt, String type, Ability ability, Integer hp, Integer atk, Integer def, Integer mag_atk, Integer mag_def, Integer spd, Integer stars) {
+	public Card(String name, String saga, String img, String alt, String type, Ability ability, Integer hp, Integer atk, Integer def, Integer magAtk, Integer magDef, Integer spd, Integer stars) {
 		this.name = name;
 		this.saga = saga;
 		this.img = img;
@@ -157,8 +157,8 @@ public class Card {
 		this.hp = hp;
 		this.atk = atk;
 		this.def = def;
-		this.mag_atk = mag_atk;
-		this.mag_def = mag_def;
+		this.magAtk = magAtk;
+		this.magDef = magDef;
 		this.spd = spd;
 		this.stars = stars;
 	}
@@ -166,12 +166,12 @@ public class Card {
 	/*
 	 * @brief Getters and setters
 	 */
-	public Integer getCard_id() {
-		return card_id;
+	public Integer getCardId() {
+		return cardId;
 	}
 
-	public void setCard_id(Integer card_id) {
-		this.card_id = card_id;
+	public void setCardId(Integer cardId) {
+		this.cardId = cardId;
 	}
 
 	public String getName() {
@@ -238,20 +238,20 @@ public class Card {
 		this.def = def;
 	}
 
-	public Integer getMag_atk() {
-		return mag_atk;
+	public Integer getMagAtk() {
+		return magAtk;
 	}
 
-	public void setMag_atk(Integer mag_atk) {
-		this.mag_atk = mag_atk;
+	public void setMagAtk(Integer magAtk) {
+		this.magAtk = magAtk;
 	}
 
-	public Integer getMag_def() {
-		return mag_def;
+	public Integer getMagDef() {
+		return magDef;
 	}
 
-	public void setMag_def(Integer mag_def) {
-		this.mag_def = mag_def;
+	public void setMagDef(Integer magDef) {
+		this.magDef = magDef;
 	}
 
 	public Integer getSpd() {

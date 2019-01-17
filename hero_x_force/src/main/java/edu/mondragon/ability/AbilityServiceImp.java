@@ -51,12 +51,12 @@ public class AbilityServiceImp implements AbilityService {
 	
 	/**
 	 * @brief Method to obtain the ability using the id from the dao
-	 * @param id Ability id
+	 * @param abilityId Ability id int
 	 * @return Ability
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public Ability getAbilityById(int ability_id) {
-		return abilityDao.getAbilityById(ability_id);
+	public Ability getAbilityById(int abilityId) {
+		return abilityDao.getAbilityById(abilityId);
 	}
 }
