@@ -86,8 +86,7 @@ public class TournamentController {
 		String name = request.getParameter("name");
 		int participants = Integer.valueOf(request.getParameter("participants"));
 		
-		if (validateData(model, participants))
-		{
+		if (validateData(model, participants)) {
 			Tournament tournament = new Tournament(name,participants);
 			tournamentService.addTournament(tournament);
 			model.addAttribute("message", "tournament.create.success");

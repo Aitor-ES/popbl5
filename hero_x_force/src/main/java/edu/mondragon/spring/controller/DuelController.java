@@ -99,6 +99,14 @@ public class DuelController {
 			HttpSession session = request.getSession(true);
 			Set<Match> matchesAsUser2 = userService
 					.getMatchesAsUser2(((User) session.getAttribute("user")).getUserId());
+			
+			Iterator<Match> it = matchesAsUser2.iterator();
+			while (it.hasNext()) {
+				Match match = it.next();
+				if (match.getWinner() != null) {
+					it.remove();
+				}
+			}
 			model.addAttribute("matchesAsUser2", matchesAsUser2);
 
 			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
