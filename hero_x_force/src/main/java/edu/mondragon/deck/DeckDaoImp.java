@@ -79,8 +79,7 @@ public class DeckDaoImp implements DeckDao {
 	 */
 	@Override
 	public Deck getDeckById(int deckId) {
-		Deck deck = getCurrentSession().find(Deck.class, deckId);
-		return deck;
+		return getCurrentSession().find(Deck.class, deckId);
 	}
 	
 	/**

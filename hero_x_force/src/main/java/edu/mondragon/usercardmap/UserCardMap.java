@@ -108,7 +108,7 @@ public class UserCardMap {
 		return userCardMapId;
 	}
 
-	public void setUser_card_map_id(Integer userCardMapId) {
+	public void setUserCardMapId(Integer userCardMapId) {
 		this.userCardMapId = userCardMapId;
 	}
 

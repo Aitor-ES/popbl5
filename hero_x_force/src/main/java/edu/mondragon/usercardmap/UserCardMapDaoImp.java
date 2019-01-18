@@ -59,8 +59,7 @@ public class UserCardMapDaoImp implements UserCardMapDao {
 	 */
 	@Override
 	public UserCardMap getUserCardMapById(int userCardMapId) {
-		UserCardMap userCardMap = getCurrentSession().find(UserCardMap.class, userCardMapId);
-		return userCardMap;
+		return getCurrentSession().find(UserCardMap.class, userCardMapId);
 	}
 
 	/**

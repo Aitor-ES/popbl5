@@ -69,8 +69,7 @@ public class DeckCardMapDaoImp implements DeckCardMapDao {
 	 */
 	@Override
 	public DeckCardMap getDeckCardMapById(int deckCardMapId) {
-		DeckCardMap deckCardMap = getCurrentSession().find(DeckCardMap.class, deckCardMapId);
-		return deckCardMap;
+		return getCurrentSession().find(DeckCardMap.class, deckCardMapId);
 	}
 
 	/**

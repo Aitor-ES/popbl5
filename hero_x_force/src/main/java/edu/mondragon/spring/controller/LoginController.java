@@ -173,13 +173,13 @@ public class LoginController {
 		if (user != null) {
 			model.addAttribute("error", "register.user.fail");
 			correct = false;
-		} else if (!EmailValidator.getInstance(true).isValid(email) && correct) {
+		} else if (!EmailValidator.getInstance(true).isValid(email)) {
 			model.addAttribute("error", "register.email.fail");
 			correct = false;
-		} else if (passwordStrength(password) < 10 && correct) {
+		} else if (passwordStrength(password) < 10) {
 			model.addAttribute("error", "register.password.length.fail");
 			correct = false;
-		} else if (!password.equals(confirmPassword) && correct) {
+		} else if (!password.equals(confirmPassword)) {
 			model.addAttribute("error", "register.password.fail");
 			correct = false;
 		}

@@ -59,8 +59,7 @@ public class CardDaoImp implements CardDao {
 	 */
 	@Override
 	public Card getCardById(int cardId) {
-		Card card = getCurrentSession().find(Card.class, cardId);
-		return card;
+		return getCurrentSession().find(Card.class, cardId);
 	}
 	
 	/**

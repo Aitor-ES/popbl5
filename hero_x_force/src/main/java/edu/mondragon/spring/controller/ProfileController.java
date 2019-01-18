@@ -169,13 +169,13 @@ public class ProfileController {
 	public boolean validateData(ModelMap model, String email, String password, String confirmPassword) {
 		boolean correct = true;
 
-		if (!EmailValidator.getInstance(true).isValid(email) && correct) {
+		if (!EmailValidator.getInstance(true).isValid(email)) {
 			model.addAttribute("error", "register.email.fail");
 			correct = false;
-		} else if (passwordStrength(password) < 10 && correct) {
+		} else if (passwordStrength(password) < 10) {
 			model.addAttribute("error", "register.password.length.fail");
 			correct = false;
-		} else if (!password.equals(confirmPassword) && correct) {
+		} else if (!password.equals(confirmPassword)) {
 			model.addAttribute("error", "register.password.fail");
 			correct = false;
 		}

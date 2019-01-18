@@ -89,7 +89,7 @@ public class Achievement {
 		return achievementId;
 	}
 
-	public void setAchievement_id(Integer achievementId) {
+	public void setAchievementId(Integer achievementId) {
 		this.achievementId = achievementId;
 	}
 

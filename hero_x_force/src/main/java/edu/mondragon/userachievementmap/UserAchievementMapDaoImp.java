@@ -59,8 +59,7 @@ public class UserAchievementMapDaoImp implements UserAchievementMapDao {
 	 */
 	@Override
 	public UserAchievementMap getUserAchievementMapById(int userAchievementMapId) {
-		UserAchievementMap userAchievementMap = getCurrentSession().find(UserAchievementMap.class, userAchievementMapId);
-		return userAchievementMap;
+		return getCurrentSession().find(UserAchievementMap.class, userAchievementMapId);
 	}
 
 	/**

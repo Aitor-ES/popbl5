@@ -30,6 +30,16 @@ public class HomeController {
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	EmailService emailService = ApplicationContextProvider.getContext().getBean(EmailService.class);
+
+	/**
+	 * @brief Method that manages the default page
+	 * @param model A holder for model attributes
+	 * @return String
+	 */
+	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	public String defaultPage(ModelMap model) {
+		return "home";
+	}
 	
 	/**
 	 * @brief Method that manages the home

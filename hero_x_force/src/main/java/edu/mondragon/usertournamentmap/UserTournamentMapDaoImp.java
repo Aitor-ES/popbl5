@@ -59,8 +59,7 @@ public class UserTournamentMapDaoImp implements UserTournamentMapDao {
 	 */
 	@Override
 	public UserTournamentMap getUserTournamentMapById(int userTournamentMapId) {
-		UserTournamentMap userTournamentMap = getCurrentSession().find(UserTournamentMap.class, userTournamentMapId);
-		return userTournamentMap;
+		return getCurrentSession().find(UserTournamentMap.class, userTournamentMapId);
 	}
 
 	/**

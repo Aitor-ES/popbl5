@@ -49,73 +49,73 @@ public class Card {
 	 */
 	@Column(name = "NAME")
 	private String name;
-	
+
 	/**
 	 * @brief Card saga
 	 */
 	@Column(name = "SAGA")
 	private String saga;
-	
+
 	/**
 	 * @brief Card image
 	 */
 	@Column(name = "IMG")
 	private String img;
-	
+
 	/**
 	 * @brief Card alternative
 	 */
 	@Column(name = "ALT")
 	private String alt;
-	
+
 	/**
 	 * @brief Card type
 	 */
 	@Column(name = "TYPE")
 	private String type;
-	
+
 	/**
 	 * @brief Card hit points
 	 */
 	@Column(name = "HP")
 	private Integer hp;
-	
+
 	/**
 	 * @brief Card attack
 	 */
 	@Column(name = "ATK")
 	private Integer atk;
-	
+
 	/**
 	 * @brief Card defense
 	 */
 	@Column(name = "DEF")
 	private Integer def;
-	
+
 	/**
 	 * @brief Card magic attack
 	 */
 	@Column(name = "MAG_ATK")
 	private Integer magAtk;
-	
+
 	/**
 	 * @brief Card magic defense
 	 */
 	@Column(name = "MAG_DEF")
 	private Integer magDef;
-	
+
 	/**
 	 * @brief Card speed
 	 */
 	@Column(name = "SPD")
 	private Integer spd;
-	
+
 	/**
 	 * @brief Card stars
 	 */
 	@Column(name = "STARS")
 	private Integer stars;
-	
+
 	/**
 	 * @brief Ability id (FK)
 	 */
@@ -126,28 +126,29 @@ public class Card {
 	/**
 	 * @brief UserCardMap list (FK)
 	 */
-	@OneToMany(mappedBy="card", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy = "card", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<UserCardMap> userCardMaps = new HashSet<>();
-	
+
 	/**
 	 * @brief DeckCardMap list (FK)
 	 */
-	@OneToMany(mappedBy="card", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)	
+	@OneToMany(mappedBy = "card", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<DeckCardMap> deckCardMaps = new HashSet<>();
-	
+
 	/**
 	 * @brief Empty constructor
 	 */
 	public Card() {
 	}
-	
+
 	/**
 	 * @brief Class constructor
 	 * @param name
 	 * @param description
 	 * @param points
 	 */
-	public Card(String name, String saga, String img, String alt, String type, Ability ability, Integer hp, Integer atk, Integer def, Integer magAtk, Integer magDef, Integer spd, Integer stars) {
+	public Card(String name, String saga, String img, String alt, String type, Ability ability, Integer hp, Integer atk,
+			Integer def, Integer magAtk, Integer magDef, Integer spd, Integer stars) {
 		this.name = name;
 		this.saga = saga;
 		this.img = img;
@@ -162,7 +163,7 @@ public class Card {
 		this.spd = spd;
 		this.stars = stars;
 	}
-	
+
 	/*
 	 * @brief Getters and setters
 	 */

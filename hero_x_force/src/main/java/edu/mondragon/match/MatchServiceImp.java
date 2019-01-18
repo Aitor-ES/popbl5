@@ -49,6 +49,17 @@ public class MatchServiceImp implements MatchService {
 	public void updateMatch(Match match) {
 		matchDao.updateMatch(match);
 	}
+
+	/**
+	 * @brief Method to remove a match
+	 * @param match Match object
+	 * @return void
+	 */
+	@Transactional
+	@Override
+	public void removeMatch(Match match) {
+		matchDao.removeMatch(match);		
+	}
 	
 	/**
 	 * @brief Method to obtain the match using the id from the dao
@@ -69,16 +80,6 @@ public class MatchServiceImp implements MatchService {
 	@Override
 	public List<Match> listMatches() {
 		return matchDao.listMatches();
-	}
-
-	/**
-	 * @brief Method to remove a match
-	 * @param match Match object
-	 * @return void
-	 */
-	@Override
-	public void removeMatch(Match match) {
-		matchDao.removeMatch(match);		
 	}
 
 }

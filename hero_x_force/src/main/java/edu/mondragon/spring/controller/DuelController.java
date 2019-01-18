@@ -123,6 +123,28 @@ public class DuelController {
 	}
 
 	/**
+	 * @brief Method to refuse and delete a duel
+	 * @param request  Provides request information for the servlets
+	 * @param response To assist the servlet in sending a response
+	 * @param model    A holder for model attributes
+	 * @return String
+	 */
+	@RequestMapping(value = { "/duel/{id}/delete" }, method = RequestMethod.GET)
+	public String deleteDuel(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response,
+			Model model) {
+		String view = "home";
+
+		if (checkIfUserIsLogged(request, model)) {
+			Match match = matchService.getMatchById(id);
+			matchService.removeMatch(match);
+
+			view = "redirect:/duel/list";
+		}
+
+		return view;
+	}
+
+	/**
 	 * @brief Method to redirect to duel create view
 	 * @param request
 	 * @param model
@@ -199,96 +221,96 @@ public class DuelController {
 		String view = "home";
 
 		if (checkIfUserIsLogged(request, model)) {
-			if (request.getParameter("action").equals("accept")) {
-				Match match = matchService.getMatchById(id);
+			Match match = matchService.getMatchById(id);
 
-				if (match.getWinner() == null) {
-					HttpSession session = request.getSession(true);
+			if (match.getWinner() == null) {
+				HttpSession session = request.getSession(true);
 
-					Deck deck2 = deckService.getDeckById(Integer.valueOf(request.getParameter("deck-picker-" + id)));
-					match.setDeck2(deck2);
+				Deck deck2 = deckService.getDeckById(Integer.valueOf(request.getParameter("deck-picker-" + id)));
+				match.setDeck2(deck2);
 
-					this.battleLog = new ArrayList<>();
+				this.battleLog = new ArrayList<>();
 
-					if (this.startBattle(match)) {
-						match.setWinner(match.getUser1());
+				if (this.startBattle(match)) {
+					match.setWinner(match.getUser1());
 
-						User user1 = userService.getUserById(match.getUser1().getUserId());
-						User user2 = userService.getUserById(match.getUser2().getUserId());
+					User user1 = userService.getUserById(match.getUser1().getUserId());
+					User user2 = userService.getUserById(match.getUser2().getUserId());
 
-						user1.setWins(user1.getWins() + 1);
-						user2.setLoses(user2.getLoses() + 1);
-						checkWinAchievements(user1);
+					user1.setWins(user1.getWins() + 1);
+					user2.setLoses(user2.getLoses() + 1);
+					checkWinAchievements(user1);
 
-						userService.updateUser(user1);
-						userService.updateUser(user2);
+					userService.updateUser(user1);
+					userService.updateUser(user2);
 
-						if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
-							session.setAttribute("user", user1);
-						} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
-							session.setAttribute("user", user2);
-						}
-					} else {
-						match.setWinner(match.getUser2());
-
-						User user1 = userService.getUserById(match.getUser1().getUserId());
-						User user2 = userService.getUserById(match.getUser2().getUserId());
-
-						user1.setLoses(user1.getLoses() + 1);
-						user2.setWins(user2.getWins() + 1);
-						checkWinAchievements(user2);
-
-						userService.updateUser(user1);
-						userService.updateUser(user2);
-
-						if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
-							session.setAttribute("user", user1);
-						} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
-							session.setAttribute("user", user2);
-						}
+					if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+						session.setAttribute("user", user1);
+					} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+						session.setAttribute("user", user2);
 					}
-					matchService.updateMatch(match);
-					model.addAttribute("match", match);
+				} else {
+					match.setWinner(match.getUser2());
 
-					view = "duel/battle";
+					User user1 = userService.getUserById(match.getUser1().getUserId());
+					User user2 = userService.getUserById(match.getUser2().getUserId());
+
+					user1.setLoses(user1.getLoses() + 1);
+					user2.setWins(user2.getWins() + 1);
+					checkWinAchievements(user2);
+
+					userService.updateUser(user1);
+					userService.updateUser(user2);
+
+					if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+						session.setAttribute("user", user1);
+					} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
+						session.setAttribute("user", user2);
+					}
 				}
-			} else {
-				// Remove match
-				Match match = matchService.getMatchById(id);
-				matchService.removeMatch(match);
-				view = "redirect:/duel/list";
+				matchService.updateMatch(match);
+				model.addAttribute("match", match);
+
+				view = "duel/battle";
 			}
 		}
 		return view;
 	}
-	
+
 	private void checkWinAchievements(User winner) {
 		Achievement achievement = null;
 		switch (winner.getWins()) {
-			case 5: {
-				achievement = achievementService.getAchievementById(1);
-				break;
-			} case 10: {
-				achievement = achievementService.getAchievementById(2);
-				break;
-			} case 20: {
-				achievement = achievementService.getAchievementById(3);
-				break;
-			} case 50: {
-				achievement = achievementService.getAchievementById(4);
-				break;
-			} case 100: {
-				achievement = achievementService.getAchievementById(5);
-				break;
-			} case 150: {
-				achievement = achievementService.getAchievementById(6);
-				break;
-			} case 200: {
-				achievement = achievementService.getAchievementById(7);
-				break;
-			} default: {
-				break;
-			}
+		case 5: {
+			achievement = achievementService.getAchievementById(1);
+			break;
+		}
+		case 10: {
+			achievement = achievementService.getAchievementById(2);
+			break;
+		}
+		case 20: {
+			achievement = achievementService.getAchievementById(3);
+			break;
+		}
+		case 50: {
+			achievement = achievementService.getAchievementById(4);
+			break;
+		}
+		case 100: {
+			achievement = achievementService.getAchievementById(5);
+			break;
+		}
+		case 150: {
+			achievement = achievementService.getAchievementById(6);
+			break;
+		}
+		case 200: {
+			achievement = achievementService.getAchievementById(7);
+			break;
+		}
+		default: {
+			break;
+		}
 		}
 		if (achievement != null) {
 			UserAchievementMap userAchievementMap = new UserAchievementMap(winner, achievement);
@@ -334,7 +356,7 @@ public class DuelController {
 		}
 		this.battleLog.add("ROUNDS WON BY PLAYER 1: " + player1Points);
 		this.battleLog.add("ROUNDS WON BY PLAYER 2: " + player2Points);
-		this.battleLog.add("PLAYER " + ((player1Points > player2Points) ? "1" : "2") + " WINS!");
+		this.battleLog.add((player1Points > player2Points) ? "YOU WIN!" : "YOU LOSE...");
 
 		return (player1Points > player2Points);
 	}
@@ -425,7 +447,6 @@ public class DuelController {
 				.add(attacker.getName() + " will use a " + (physicalOrMagical ? "physical" : "magic") + " attack");
 
 		if (defender.getAbility().getAbilityId() == 15) { // Bad Time Ability (Sans)
-			dodgeOrBlock = true;
 			this.battleLog.add(defender.getName() + " will try to dodge the attack");
 
 			if (Math.random() < 0.1) { // 90% chance of dodging
@@ -448,7 +469,7 @@ public class DuelController {
 			this.battleLog
 					.add(defender.getName() + " will try to " + (dodgeOrBlock ? "dodge" : "block") + " the attack");
 
-			if (Math.random() < (0.125 / ((dodgeOrBlock == true) ? defender.getSpd()
+			if (Math.random() < (0.125 / ((dodgeOrBlock) ? defender.getSpd()
 					: ((physicalOrMagical) ? physicalRelation : magicalRelation)))) {
 				fail = true;
 			} else {

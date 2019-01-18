@@ -138,7 +138,7 @@ public class Deck {
 		return matches2;
 	}
 
-	public void setMatches_2(Set<Match> matches2) {
+	public void setMatches2(Set<Match> matches2) {
 		this.matches2 = matches2;
 	}
 
