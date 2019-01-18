@@ -87,7 +87,8 @@
                         <button type="submit" name="action" value="accept" class="button-style btn btn-lg btn-warning">
                           <i class="fas fa-check-circle"></i> <spring:message code="action.accept" />
                         </button>
-                        <a class="button-style btn btn-lg btn-danger ml-3" href="${pageContext.request.contextPath}/estarrona" role="button">
+                        <a class="button-style btn btn-lg btn-danger ml-3"
+                          href="${pageContext.request.contextPath}/duel/${matchAsUser2.matchId}/delete" role="button">
                           <i class="fas fa-times-circle"></i> <spring:message code="action.refuse" />
                         </a>
                       </div>

@@ -81,13 +81,13 @@ public class Tournament {
 	 * @brief Matches list (FK)
 	 */
 	@OneToMany(mappedBy = "tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<Match> matches = new HashSet<Match>();
+	private Set<Match> matches = new HashSet<>();
 
 	/**
 	 * @brief UserTournamentMap list (FK)
 	 */
 	@OneToMany(mappedBy = "tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private Set<UserTournamentMap> userTournamentMaps = new HashSet<UserTournamentMap>();
+	private Set<UserTournamentMap> userTournamentMaps = new HashSet<>();
 
 	/**
 	 * @brief Empty constructor
@@ -131,8 +131,8 @@ public class Tournament {
 		return tournamentId;
 	}
 
-	public void setTournamentId(Integer tournament_id) {
-		this.tournamentId = tournament_id;
+	public void setTournamentId(Integer tournamentId) {
+		this.tournamentId = tournamentId;
 	}
 
 	public String getName() {
@@ -147,8 +147,8 @@ public class Tournament {
 		return numParticipants;
 	}
 
-	public void setNumParticipants(Integer num_participants) {
-		this.numParticipants = num_participants;
+	public void setNumParticipants(Integer numParticipants) {
+		this.numParticipants = numParticipants;
 	}
 
 	public String getDate() {
