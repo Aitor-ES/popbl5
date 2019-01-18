@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!-- Start: Profile data -->
 <section id="profile-data">
   <div class="container-fluid">
@@ -136,12 +137,12 @@
               </tr>
             </thead>
             <tbody>
-              <c:forEach items="${achievementList}" var="achievement">
+              <c:forEach items="${userAchievementMapList}" var="userAchievementMap">
                 <tr>
-                  <td>${achievement.name}</td>
-                  <td>${achievement.date}</td>
-                  <td>${achievement.points}</td>
-                  <td>${achievement.description}</td>
+                  <td>${userAchievementMap.achievement.name}</td>
+                  <td>${userAchievementMap.date} ${userAchievementMap.hour}</td>
+                  <td>${userAchievementMap.achievement.points}</td>
+                  <td>${userAchievementMap.achievement.description}</td>
                 </tr>
               </c:forEach>
             </tbody>
@@ -153,8 +154,8 @@
       <div class="col-sm-6 mt-2 mt-sm-0 d-flex justify-content-center">
         <!-- Circle chart -->
           <div id="achievement-chart" class="mt-4">
-            <div class="c100 p50 big orange">
-              <span>50%</span>
+            <div class="c100 p${achievementPercentage} big orange">
+              <span>${achievementPercentage}%</span>
               <div class="slice">
                   <div class="bar"></div>
                   <div class="fill"></div>

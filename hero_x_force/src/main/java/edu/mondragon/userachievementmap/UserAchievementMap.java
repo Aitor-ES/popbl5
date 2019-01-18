@@ -14,6 +14,7 @@
 package edu.mondragon.userachievementmap;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,10 +42,17 @@ public class UserAchievementMap {
 	private Integer userAchievementMapId;
 
 	/**
-	 * @brief Unlock date
+	 * @brief Match date
 	 */
 	@Column(name = "DATE")
-	private LocalDateTime date;
+	private String date;
+
+	/**
+	 * @brief user_1 user_id (FK)
+	 * @brief Match hour
+	 */
+	@Column(name = "HOUR")
+	private String hour;
 	
 	/**
 	 * @brief User user id (FK)
@@ -64,19 +72,47 @@ public class UserAchievementMap {
 	 * @brief Class constructor
 	 */
 	public UserAchievementMap() {
-		this.date = LocalDateTime.now();
+		this.date = parseCurrentDate(LocalDateTime.now());
+		this.hour = parseCurrentHour(LocalDateTime.now());
 	}
 	
 	/**
 	 * @brief Class constructor with parameters
 	 */
 	public UserAchievementMap(User user, Achievement achievement) {
-		this.date = LocalDateTime.now();
-		
 		this.user = user;
 		this.achievement = achievement;
+		
+		this.date = parseCurrentDate(LocalDateTime.now());
+		this.hour = parseCurrentHour(LocalDateTime.now());
 	}
 
+	/**
+	 * @brief This method parses the current date
+	 * @param date LocalDateTime object
+	 * @return String
+	 */
+	private String parseCurrentDate(LocalDateTime date) {
+		String pattern = "YYYY-MM-dd";
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+
+		return date.format(formatter);
+	}
+
+	/**
+	 * @brief This method parses the current hour
+	 * @param date LocalDateTime object
+	 * @return String
+	 */
+	private String parseCurrentHour(LocalDateTime date) {
+		String pattern = "HH:mm";
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+
+		return date.format(formatter);
+	}
+	
 	/*
 	 * @brief Getters and setters
 	 */	
@@ -88,12 +124,20 @@ public class UserAchievementMap {
 		this.userAchievementMapId = userAchievementMapId;
 	}
 
-	public LocalDateTime getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getHour() {
+		return hour;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
 	}
 
 	public User getUser() {

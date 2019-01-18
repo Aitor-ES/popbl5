@@ -79,7 +79,7 @@ public class LoginController {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("user", user);
 			model.addAttribute("message", "user.login.success");
-			view = "profile/data";
+			view = "redirect:/profile/data";
 		} else {
 			model.addAttribute("error", "user.login.fail.password");
 			view = "login";

@@ -30,14 +30,13 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import edu.mondragon.achievement.Achievement;
+import edu.mondragon.achievement.AchievementService;
 import edu.mondragon.email.EmailService;
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
 import edu.mondragon.user.User;
@@ -52,7 +51,7 @@ public class ProfileController {
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	EmailService emailService = ApplicationContextProvider.getContext().getBean(EmailService.class);
-
+	AchievementService achievementService = ApplicationContextProvider.getContext().getBean(AchievementService.class);
 	/**
 	 * @brief Method that shows the profile
 	 * @param model    implementation of Map for use when building data model
@@ -69,14 +68,18 @@ public class ProfileController {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("user", userService.getUserById(((User) session.getAttribute("user")).getUserId()));
 			
-			Set<UserAchievementMap> achievementMapList = userService
+			Set<UserAchievementMap> achievementMapSet = userService
 					.getUserAchievements(((User) session.getAttribute("user")).getUserId());
-
-			List<Achievement> achievementList = new ArrayList<>();
-			for (UserAchievementMap userAchievementMap : achievementMapList) {
-				achievementList.add(userAchievementMap.getAchievement());
+			
+			List<UserAchievementMap> userAchievementMapList = new ArrayList<>();
+			for(UserAchievementMap userAchievementMap: achievementMapSet) {
+				userAchievementMapList.add(userAchievementMap);
 			}
-			model.addAttribute("achievementList", achievementList);
+			
+			model.addAttribute("userAchievementMapList", userAchievementMapList);
+			
+			Integer achievementPercentage = achievementMapSet.size() * 100 / achievementService.listAchievements().size();
+			model.addAttribute("achievementPercentage", achievementPercentage);
 
 			view = "profile/data";
 		}

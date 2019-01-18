@@ -150,16 +150,16 @@ public class Match {
 		this.date = date;
 	}
 
-	public User getUser1() {
-		return user1;
-	}
-
 	public String getHour() {
 		return hour;
 	}
 
 	public void setHour(String hour) {
 		this.hour = hour;
+	}
+	
+	public User getUser1() {
+		return user1;
 	}
 
 	public void setUser1(User user1) {
