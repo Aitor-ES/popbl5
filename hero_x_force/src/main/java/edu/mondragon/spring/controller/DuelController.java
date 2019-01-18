@@ -44,6 +44,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.mondragon.achievement.Achievement;
+import edu.mondragon.achievement.AchievementService;
 import edu.mondragon.card.Card;
 import edu.mondragon.deck.Deck;
 import edu.mondragon.deck.DeckService;
@@ -53,6 +55,8 @@ import edu.mondragon.match.MatchService;
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
 import edu.mondragon.user.User;
 import edu.mondragon.user.UserService;
+import edu.mondragon.userachievementmap.UserAchievementMap;
+import edu.mondragon.userachievementmap.UserAchievementMapService;
 
 @Controller
 @RequestMapping("/")
@@ -61,6 +65,9 @@ public class DuelController {
 	 * @brief The user service
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
+	UserAchievementMapService userAchievementMapService = ApplicationContextProvider.getContext()
+			.getBean(UserAchievementMapService.class);
+	AchievementService achievementService = ApplicationContextProvider.getContext().getBean(AchievementService.class);
 	MatchService matchService = ApplicationContextProvider.getContext().getBean(MatchService.class);
 	DeckService deckService = ApplicationContextProvider.getContext().getBean(DeckService.class);
 
@@ -99,14 +106,11 @@ public class DuelController {
 			HttpSession session = request.getSession(true);
 			Set<Match> matchesAsUser2 = userService
 					.getMatchesAsUser2(((User) session.getAttribute("user")).getUserId());
-			
-			/*Iterator<Match> it = matchesAsUser2.iterator();
-			while (it.hasNext()) {
-				Match match = it.next();
-				if (match.getWinner() != null) {
-					it.remove();
-				}
-			}*/
+
+			/*
+			 * Iterator<Match> it = matchesAsUser2.iterator(); while (it.hasNext()) { Match
+			 * match = it.next(); if (match.getWinner() != null) { it.remove(); } }
+			 */
 			model.addAttribute("matchesAsUser2", matchesAsUser2);
 
 			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
@@ -197,27 +201,28 @@ public class DuelController {
 		if (checkIfUserIsLogged(request, model)) {
 			if (request.getParameter("action").equals("accept")) {
 				Match match = matchService.getMatchById(id);
-				
+
 				if (match.getWinner() == null) {
 					HttpSession session = request.getSession(true);
-					
+
 					Deck deck2 = deckService.getDeckById(Integer.valueOf(request.getParameter("deck-picker-" + id)));
 					match.setDeck2(deck2);
-					
+
 					this.battleLog = new ArrayList<>();
 
 					if (this.startBattle(match)) {
 						match.setWinner(match.getUser1());
-						
+
 						User user1 = userService.getUserById(match.getUser1().getUserId());
 						User user2 = userService.getUserById(match.getUser2().getUserId());
-						
+
 						user1.setWins(user1.getWins() + 1);
 						user2.setLoses(user2.getLoses() + 1);
-						
+						checkWinAchievements(user1);
+
 						userService.updateUser(user1);
 						userService.updateUser(user2);
-						
+
 						if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
 							session.setAttribute("user", user1);
 						} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
@@ -225,16 +230,17 @@ public class DuelController {
 						}
 					} else {
 						match.setWinner(match.getUser2());
-						
+
 						User user1 = userService.getUserById(match.getUser1().getUserId());
 						User user2 = userService.getUserById(match.getUser2().getUserId());
 
 						user1.setLoses(user1.getLoses() + 1);
 						user2.setWins(user2.getWins() + 1);
-						
+						checkWinAchievements(user2);
+
 						userService.updateUser(user1);
 						userService.updateUser(user2);
-						
+
 						if (user1.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
 							session.setAttribute("user", user1);
 						} else if (user2.getUserId() == ((User) session.getAttribute("user")).getUserId()) {
@@ -255,6 +261,40 @@ public class DuelController {
 		}
 		return view;
 	}
+	
+	private void checkWinAchievements(User winner) {
+		Achievement achievement = null;
+		switch (winner.getWins()) {
+			case 5: {
+				achievement = achievementService.getAchievementById(1);
+				break;
+			} case 10: {
+				achievement = achievementService.getAchievementById(2);
+				break;
+			} case 20: {
+				achievement = achievementService.getAchievementById(3);
+				break;
+			} case 50: {
+				achievement = achievementService.getAchievementById(4);
+				break;
+			} case 100: {
+				achievement = achievementService.getAchievementById(5);
+				break;
+			} case 150: {
+				achievement = achievementService.getAchievementById(6);
+				break;
+			} case 200: {
+				achievement = achievementService.getAchievementById(7);
+				break;
+			} default: {
+				break;
+			}
+		}
+		if (achievement != null) {
+			UserAchievementMap userAchievementMap = new UserAchievementMap(winner, achievement);
+			userAchievementMapService.addUserAchievementMap(userAchievementMap);
+		}
+	}
 
 	/**
 	 * @brief
@@ -265,7 +305,7 @@ public class DuelController {
 	public boolean startBattle(Match match) {
 		Deck deck1 = match.getDeck1();
 		Deck deck2 = match.getDeck2();
-		
+
 		Card hero1;
 		Card hero2;
 

@@ -66,6 +66,16 @@ public class UserAchievementMap {
 	public UserAchievementMap() {
 		this.date = LocalDateTime.now();
 	}
+	
+	/**
+	 * @brief Class constructor with parameters
+	 */
+	public UserAchievementMap(User user, Achievement achievement) {
+		this.date = LocalDateTime.now();
+		
+		this.user = user;
+		this.achievement = achievement;
+	}
 
 	/*
 	 * @brief Getters and setters
