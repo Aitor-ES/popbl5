@@ -59,8 +59,7 @@ public class AchievementDaoImp implements AchievementDao {
 	 */
 	@Override
 	public Achievement getAchievementById(int achievementId) {
-		Achievement achievement = getCurrentSession().find(Achievement.class, achievementId);
-		return achievement;
+		return getCurrentSession().find(Achievement.class, achievementId);
 	}
 	
 	/**

@@ -81,7 +81,7 @@ public class Ability {
 		return abilityId;
 	}
 
-	public void setAbility_id(Integer abilityId) {
+	public void setAbilityId(Integer abilityId) {
 		this.abilityId = abilityId;
 	}
 

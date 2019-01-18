@@ -59,8 +59,7 @@ public class TournamentDaoImp implements TournamentDao {
 	 */
 	@Override
 	public Tournament getTournamentById(int tournamentId) {
-		Tournament tournament = getCurrentSession().find(Tournament.class, tournamentId);
-		return tournament;
+		return getCurrentSession().find(Tournament.class, tournamentId);
 	}
 	
 	/**

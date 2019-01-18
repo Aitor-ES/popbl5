@@ -69,8 +69,7 @@ public class MatchDaoImp implements MatchDao {
 	 */
 	@Override
 	public Match getMatchById(int matchId) {
-		Match match = getCurrentSession().find(Match.class, matchId);
-		return match;
+		return getCurrentSession().find(Match.class, matchId);
 	}
 	
 	/**

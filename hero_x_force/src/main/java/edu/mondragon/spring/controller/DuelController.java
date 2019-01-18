@@ -425,7 +425,6 @@ public class DuelController {
 				.add(attacker.getName() + " will use a " + (physicalOrMagical ? "physical" : "magic") + " attack");
 
 		if (defender.getAbility().getAbilityId() == 15) { // Bad Time Ability (Sans)
-			dodgeOrBlock = true;
 			this.battleLog.add(defender.getName() + " will try to dodge the attack");
 
 			if (Math.random() < 0.1) { // 90% chance of dodging
@@ -448,7 +447,7 @@ public class DuelController {
 			this.battleLog
 					.add(defender.getName() + " will try to " + (dodgeOrBlock ? "dodge" : "block") + " the attack");
 
-			if (Math.random() < (0.125 / ((dodgeOrBlock == true) ? defender.getSpd()
+			if (Math.random() < (0.125 / ((dodgeOrBlock) ? defender.getSpd()
 					: ((physicalOrMagical) ? physicalRelation : magicalRelation)))) {
 				fail = true;
 			} else {

@@ -92,8 +92,7 @@ public class UserDaoImp implements UserDao {
 	 */
 	@Override
 	public User getUserById(int userId) {
-		User user = getCurrentSession().find(User.class, userId);
-		return user;
+		return getCurrentSession().find(User.class, userId);
 	}
 
 	/**
