@@ -31,13 +31,14 @@
     </div>
     <!-- End: Join title -->
     
-    <!-- Start: Not joined list -->
-    <div class="row px-sm-5 pt-1 mb-4">
+    <!-- Start: Join Info & Card -->
+    <div class="row mb-4 mt-2">
       <div class="col px-0">
         <c:choose>
-        
           <c:when test="${availableTournamentList.size() == 0}">
-            <div class="row mt-1">
+          
+            <!-- Info -->
+            <div class="row mt-3">
               <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center">
                 <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="tournament.list.empty"/></span></p>
               </div>
@@ -45,75 +46,154 @@
           </c:when>
           
           <c:otherwise>
+          
+            <!-- Card -->
             <c:forEach items="${availableTournamentList}" var="tournament">
-              <div id="accordion">
-                <div class="card">
-                  <div class="card-header" id="heading-${tournament.tournamentId}">
-                      <i class="fas fa-sort-down"></i>
-                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${tournament.tournamentId}"
-                        aria-expanded="true" aria-controls="collapse-${tournament.tournamentId}">#${tournament.tournamentId} - ${tournament.name} - (${tournament.date})
-                      </button>
+              <div id="joinCard" class="card mx-3 mx-sm-5 mt-4 mb-5">
+              
+                <!-- Tournament header -->
+                <div class="card-header p-3 bg-dark text-light">
+                  <div class="row ">
+                  
+                    <!-- Name -->
+                    <div class="p-0 d-flex align-items-center">
+                       <p class="mb-0"><spring:message code="tournament.list.header"/> <i class="fas fa-angle-right"></i> ${tournament.name}</p>
+                    </div>
                   </div>
-                  <div id="collapse-${tournament.tournamentId}" class="collapse" aria-labelledby="heading-${tournament.tournamentId}" data-parent="#accordion">
-                    <div class="card-body">
-                      <ul id="tournament-${tournament.tournamentId}-participants" class="list-group">
-                        <c:forEach items="${tournament.userTournamentMaps}" var="userTournamentMap">
-                          <li class="list-group-item">${userTournamentMap.user.username}</li>
-                        </c:forEach>
-                      </ul>
-                      <div class="col-2 d-flex justify-content-start align-items-center">
-                        <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/tournament/${tournament.tournamentId}/join" role="button">
-                          <i class="fas fa-hand-point-up"></i> <spring:message code="tournament.list.join.button"/>
-                        </a>
+                </div>
+          
+                <!-- Tournament body -->
+                <div class="card-body">
+                  <div class="row ">
+                    
+                    <!-- Accordion -->
+                    <div class="col-sm-6 p-0">
+                      <div class="card">
+                        <div class="card-header px-0 py-1" id="heading-${tournament.tournamentId}">
+                          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${tournament.tournamentId}"
+                            aria-expanded="true" aria-controls="collapse-${tournament.tournamentId}">
+                            <p class="my-0"><i class="fas fa-eye"></i> <spring:message code="tournament.list.info"/></p>
+                          </button>
+                        </div>
+                        <div id="collapse-${tournament.tournamentId}" class="collapse" aria-labelledby="heading-${tournament.tournamentId}" data-parent="#accordion">
+                          <div class="card-body">
+                            <ul id="tournament-${tournament.tournamentId}-participants" class="list-group">
+                              <c:forEach items="${tournament.userTournamentMaps}" var="userTournamentMap">
+                                <li class="list-group-item">${userTournamentMap.user.username}</li>
+                              </c:forEach>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <div class="col-sm-6 p-0 mt-3 mt-sm-0 d-flex justify-content-center justify-content-sm-end align-items-center">
+                      <a class="btn btn-lg btn-warning" href="${pageContext.request.contextPath}/tournament/${tournament.tournamentId}/join" role="button">
+                        <i class="fas fa-sign-in-alt"></i> <spring:message code="action.join"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Tournament footer -->
+                <div class="card-footer text-muted px-0">
+                  <div class="row ">
+                  
+                    <!-- Date -->
+                    <div class="col d-flex justify-content-start">
+                      <p class="mb-0">${tournament.date}</p>
+                    </div>
+                    
+                    <!-- Hour -->
+                    <div class="col d-flex justify-content-end">
+                      <p class="mb-0">${tournament.hour}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </c:forEach>
           </c:otherwise>
-          
         </c:choose>
       </div>
-    </div>
-    <!-- End: Not joined list -->
+    </div>            
+    <!-- End: Join Info & Card -->        
     
     <!-- Start: Joined title -->
-    <div class="row px-sm-4">
+    <div class="row px-sm-4 py-3">
       <div class="col">
         <h2 class="title-style"><spring:message code="tournament.list.joined.header" /></h2>
       </div>
     </div>
     <!-- End: Joined title -->
     
-    <!-- Start: Joined list -->
-    <div class="row px-sm-5 pt-3 mb-4">
+    <!-- Start: Joined Info & Card -->
+    <div class="row mb-4 mt-2">
       <div class="col px-0">
         <c:choose>
           <c:when test="${joinedTournamentList.size() == 0}">
-            <div class="row mt-1">
+          
+            <!-- Info -->
+            <div class="row mt-3">
               <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center">
                 <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="tournament.list.empty"/></span></p>
               </div>
             </div>
           </c:when>
+          
           <c:otherwise>
+          
+            <!-- Card -->
             <c:forEach items="${joinedTournamentList}" var="tournament">
-              <div id="accordion">
-                <div class="card">
-                  <div class="card-header" id="heading-${tournament.tournamentId}">
-                      <i class="fas fa-sort-down"></i>
-                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${tournament.tournamentId}"
-                        aria-expanded="true" aria-controls="collapse-${tournament.tournamentId}">#${tournament.tournamentId} - ${tournament.name} - (${tournament.date})
-                      </button>
+              <div id="joinCard" class="card mx-3 mx-sm-5 mt-4 mb-5">
+              
+                <!-- Tournament header -->
+                <div class="card-header p-3 bg-dark text-light">
+                  <div class="row ">
+                  
+                    <!-- Name -->
+                    <div class="p-0 d-flex align-items-center">
+                       <p class="mb-0"><spring:message code="tournament.list.header"/> <i class="fas fa-angle-right"></i> ${tournament.name}</p>
+                    </div>
                   </div>
-                  <div id="collapse-${tournament.tournamentId}" class="collapse" aria-labelledby="heading-${tournament.tournamentId}" data-parent="#accordion">
-                    <div class="card-body">
-                      <ul id="tournament-${tournament.tournamentId}-participants" class="list-group">
-                        <c:forEach items="${tournament.userTournamentMaps}" var="userTournamentMap">
-                          <li class="list-group-item">${userTournamentMap.user.username}</li>
-                        </c:forEach>
-                      </ul>
+                </div>
+          
+                <!-- Tournament body -->
+                <div class="card-body">
+                  <!-- Accordion -->
+                  <div class="p-0">
+                    <div class="card">
+                      <div class="card-header px-0 py-1" id="heading-${tournament.tournamentId}">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${tournament.tournamentId}"
+                          aria-expanded="true" aria-controls="collapse-${tournament.tournamentId}">
+                          <p class="my-0"><i class="fas fa-eye"></i> <spring:message code="tournament.list.info"/></p>
+                        </button>
+                      </div>
+                      <div id="collapse-${tournament.tournamentId}" class="collapse" aria-labelledby="heading-${tournament.tournamentId}" data-parent="#accordion">
+                        <div class="card-body">
+                          <ul id="tournament-${tournament.tournamentId}-participants" class="list-group">
+                            <c:forEach items="${tournament.userTournamentMaps}" var="userTournamentMap">
+                              <li class="list-group-item">${userTournamentMap.user.username}</li>
+                            </c:forEach>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Tournament footer -->
+                <div class="card-footer text-muted px-0">
+                  <div class="row ">
+                  
+                    <!-- Date -->
+                    <div class="col d-flex justify-content-start">
+                      <p class="mb-0">${tournament.date}</p>
+                    </div>
+                    
+                    <!-- Hour -->
+                    <div class="col d-flex justify-content-end">
+                      <p class="mb-0">${tournament.hour}</p>
                     </div>
                   </div>
                 </div>
@@ -122,8 +202,8 @@
           </c:otherwise>
         </c:choose>
       </div>
-    </div>
-    <!-- End: Joined list -->
+    </div>            
+    <!-- End: Joined Info & Card -->
     
     <!-- Start: Top button -->
     <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>

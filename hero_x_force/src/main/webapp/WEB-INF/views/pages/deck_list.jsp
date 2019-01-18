@@ -33,7 +33,7 @@
           
             <!-- Deck name -->
             <div class="col-8 p-0 d-flex align-items-center">
-          	   <h5 class="mb-0">${deck.name}</h5>
+          	   <p class="mb-0">${deck.name}</p>
             </div>
             
             <!-- Button -->

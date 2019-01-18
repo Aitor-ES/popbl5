@@ -5,17 +5,26 @@
   box-shadow: 0px 0px 5px #000000
 }
 
+#deck-list .card p {
+  font-size: var(--movile-p-font-size);
+}
+
 /* Desk Form
  *********************************************************/
-#deck-form .modal-content {
-  background-color: #3b4652;
-  opacity: .85;
-  box-shadow: 0px 0px 3px #848484;
-  color: white;
+#deck-form .card {
+  border-color: black;
+  box-shadow: 0px 0px 5px #000000
 }
 
 #deck-form .modal-content {
-  font-size: var(--movile-p-font-size);
+   background-color: #3b4652;
+   opacity: .85;
+   box-shadow: 0px 0px 3px #848484;
+   color: white;
+}
+
+#deck-form .modal-content {
+   font-size: var(--movile-p-font-size);
 }
 
 #deck-form #deckNumber {
@@ -44,6 +53,10 @@
  * sm >= 576px | md >= 768px | lg >= 992px | xl >= 1200px
  *********************************************************/
 @media (min-width: 768px) {
+  #deck-list .card p {
+    font-size: var(--desktop-p-font-size);
+  }
+  
   #deck-form .modal-content {
     font-size: var(--desktop-p-font-size);
   }
@@ -57,5 +70,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  
+  #deck-form .card input {
+    font-size: var(--desktop-p-font-size);
   }
 }

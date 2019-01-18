@@ -32,13 +32,13 @@
     <!-- End: Play title -->
     
     <!-- Start: Info & Card -->
-    <div class="row mb-4 mt-3">
+    <div class="row mb-4 mt-2">
       <div class="col px-0">
         <c:choose>
           <c:when test="${matchesAsUser2.size() == 0}">
             
             <!-- Info -->
-            <div class="row mt-2">
+            <div class="row mt-3">
               <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center">
                 <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="duel.list.empty"/></span></p>
               </div>
@@ -74,7 +74,7 @@
                             <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
                           </div>
                           <select class="selectpicker form-control" name="deck-picker-${matchAsUser2.matchId}" data-size="5"
-                            data-live-search="true" title="Choose one of the following..." required>
+                            data-live-search="true" title="<spring:message code="duel.list.choose"/>" required>
                             <c:forEach items="${deckList}" var="deck">
                               <option value="${deck.deckId}">${deck.name}</option>
                             </c:forEach>
