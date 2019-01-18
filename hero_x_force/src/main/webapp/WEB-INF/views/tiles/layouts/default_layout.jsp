@@ -72,8 +72,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/deck.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/card_data.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_list.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel_battle.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/duel.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/tournament.css"/>"/>
 
     <!-- Custom js -->

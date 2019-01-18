@@ -85,9 +85,3 @@ function userProgress() {
     	$('#myProgressBar').fadeIn();
     }
 }
-
-window.onscroll = function() {stickyFunction()};
-
-function stickyFunction() {
-	  
-	}

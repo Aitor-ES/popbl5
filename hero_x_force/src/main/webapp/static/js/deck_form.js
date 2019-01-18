@@ -19,12 +19,12 @@ function drop(ev) {
 		var id = slotId.substring(slotId.length - 1, slotId.length);
 		
 		var input = document.getElementById("selected-card-name-" + id);
-		input.value = "Hero #" + elementToDrop.id;
+		input.value = "#" + elementToDrop.id;
 	} else {
 		var inputList = document.getElementsByClassName("selected-card-name");
 		
 		for (var i = 0; i < inputList.length; i++) {
-			if (inputList[i].value == "Hero #" + elementToDrop.id) {
+			if (inputList[i].value == "#" + elementToDrop.id) {
 				inputList[i].value = "";
 			}
 		}

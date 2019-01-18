@@ -27,8 +27,8 @@
         <div class="col-2 col-sm-2 d-flex order-sm-last justify-content-end align-items-center">
           <form name="deckDeleteForm" action="${pageContext.request.contextPath}/deck/delete" method='POST'>
             <input class="form-control" id="deleteId" type="hidden" name='deleteId' value="${deck.deckId}">
-            <button class="button-style btn btn-lg btn-warning ml-3" type="submit" name="submit">
-              <i class="fas fa-exclamation-circle"></i> <spring:message code="action.delete" />
+            <button class="button-style btn btn-lg btn-danger ml-3" type="submit" name="submit">
+              <i class="fas fa-trash"></i> <spring:message code="action.delete" />
             </button>
           </form>
         </div>
@@ -82,10 +82,10 @@
             <c:when test="${not empty deck}">
               <div class="row" id="selected-card-names">
                 <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
-                  <input type="text" class="selected-card-name form-control col mx-2 mx-sm-3" id="selected-card-name-${deckCardMap.position}"
+                  <input type="text" class="selected-card-name form-control col mx-2 mx-sm-3 text-center" id="selected-card-name-${deckCardMap.position}"
                     name='selected-card-id-${deckCardMap.position}'
                     placeholder="<spring:message code="deck.form.slot-${deckCardMap.position}.placeholder"/>"
-                    value="#${deckCardMap.card.cardId} Hero" readonly>
+                    value="#${deckCardMap.card.cardId}" required onkeypress="return false;">
                 </c:forEach>
               </div>
               <div class="row" id="selected-card-slots">
@@ -99,9 +99,9 @@
             <c:otherwise>
               <div class="row" id="selected-card-names">
                 <c:forEach var="i" begin="1" end="5">
-                  <input type="text" class="selected-card-name form-control col mx-2 mx-sm-3" id="selected-card-name-${i}"
-                    name='selected-card-id-${i}'
-                    placeholder="<spring:message code="deck.form.slot-${i}.placeholder"/>" readonly>
+                  <input type="text" class="selected-card-name form-control col mx-2 mx-sm-3 text-center" id="selected-card-name-${i}"
+                    name="selected-card-id-${i}"
+                    placeholder="<spring:message code="deck.form.slot-${i}.placeholder"/>" required onkeypress="return false;">
                 </c:forEach>
               </div>
               <div class="row" id="selected-card-slots">
@@ -156,7 +156,7 @@
               </div>
               <div class="abilityArea">
                 <div class="abilityTitle"><spring:message code="card.ability" /></div>
-                <div class="abilityName">${card.ability.name}</div>
+                <div class="abilityName" style="color:var(--${fn:toLowerCase(card.type)}-color);">${card.ability.name}</div>
               </div>
             </div>
           </div>

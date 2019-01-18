@@ -8,14 +8,14 @@
 /* Desk Form
  *********************************************************/
 #deck-form .modal-content {
-   background-color: #3b4652;
-   opacity: .85;
-   box-shadow: 0px 0px 3px #848484;
-   color: white;
+  background-color: #3b4652;
+  opacity: .85;
+  box-shadow: 0px 0px 3px #848484;
+  color: white;
 }
 
 #deck-form .modal-content {
-   font-size: var(--movile-p-font-size);
+  font-size: var(--movile-p-font-size);
 }
 
 #deck-form #deckNumber {
