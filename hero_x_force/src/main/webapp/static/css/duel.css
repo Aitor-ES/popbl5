@@ -1,10 +1,11 @@
-/* List
+/* Duel List
  *********************************************************/
-#tournament-list p {
-  font-size: var(--movile-p-font-size);
+#duel-list .card {
+  border-color: black;
+  box-shadow: 0px 0px 5px #000000
 }
-  
-#tournament-list .modal-content {
+
+#duel-list .modal-content {
    background-color: #3b4652;
    opacity: .85;
    padding: 20px;
@@ -12,11 +13,18 @@
    color: white;
 }
 
+/* Battle
+ *********************************************************/
+#battle-log {  
+  height: 25rem;
+  overflow-y: auto;
+}
+
 /* Responsive 
  * sm >= 576px | md >= 768px | lg >= 992px | xl >= 1200px
  *********************************************************/
 @media (min-width: 768px) {
-  #tournament-list p {
+  #duel-list p {
     font-size: var(--desktop-p-font-size);
   }
 }

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- Start: Tournament list -->
-<section id="tournament_list">
+<section id="tournament-list">
   <div class="container-fluid">
     
     <!-- Start: Title & Button -->
@@ -24,7 +24,7 @@
     <!-- End: Title & Button -->
     
     <!-- Start: Join title -->
-    <div class="row px-sm-4 pt-5">
+    <div class="row px-sm-4 py-3">
       <div class="col">
         <h2 class="title-style"><spring:message code="tournament.list.join.header" /></h2>
       </div>
@@ -32,17 +32,18 @@
     <!-- End: Join title -->
     
     <!-- Start: Not joined list -->
-    <div class="row px-sm-5 pt-3 mb-4">
+    <div class="row px-sm-5 pt-1 mb-4">
       <div class="col">
         <c:choose>
+        
           <c:when test="${availableTournamentList.size() == 0}">
-            <div class="row">
-              <div class="modal-content col">
-                <h3 class="text-center"><spring:message code="tournament.list.empty" /></h3>
+            <div class="row mt-1">
+              <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center">
+                <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="tournament.list.empty"/></span></p>
               </div>
             </div>
-          
           </c:when>
+          
           <c:otherwise>
             <c:forEach items="${availableTournamentList}" var="tournament">
               <div id="accordion">
@@ -71,13 +72,14 @@
               </div>
             </c:forEach>
           </c:otherwise>
+          
         </c:choose>
       </div>
     </div>
     <!-- End: Not joined list -->
     
     <!-- Start: Joined title -->
-    <div class="row px-sm-4 pt-5">
+    <div class="row px-sm-4">
       <div class="col">
         <h2 class="title-style"><spring:message code="tournament.list.joined.header" /></h2>
       </div>
@@ -89,12 +91,11 @@
       <div class="col">
         <c:choose>
           <c:when test="${joinedTournamentList.size() == 0}">
-            <div class="row">
-              <div class="modal-content col">
-                <h3 class="text-center"><spring:message code="tournament.list.empty" /></h3>
+            <div class="row mt-1">
+              <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center">
+                <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="tournament.list.empty"/></span></p>
               </div>
             </div>
-          
           </c:when>
           <c:otherwise>
             <c:forEach items="${joinedTournamentList}" var="tournament">

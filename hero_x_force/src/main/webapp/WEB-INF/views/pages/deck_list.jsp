@@ -47,7 +47,7 @@
         
         <!-- Deck body -->
         <div class="card-body">
-          <div class="row mx-3">
+          <div class="row mx-0">
             <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
             
               <!-- Card HTML -->

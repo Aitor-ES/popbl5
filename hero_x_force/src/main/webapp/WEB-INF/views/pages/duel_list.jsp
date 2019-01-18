@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- Start: Duel list -->
-<section id="duel_list">
+<section id="duel-list">
   <div class="container-fluid">
   
     <!-- Start: Title & Button -->
@@ -24,46 +24,99 @@
     <!-- End: Title & Button -->
     
     <!-- Start: Play title -->
-    <div class="row px-sm-4 pt-5">
+    <div class="row px-sm-4 pt-3">
       <div class="col">
         <h2 class="title-style"><spring:message code="duel.list.join"/></h2>
       </div>
     </div>
     <!-- End: Play title -->
     
-    <!-- Start: List -->
-    <div class="row px-sm-4 pt-3 mb-4">
-      <div class="col">
-        <c:forEach items="${matchesAsUser2}" var="matchAsUser2">
-          <form name="duelListForm" action="${pageContext.request.contextPath}/duel/${matchAsUser2.matchId}/battle" method='POST'>
-            <div class="panel bg-white border border-danger p-3 mb-3">
-              <div class="panel-body d-flex align-items-center bd-highlight">
-                <span class="mr-auto bd-highlight">${matchAsUser2.user1.username}</span>
-              
-                <div class="input-group col-sm-5">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
-                  </div>
-                  <select class="selectpicker form-control" name="deck-picker-${matchAsUser2.matchId}" data-size="5"
-                    data-live-search="true" title="Choose one of the following..." required>
-                    <c:forEach items="${deckList}" var="deck">
-                      <option value="${deck.deckId}">${deck.name}</option>
-                    </c:forEach>
-                  </select>
-                </div>
-                <button type="submit" name="action" value="accept"
-                  class="btn btn-success bd-highlight ml-1"><spring:message code="action.accept" /></button>
-                <button type="submit" name="action" value="refuse"
-                  class="btn btn-danger bd-highlight ml-1"><spring:message code="action.refuse" /></button>
-             </div>
+    <!-- Start: Not joined list -->
+    <div class="row mb-4">
+      <div class="col px-0">
+        <c:choose>
+        
+          <c:when test="${matchesAsUser2.size() == 0}">
+            <div class="row mt-1">
+              <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center">
+                <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="duel.list.empty"/></span></p>
+              </div>
             </div>
-          </form>
-        </c:forEach>
+          </c:when>
+          
+          <c:otherwise>
+            <c:forEach items="${matchesAsUser2}" var="matchAsUser2">
+              <form name="duelListForm" action="${pageContext.request.contextPath}/duel/${matchAsUser2.matchId}/battle" method='POST'>
+                <div class="card mx-3 mx-sm-5 mt-4 mb-5">
+          
+                  <!-- Duel header -->
+                  <div class="card-header p-3 bg-dark text-light">
+                    <div class="row ">
+                    
+                      <!-- Opponent name -->
+                      <div class="p-0 d-flex align-items-center">
+                    	   <p class="mb-0"><spring:message code="duel.list.opponent"/> <i class="fas fa-angle-right"></i> ${matchAsUser2.user1.username}</p>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <!-- Duel body -->
+                  <div class="card-body">
+                    <div class="row ">
+          
+                      <!-- Selector -->
+                      <div class="col-sm-6 col-lg-5 p-0 d-flex align-items-center">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
+                          </div>
+                          <select class="selectpicker form-control" name="deck-picker-${matchAsUser2.matchId}" data-size="5"
+                            data-live-search="true" title="Choose one of the following..." required>
+                            <c:forEach items="${deckList}" var="deck">
+                              <option value="${deck.deckId}">${deck.name}</option>
+                            </c:forEach>
+                          </select>
+                        </div>
+                      </div>
+                      <!-- Buttons -->
+                      <div class="col-sm-6 col-lg-7 p-0 mt-3 mt-sm-0 d-flex justify-content-between justify-content-sm-end">
+                        <button type="submit" name="action" value="accept"
+                          class="button-style btn btn-lg btn-warning"><spring:message code="action.accept" />
+                        </button>
+                        <button type="submit" name="action" value="refuse"
+                          class="button-style btn btn-lg btn-danger ml-3"><spring:message code="action.refuse" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Duel footer -->
+                  <div class="card-footer text-muted px-0">
+                    <div class="row ">
+                      <!-- Date -->
+                      <div class="col d-flex justify-content-start">
+                        <p class="mb-0">${matchAsUser2.date}</p>
+                      </div>
+                      
+                      <!-- Hour -->
+                      <div class="col d-flex justify-content-end">
+                        <p class="mb-0">${matchAsUser2.hour}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </c:forEach>
+          </c:otherwise>
+        </c:choose>
       </div>
     </div>
+    <!-- End: List -->
+    
+    <!-- Start: Top button -->
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <!-- End: Top button -->
+  
   </div>
-
-  <!-- Start: Back to top button -->
-  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
-  <!-- End: Back to top button -->
 </section>
+<!-- End: Ranking --> 
