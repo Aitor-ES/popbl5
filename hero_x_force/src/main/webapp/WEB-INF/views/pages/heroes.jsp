@@ -21,12 +21,12 @@
           <div class="heroCardFather" id="${card.cardId}">
             <div class="heroCard">
               <div class="cardImg"
-                style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')">
+                style="background-image: url('${pageContext.request.contextPath}/${card.img}')">
               </div>
               <a href="${pageContext.request.contextPath}/card/${card.cardId}/data">
                 <img class="templateImg"
-                src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
-                alt="edit icon">
+                  src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
+                  alt="edit icon">
               </a>
               <div class="titleArea">
                 <div class="heroName">${card.name}</div>

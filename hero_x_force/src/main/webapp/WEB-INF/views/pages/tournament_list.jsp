@@ -49,7 +49,7 @@
           
             <!-- Card -->
             <c:forEach items="${availableTournamentList}" var="tournament">
-              <div id="joinCard" class="card mx-3 mx-sm-5 mt-4 mb-5">
+              <div id="join-card" class="card mx-3 mx-sm-5 mt-4 mb-5">
               
                 <!-- Tournament header -->
                 <div class="card-header p-3 bg-dark text-light">
@@ -61,13 +61,13 @@
                     </div>
                   </div>
                 </div>
-          
+
                 <!-- Tournament body -->
                 <div class="card-body">
                   <div class="row ">
-                    
+
                     <!-- Accordion -->
-                    <div class="col-sm-6 p-0">
+                    <div class="accordion col-sm-6 p-0" id="accordion-${tournament.tournamentId}">
                       <div class="card">
                         <div class="card-header px-0 py-1" id="heading-${tournament.tournamentId}">
                           <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${tournament.tournamentId}"
@@ -75,7 +75,8 @@
                             <p class="my-0"><i class="fas fa-eye"></i> <spring:message code="tournament.list.info"/></p>
                           </button>
                         </div>
-                        <div id="collapse-${tournament.tournamentId}" class="collapse" aria-labelledby="heading-${tournament.tournamentId}" data-parent="#accordion">
+                        <div id="collapse-${tournament.tournamentId}" class="collapse"
+                          aria-labelledby="heading-${tournament.tournamentId}" data-parent="#accordion-${tournament.tournamentId}">
                           <div class="card-body">
                             <ul id="tournament-${tournament.tournamentId}-participants" class="list-group">
                               <c:forEach items="${tournament.userTournamentMaps}" var="userTournamentMap">
@@ -145,7 +146,7 @@
           
             <!-- Card -->
             <c:forEach items="${joinedTournamentList}" var="tournament">
-              <div id="joinCard" class="card mx-3 mx-sm-5 mt-4 mb-5">
+              <div id="join-card" class="card mx-3 mx-sm-5 mt-4 mb-5">
               
                 <!-- Tournament header -->
                 <div class="card-header p-3 bg-dark text-light">
@@ -161,7 +162,7 @@
                 <!-- Tournament body -->
                 <div class="card-body">
                   <!-- Accordion -->
-                  <div class="p-0">
+                  <div class="accordion p-0" id="accordion-${tournament.tournamentId}">
                     <div class="card">
                       <div class="card-header px-0 py-1" id="heading-${tournament.tournamentId}">
                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${tournament.tournamentId}"
@@ -169,9 +170,10 @@
                           <p class="my-0"><i class="fas fa-eye"></i> <spring:message code="tournament.list.info"/></p>
                         </button>
                       </div>
-                      <div id="collapse-${tournament.tournamentId}" class="collapse" aria-labelledby="heading-${tournament.tournamentId}" data-parent="#accordion">
+                      <div id="collapse-${tournament.tournamentId}" class="collapse"
+                        aria-labelledby="heading-${tournament.tournamentId}" data-parent="#accordion-${tournament.tournamentId}">
                         <div class="card-body">
-                          <ul id="tournament-${tournament.tournamentId}-participants" class="list-group">
+                          <ul class="list-group" id="tournament-${tournament.tournamentId}-participants">
                             <c:forEach items="${tournament.userTournamentMaps}" var="userTournamentMap">
                               <li class="list-group-item">${userTournamentMap.user.username}</li>
                             </c:forEach>

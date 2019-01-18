@@ -124,7 +124,7 @@
           <div class="heroCardFather" id="${card.cardId}" draggable="true" ondragstart="drag(event)">
             <div class="heroCard" draggable="false">
               <div class="cardImg" 
-                style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')">
+                style="background-image: url('${pageContext.request.contextPath}/${card.img}')">
               </div>
               <img class="templateImg" 
                 src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"

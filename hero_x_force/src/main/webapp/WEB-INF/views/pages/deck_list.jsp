@@ -55,7 +55,7 @@
                 <div class="heroCardDeckFather" id="${deckCardMap.card.cardId}" draggable="false" ondragstart="drag(event)">
                   <div class="heroCardDeck" draggable="false">
                     <div class="cardImg" 
-                      style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${deckCardMap.card.name}.png')">
+                style="background-image: url('${pageContext.request.contextPath}/${deckCardMap.card.img}')">
                     </div>
                     <img class="templateImg" 
                       src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(deckCardMap.card.type)}-template.png"
