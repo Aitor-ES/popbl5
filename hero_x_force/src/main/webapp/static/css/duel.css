@@ -2,19 +2,28 @@
  *********************************************************/
 #duel-list .card {
   border-color: black;
-  box-shadow: 0px 0px 5px #000000
+  box-shadow: 0px 0px 5px #000000;
 }
 
 #duel-list .modal-content {
-   background-color: #3b4652;
-   opacity: .85;
-   padding: 20px;
-   box-shadow: 0px 0px 3px #848484;
-   color: white;
+  background-color: #3b4652;
+  opacity: .85;
+  padding: 20px;
+  box-shadow: 0px 0px 3px #848484;
+  color: white;
 }
 
 /* Battle
  *********************************************************/
+#duel-battle .card {
+  border-color: black;
+  box-shadow: 0px 0px 5px #000000;
+}
+
+#duel-battle p {
+  font-size: var(--movile-p-font-size);
+}
+
 #battle-log {  
   height: 25rem;
   overflow-y: auto;
@@ -25,6 +34,10 @@
  *********************************************************/
 @media (min-width: 768px) {
   #duel-list p {
+    font-size: var(--desktop-p-font-size);
+  }
+  
+  #duel-battle p {
     font-size: var(--desktop-p-font-size);
   }
 }

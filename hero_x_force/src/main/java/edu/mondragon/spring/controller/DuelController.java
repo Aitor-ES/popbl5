@@ -222,7 +222,9 @@ public class DuelController {
 
 		if (checkIfUserIsLogged(request, model)) {
 			Match match = matchService.getMatchById(id);
-
+			
+			model.addAttribute("match", matchService.getMatchById(id));
+			
 			if (match.getWinner() == null) {
 				HttpSession session = request.getSession(true);
 
@@ -280,38 +282,39 @@ public class DuelController {
 	private void checkWinAchievements(User winner) {
 		Achievement achievement = null;
 		switch (winner.getWins()) {
-		case 5: {
-			achievement = achievementService.getAchievementById(1);
-			break;
+			case 5: {
+				achievement = achievementService.getAchievementById(1);
+				break;
+			}
+			case 10: {
+				achievement = achievementService.getAchievementById(2);
+				break;
+			}
+			case 20: {
+				achievement = achievementService.getAchievementById(3);
+				break;
+			}
+			case 50: {
+				achievement = achievementService.getAchievementById(4);
+				break;
+			}
+			case 100: {
+				achievement = achievementService.getAchievementById(5);
+				break;
+			}
+			case 150: {
+				achievement = achievementService.getAchievementById(6);
+				break;
+			}
+			case 200: {
+				achievement = achievementService.getAchievementById(7);
+				break;
+			}
+			default: {
+				break;
+			}
 		}
-		case 10: {
-			achievement = achievementService.getAchievementById(2);
-			break;
-		}
-		case 20: {
-			achievement = achievementService.getAchievementById(3);
-			break;
-		}
-		case 50: {
-			achievement = achievementService.getAchievementById(4);
-			break;
-		}
-		case 100: {
-			achievement = achievementService.getAchievementById(5);
-			break;
-		}
-		case 150: {
-			achievement = achievementService.getAchievementById(6);
-			break;
-		}
-		case 200: {
-			achievement = achievementService.getAchievementById(7);
-			break;
-		}
-		default: {
-			break;
-		}
-		}
+		
 		if (achievement != null) {
 			UserAchievementMap userAchievementMap = new UserAchievementMap(winner, achievement);
 			userAchievementMapService.addUserAchievementMap(userAchievementMap);
