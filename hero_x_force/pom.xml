@@ -125,7 +125,6 @@
       <version>1.6</version>
     </dependency>
 
-
     <!-- JSON In Java v20180813 -->
     <dependency>
       <groupId>org.json</groupId>
@@ -153,7 +152,6 @@
       <artifactId>javax.mail</artifactId>
       <version>1.6.2</version>
     </dependency>
-
 
     <!-- H2 1.4.197 -->
     <dependency>
