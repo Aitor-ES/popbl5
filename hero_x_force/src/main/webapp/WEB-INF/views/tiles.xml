@@ -90,13 +90,6 @@
       value="/WEB-INF/views/pages/card_data.jsp" />
   </definition>
   
-  <!-- Card Form screen layout -->
-  <definition name="card/form" extends="template-default">
-    <put-attribute name="title" value="Card Form" />
-    <put-attribute name="main"
-      value="/WEB-INF/views/pages/card_form.jsp" />
-  </definition>
-  
   <!-- Duel List screen layout -->
   <definition name="duel/list" extends="template-default">
     <put-attribute name="title" value="Duel List" />
