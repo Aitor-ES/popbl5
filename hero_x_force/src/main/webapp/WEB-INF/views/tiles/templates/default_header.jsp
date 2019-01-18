@@ -68,13 +68,13 @@
         </c:choose>
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=en" role="button">
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/home?lang=en" role="button">
           <img src="${pageContext.request.contextPath}/static/img/default/united_kingdom.png" width="40" height="40" alt="<spring:message code="language.en"/>">
         </a>
-        <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=es" role="button">
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/home?lang=es" role="button">
           <img src="${pageContext.request.contextPath}/static/img/default/spain.png" width="40" height="40" alt="<spring:message code="language.es"/>">
         </a>
-        <a class="dropdown-item" href="${pageContext.request.contextPath}/${springViewName}?lang=eu" role="button">
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/home?lang=eu" role="button">
           <img src="${pageContext.request.contextPath}/static/img/default/basque_country.png" width="40" height="40" alt="<spring:message code="language.eu"/>">
         </a>
       </div>

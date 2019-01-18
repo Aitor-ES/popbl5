@@ -17,7 +17,7 @@ import java.util.List;
 
 public interface AchievementDao {
 	/**
-	 * @brief This adds an achievement
+	 * @brief This method adds an achievement
 	 * @param achievement Achievement object
 	 * @return void
 	 */
@@ -30,7 +30,7 @@ public interface AchievementDao {
 	List<Achievement> listAchievements();
 	
 	/**
-	 * @brief This method obtains the achievement which has the indicated id
+	 * @brief Method to get an achievement by its id
 	 * @param achievementId Achievement id int
 	 * @return Achievement
 	 */

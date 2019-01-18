@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 13/11/2018
- * @brief Package edu.mondragon.model
+ * @brief Package edu.mondragon.ability
  */
 
 package edu.mondragon.ability;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public interface AbilityService {
 	/**
-	 * @brief Method o add an ability
+	 * @brief Method to add an ability
 	 * @param ability Ability object
 	 * @return void
 	 */
@@ -30,7 +30,7 @@ public interface AbilityService {
 	List<Ability> listAbilities();
 
 	/**
-	 * @brief Method to get an ability
+	 * @brief Method to get an ability by its id
 	 * @param abilityId Ability id int
 	 * @return Ability
 	 */

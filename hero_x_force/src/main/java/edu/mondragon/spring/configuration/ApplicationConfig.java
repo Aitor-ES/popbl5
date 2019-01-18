@@ -1,6 +1,6 @@
 /**
  * @file ApplicationConfiguration.java
- * @brief Tiles configuration file
+ * @brief Defines callback methods to customize the Java-based configuration forSpring MVC 
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -51,7 +51,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 public class ApplicationConfig implements WebMvcConfigurer {
 
 	/**
-	 * @brief This method obtains the ViewResolver
+	 * @brief This method obtains the InternalResourceViewResolver
 	 * @return InternalResouceViewResolver
 	 */
 	@Bean(name = "viewResolver")
@@ -65,7 +65,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
 	}
 
 	/**
-	 * @brief This method configures tiles
+	 * @brief This method obtains the TilesConfigurer
 	 * @return TilesConfigurer
 	 */
 	@Bean
@@ -78,7 +78,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
 	}
 
 	/**
-	 * @brief This method obtains the messageSource
+	 * @brief This method obtains the MessageSource
 	 * @return MessageSource
 	 */
 	@Bean(name = "messageSource")
@@ -92,7 +92,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
 	}
 
 	/**
-	 * @brief Set the default locale as "en"
+	 * @brief Change locale by session and set default locale to en
 	 * @return LocaleResolver
 	 */
 	@Bean(name = "localeResolver")
@@ -104,7 +104,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
 
 	/**
 	 * @brief This method configures the ViewResolvers
-	 * @param registry Assists to configure the ViewResolver
+	 * @param registry Assist with the configuration of a chain of ViewResolver instances
 	 * @return void
 	 */
 	@Override
@@ -114,8 +114,8 @@ public class ApplicationConfig implements WebMvcConfigurer {
 	}
 
 	/**
-	 * @brief This method specifies that the resources are in the folder static
-	 * @param registry Stores registrations of resources handlers
+	 * @brief Add handlers to serve static resources such as images, js, and, cssfiles from specific locations
+	 * @param registry Stores registrations of resource handlers for serving static resources
 	 * @return void
 	 */
 	@Override
@@ -154,8 +154,8 @@ public class ApplicationConfig implements WebMvcConfigurer {
 	}
 
 	/**
-	 * @Brief This method add interceptors. Adds the "lang" parameter
-	 * @param registry To configure a list of mapped interceptors
+	 * @Brief Add Spring MVC lifecycle interceptors
+	 * @param registry Helps with configuring a list of mapped interceptors.
 	 * @return void
 	 */
 	@Override

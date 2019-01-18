@@ -37,7 +37,7 @@ public interface MatchService {
 	List<Match> listMatches();
 
 	/**
-	 * @brief This method the returns the match which has the indicated id
+	 * @brief This method returns the match which has the indicated id
 	 * @param matchId Match id int
 	 * @return Match
 	 */

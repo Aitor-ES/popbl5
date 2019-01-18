@@ -10,6 +10,7 @@
  * @date 19/01/2019
  * @brief Package edu.mondragon.spring.controller
  */
+
 package edu.mondragon.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,9 +25,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ErrorController {
 	
 	/**
-	 * @brief error controller
-	 * @param httpRequest
-	 * @return
+	 * @brief Method which redirects to the error page
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @return String
 	 */
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
 	public String errorPage(HttpServletRequest request, Model model) {
@@ -39,9 +41,9 @@ public class ErrorController {
 	}
 
 	/**
-	 * @bried Function to get the error code
-	 * @param httpRequest
-	 * @return
+	 * @bried Method to get the error code
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @return int
 	 */
 	private int getErrorCode(HttpServletRequest httpRequest) {
 		return (Integer) httpRequest.getAttribute("javax.servlet.error.status_code");

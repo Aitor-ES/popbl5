@@ -1,13 +1,13 @@
 /**
  * @file UserDaoImp.java
- * @brief This class manages the database
+ * @brief This class implements the user dao interface
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.user
  */
 
@@ -67,7 +67,8 @@ public class UserDaoImp implements UserDao {
 
 	/**
 	 * @bried This method removes a user
-	 * @param user
+	 * @param user User object
+	 * @return void
 	 */
 	@Override
 	public void removeUser(User user) {
@@ -87,7 +88,7 @@ public class UserDaoImp implements UserDao {
 
 	/**
 	 * @brief Method to find a user using the id
-	 * @param userId Users id int
+	 * @param userId User id int
 	 * @return User
 	 */
 	@Override
@@ -97,7 +98,7 @@ public class UserDaoImp implements UserDao {
 
 	/**
 	 * @brief Method to find a user using the username
-	 * @param name Users name
+	 * @param name Users name string
 	 * @return User
 	 */
 	@Override
@@ -110,7 +111,7 @@ public class UserDaoImp implements UserDao {
 
 	/**
 	 * @brief Method to find a user using the email
-	 * @param email Users email
+	 * @param email Users email string
 	 * @return User
 	 */
 	@Override
@@ -121,30 +122,55 @@ public class UserDaoImp implements UserDao {
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
 
+	/**
+	 * @brief Method to get user achievements
+	 * @param userId User id
+	 * @return Set<UserAchievementMap>
+	 */
 	@Override
 	public Set<UserAchievementMap> getUserAchievements(int userId) {
 		User user = getCurrentSession().find(User.class, userId);
 		return user.getUserAchievementMaps();
 	}
 
+	/**
+	 * @brief Method to get user cards
+	 * @param userId User id
+	 * @return Set<UserCardMap>
+	 */
 	@Override
 	public Set<UserCardMap> getUserCards(int userId) {
 		User user = getCurrentSession().find(User.class, userId);
 		return user.getUserCardMaps();
 	}
 
+	/**
+	 * @brief Method to get user decks
+	 * @param userId User id
+	 * @return Set<Deck>
+	 */
 	@Override
 	public Set<Deck> getUserDecks(int userId) {
 		User user = getCurrentSession().find(User.class, userId);
 		return user.getDecks();
 	}
 
+	/**
+	 * @brief Method to get user matches as user1
+	 * @param userId User id
+	 * @return Set<Match>
+	 */
 	@Override
 	public Set<Match> getMatchesAsUser1(int userId) {
 		User user = getCurrentSession().find(User.class, userId);
 		return user.getMatchesAsUser1();
 	}
 
+	/**
+	 * @brief Method to get user matches as user2
+	 * @param userId User id
+	 * @return Set<Match>
+	 */
 	@Override
 	public Set<Match> getMatchesAsUser2(int userId) {
 		User user = getCurrentSession().find(User.class, userId);

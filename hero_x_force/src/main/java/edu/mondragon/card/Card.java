@@ -1,6 +1,6 @@
 /**
  * @file Card.java
- * @brief The card class
+ * @brief The card model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -143,9 +143,19 @@ public class Card {
 
 	/**
 	 * @brief Class constructor
-	 * @param name
-	 * @param description
-	 * @param points
+	 * @param name Hero name String
+	 * @param saga Hero saga String
+	 * @param img Hero image link String
+	 * @param alt Hero image alt String
+	 * @param type Hero type String
+	 * @param ability Hero ability
+	 * @param hp Hero HP Integer
+	 * @param atk Hero ATK Integer
+	 * @param def Hero DEF Integer
+	 * @param magAtk Hero MAG ATK Integer
+	 * @param magDef Hero MAG DEF Integer
+	 * @param spd Hero SPEED Integer
+	 * @param stars Hero stars Integer
 	 */
 	public Card(String name, String saga, String img, String alt, String type, Ability ability, Integer hp, Integer atk,
 			Integer def, Integer magAtk, Integer magDef, Integer spd, Integer stars) {

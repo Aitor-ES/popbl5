@@ -7,7 +7,7 @@
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.usercardmap
  */
 
@@ -17,7 +17,7 @@ import java.util.List;
 
 public interface UserCardMapDao {
 	/**
-	 * @brief Method to add an UserCardMap
+	 * @brief Method to add a UserCardMap
 	 * @param userCardMap UserCardMap object
 	 * @return void
 	 */
@@ -30,7 +30,7 @@ public interface UserCardMapDao {
 	List<UserCardMap> listUserCardMaps();
 
 	/**
-	 * @brief Method to obtain an UserCardMap
+	 * @brief Method to obtain a UserCardMap
 	 * @param userCardMapId UserCardMap object id int
 	 * @return UserCardMap
 	 */

@@ -1,6 +1,6 @@
 /**
  * @file UserTournamentMap.java
- * @brief The UserTournamentMap class
+ * @brief The UserTournamentMap model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -47,21 +47,21 @@ public class UserTournamentMap {
 	private LocalDateTime date;
 	
 	/**
-	 * @brief User user id (FK)
+	 * @brief User (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private User user;
 	
 	/**
-	 * @brief Tournament tournament id (FK)
+	 * @brief Tournament (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID")
 	private Tournament tournament;
 	
 	/**
-	 * @brief Class constructor
+	 * @brief Empty constructor
 	 */
 	public UserTournamentMap() {
 		this.date = LocalDateTime.now();
@@ -69,6 +69,8 @@ public class UserTournamentMap {
 	
 	/**
 	 * @brief Class constructor with parameters
+	 * @param user User who joins the tournament
+	 * @param tournament Tournament object
 	 */
 	public UserTournamentMap(User user, Tournament tournament) {
 		this.date = LocalDateTime.now();

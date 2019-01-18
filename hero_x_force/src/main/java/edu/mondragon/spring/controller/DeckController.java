@@ -39,8 +39,9 @@ import edu.mondragon.user.UserService;
 @Controller
 @RequestMapping("/")
 public class DeckController {
+
 	/**
-	 * @brief Model services
+	 * @brief Hibernate services
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	DeckService deckService = ApplicationContextProvider.getContext().getBean(DeckService.class);
@@ -48,18 +49,17 @@ public class DeckController {
 	DeckCardMapService deckCardMapService = ApplicationContextProvider.getContext().getBean(DeckCardMapService.class);
 
 	/**
-	 * @brief Method to redirect to decks view
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @brief Method to redirect to deck list view
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/list" }, method = RequestMethod.GET)
 	public String decksPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
 			model.addAttribute("deckList", deckList);
@@ -70,18 +70,17 @@ public class DeckController {
 	}
 
 	/**
-	 * @brief Method to redirect to deck-form view
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @brief Method to redirect to deck form view with no id parameter (create deck)
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/form" }, method = RequestMethod.GET)
 	public String deckFormPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			/**
 			 * @brief TODO: future lines HttpSession session = request.getSession(true);
 			 *        Set<UserCardMap> cardMapList = userService.getUserCards(((User)
@@ -101,10 +100,10 @@ public class DeckController {
 	}
 
 	/**
-	 * @brief Method to redirect to deck-form view using id parameter
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
+	 * @brief Method to redirect to deck form view using id parameter (edit deck)
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @param id       To know which deck we are editing
 	 * @return String
 	 */
@@ -113,7 +112,7 @@ public class DeckController {
 			Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Deck deck = deckService.getDeckById(id);
 			model.addAttribute("deck", deck);
 
@@ -129,16 +128,16 @@ public class DeckController {
 
 	/**
 	 * @brief Method to save deck from deck form
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/form/save" }, method = RequestMethod.POST)
 	public String deckSave(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 
 			String deckIdAsString = request.getParameter("deckId");
@@ -187,9 +186,9 @@ public class DeckController {
 
 	/**
 	 * @brief Method to delete deck
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @param id       To know which deck we are deleting
 	 * @return String
 	 */
@@ -197,7 +196,7 @@ public class DeckController {
 	public String deleteDeck(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Integer deckId = Integer.valueOf(request.getParameter("deleteId"));
 			Deck deck = deckService.getDeckById(deckId);
 			deckService.removeDeck(deck);
@@ -205,24 +204,6 @@ public class DeckController {
 			view = "redirect:/deck/list";
 		}
 		return view;
-	}
-
-	/**
-	 * @brief Method that checks if users is logged
-	 * @param request Provides request information for the servlets
-	 * @param model   A holder for model attributes
-	 * @return boolean
-	 */
-	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;
-		HttpSession session = request.getSession(true);
-
-		if (session.getAttribute("user") != null) {
-			isUserLogged = true;
-		} else {
-			model.addAttribute("error", "general.notLogged");
-		}
-		return isUserLogged;
 	}
 
 }

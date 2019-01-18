@@ -1,13 +1,13 @@
 /**
  * @file UserCardMapServiceImp.java
- * @brief Class to manage the UserCardMapServiceImp dao
+ * @brief Class to implement the user card map service and manage the user card map dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.usercardmap
  */
 
@@ -29,7 +29,7 @@ public class UserCardMapServiceImp implements UserCardMapService {
 	private UserCardMapDao userCardMapDao;
 
 	/**
-	 * @brief Method to add userCardMaps to the dao
+	 * @brief Method to add a userCardMap to the dao
 	 * @param userCardMap UserCardMap object
 	 * @return void
 	 */
@@ -40,7 +40,7 @@ public class UserCardMapServiceImp implements UserCardMapService {
 	}
 	
 	/**
-	 * @brief Method to obtain the userCardMaps from the dao
+	 * @brief Method to obtain the userCardMap list from the dao
 	 * @return List<UserCardMap>
 	 */
 	@Transactional(readOnly = true)
@@ -50,7 +50,7 @@ public class UserCardMapServiceImp implements UserCardMapService {
 	}
 	
 	/**
-	 * @brief Method to obtain the userCardMap using the id from the dao
+	 * @brief Method to obtain a userCardMap using the id from the dao
 	 * @param userCardMapId UserCardMaps id int
 	 * @return UserCardMap
 	 */

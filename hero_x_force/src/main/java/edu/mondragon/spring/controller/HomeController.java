@@ -10,13 +10,16 @@
  * @date 19/01/2019
  * @brief Package edu.mondragon.spring.controller
  */
+
 package edu.mondragon.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import edu.mondragon.email.EmailService;
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
 import edu.mondragon.user.User;
@@ -25,15 +28,16 @@ import edu.mondragon.user.UserService;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+
 	/**
-	 * @brief Spring Services
+	 * @brief Hibernate services
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	EmailService emailService = ApplicationContextProvider.getContext().getBean(EmailService.class);
 
 	/**
-	 * @brief Method that manages the default page
-	 * @param model A holder for model attributes
+	 * @brief Method that redirects to the default page
+	 * @param model    This class serves as generic model holder for Servlet MVC
 	 * @return String
 	 */
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
@@ -42,7 +46,7 @@ public class HomeController {
 	}
 	
 	/**
-	 * @brief Method that manages the home
+	 * @brief Method that redirects to the home view
 	 * @return String
 	 */
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -51,12 +55,13 @@ public class HomeController {
 	}
 	
 	/**
-	 * @brief Method that manages the home page
-	 * @param model A holder for model attributes
+	 * @brief Method sends a mail to another user
+	 * @param model    This class serves as generic model holder for Servlet MVC
+	 * @param request  Defines an object to provide client request information to a servlet
 	 * @return String
 	 */
 	@RequestMapping(value = { "/home/form" }, method = RequestMethod.POST)
-	public String homePage(HttpServletRequest request, ModelMap model) {
+	public String homeForm(HttpServletRequest request, ModelMap model) {
 		String view = "home";
 		
 		String username = request.getParameter("username");

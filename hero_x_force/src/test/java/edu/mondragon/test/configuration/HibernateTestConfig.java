@@ -1,6 +1,6 @@
 /**
- * @file HibernateApplicationConfiguration.java
- * @brief Hibernate configuration file
+ * @file HibernateTestConfiguration.java
+ * @brief Hibernate configuration file for testing
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -8,7 +8,7 @@
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
- * @brief Package edu.mondragon.configuration
+ * @brief Package edu.mondragon.test.configuration
  */
 
 package edu.mondragon.test.configuration;
@@ -38,7 +38,7 @@ import edu.mondragon.test.entity.TestEntity;
 public class HibernateTestConfig {
 
 	/**
-	 * @brief Env variable
+	 * @brief Env Interface representing the environment in which the current application is running
 	 */
 	@Autowired
 	private Environment env;
@@ -58,7 +58,7 @@ public class HibernateTestConfig {
 	}
 
 	/**
-	 * @brief This method gets the session factory
+	 * @brief This method gets FactoryBean that creates a Hibernate SessionFactory
 	 * @return LocalSessionFactoryBean
 	 */
 	@Bean

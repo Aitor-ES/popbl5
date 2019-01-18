@@ -7,7 +7,7 @@
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.user
  */
 
@@ -23,14 +23,14 @@ import edu.mondragon.usercardmap.UserCardMap;
 
 public interface UserService {
 	/**
-	 * @brief This method adds an user
+	 * @brief This method adds a user
 	 * @param user User object
 	 * @return void
 	 */
 	void addUser(User user);
 
 	/**
-	 * @brief This method update a user
+	 * @brief This method updates a user
 	 * @param user User object
 	 * @return void
 	 */
@@ -38,7 +38,7 @@ public interface UserService {
 
 	/**
 	 * @bried This method removes a user
-	 * @param user
+	 * @param user User object
 	 * @return void
 	 */
 	void removeUser(User user);
@@ -58,50 +58,50 @@ public interface UserService {
 
 	/**
 	 * @brief Method to find a user using the username
-	 * @param name Users name
+	 * @param name User name string
 	 * @return User
 	 */
 	User getUserByName(String name);
 
 	/**
-	 * @brief Method to find a user using the email
-	 * @param email Users email
+	 * @brief Method to find user using the email
+	 * @param email User email string
 	 * @return User
 	 */
 	User getUserByEmail(String email);
 
 	/**
-	 * @brief
-	 * @param userId User id int
-	 * @return
+	 * @brief Method to get user achievements
+	 * @param userId User id
+	 * @return Set<UserAchievementMap>
 	 */
 	Set<UserAchievementMap> getUserAchievements(int userId);
 
 	/**
-	 * @brief
-	 * @param userId User id int
-	 * @return
+	 * @brief Method to get user cards
+	 * @param userId User id
+	 * @return Set<UserCardMap>
 	 */
 	Set<UserCardMap> getUserCards(int userId);
 
 	/**
-	 * @brief
-	 * @param userId User id int
-	 * @return
+	 * @brief Method to get user decks
+	 * @param userId User id
+	 * @return Set<Deck>
 	 */
 	Set<Deck> getUserDecks(int userId);
 
 	/**
-	 * @brief
-	 * @param userId User id int
-	 * @return
+	 * @brief Method to get user matches as user1
+	 * @param userId User id
+	 * @return Set<Match>
 	 */
 	Set<Match> getMatchesAsUser1(int userId);
 
 	/**
-	 * @brief
-	 * @param userId User id int
-	 * @return
+	 * @brief Method to get user matches as user2
+	 * @param userId User id
+	 * @return Set<Match>
 	 */
 	Set<Match> getMatchesAsUser2(int userId);
 }

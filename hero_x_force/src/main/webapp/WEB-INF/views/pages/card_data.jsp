@@ -172,39 +172,39 @@
       <!-- Balance -->
       <div class="col-sm-4">
         <h2 class="title-style"><spring:message code="card.data.balance.title"/></h2>
-        <div id="chart" class="radar-chart">
-            <script>
-            var colorElement = document.querySelector('.abilityName');
-            var style = getComputedStyle(colorElement);
-            var color = style.color;
+        <div id="chart">
+          <script>
+          var colorElement = document.querySelector('.abilityName');
+          var style = getComputedStyle(colorElement);
+          var color = style.color;
 
-            var config = {
-              maxValue: 200,
-              levels: 5,
-              fontFamily: "orbitron",
-              fontSize: "1.3rem",
-              radius: 4,
-              opacityArea: 0.5,
-              polygonColor: color,
-              polygonBorderColor: color,
-              pointBorderColor: color,
-              segmentColor: color
+          var config = {
+            maxValue: 200,
+            levels: 5,
+            fontFamily: "orbitron",
+            fontSize: "1.3rem",
+            radius: 4,
+            opacityArea: 0.5,
+            polygonColor: color,
+            polygonBorderColor: color,
+            pointBorderColor: color,
+            segmentColor: color
+          }
+          $.ajax({
+            data: {id: "${card.cardId}"},
+            url: "${pageContext.request.contextPath}/card/stats",
+            type: 'get',
+            beforeSend: function(){},
+            success: function(data){
+              var jsonObject = JSON.parse(data);
+              console.log(jsonObject);
+                //Call function to draw the Radar chart
+                drawHorizontalBarChart(jsonObject);
+                radar_chart.draw("#chart", jsonObject, config);
             }
-            $.ajax({
-              data: {id: "${card.cardId}"},
-              url: "${pageContext.request.contextPath}/card/stats",
-              type: 'get',
-              beforeSend: function(){},
-              success: function(data){
-                var jsonObject = JSON.parse(data);
-                console.log(jsonObject);
-                  //Call function to draw the Radar chart
-                  drawHorizontalBarChart(jsonObject);
-                  radar_chart.draw("#chart", jsonObject, config);
-              }
-            });
-            </script>
-            </div>
+          });
+          </script>
+        </div>
       </div>
     </div>
     <!-- End: Titles & Data -->

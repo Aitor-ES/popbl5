@@ -1,6 +1,6 @@
 /**
  * @file WebInitializer.java
- * @brief This class loads the application configuration
+ * @brief Class to configure the ServletContext programmatically as opposed to the traditional web.xml based approach
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -25,10 +25,12 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebInitializer implements WebApplicationInitializer {
-	
+
 	/**
-	 * @brief This method loads the spring configuration
-	 * @param container The servlet context methods to configure the servlet
+	 * @brief Configure the given ServletContext with any servlets, filters,
+	 *        listenerscontext-params and attributes necessary
+	 * @param container Defines a set of methods that a servlet uses to communicate
+	 *                  with its servlet container
 	 * @return void
 	 */
 	public void onStartup(ServletContext container) throws ServletException {
@@ -48,11 +50,12 @@ public class WebInitializer implements WebApplicationInitializer {
 		fr.setInitParameter("encoding", "UTF-8");
 		fr.setInitParameter("forceEncoding", "true");
 		fr.addMappingForUrlPatterns(null, true, "/*");
-		
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class, EmailConfig.class);
-		new ApplicationContextProvider().setContext(context);	
-		
+
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class,
+				EmailConfig.class);
+		new ApplicationContextProvider().setContext(context);
+
 		new DataBaseInitializer(context);
 	}
-	
+
 }

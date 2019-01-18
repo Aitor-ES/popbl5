@@ -1,6 +1,6 @@
 /**
  * @file UserAchievementMap.java
- * @brief The userAchievementMap class
+ * @brief The userAchievementMap model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -42,7 +42,7 @@ public class UserAchievementMap {
 	private Integer userAchievementMapId;
 
 	/**
-	 * @brief Match date
+	 * @brief Achievement unlock date
 	 */
 	@Column(name = "DATE")
 	private String date;
@@ -55,21 +55,21 @@ public class UserAchievementMap {
 	private String hour;
 	
 	/**
-	 * @brief User user id (FK)
+	 * @brief User (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private User user;
 	
 	/**
-	 * @brief Achievement achievement id (FK)
+	 * @brief Achievement (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ACHIEVEMENT_ID", referencedColumnName = "ACHIEVEMENT_ID")
 	private Achievement achievement;
 	
 	/**
-	 * @brief Class constructor
+	 * @brief Empty constructor
 	 */
 	public UserAchievementMap() {
 		this.date = parseCurrentDate(LocalDateTime.now());
@@ -77,7 +77,9 @@ public class UserAchievementMap {
 	}
 	
 	/**
-	 * @brief Class constructor with parameters
+	 * @brief Class constructor
+	 * @param user User who unlocks the achievement
+	 * @param achievement Achievement unlocked
 	 */
 	public UserAchievementMap(User user, Achievement achievement) {
 		this.user = user;

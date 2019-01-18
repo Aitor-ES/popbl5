@@ -1,6 +1,6 @@
 /**
  * @file UserCardMap.java
- * @brief The userCardMap class
+ * @brief The userCardMap model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -54,14 +54,14 @@ public class UserCardMap {
 	private String hour;
 	
 	/**
-	 * @brief User user id (FK)
+	 * @brief User (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private User user;
 	
 	/**
-	 * @brief Card card id (FK)
+	 * @brief Card (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CARD_ID", referencedColumnName = "CARD_ID")

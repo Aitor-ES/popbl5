@@ -11,18 +11,6 @@
  * @brief Package edu.mondragon.spring.controller
  */
 package edu.mondragon.spring.controller;
-/**
- * @file DuelController.java
- * @brief This class manages the duel view mapping
- * @author Name  | Surname   | Email                        |
- * ------|-----------|--------------------------------------|
- * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
- * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
- * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
- * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.controllers
- */
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -61,8 +49,9 @@ import edu.mondragon.userachievementmap.UserAchievementMapService;
 @Controller
 @RequestMapping("/")
 public class DuelController {
+
 	/**
-	 * @brief The user service
+	 * @brief Hibernate services
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	UserAchievementMapService userAchievementMapService = ApplicationContextProvider.getContext()
@@ -71,46 +60,36 @@ public class DuelController {
 	MatchService matchService = ApplicationContextProvider.getContext().getBean(MatchService.class);
 	DeckService deckService = ApplicationContextProvider.getContext().getBean(DeckService.class);
 
+
+	/**
+	 * @brief Battle log with all the messages of the match
+	 */
 	private List<String> battleLog = new ArrayList<>();
 
 	/**
-	 * @brief Method that checks if users is logged
-	 * @param request Provides request information for the servlets
-	 * @param model   A holder for model attributes
-	 * @return boolean
-	 */
-	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;
-		HttpSession session = request.getSession(true);
-
-		if (session.getAttribute("user") != null) {
-			isUserLogged = true;
-		} else {
-			model.addAttribute("error", "general.notLogged");
-		}
-		return isUserLogged;
-	}
-
-	/**
-	 * @brief Method to redirect to duels view
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @brief Method to redirect to duel list view
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = { "/duel/list" }, method = RequestMethod.GET)
 	public String duelsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			Set<Match> matchesAsUser2 = userService
 					.getMatchesAsUser2(((User) session.getAttribute("user")).getUserId());
 
-			/*
-			 * Iterator<Match> it = matchesAsUser2.iterator(); while (it.hasNext()) { Match
-			 * match = it.next(); if (match.getWinner() != null) { it.remove(); } }
-			 */
+			Iterator<Match> it = matchesAsUser2.iterator();
+			while (it.hasNext()) {
+				Match match = it.next();
+				if (match.getWinner() != null) {
+					it.remove();
+				}
+			}
+
 			model.addAttribute("matchesAsUser2", matchesAsUser2);
 
 			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
@@ -124,9 +103,10 @@ public class DuelController {
 
 	/**
 	 * @brief Method to refuse and delete a duel
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
+	 * @param id	   To know which duel we are deleting
 	 * @return String
 	 */
 	@RequestMapping(value = { "/duel/{id}/delete" }, method = RequestMethod.GET)
@@ -134,7 +114,7 @@ public class DuelController {
 			Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Match match = matchService.getMatchById(id);
 			matchService.removeMatch(match);
 
@@ -146,15 +126,15 @@ public class DuelController {
 
 	/**
 	 * @brief Method to redirect to duel create view
-	 * @param request
-	 * @param model
-	 * @return
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @return String
 	 */
 	@RequestMapping(value = { "/duel/create" }, method = RequestMethod.GET)
 	public String duelCreatePage(HttpServletRequest request, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			User sessionUser = (User) session.getAttribute("user");
 
@@ -181,10 +161,10 @@ public class DuelController {
 
 	/**
 	 * @brief Method that manages the duel creation form
-	 * @param request
-	 * @param response
-	 * @param model
-	 * @return
+	 * @param model    This class serves as generic model holder for Servlet MVC
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
+	 * @return String
 	 */
 	@RequestMapping(value = "/duel/create/save", method = RequestMethod.POST)
 	public String registerFormPage(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
@@ -209,18 +189,18 @@ public class DuelController {
 	}
 
 	/**
-	 * @brief Method to redirect to duels battle
-	 * @param model   implementation of Map for use when building data model
-	 * @param request Provides request information for the servlets
+	 * @brief Method to redirect to duel battle view
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @param id      The duel id contained in the mapping link
-	 * @param model   A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/duel/{id}/battle" }, method = RequestMethod.POST)
 	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Match match = matchService.getMatchById(id);
 			
 			model.addAttribute("match", matchService.getMatchById(id));
@@ -279,6 +259,10 @@ public class DuelController {
 		return view;
 	}
 
+	/**
+	 * @brief Checks if the winner has unlocked an achievement and unlocks it
+	 * @param User    Winner user
+	 */
 	private void checkWinAchievements(User winner) {
 		Achievement achievement = null;
 		switch (winner.getWins()) {
@@ -322,10 +306,9 @@ public class DuelController {
 	}
 
 	/**
-	 * @brief
-	 * @param deck_1
-	 * @param deck_2
-	 * @return
+	 * @brief Method to start a match between two users
+	 * @param match Match object
+	 * @return boolean true if user1 is winner, false otherwise
 	 */
 	public boolean startBattle(Match match) {
 		Deck deck1 = match.getDeck1();
@@ -365,10 +348,10 @@ public class DuelController {
 	}
 
 	/**
-	 * @brief
-	 * @param hero_1
-	 * @param hero_2
-	 * @return
+	 * @brief Method to start a round between two heroes
+	 * @param hero_1 Card object corresponding to Hero1
+	 * @param hero_2 Card object corresponding to Hero2
+	 * @return boolean true if Hero1 is winner, false otherwise
 	 */
 	private boolean startRound(Card hero1, Card hero2) {
 		boolean isHero1Winner;
@@ -395,9 +378,9 @@ public class DuelController {
 	}
 
 	/**
-	 * @brief
-	 * @param hero1
-	 * @param hero2
+	 * @brief Method to start a turn inside a round
+	 * @param hero_1 Card object corresponding to Hero1
+	 * @param hero_2 Card object corresponding to Hero2
 	 */
 	private void startTurn(Card hero1, Card hero2) {
 		double speedComparison = hero1.getSpd() / hero2.getSpd();
@@ -422,9 +405,9 @@ public class DuelController {
 	}
 
 	/**
-	 * @brief
-	 * @param attacker
-	 * @param defender
+	 * @brief Method to make a hero attack its opponent
+	 * @param attacker Card object
+	 * @param defender Card object
 	 */
 	private void move(Card attacker, Card defender) {
 		boolean physicalOrMagical;
@@ -496,8 +479,8 @@ public class DuelController {
 	}
 
 	/**
-	 * @brief
-	 * @return
+	 * @brief Method which generates a JSON object with the battle log to parse it with AJAX
+	 * @return String
 	 */
 	@RequestMapping(value = "/duel/battle/update", method = RequestMethod.POST)
 	@ResponseBody

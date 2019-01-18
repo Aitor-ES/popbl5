@@ -1,14 +1,12 @@
 /* Card Data
  *********************************************************/
-#chart > svg {
+#card-data #chart > svg {
   transform: scale(0.5, 0.5);
   -ms-transform: scale(0.5, 0.5); /* IE 9 */
   -webkit-transform: scale(0.5, 0.5); /* Safari and Chrome */
   -o-transform: scale(0.5, 0.5); /* Opera */
   -moz-transform: scale(0.5, 0.5); /* Firefox */
   
-  margin-left: -100px;
-  padding-left: -100px;
-  margin-top: -100px;
-  padding-top: -100px;
+  margin: -85px;
+  bottom: 0;
 }

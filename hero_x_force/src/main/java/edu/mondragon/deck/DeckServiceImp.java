@@ -1,6 +1,6 @@
 /**
  * @file DeckServiceImp.java
- * @brief Class to manage the user dao
+ * @brief Class to implement the deck service and manage the deck dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -52,7 +52,7 @@ public class DeckServiceImp implements DeckService {
 
 	/**
 	 * @bried This method removes a deck
-	 * @param deck
+	 * @param deck Deck object
 	 * @return void
 	 */
 	@Transactional

@@ -1,13 +1,13 @@
 /**
  * @file Tournament.java
- * @brief The tournament class
+ * @brief The tournament model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.tournament
  */
 
@@ -59,26 +59,26 @@ public class Tournament {
 	private Integer numParticipants;
 
 	/**
-	 * @brief Tournament date
+	 * @brief Tournament date string
 	 */
 	@Column(name = "DATE")
 	private String date;
 
 	/**
-	 * @brief Tournament hour
+	 * @brief Tournament hour string
 	 */
 	@Column(name = "HOUR")
 	private String hour;
 
 	/**
-	 * @brief User id (FK)
+	 * @brief Winner (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)
 	private User winner;
 
 	/**
-	 * @brief Matches list (FK)
+	 * @brief Match list (FK)
 	 */
 	@OneToMany(mappedBy = "tournament", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Match> matches = new HashSet<>();
@@ -97,9 +97,8 @@ public class Tournament {
 
 	/**
 	 * @brief Class constructor
-	 * @param name             Tournament name
-	 * @param num_participants Tournament participants
-	 * @param date             Tournament start date
+	 * @param name            Tournament name
+	 * @param numParticipants Number of participants
 	 */
 	public Tournament(String name, Integer numParticipants) {
 		this.name = name;
@@ -108,6 +107,11 @@ public class Tournament {
 		this.hour = parseCurrentHour(LocalDateTime.now());
 	}
 
+	/**
+	 * @brief Method to parse date
+	 * @param date LocalDateTime to parse
+	 * @return String
+	 */
 	private String parseCurrentDate(LocalDateTime date) {
 		String pattern = "YYYY-MM-dd";
 
@@ -116,6 +120,11 @@ public class Tournament {
 		return date.format(formatter);
 	}
 
+	/**
+	 * @brief Method to parse hour
+	 * @param date LocalDateTime to parse
+	 * @return String
+	 */
 	private String parseCurrentHour(LocalDateTime date) {
 		String pattern = "HH:mm";
 

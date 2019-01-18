@@ -1,6 +1,6 @@
 /**
  * @file Match.java
- * @brief The match class
+ * @brief The match model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -35,7 +35,7 @@ import edu.mondragon.user.User;
 public class Match {
 
 	/**
-	 * @brief Matches id (PK)
+	 * @brief Match id (PK)
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,55 +43,54 @@ public class Match {
 	private Integer matchId;
 
 	/**
-	 * @brief Match date
+	 * @brief Match date string
 	 */
 	@Column(name = "DATE")
 	private String date;
 
 	/**
-	 * @brief user_1 user_id (FK)
-	 * @brief Match hour
+	 * @brief Match hour string
 	 */
 	@Column(name = "HOUR")
 	private String hour;
 
 	/**
-	 * @brief user_1_matchMap list (FK)
+	 * @brief user1 (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_1_ID", referencedColumnName = "USER_ID")
 	private User user1;
 
 	/**
-	 * @brief user_2 user_id (FK)
+	 * @brief user2 (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_2_ID", referencedColumnName = "USER_ID")
 	private User user2;
 
 	/**
-	 * @brief deck_1 deck_id (FK)
+	 * @brief deck1 (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DECK_1_ID", referencedColumnName = "DECK_ID")
 	private Deck deck1;
 
 	/**
-	 * @brief deck_2 deck_id (FK)
+	 * @brief deck2 (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DECK_2_ID", referencedColumnName = "DECK_ID")
 	private Deck deck2;
 
 	/**
-	 * @brief Tournament id (FK)
+	 * @brief tournament (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TOURNAMENT_ID", referencedColumnName = "TOURNAMENT_ID", nullable = true)
 	private Tournament tournament;
 
 	/**
-	 * @brief Winner user id (FK)
+	 * @brief winner (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "WINNER_ID", referencedColumnName = "USER_ID", nullable = true)

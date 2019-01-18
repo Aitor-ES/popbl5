@@ -1,6 +1,6 @@
 /**
  * @file Deck.java
- * @brief The deck class
+ * @brief The deck model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -82,9 +82,8 @@ public class Deck {
 	
 	/**
 	 * @brief Class constructor
-	 * @param name
-	 * @param description
-	 * @param points
+	 * @param name Deck name String
+	 * @param creator Creator user
 	 */
 	public Deck(String name, User creator) {
 		this.name = name;

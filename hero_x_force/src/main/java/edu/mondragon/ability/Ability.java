@@ -1,6 +1,6 @@
 /**
  * @file Ability.java
- * @brief The ability class
+ * @brief The ability model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -66,8 +66,8 @@ public class Ability {
 	
 	/**
 	 * @brief Class constructor
-	 * @param name String name
-	 * @param description String description
+	 * @param name Ability name
+	 * @param description Ability description
 	 */
 	public Ability(String name, String description) {
 		this.name = name;

@@ -1,6 +1,6 @@
 /**
  * @file Achievement.java
- * @brief The achievement class
+ * @brief The achievement model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -72,9 +72,9 @@ public class Achievement {
 
 	/**
 	 * @brief Class constructor
-	 * @param name
-	 * @param description
-	 * @param points
+	 * @param name Achievement name
+	 * @param description Achievement description
+	 * @param points Achievement points
 	 */
 	public Achievement(String name, Integer points, String description) {
 		this.name = name;
