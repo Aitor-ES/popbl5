@@ -125,12 +125,6 @@
       <version>1.6</version>
     </dependency>
 
-    <!-- Java 8 support in Hibernate 5 v5.4.0 -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-java8</artifactId>
-      <version>5.4.0.Final</version>
-    </dependency>
 
     <!-- JSON In Java v20180813 -->
     <dependency>
@@ -160,12 +154,6 @@
       <version>1.6.2</version>
     </dependency>
 
-    <!-- JSON in Java v20180813 -->
-    <dependency>
-      <groupId>org.json</groupId>
-      <artifactId>json</artifactId>
-      <version>20180813</version>
-    </dependency>
 
     <!-- H2 1.4.197 -->
     <dependency>

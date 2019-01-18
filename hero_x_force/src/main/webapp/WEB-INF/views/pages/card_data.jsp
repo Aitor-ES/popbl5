@@ -23,7 +23,7 @@
         <div class="heroCardFather" id="card${card.cardId}">
           <div class="heroCardStatic">
             <div class="cardImg" 
-              style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')">
+              style="background-image: url('${pageContext.request.contextPath}/${card.img}')">
             </div>
             <img class="templateImg"
               src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"

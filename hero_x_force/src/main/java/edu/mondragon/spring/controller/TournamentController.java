@@ -73,6 +73,9 @@ public class TournamentController {
 			}
 			model.addAttribute("availableTournamentList", availableTournamentList);
 			model.addAttribute("joinedTournamentList", joinedTournamentList);
+			
+			System.out.println(availableTournamentList);
+			System.out.println(joinedTournamentList);
 
 			view = "tournament/list";
 		}

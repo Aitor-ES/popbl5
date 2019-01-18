@@ -173,112 +173,112 @@ public class DataBaseInitializer {
 		CardService cardService = context.getBean(CardService.class);
 
 		Card card1 = new Card("Pikachu", "Pokémon",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Pikachu.png",
 				"Pikachu image", "Electric", ability1, 60, 90, 55, 90, 80, 110, 2);
 		cardService.addCard(card1);
 
 		Card card2 = new Card("Rotom", "Pokémon",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Rotom.png",
 				"Rotom image", "Electric", ability1, 50, 50, 77, 95, 77, 91, 1);
 		cardService.addCard(card2);
 
 		Card card3 = new Card("Morgana", "League of Legends",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Morgana.png",
 				"Morgana image", "Dark", ability2, 70, 90, 90, 135, 90, 125, 4);
 		cardService.addCard(card3);
 
 		Card card4 = new Card("Tryndamere", "League of Legends",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Tryndamere.png",
 				"Tryndamere image", "Ice", ability3, 110, 130, 80, 70, 60, 80, 3);
 		cardService.addCard(card4);
 
 		Card card5 = new Card("Lux", "League of Legends",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Lux.png",
 				"Lux image", "Light", ability4, 68, 65, 65, 125, 115, 80, 3);
 		cardService.addCard(card5);
 
 		Card card6 = new Card("Shaco", "League of Legends",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Shaco.png",
 				"Shaco image", "Dark", ability5, 95, 103, 67, 72, 71, 122, 3);
 		cardService.addCard(card6);
 
 		Card card7 = new Card("Bard", "League of Legends",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Bard.png",
 				"Bard image", "Light", ability6, 85, 50, 120, 95, 115, 80, 3);
 		cardService.addCard(card7);
 
 		Card card8 = new Card("Shulk", "Xenoblade Chronicles",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Shulk.png",
 				"Shulk image", "Light", ability7, 70, 140, 88, 145, 70, 112, 5);
 		cardService.addCard(card8);
 
 		Card card9 = new Card("Link", "The Legend of Zelda",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Link.png",
 				"Link image", "Light", ability8, 108, 130, 95, 80, 85, 102, 4);
 		cardService.addCard(card9);
 
 		Card card10 = new Card("Zelda", "The Legend of Zelda",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Zelda.png",
 				"Zelda image", "Light", ability9, 95, 65, 130, 115, 130, 65, 4);
 		cardService.addCard(card10);
 
 		Card card11 = new Card("Ganondorf", "The Legend of Zelda",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Ganondorf.png",
 				"Ganondorf image", "Dark", ability10, 100, 134, 110, 95, 100, 61, 4);
 		cardService.addCard(card11);
 
 		Card card12 = new Card("Mewtwo", "Pokémon",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Mewtwo.png",
 				"Mewtwo image", "Psychic", ability11, 106, 110, 90, 154, 90, 130, 5);
 		cardService.addCard(card12);
 
 		Card card13 = new Card("Bulbasaur", "Pokémon",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Bulbasaur.png",
 				"Bulbasaur image", "Plant", ability12, 60, 62, 63, 80, 80, 60, 1);
 		cardService.addCard(card13);
 
 		Card card14 = new Card("Arcanine", "Pokémon",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Arcanine.png",
 				"Arcanine image", "Fire", ability13, 90, 110, 80, 100, 80, 95, 4);
 		cardService.addCard(card14);
 
 		Card card15 = new Card("Snorlax", "Pokémon",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Snorlax.png",
 				"Snorlax image", "Normal", ability14, 160, 110, 65, 65, 110, 30, 4);
 		cardService.addCard(card15);
 
 		Card card16 = new Card("Sans", "Undertale",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Sans.png",
 				"Sans image", "Dark", ability15, 1, 200, 1, 200, 1, 200, 5);
 		cardService.addCard(card16);
 
 		Card card17 = new Card("Undyne", "Undertale",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Undyne.png",
 				"Undyne image", "Water", ability15, 95, 108, 70, 100, 70, 85, 3);
 		cardService.addCard(card17);
 
 		Card card18 = new Card("Undyne the Undying", "Undertale",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Undyne the Undying.png",
 				"Undyne the Undying image", "Water", ability16, 105, 158, 80, 120, 80, 100, 5);
 		cardService.addCard(card18);
 
 		Card card19 = new Card("Isaac", "The Binding of Isaac",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Isaac.png",
 				"Isaac image", "Normal", ability17, 90, 90, 90, 90, 90, 90, 4);
 		cardService.addCard(card19);
 
 		Card card20 = new Card("The Lost", "The Binding of Isaac",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/The Lost.png",
 				"The Lost image", "Ghost", ability18, -1, 90, 90, 90, 90, 90, 4);
 		cardService.addCard(card20);
 
 		Card card21 = new Card("Subject Delta", "Bioshock",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Subject Delta.png",
 				"Undyne the Undying image", "Normal", ability19, 100, 90, 105, 80, 100, 60, 3);
 		cardService.addCard(card21);
 
 		Card card22 = new Card("Booker DeWitt and Elizabeth", "Bioshock",
-				"http://los40cr00.epimg.net/los40/imagenes/2018/12/03/actualidad/1543857937_704979_1543858004_noticia_normal.jpg",
+				"static/img/card/heroes/Booker DeWitt and Elizabeth.png",
 				"Booker DeWitt and Elizabeth image", "Normal", ability20, 80, 125, 75, 120, 75, 90, 4);
 		cardService.addCard(card22);
 

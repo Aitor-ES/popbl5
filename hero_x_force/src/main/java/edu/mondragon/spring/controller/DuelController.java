@@ -359,7 +359,7 @@ public class DuelController {
 		}
 		this.battleLog.add("ROUNDS WON BY PLAYER 1: " + player1Points);
 		this.battleLog.add("ROUNDS WON BY PLAYER 2: " + player2Points);
-		this.battleLog.add((player1Points > player2Points) ? "YOU WIN!" : "YOU LOSE...");
+		this.battleLog.add((player1Points > player2Points) ? "YOU LOSE..." : "YOU WIN!");
 
 		return (player1Points > player2Points);
 	}
