@@ -37,7 +37,7 @@ public interface CardDao {
 	Card getCardById(int cardId);
 	
 	/**
-	 * @brief This method returns the hero number
+	 * @brief This method returns the number of heroes in the game
 	 * @return int
 	 */
 	int getHeroNumber();

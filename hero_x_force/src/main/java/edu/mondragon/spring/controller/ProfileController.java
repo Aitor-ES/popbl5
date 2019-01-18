@@ -10,19 +10,8 @@
  * @date 19/01/2019
  * @brief Package edu.mondragon.spring.controller
  */
+
 package edu.mondragon.spring.controller;
-/**
- * @file ProfileController.java
- * @brief This class manages the profile view mapping
- * @author Name  | Surname   | Email                        |
- * ------|-----------|--------------------------------------|
- * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
- * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
- * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
- * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.controllers
- */
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,18 +37,18 @@ import edu.mondragon.userachievementmap.UserAchievementMap;
 @Controller
 @RequestMapping("/")
 public class ProfileController {
+
 	/**
-	 * @brief The user service
+	 * @brief Hibernate services
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	EmailService emailService = ApplicationContextProvider.getContext().getBean(EmailService.class);
 
 	/**
-	 * @brief Method that shows the profile
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @brief Method that redirects to the profile data view
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile/data", method = RequestMethod.GET)
@@ -85,11 +74,10 @@ public class ProfileController {
 	}
 
 	/**
-	 * @brief Method that shows the view to edit the user data
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @brief Method that redirects to the profile edit view
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile/edit", method = RequestMethod.GET)
@@ -99,9 +87,9 @@ public class ProfileController {
 
 	/**
 	 * @brief Method that manages the login form
-	 * @param request
-	 * @param reponse
-	 * @param model   implementation of Map for use when building data model
+	 * @param model    This class serves as generic model holder for Servlet MVC
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = "/profile/form", method = RequestMethod.POST)
@@ -148,10 +136,10 @@ public class ProfileController {
 	}
 
 	/**
-	 * @brief Method to send an email to the user and to the hero-x-force team
-	 * @param email
-	 * @param username
-	 * @param password
+	 * @brief Method to send an email to the user and to the HXF team
+	 * @param email    Email account string
+	 * @param username Username string
+	 * @param password Password string
 	 */
 	public void sendEmail(String email, String username, String password) {
 		emailService.sendSimpleMessage(email, "Hero X-Force Account Modification",

@@ -9,7 +9,9 @@
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
  * @date 19/01/2019
  * @brief Package edu.mondragon.ability
- */package edu.mondragon.ability;
+ */
+
+package edu.mondragon.ability;
 
 import java.util.List;
 

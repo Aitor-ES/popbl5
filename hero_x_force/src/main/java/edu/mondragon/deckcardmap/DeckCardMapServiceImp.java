@@ -1,6 +1,6 @@
 /**
  * @file DeckCardMapserviceImp.java
- * @brief Class to manage the DeckCardMap dao
+ * @brief Class to implement the deckcardmap service and manage the DeckCardMap dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -29,7 +29,7 @@ public class DeckCardMapServiceImp implements DeckCardMapService {
 	private DeckCardMapDao deckCardMapDao;
 
 	/**
-	 * @brief Method to add deckCardMaps to the dao
+	 * @brief Method to add a deck card map to the dao
 	 * @param deckCardMap DeckCardMap object
 	 * @return void
 	 */
@@ -40,7 +40,7 @@ public class DeckCardMapServiceImp implements DeckCardMapService {
 	}
 
 	/**
-	 * @brief This method updates a deckCardMap
+	 * @brief This method updates a deck card map
 	 * @param deckCardMap DeckCardMap object
 	 * @return void
 	 */
@@ -51,7 +51,7 @@ public class DeckCardMapServiceImp implements DeckCardMapService {
 	}
 	
 	/**
-	 * @brief Method to obtain the deckCardMaps from the dao
+	 * @brief Method to obtain the deck card maps from the dao
 	 * @return List<DeckCardMap>
 	 */
 	@Transactional(readOnly = true)
@@ -61,7 +61,7 @@ public class DeckCardMapServiceImp implements DeckCardMapService {
 	}
 	
 	/**
-	 * @brief Method to obtain the deckCardMap using the id from the dao
+	 * @brief Method to obtain the deck card map using the id from the dao
 	 * @param deckCardMapId DeckCardMaps id int
 	 * @return DeckCardMap
 	 */

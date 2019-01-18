@@ -1,6 +1,6 @@
 /**
  * @file AchievementDaoImp.java
- * @brief This class manages the database
+ * @brief This class implements the interface for the Dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -32,7 +32,7 @@ public class AchievementDaoImp implements AchievementDao {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * @brief This method adds a achievement
+	 * @brief This method adds an achievement
 	 * @param achievement Achievement object
 	 * @return void
 	 */
@@ -43,7 +43,7 @@ public class AchievementDaoImp implements AchievementDao {
 
 	/**
 	 * @brief Method to obtain the list of achievements that are in database
-	 * @return List<Card>
+	 * @return List<Achievement>
 	 */
 	@Override
 	public List<Achievement> listAchievements() {

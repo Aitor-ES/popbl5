@@ -39,8 +39,9 @@ import edu.mondragon.user.UserService;
 @Controller
 @RequestMapping("/")
 public class DeckController {
+
 	/**
-	 * @brief Model services
+	 * @brief Hibernate services
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
 	DeckService deckService = ApplicationContextProvider.getContext().getBean(DeckService.class);
@@ -48,11 +49,10 @@ public class DeckController {
 	DeckCardMapService deckCardMapService = ApplicationContextProvider.getContext().getBean(DeckCardMapService.class);
 
 	/**
-	 * @brief Method to redirect to decks view
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @brief Method to redirect to deck list view
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/list" }, method = RequestMethod.GET)
@@ -70,11 +70,10 @@ public class DeckController {
 	}
 
 	/**
-	 * @brief Method to redirect to deck-form view
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @brief Method to redirect to deck form view with no id parameter (create deck)
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/form" }, method = RequestMethod.GET)
@@ -101,10 +100,10 @@ public class DeckController {
 	}
 
 	/**
-	 * @brief Method to redirect to deck-form view using id parameter
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
+	 * @brief Method to redirect to deck form view using id parameter (edit deck)
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @param id       To know which deck we are editing
 	 * @return String
 	 */
@@ -129,9 +128,9 @@ public class DeckController {
 
 	/**
 	 * @brief Method to save deck from deck form
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @return String
 	 */
 	@RequestMapping(value = { "/deck/form/save" }, method = RequestMethod.POST)
@@ -187,9 +186,9 @@ public class DeckController {
 
 	/**
 	 * @brief Method to delete deck
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
+	 * @param model    Defines a holder for model attributes. Primarily designed for adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a servlet
+	 * @param response Defines an object to assist a servlet in sending a response to the client
 	 * @param id       To know which deck we are deleting
 	 * @return String
 	 */

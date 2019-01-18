@@ -1,14 +1,14 @@
 /**
  * @file UserserviceImp.java
- * @brief Class to manage the user dao
+ * @brief Class to implement the user achievement map service and manage the user achievement map dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.model
+ * @date 19/11/2019
+ * @brief Package edu.mondragon.userachievementmap
  */
 
 package edu.mondragon.userachievementmap;
@@ -29,7 +29,7 @@ public class UserAchievementMapServiceImp implements UserAchievementMapService {
 	private UserAchievementMapDao userAchievementMapDao;
 
 	/**
-	 * @brief Method to add userAchievementMaps to the dao
+	 * @brief Method to add a userAchievementMap to the dao
 	 * @param userAchievementMap UserAchievementMap object
 	 * @return void
 	 */
@@ -40,7 +40,7 @@ public class UserAchievementMapServiceImp implements UserAchievementMapService {
 	}
 	
 	/**
-	 * @brief Method to obtain the userAchievementMaps from the dao
+	 * @brief Method to obtain the userAchievementMap list from the dao
 	 * @return List<UserAchievementMap>
 	 */
 	@Transactional(readOnly = true)
@@ -51,7 +51,7 @@ public class UserAchievementMapServiceImp implements UserAchievementMapService {
 	
 	/**
 	 * @brief Method to obtain the userAchievementMap using the id from the dao
-	 * @param userAchievementMapId UserAchievementMaps id int
+	 * @param userAchievementMapId UserAchievementMap id int
 	 * @return UserAchievementMap
 	 */
 	@Transactional(readOnly = true)

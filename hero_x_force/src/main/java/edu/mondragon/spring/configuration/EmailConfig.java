@@ -30,13 +30,13 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 public class EmailConfig {
 	
 	/**
-	 * @brief Enviroment
+	 * @brief env Interface representing the environment in which the current application is running
 	 */
 	@Autowired
 	private Environment env;
 	
 	/**
-	 * @brief Simple email message
+	 * @brief Create simple email message
 	 * @return SimpleEmailMessage
 	 */
 	@Bean

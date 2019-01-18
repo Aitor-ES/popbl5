@@ -1,6 +1,6 @@
 /**
  * @file DeckDaoImp.java
- * @brief This class manages the database
+ * @brief This class implements the interface for the Dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -42,7 +42,7 @@ public class DeckDaoImp implements DeckDao {
 	}
 	
 	/**
-	 * @brief This method update the deck data
+	 * @brief This method updates a deck
 	 * @param deck Deck object
 	 * @return void
 	 */
@@ -53,7 +53,7 @@ public class DeckDaoImp implements DeckDao {
 
 	/**
 	 * @bried This method removes a deck
-	 * @param deck
+	 * @param deck Deck object
 	 * @return void
 	 */
 	@Override
@@ -62,7 +62,7 @@ public class DeckDaoImp implements DeckDao {
 	}
 
 	/**
-	 * @brief Method to obtain the list of decks that are in database
+	 * @brief Method to obtain the list of decks that are in the database
 	 * @return List<Deck>
 	 */
 	@Override

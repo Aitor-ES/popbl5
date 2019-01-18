@@ -1,6 +1,6 @@
 /**
  * @file ApplicationContextProvider.java
- * @brief Provides the application context
+ * @brief Provides the application context in a static way
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -17,20 +17,21 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class ApplicationContextProvider {
 
 	/**
-	 * @brief application context
+	 * @brief context Standalone application context
 	 */
 	private static AnnotationConfigApplicationContext context;
 	
 	/**
-	 * @brief Static class to get the context of the application
-	 * @return AnnotationConfigApplicationContext
+	 * @brief Static method to get the context of the application
+	 * @return AnnotationConfigApplicationContext object
 	 */
 	public static AnnotationConfigApplicationContext getContext() {
 		return context;
 	}
 	
 	/**
-	 * @brief Static class to set the context of the application
+	 * @brief Static method to set the context of the application
+	 * @param context AnnotationConfigApplicationContext object
 	 * @return void
 	 */
 	public void setContext(AnnotationConfigApplicationContext context) {

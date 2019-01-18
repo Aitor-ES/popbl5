@@ -1,6 +1,6 @@
 /**
  * @file MatchDaoImp.java
- * @brief This class manages the database
+ * @brief This class implements the interface for the Dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |

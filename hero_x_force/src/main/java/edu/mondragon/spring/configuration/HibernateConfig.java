@@ -1,6 +1,6 @@
 /**
  * @file HibernateConfig.java
- * @brief Hibernate configuration file
+ * @brief Hibernate configuration class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -59,7 +59,7 @@ import edu.mondragon.usertournamentmap.UserTournamentMap;
 public class HibernateConfig {
 
 	/**
-	 * @brief Env variable
+	 * @brief Env Interface representing the environment in which the current application is running
 	 */
 	@Autowired
 	private Environment env;
@@ -79,7 +79,7 @@ public class HibernateConfig {
 	}
 
 	/**
-	 * @brief This method gets the session factory
+	 * @brief This method gets FactoryBean that creates a Hibernate SessionFactory
 	 * @return LocalSessionFactoryBean
 	 */
 	@Bean

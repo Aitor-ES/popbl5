@@ -1,6 +1,6 @@
 /**
  * @file CardServiceImp.java
- * @brief Class to manage the card dao
+ * @brief Class to implement the card service dao and manage the card dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -42,7 +42,7 @@ public class CardServiceImp implements CardService {
 	/**
 	 * @brief Method to obtain the card using the id from the dao
 	 * @param cardId Card id int
-	 * @return User
+	 * @return Card
 	 */
 	@Transactional(readOnly = true)
 	@Override
@@ -61,7 +61,7 @@ public class CardServiceImp implements CardService {
 	}
 
 	/**
-	 * @brief Method to return the number of heroes
+	 * @brief Method to return the number of heroes in the game
 	 * @return int number of heroes
 	 */
 	@Override

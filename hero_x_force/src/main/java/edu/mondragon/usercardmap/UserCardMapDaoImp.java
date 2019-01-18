@@ -1,13 +1,13 @@
 /**
  * @file UserCardMapDaoImp.java
- * @brief This class manages the database
+ * @brief This class implements the user card map dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.usercardmap
  */
 
@@ -42,7 +42,7 @@ public class UserCardMapDaoImp implements UserCardMapDao {
 	}
 
 	/**
-	 * @brief Method to obtain the list of userCardMaps that are in database
+	 * @brief Method to obtain the list of userCardMaps that are in the database
 	 * @return List<UserCardMap>
 	 */
 	@Override

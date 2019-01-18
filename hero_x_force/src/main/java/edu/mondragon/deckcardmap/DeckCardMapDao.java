@@ -37,7 +37,7 @@ public interface DeckCardMapDao {
 	List<DeckCardMap> listDeckCardMaps();
 
 	/**
-	 * @brief This method the returns the deck card map which has the indicated id
+	 * @brief This method returns the deck card map which has the indicated id
 	 * @param deckCardMapId DeckCardMap id int
 	 * @return DeckCardMap
 	 */

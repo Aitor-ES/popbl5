@@ -1,13 +1,13 @@
 /**
  * @file User.java
- * @brief The user class
+ * @brief The user model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.user
  */
 
@@ -46,7 +46,7 @@ public class User {
 	private Integer userId;
 
 	/**
-	 * @brief User name
+	 * @brief Username
 	 */
 	@Column(name = "USERNAME")
 	private String username;
@@ -88,31 +88,31 @@ public class User {
 	private Set<Deck> decks = new HashSet<>();
 
 	/**
-	 * @brief Matches list (FK): Winner
+	 * @brief Matches where winner list (FK)
 	 */
 	@OneToMany(mappedBy = "winner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Match> wonMatches = new HashSet<>();
 
 	/**
-	 * @brief Tournament list (FK): Winner
+	 * @brief Tournaments where winner list (FK)
 	 */
 	@OneToMany(mappedBy = "winner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Tournament> tournaments = new HashSet<>();
 
 	/**
-	 * @brief UserTournamentMap list (FK): Participant
+	 * @brief UserTournamentMap list (FK)
 	 */
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<UserTournamentMap> userTournamentMaps = new HashSet<>();
 
 	/**
-	 * @brief user_1_matchMap list (FK): Participant
+	 * @brief matchesAsUser1 list (FK)
 	 */
 	@OneToMany(mappedBy = "user1", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Match> matchesAsUser1 = new HashSet<>();
 
 	/**
-	 * @brief user_2_matchMap list (FK): Participant
+	 * @brief matchesAsUser2 list (FK)
 	 */
 	@OneToMany(mappedBy = "user2", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Match> matchesAsUser2 = new HashSet<>();
@@ -137,9 +137,9 @@ public class User {
 
 	/**
 	 * @brief Class constructor
-	 * @param username Users name
-	 * @param email    Users email
-	 * @param password Users password
+	 * @param username Username
+	 * @param email    User email
+	 * @param password User password
 	 */
 	public User(String username, String email, String password) {
 		this.username = username;

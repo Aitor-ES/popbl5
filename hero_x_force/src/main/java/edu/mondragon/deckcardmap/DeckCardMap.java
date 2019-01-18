@@ -1,6 +1,6 @@
 /**
  * @file DeckCardMap.java
- * @brief The deckCardMap class
+ * @brief The deckCardMap model class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -39,13 +39,13 @@ public class DeckCardMap {
 	private Integer deckCardMapId;
 
 	/**
-	 * @brief Formed date
+	 * @brief Position of the card in the deck
 	 */
 	@Column(name = "POSITION")
 	private Integer position;
 	
 	/**
-	 * @brief User user id (FK)
+	 * @brief Deck deck id (FK)
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DECK_ID", referencedColumnName = "DECK_ID")
@@ -66,7 +66,9 @@ public class DeckCardMap {
 	
 	/**
 	 * @brief Class constructor
-	 * @param date
+	 * @param position Position of the card in the deck
+	 * @param deck Deck object
+	 * @param card Card object
 	 */
 	public DeckCardMap(Integer position, Deck deck, Card card) {
 		this.position = position;

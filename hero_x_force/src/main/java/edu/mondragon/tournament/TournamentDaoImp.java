@@ -1,13 +1,13 @@
 /**
- * @file UserDaoImp.java
- * @brief This class manages the database
+ * @file TournamentDaoImp.java
+ * @brief Class to implement the tournament dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.dao
  */
 
@@ -42,8 +42,8 @@ public class TournamentDaoImp implements TournamentDao {
 	}
 
 	/**
-	 * @brief Method to obtain the list of users that are in database
-	 * @return List<User>
+	 * @brief Method to obtain the list of tournaments that are in database
+	 * @return List<Tournament>
 	 */
 	@Override
 	public List<Tournament> listTournaments() {
@@ -55,7 +55,7 @@ public class TournamentDaoImp implements TournamentDao {
 	/**
 	 * @brief Method to find a tournament using the id
 	 * @param tournamentId Tournament id int
-	 * @return User
+	 * @return Tournament
 	 */
 	@Override
 	public Tournament getTournamentById(int tournamentId) {

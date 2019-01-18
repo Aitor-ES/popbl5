@@ -1,14 +1,14 @@
 /**
- * @file UserDaoImp.java
- * @brief This class manages the database
+ * @file test entityDaoImp.java
+ * @brief This class implements the test entity dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.dao
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.test.entity
  */
 
 package edu.mondragon.test.entity;
@@ -40,8 +40,8 @@ public class TestEntityDaoImp implements TestEntityDao {
 	}
 
 	/**
-	 * @brief This method adds a user
-	 * @param user User object
+	 * @brief This method adds a test entity
+	 * @param testEntity Test entity object
 	 * @return void
 	 */
 	@Override
@@ -50,8 +50,8 @@ public class TestEntityDaoImp implements TestEntityDao {
 	}
 
 	/**
-	 * @brief This method update a user
-	 * @param user User object
+	 * @brief This method update a test entity
+	 * @param testEntity test entity object
 	 * @return void
 	 */
 	@Override
@@ -60,8 +60,9 @@ public class TestEntityDaoImp implements TestEntityDao {
 	}
 
 	/**
-	 * @bried This method removes a user
-	 * @param user
+	 * @bried This method removes a test entity
+	 * @param testEntity test entity object
+	 * @return void
 	 */
 	@Override
 	public void removeTestEntity(TestEntity testEntity) {
@@ -69,7 +70,7 @@ public class TestEntityDaoImp implements TestEntityDao {
 	}
 
 	/**
-	 * @brief Method to obtain the list of users that are in database
+	 * @brief Method to obtain the list of test entities that are in the database
 	 * @return List<TestEntity>
 	 */
 	@Override
@@ -80,14 +81,14 @@ public class TestEntityDaoImp implements TestEntityDao {
 	}
 
 	/**
-	 * @brief Method to find a user using the id
-	 * @param id Users id
-	 * @return User
+	 * @brief Method to find a test entity using the id
+	 * @param testEntityId test entity id
+	 * @return TestEntity
 	 */
 	@Override
-	public TestEntity getTestEntityById(long testEntity_id) {
-		TestEntity user = getCurrentSession().find(TestEntity.class, testEntity_id);
-		return user;
+	public TestEntity getTestEntityById(long testEntityId) {
+		TestEntity testEntity = getCurrentSession().find(TestEntity.class, testEntityId);
+		return testEntity;
 	}
 
 }

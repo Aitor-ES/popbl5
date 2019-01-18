@@ -1,6 +1,6 @@
 /**
  * @file AchievementServiceImp.java
- * @brief Class to manage the achievement dao
+ * @brief Class to implement the achievement service and manage the achievement dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -51,7 +51,7 @@ public class AchievementServiceImp implements AchievementService {
 	}
 	
 	/**
-	 * @brief Method to obtain the achievements from the dao
+	 * @brief Method to obtain the achievement list from the dao
 	 * @return List<Achievement>
 	 */
 	@Transactional(readOnly = true)

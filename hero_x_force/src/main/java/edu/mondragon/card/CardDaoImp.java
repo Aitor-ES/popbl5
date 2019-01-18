@@ -1,6 +1,6 @@
 /**
  * @file CardDaoImp.java
- * @brief This class manages the database
+ * @brief This class implements the interface for the Dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -42,7 +42,7 @@ public class CardDaoImp implements CardDao {
 	}
 
 	/**
-	 * @brief Method to obtain the list of cards that are in database
+	 * @brief Method to obtain the list of cards that are in the database
 	 * @return List<Card>
 	 */
 	@Override
@@ -71,7 +71,7 @@ public class CardDaoImp implements CardDao {
     }
 
 	/**
-	 * @brief Method to return the number of heroes
+	 * @brief Method to return the number of heroes in the game
 	 * @return int number of heroes
 	 */
 	@Override

@@ -1,13 +1,13 @@
 /**
  * @file UserTournamentMapDao.java
- * @brief This class is the interface for the Dao
+ * @brief This class is the interface for the user tournament dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.usertournamentmap
  */
 
@@ -17,7 +17,7 @@ import java.util.List;
 
 public interface UserTournamentMapDao {
 	/**
-	 * @brief Method to add an UserTournamentMap
+	 * @brief Method to add a UserTournamentMap
 	 * @param userTournamentMap UserTournamentMap object
 	 * @return void
 	 */
@@ -30,8 +30,8 @@ public interface UserTournamentMapDao {
 	List<UserTournamentMap> listUserTournamentMaps();
 
 	/**
-	 * @brief Method to obtain an UserTournamentMap object
-	 * @param userTournamentMapId UserTournamentMap object id int
+	 * @brief Method to obtain a UserTournamentMap object
+	 * @param userTournamentMapId UserTournamentMap id int
 	 * @return UserTournamentMap
 	 */
 	UserTournamentMap getUserTournamentMapById(int userTournamentMapId);

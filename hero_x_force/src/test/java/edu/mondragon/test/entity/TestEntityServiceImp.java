@@ -1,14 +1,14 @@
 /**
- * @file TestEntitieserviceImp.java
- * @brief Class to manage the testEntity dao
+ * @file TestEntityServiceImp.java
+ * @brief Class to implement the test entity service and manage the test entity dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.model
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.test.entity
  */
 
 package edu.mondragon.test.entity;
@@ -52,7 +52,7 @@ public class TestEntityServiceImp implements TestEntityService {
 
 	/**
 	 * @bried This method removes a testEntity from the dao
-	 * @param testEntity
+	 * @param testEntity TestEntity object
 	 * @return void
 	 */
 	@Transactional
@@ -73,13 +73,13 @@ public class TestEntityServiceImp implements TestEntityService {
 
 	/**
 	 * @brief Method to obtain the testEntity using the id from the dao
-	 * @param id TestEntities id
+	 * @param testEntityId test entity id
 	 * @return TestEntity
 	 */
 	@Transactional(readOnly = true)
 	@Override
-	public TestEntity getTestEntityById(long testEntity_id) {
-		return testEntityDao.getTestEntityById(testEntity_id);
+	public TestEntity getTestEntityById(long testEntityId) {
+		return testEntityDao.getTestEntityById(testEntityId);
 	}
 	
 }

@@ -7,7 +7,7 @@
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/11/2019
  * @brief Package edu.mondragon.userachievementmap
  */
 

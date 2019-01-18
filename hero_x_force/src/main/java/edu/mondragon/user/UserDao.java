@@ -1,13 +1,13 @@
 /**
  * @file UserDao.java
- * @brief This class is the interface for the Dao
+ * @brief This class is the interface for the user dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.user
  */
 
@@ -23,7 +23,7 @@ import edu.mondragon.usercardmap.UserCardMap;
 
 public interface UserDao {
 	/**
-	 * @brief This method adds an user
+	 * @brief This method adds a user
 	 * @param user User object
 	 * @return void
 	 */
@@ -31,13 +31,15 @@ public interface UserDao {
 
 	/**
 	 * @brief This method updates a user
-	 * @param user
+	 * @param user User object
+	 * @return void
 	 */
 	void updateUser(User user);
 
 	/**
 	 * @bried This method removes a user
-	 * @param user
+	 * @param user User object
+	 * @return void
 	 */
 	void removeUser(User user);
 
@@ -56,50 +58,50 @@ public interface UserDao {
 
 	/**
 	 * @brief Method to find a user using the username
-	 * @param name Users name
+	 * @param name User name string
 	 * @return User
 	 */
 	User getUserByName(String name);
 
 	/**
 	 * @brief Method to find user using the email
-	 * @param email
-	 * @return
+	 * @param email User email string
+	 * @return User
 	 */
 	User getUserByEmail(String email);
 
 	/**
-	 * @brief Method to find a user using the email
-	 * @param email Users email
-	 * @return User
+	 * @brief Method to get user achievements
+	 * @param userId User id
+	 * @return Set<UserAchievementMap>
 	 */
 	Set<UserAchievementMap> getUserAchievements(int userId);
 
 	/**
-	 * @brief
-	 * @param userId User id int
-	 * @return
+	 * @brief Method to get user cards
+	 * @param userId User id
+	 * @return Set<UserCardMap>
 	 */
 	Set<UserCardMap> getUserCards(int userId);
 
 	/**
-	 * @brief
-	 * @param user_id
-	 * @return
+	 * @brief Method to get user decks
+	 * @param userId User id
+	 * @return Set<Deck>
 	 */
 	Set<Deck> getUserDecks(int userId);
 
 	/**
-	 * @brief
-	 * @param userId User id int
-	 * @return
+	 * @brief Method to get user matches as user1
+	 * @param userId User id
+	 * @return Set<Match>
 	 */
 	Set<Match> getMatchesAsUser1(int userId);
 
 	/**
-	 * @brief
-	 * @param userId User id int
-	 * @return
+	 * @brief Method to get user matches as user2
+	 * @param userId User id
+	 * @return Set<Match>
 	 */
 	Set<Match> getMatchesAsUser2(int userId);
 }

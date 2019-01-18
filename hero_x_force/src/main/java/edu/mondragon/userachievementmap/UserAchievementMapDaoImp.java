@@ -1,14 +1,14 @@
 /**
  * @file UserAchievementMapDaoImp.java
- * @brief This class manages the database
+ * @brief This class implements the user achievement map dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.dao
+ * @date 19/11/2019
+ * @brief Package edu.mondragon.userachievementmap
  */
 
 package edu.mondragon.userachievementmap;
@@ -42,7 +42,7 @@ public class UserAchievementMapDaoImp implements UserAchievementMapDao {
 	}
 
 	/**
-	 * @brief Method to obtain the list of userAchievementMaps that are in database
+	 * @brief Method to obtain the list of userAchievementMaps that are in the database
 	 * @return List<UserAchievementMap>
 	 */
 	@Override
@@ -54,7 +54,7 @@ public class UserAchievementMapDaoImp implements UserAchievementMapDao {
 
 	/**
 	 * @brief Method to find a userAchievementMap using the id
-	 * @param userAchievementMapId UserAchievementMaps id int
+	 * @param userAchievementMapId UserAchievementMap id int
 	 * @return UserAchievementMap
 	 */
 	@Override

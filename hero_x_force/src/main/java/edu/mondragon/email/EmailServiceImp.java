@@ -1,6 +1,6 @@
 /**
  * @file EmailServiceImp.java
- * @brief The email service implementation
+ * @brief The email service interface implementation
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
@@ -28,7 +28,7 @@ public class EmailServiceImp implements EmailService {
 	public JavaMailSender emailSender;
 
 	/**
-	 * @brief This method the sends a email
+	 * @brief This method sends a email
 	 * @param to To string
 	 * @param subject Subject string
 	 * @param text Text string

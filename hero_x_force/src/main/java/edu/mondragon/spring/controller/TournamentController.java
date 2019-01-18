@@ -1,16 +1,17 @@
-package edu.mondragon.spring.controller;
 /**
- * @file RankingController.java
- * @brief This class manages the tournaments view mapping
+ * @file TournamentController.java
+ * @brief Tournament controller class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.controllers
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.spring.controller
  */
+
+package edu.mondragon.spring.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,18 +38,22 @@ import edu.mondragon.usertournamentmap.UserTournamentMapService;
 @Controller
 @RequestMapping("/")
 public class TournamentController {
+
 	/**
-	 * @brief The user service
+	 * @brief Hibernate services
 	 */
 	TournamentService tournamentService = ApplicationContextProvider.getContext().getBean(TournamentService.class);
-	UserTournamentMapService userTournamentMapService = ApplicationContextProvider.getContext().getBean(UserTournamentMapService.class);
+	UserTournamentMapService userTournamentMapService = ApplicationContextProvider.getContext()
+			.getBean(UserTournamentMapService.class);
 
 	/**
 	 * @brief Method to redirect to tournament list view
-	 * @param model    implementation of Map for use when building data model
-	 * @param request  Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model    A holder for model attributes
+	 * @param model    Defines a holder for model attributes. Primarily designed for
+	 *                 adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a
+	 *                 servlet
+	 * @param response Defines an object to assist a servlet in sending a response
+	 *                 to the client
 	 * @return String
 	 */
 	@RequestMapping(value = { "/tournament/list" }, method = RequestMethod.GET)
@@ -73,7 +78,7 @@ public class TournamentController {
 			}
 			model.addAttribute("availableTournamentList", availableTournamentList);
 			model.addAttribute("joinedTournamentList", joinedTournamentList);
-			
+
 			System.out.println(availableTournamentList);
 			System.out.println(joinedTournamentList);
 
@@ -85,8 +90,10 @@ public class TournamentController {
 
 	/**
 	 * @brief Method to redirect to tournament create view
-	 * @param request
-	 * @param model
+	 * @param model   Defines a holder for model attributes. Primarily designed for
+	 *                adding attributes to the model
+	 * @param request Defines an object to provide client request information to a
+	 *                servlet
 	 * @return
 	 */
 	@RequestMapping(value = { "/tournament/create" }, method = RequestMethod.GET)
@@ -100,9 +107,11 @@ public class TournamentController {
 
 	/**
 	 * @brief Method that manages the tournament creation form
-	 * @param request
-	 * @param response
-	 * @param model
+	 * @param model    This class serves as generic model holder for Servlet MVC
+	 * @param request  Defines an object to provide client request information to a
+	 *                 servlet
+	 * @param response Defines an object to assist a servlet in sending a response
+	 *                 to the client
 	 * @return
 	 */
 	@RequestMapping(value = "/tournament/form", method = RequestMethod.POST)
@@ -112,7 +121,7 @@ public class TournamentController {
 		String name = request.getParameter("name");
 		int participants = Integer.valueOf(request.getParameter("participants"));
 
-		if (validateData(model, participants)) {
+		if (Validators.validateParticipantNumber(model, participants)) {
 			Tournament tournament = new Tournament(name, participants);
 			tournamentService.addTournament(tournament);
 			model.addAttribute("message", "tournament.create.success");
@@ -124,9 +133,13 @@ public class TournamentController {
 
 	/**
 	 * @brief Method that lets the user join a tournament
-	 * @param request
-	 * @param response
-	 * @param model
+	 * @param model    Defines a holder for model attributes. Primarily designed for
+	 *                 adding attributes to the model
+	 * @param request  Defines an object to provide client request information to a
+	 *                 servlet
+	 * @param response Defines an object to assist a servlet in sending a response
+	 *                 to the client
+	 * @param id       To know which tournament we are joining
 	 * @return
 	 */
 	@RequestMapping(value = "/tournament/{id}/join", method = RequestMethod.GET)
@@ -138,39 +151,13 @@ public class TournamentController {
 			Tournament tournament = tournamentService.getTournamentById(id);
 			if (tournament.getUserTournamentMaps().size() < tournament.getNumParticipants()) {
 				HttpSession session = request.getSession(true);
-				
-				UserTournamentMap userTournamentMap = new UserTournamentMap((User) session.getAttribute("user"), tournament);
+
+				UserTournamentMap userTournamentMap = new UserTournamentMap((User) session.getAttribute("user"),
+						tournament);
 				userTournamentMapService.addUserTournamentMap(userTournamentMap);
 			}
 		}
-
 		return view;
-	}
-
-	/**
-	 * @brief Function to validate tournament data
-	 * @param model
-	 * @param participants
-	 * @return
-	 */
-	public boolean validateData(ModelMap model, int participants) {
-		boolean correct = true;
-
-		if (!isPowerOfTwo(participants) || participants < 4) {
-			model.addAttribute("error", "tournament.participants.fail");
-			correct = false;
-		}
-
-		return correct;
-	}
-
-	/**
-	 * @brief checks if a number is a power of two
-	 * @param participants
-	 * @return
-	 */
-	public Boolean isPowerOfTwo(int participants) {
-		return (participants != 0) && ((participants & (participants - 1)) == 0);
 	}
 
 }

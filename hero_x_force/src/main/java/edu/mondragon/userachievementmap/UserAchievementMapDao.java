@@ -7,7 +7,7 @@
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/11/2019
  * @brief Package edu.mondragon.userachievementmap
  */
 
@@ -17,7 +17,7 @@ import java.util.List;
 
 public interface UserAchievementMapDao {
 	/**
-	 * @brief Method to add an UserAchievementMap
+	 * @brief Method to add a UserAchievementMap
 	 * @param userAchievementMap UserAchievementMap object
 	 * @return void
 	 */
@@ -31,7 +31,7 @@ public interface UserAchievementMapDao {
 
 	/**
 	 * @brief This method gets an UserAchievementMap
-	 * @param userAchievementMapId UserAchievementMap object id int
+	 * @param userAchievementMapId UserAchievementMap id int
 	 * @return UserAchievementMap
 	 */
 	UserAchievementMap getUserAchievementMapById(int userAchievementMapId);

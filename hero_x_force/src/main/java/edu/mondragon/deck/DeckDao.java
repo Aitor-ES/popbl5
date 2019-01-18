@@ -24,7 +24,7 @@ public interface DeckDao {
 	void addDeck(Deck deck);
 	
 	/**
-	 * @brief This method update the deck data
+	 * @brief This method updates a deck
 	 * @param deck Deck object
 	 * @return void
 	 */
@@ -32,7 +32,7 @@ public interface DeckDao {
 
 	/**
 	 * @bried This method removes a deck
-	 * @param deck
+	 * @param deck Deck object
 	 * @return void
 	 */
 	void removeDeck(Deck deck);
@@ -44,8 +44,8 @@ public interface DeckDao {
 	List<Deck> listDecks();
 	
 	/**
-	 * @brief This method returns the deck number
-	 * @param deckId Deck id int
+	 * @brief Method to find a deck using the id
+	 * @param deckId Decks id int
 	 * @return Deck
 	 */
 	Deck getDeckById(int deckId);

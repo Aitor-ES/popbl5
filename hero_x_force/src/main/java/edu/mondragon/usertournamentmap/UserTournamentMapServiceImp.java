@@ -1,13 +1,13 @@
 /**
  * @file UserTournamentMapServiceImp.java
- * @brief Class to manage the UserTournamentMap dao
+ * @brief Class to implement the user tournament service and manage the user tournament map dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.usertournamentmap
  */
 
@@ -29,7 +29,7 @@ public class UserTournamentMapServiceImp implements UserTournamentMapService {
 	private UserTournamentMapDao userTournamentMapDao;
 
 	/**
-	 * @brief Method to add userTournamentMaps to the dao
+	 * @brief Method to add a userTournamentMap to the dao
 	 * @param userTournamentMap UserTournamentMap object
 	 * @return void
 	 */
@@ -40,7 +40,7 @@ public class UserTournamentMapServiceImp implements UserTournamentMapService {
 	}
 	
 	/**
-	 * @brief Method to obtain the userTournamentMaps from the dao
+	 * @brief Method to obtain the userTournamentMap list from the dao
 	 * @return List<UserTournamentMap>
 	 */
 	@Transactional(readOnly = true)
@@ -51,7 +51,7 @@ public class UserTournamentMapServiceImp implements UserTournamentMapService {
 	
 	/**
 	 * @brief Method to obtain the userTournamentMap using the id from the dao
-	 * @param userTournamentMapId UserTournamentMaps id int
+	 * @param userTournamentMapId UserTournamentMap id int
 	 * @return UserTournamentMap
 	 */
 	@Transactional(readOnly = true)

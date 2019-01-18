@@ -1,13 +1,13 @@
 /**
  * @file UserserviceImp.java
- * @brief Class to manage the user dao
+ * @brief Class to implement the user service and manage the user dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
+ * @date 19/01/2019
  * @brief Package edu.mondragon.user
  */
 
@@ -29,7 +29,7 @@ import edu.mondragon.usercardmap.UserCardMap;
 public class UserServiceImp implements UserService {
 
 	/**
-	 * @brief user dao object
+	 * @brief User dao object
 	 */
 	@Autowired
 	private UserDao userDao;
@@ -58,7 +58,7 @@ public class UserServiceImp implements UserService {
 
 	/**
 	 * @bried This method removes a user from the dao
-	 * @param user
+	 * @param user User object
 	 * @return void
 	 */
 	@Transactional
@@ -79,7 +79,7 @@ public class UserServiceImp implements UserService {
 
 	/**
 	 * @brief Method to obtain the user using the id from the dao
-	 * @param id Users id
+	 * @param userId User id int
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
@@ -90,7 +90,7 @@ public class UserServiceImp implements UserService {
 
 	/**
 	 * @brief Method to obtain the user using the name from the dao
-	 * @param name Users name
+	 * @param name User name string
 	 * @return User
 	 */
 	@Transactional(readOnly = true)
@@ -110,30 +110,55 @@ public class UserServiceImp implements UserService {
 		return userDao.getUserByEmail(email);
 	}
 
+	/**
+	 * @brief Method to get user achievements
+	 * @param userId User id
+	 * @return Set<UserAchievementMap>
+	 */
 	@Transactional(readOnly = true)
 	@Override
 	public Set<UserAchievementMap> getUserAchievements(int userId) {
 		return userDao.getUserAchievements(userId);
 	}
 
+	/**
+	 * @brief Method to get user cards
+	 * @param userId User id
+	 * @return Set<UserCardMap>
+	 */
 	@Transactional(readOnly = true)
 	@Override
 	public Set<UserCardMap> getUserCards(int userId) {
 		return userDao.getUserCards(userId);
 	}
 
+	/**
+	 * @brief Method to get user decks
+	 * @param userId User id
+	 * @return Set<Deck>
+	 */
 	@Transactional(readOnly = true)
 	@Override
 	public Set<Deck> getUserDecks(int userId) {
 		return userDao.getUserDecks(userId);
 	}
 
+	/**
+	 * @brief Method to get user matches as user1
+	 * @param userId User id
+	 * @return Set<Match>
+	 */
 	@Transactional(readOnly = true)
 	@Override
 	public Set<Match> getMatchesAsUser1(int userId) {
 		return userDao.getMatchesAsUser1(userId);
 	}
 
+	/**
+	 * @brief Method to get user matches as user2
+	 * @param userId User id
+	 * @return Set<Match>
+	 */
 	@Transactional(readOnly = true)
 	@Override
 	public Set<Match> getMatchesAsUser2(int userId) {

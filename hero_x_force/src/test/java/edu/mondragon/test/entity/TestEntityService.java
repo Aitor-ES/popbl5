@@ -1,14 +1,14 @@
 /**
- * @file UserService.java
- * @brief The user service class
+ * @file TestEntityService.java
+ * @brief The test entity service class
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
  * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
  * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
  * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
- * @date 13/11/2018
- * @brief Package edu.mondragon.model
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.test.entity
  */
 
 package edu.mondragon.test.entity;
@@ -17,37 +17,37 @@ import java.util.List;
 
 public interface TestEntityService {
 	/**
-	 * @brief This method adds an user
-	 * @param user User object
+	 * @brief This method adds a test entity
+	 * @param testEntity test entity object
 	 * @return void
 	 */
 	void addTestEntity(TestEntity testEntity);
 
 	/**
-	 * @brief This method update a user
-	 * @param user User object
+	 * @brief This method update a test entity
+	 * @param testEntity test entity object
 	 * @return void
 	 */
 	void updateTestEntity(TestEntity testEntity);
 
 	/**
-	 * @bried This method removes a user
-	 * @param user
+	 * @bried This method removes a test entity
+	 * @param testEntity test entity object
 	 * @return void
 	 */
 	void removeTestEntity(TestEntity testEntity);
 
 	/**
-	 * @brief Method to obtain the list of users that are in database
-	 * @return List<User>
+	 * @brief Method to obtain the list of test entities that are in database
+	 * @return List<TestEntity>
 	 */
 	List<TestEntity> listTestEntities();
 
 	/**
-	 * @brief Method to find a user using the id
-	 * @param user_id Users id
-	 * @return User
+	 * @brief Method to find a test entity using the id
+	 * @param testEntityId test entity id
+	 * @return TestEntity
 	 */
-	TestEntity getTestEntityById(long testEntity_id);
+	TestEntity getTestEntityById(long testEntityId);
 
 }

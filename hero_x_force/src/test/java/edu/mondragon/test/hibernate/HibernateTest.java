@@ -1,3 +1,16 @@
+/**
+ * @file HibernateTest.java
+ * @brief Class to test Hibernate integration
+ * @author Name  | Surname   | Email                        |
+ * ------|-----------|--------------------------------------|
+ * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
+ * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
+ * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
+ * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.test.hibernate
+ */
+
 package edu.mondragon.test.hibernate;
 
 import static org.hamcrest.CoreMatchers.hasItems;
@@ -25,9 +38,15 @@ import edu.mondragon.test.entity.TestEntityService;
 @Transactional
 public class HibernateTest {
 
+	/**
+	 * @brief Hibernate services
+	 */
 	@Autowired
 	private TestEntityService testEntityService;
 
+	/**
+	 * @brief Method to test DB inserts and gets
+	 */
 	@Test
 	public void insertValueThenGetItBackAndAssertEquals() {
 		TestEntity testEntity = new TestEntity(1, "Paco");
@@ -37,6 +56,9 @@ public class HibernateTest {
 		assertEquals("Paco", testEntity.getDescription());
 	}
 
+	/**
+	 * @brief Method to test DB inserts, updates and gets
+	 */
 	@Test
 	public void insertAndUpdateValueThenGetItBackAndAssertEquals() {
 		TestEntity testEntity = new TestEntity(2, "Josefa");
@@ -50,6 +72,9 @@ public class HibernateTest {
 		assertEquals("Pepita", testEntity.getDescription());
 	}
 
+	/**
+	 * @brief Method to test DB deletes
+	 */
 	@Test
 	public void insertAndRemoveValueThenCheckIfExists() {
 		TestEntity testEntity = new TestEntity(3, "José");
@@ -58,6 +83,9 @@ public class HibernateTest {
 		assertNull(testEntityService.getTestEntityById(testEntity.getId()));
 	}
 
+	/**
+	 * @brief Method to test DB list getting
+	 */
 	@Test
 	public void insertValuesThenGetAsListAndAssertThatListContainsValues() {
 		TestEntity testEntity1 = new TestEntity(4, "Pilar");

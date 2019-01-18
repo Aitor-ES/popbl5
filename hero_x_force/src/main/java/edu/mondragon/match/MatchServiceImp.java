@@ -1,6 +1,6 @@
 /**
  * @file MatchServiceImp.java
- * @brief Class to manage the user dao
+ * @brief Class to implement the match service and to manage the user dao
  * @author Name  | Surname   | Email                        |
  * ------|-----------|--------------------------------------|
  * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |

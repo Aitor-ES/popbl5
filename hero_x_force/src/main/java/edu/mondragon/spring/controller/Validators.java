@@ -1,3 +1,16 @@
+/**
+ * @file Validators.java
+ * @brief Validator class
+ * @author Name  | Surname   | Email                        |
+ * ------|-----------|--------------------------------------|
+ * Aitor | Barreiro  | aitor.barreiro@alumni.mondragon.edu  |
+ * Aitor | Estarrona | aitor.estarrona@alumni.mondragon.edu |
+ * Iker  | Mendi     | iker.mendi@alumni.mondragon.edu      |
+ * Julen | Uribarren | julen.uribarren@alumni.mondragon.edu |
+ * @date 19/01/2019
+ * @brief Package edu.mondragon.spring.controller
+ */
+
 package edu.mondragon.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,17 +23,17 @@ import org.springframework.ui.ModelMap;
 import edu.mondragon.user.User;
 
 public class Validators {
-	
+
 	/**
 	 * @brief Method that checks if users is logged
 	 * @param request Provides request information for the servlets
-	 * @param model A holder for model attributes
+	 * @param model   A holder for model attributes
 	 * @return boolean
 	 */
 	public static boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;		
+		boolean isUserLogged = false;
 		HttpSession session = request.getSession(true);
-		
+
 		if (session.getAttribute("user") != null) {
 			isUserLogged = true;
 		} else {
@@ -38,9 +51,10 @@ public class Validators {
 	 * @param confirmPassword
 	 * @return
 	 */
-	public static boolean validateUserData(ModelMap model, User user, String email, String password, String confirmPassword) {
+	public static boolean validateUserData(ModelMap model, User user, String email, String password,
+			String confirmPassword) {
 		boolean correct = true;
-		
+
 		if (user != null) {
 			model.addAttribute("error", "register.user.fail");
 			correct = false;
@@ -54,7 +68,7 @@ public class Validators {
 			model.addAttribute("error", "register.password.fail");
 			correct = false;
 		}
-		
+
 		return correct;
 	}
 
@@ -117,5 +131,31 @@ public class Validators {
 		}
 
 		return passwordScore;
+	}
+
+	/**
+	 * @brief Method to validate number of participants in tournaments
+	 * @param model        This class serves as generic model holder for Servlet MVC
+	 * @param participants number of participants to check
+	 * @return
+	 */
+	public static boolean validateParticipantNumber(ModelMap model, int participants) {
+		boolean correct = true;
+
+		if (!isPowerOfTwo(participants) || participants < 4) {
+			model.addAttribute("error", "tournament.participants.fail");
+			correct = false;
+		}
+
+		return correct;
+	}
+
+	/**
+	 * @brief Method that checks if a number is a power of two
+	 * @param n number to check
+	 * @return
+	 */
+	public static Boolean isPowerOfTwo(int n) {
+		return (n != 0) && ((n & (n - 1)) == 0);
 	}
 }
