@@ -60,7 +60,7 @@ body {
     src: url('../font/orbitron.ttf'); /* URL to the custom font */
 }
 
-.a:hover {
+.a {
   text-decoration: none;
 }
 

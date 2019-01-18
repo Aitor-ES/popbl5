@@ -319,8 +319,3 @@
     -moz-transform: scale(0.75, 0.75); /* Firefox */
   }
 }
-
-
-@@media (min-width: 992px) {
-  
-}

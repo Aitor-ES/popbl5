@@ -52,7 +52,7 @@
             
               <!-- Card HTML -->
               <div class="col my-3 d-flex justify-content-center">
-                <div class="heroCardDeckFather" id="${deckCardMap.card.cardId}" draggable="false" ondragstart="drag(event)">
+                <div class="heroCardDeckFather" draggable="false" ondragstart="drag(event)">
                   <div class="heroCardDeck" draggable="false">
                     <div class="cardImg" 
                 style="background-image: url('${pageContext.request.contextPath}/${deckCardMap.card.img}')">
