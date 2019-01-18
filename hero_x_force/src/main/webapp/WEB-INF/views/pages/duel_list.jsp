@@ -6,7 +6,7 @@
 <section id="duel-list">
   <div class="container-fluid">
   
-    <!-- Start: Title & Button -->
+    <!-- Start: Duels title & button -->
     <div class="row px-sm-4 pt-4">
     
       <!-- Title -->
@@ -21,7 +21,7 @@
         </a>
       </div>
     </div>
-    <!-- End: Title & Button -->
+    <!-- End: Duels title & button -->
     
     <!-- Start: Play title -->
     <div class="row px-sm-4 pt-3">
@@ -31,13 +31,14 @@
     </div>
     <!-- End: Play title -->
     
-    <!-- Start: Not joined list -->
-    <div class="row mb-4">
+    <!-- Start: Info & Card -->
+    <div class="row mb-4 mt-3">
       <div class="col px-0">
         <c:choose>
-        
           <c:when test="${matchesAsUser2.size() == 0}">
-            <div class="row mt-1">
+            
+            <!-- Info -->
+            <div class="row mt-2">
               <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center">
                 <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="duel.list.empty"/></span></p>
               </div>
@@ -45,6 +46,8 @@
           </c:when>
           
           <c:otherwise>
+            
+            <!-- Card -->
             <c:forEach items="${matchesAsUser2}" var="matchAsUser2">
               <form name="duelListForm" action="${pageContext.request.contextPath}/duel/${matchAsUser2.matchId}/battle" method='POST'>
                 <div class="card mx-3 mx-sm-5 mt-4 mb-5">
@@ -78,14 +81,15 @@
                           </select>
                         </div>
                       </div>
+                      
                       <!-- Buttons -->
                       <div class="col-sm-6 col-lg-7 p-0 mt-3 mt-sm-0 d-flex justify-content-between justify-content-sm-end">
-                        <button type="submit" name="action" value="accept"
-                          class="button-style btn btn-lg btn-warning"><spring:message code="action.accept" />
+                        <button type="submit" name="action" value="accept" class="button-style btn btn-lg btn-warning">
+                          <i class="fas fa-check-circle"></i> <spring:message code="action.accept" />
                         </button>
-                        <button type="submit" name="action" value="refuse"
-                          class="button-style btn btn-lg btn-danger ml-3"><spring:message code="action.refuse" />
-                        </button>
+                        <a class="button-style btn btn-lg btn-danger ml-3" href="${pageContext.request.contextPath}/estarrona" role="button">
+                          <i class="fas fa-times-circle"></i> <spring:message code="action.refuse" />
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -93,6 +97,7 @@
                   <!-- Duel footer -->
                   <div class="card-footer text-muted px-0">
                     <div class="row ">
+                    
                       <!-- Date -->
                       <div class="col d-flex justify-content-start">
                         <p class="mb-0">${matchAsUser2.date}</p>
@@ -111,7 +116,7 @@
         </c:choose>
       </div>
     </div>
-    <!-- End: List -->
+    <!-- End: Info & Card -->
     
     <!-- Start: Top button -->
     <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>

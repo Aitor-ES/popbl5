@@ -33,7 +33,7 @@
     
     <!-- Start: Not joined list -->
     <div class="row px-sm-5 pt-1 mb-4">
-      <div class="col">
+      <div class="col px-0">
         <c:choose>
         
           <c:when test="${availableTournamentList.size() == 0}">
@@ -88,7 +88,7 @@
     
     <!-- Start: Joined list -->
     <div class="row px-sm-5 pt-3 mb-4">
-      <div class="col">
+      <div class="col px-0">
         <c:choose>
           <c:when test="${joinedTournamentList.size() == 0}">
             <div class="row mt-1">
