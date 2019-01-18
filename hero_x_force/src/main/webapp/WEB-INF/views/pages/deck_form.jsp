@@ -3,102 +3,130 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<!-- Start: Deck list -->
+<!-- Start: Deck List -->
 <section id="deck-form">
   <div class="container-fluid">
   
-    <!-- Start: Title & Info-->
+    <!-- Start: Title & Info -->
     <div class="row px-sm-4 mt-4">
     
-      <!-- Start: Title -->
-      <div class="col-sm-6">
-        <h2 class="title-style"><spring:message code="deck.form.title.create"/></h2>
+      <!-- Title -->
+      <div class="col-10 col-sm-4 order-first">
+        <c:choose>
+          <c:when test="${action == 'create'}">
+            <h2 class="title-style"><spring:message code="deck.form.title.create"/></h2>
+          </c:when>
+          <c:otherwise>
+            <h2 class="title-style"><spring:message code="deck.form.title.edit"/></h2>
+          </c:otherwise>
+        </c:choose>
       </div>
       
-      <!-- Start: Info -->
-      <div class="col-sm-6 mt-2 mt-sm-0 d-flex justify-content-end align-items-center">
+      <!-- Delete -->
+      <c:if test="${action == 'edit'}">
+        <div class="col-2 col-sm-2 d-flex order-sm-last justify-content-end align-items-center">
+          <form name="deckDeleteForm" action="${pageContext.request.contextPath}/deck/delete" method='POST'>
+            <input class="form-control" id="deleteId" type="hidden" name='deleteId' value="${deck.deckId}">
+            <button class="button-style btn btn-lg btn-warning ml-3" type="submit" name="submit">
+              <i class="fas fa-exclamation-circle"></i> <spring:message code="action.delete" />
+            </button>
+          </form>
+        </div>
+      </c:if>
+      
+      <!-- Info -->
+      <div class="col-sm-6 mt-2 mt-sm-0 d-flex justify-content-center align-items-center">
         <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="deck.form.instructions"/></span></p>
       </div>
+      
     </div>
-    <!-- End: Title & Buttons -->
+    <!-- End: Title & Info -->
 
     <!-- Start: Form -->
-    <form name="userForm" action="${pageContext.request.contextPath}/deck/form/save" method='POST'>
-      
-      <!-- Start: ID and name inputs and buttons -->
-      <div class="row px-5">
-        <div class="col-4 d-flex justify-content-end align-items-center">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-pen"></i></span>
+    <div class="card mx-3 mx-sm-5 mt-4 mb-5 sticky">
+      <form name="deckCreateForm" action="${pageContext.request.contextPath}/deck/form/save" method='POST'>
+        
+        <!-- Form Header -->
+        <div class="card-header p-3 bg-dark text-light">
+          <div class="row ">
+          
+            <!-- Deck name -->
+            <div class="col-sm-6 col-lg-4 p-0 d-flex align-items-center">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-pen"></i></span>
+                </div>
+                <c:if test="${not empty deck}">
+                  <input class="form-control text-center" id="deckNumber" type="text" name='deckId' value="${deck.deckId}" required readonly>
+                </c:if>
+                <input type="text" class="form-control" name='deckName' placeholder="<spring:message code="deck.form.name.placeholder"/>" value="${deck.name}" required>
+              </div>
             </div>
-            <c:if test="${not empty deck}">
-              <input type="text" class="form-control" name='deck_id'
-                value="${deck.deckId}" required readonly>
-            </c:if>
-            <input type="text" class="form-control" name='deckName'
-              placeholder="<spring:message code="deck.form.name.placeholder"/>" value="${deck.name}" required>
+            
+            <!-- Buttons -->
+            <div class="col-sm-6 col-lg-8 p-0 mt-3 mt-sm-0 d-flex justify-content-between justify-content-sm-end">
+              <a class="button-style btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/list" role="button">
+                <i class="fas fa-times-circle"></i> <spring:message code="action.cancel"/>
+              </a>
+              <button class="button-style btn btn-lg btn-warning ml-3" type="submit" name="submit">
+                <i class="fas fa-check-circle"></i> <spring:message code="action.save" />
+              </button>
+            </div>
           </div>
         </div>
-        <div class="col-8 d-flex justify-content-end align-items-center">
-          <a class="btn btn-lg btn-warning mr-3" href="${pageContext.request.contextPath}/deck/list" role="button">
-            <i class="fas fa-times-circle"></i><spring:message code="action.cancel"/></a>
-          <button class="btn btn-lg btn-warning ml-3 mt-3 mb-3" type="submit" name="submit">
-            <i class="fas fa-check-circle"></i><spring:message code="action.save" /></button>
-        </div>  
-      </div>
-      <!-- End: ID and name inputs and buttons -->
-      
-      <!-- Start: card inputs and drop boxes -->
-      <!-- Editing/Creating -->
-      <c:choose>
-        <c:when test="${not empty deck}">
-          <div class="row mx-5 mt-2" id="selected-card-names">
-            <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
-              <input type="text" class="selected-card-name form-control col mx-3" id="selected-card-name-${deckCardMap.position}"
-                name='selected-card-id-${deckCardMap.position}'
-                placeholder="<spring:message code="deck.form.slot-${deckCardMap.position}.placeholder"/>"
-                value="Hero #${deckCardMap.card.cardId}" required readonly>
-            </c:forEach>
-          </div>
-          <div class="row mx-5 mt-2" id="selected-card-slots">
-            <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
-              <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
-                id="selected-card-slot-${deckCardMap.position}" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-            </c:forEach>
-          </div>
-        </c:when>
         
-        <c:otherwise>
-          <div class="row mx-5 mt-2" id="selected-card-names">
-            <c:forEach var="i" begin="1" end="5">
-              <input type="text" class="selected-card-name form-control col mx-3" id="selected-card-name-${i}"
-                name='selected-card-id-${i}'
-                placeholder="<spring:message code="deck.form.slot-${i}.placeholder"/>" required readonly>
-            </c:forEach>
-          </div>
-          <div class="row mx-5 mt-2" id="selected-card-slots">
-            <c:forEach var="i" begin="1" end="5">
-              <div class="selected-card-slot col bg-dark text-light rounded d-flex justify-content-center align-items-center"
-                id="selected-card-slot-${i}" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-            </c:forEach>
-          </div>
-        </c:otherwise>
-      </c:choose>
-      <!-- End: card inputs and drop boxes -->
-
-    </form>
+        <!-- Form Body -->
+        <div class="card-body px-1 px-sm-0 pb-1">
+          <c:choose>
+          
+            <c:when test="${not empty deck}">
+              <div class="row" id="selected-card-names">
+                <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
+                  <input type="text" class="selected-card-name form-control col mx-2 mx-sm-3" id="selected-card-name-${deckCardMap.position}"
+                    name='selected-card-id-${deckCardMap.position}'
+                    placeholder="<spring:message code="deck.form.slot-${deckCardMap.position}.placeholder"/>"
+                    value="#${deckCardMap.card.cardId} Hero" readonly>
+                </c:forEach>
+              </div>
+              <div class="row" id="selected-card-slots">
+                <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
+                  <div class="selected-card-slot col p-0 bg-dark text-light rounded d-flex justify-content-center align-items-center"
+                    id="selected-card-slot-${deckCardMap.position}" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                </c:forEach>
+              </div>
+            </c:when>
+            
+            <c:otherwise>
+              <div class="row" id="selected-card-names">
+                <c:forEach var="i" begin="1" end="5">
+                  <input type="text" class="selected-card-name form-control col mx-2 mx-sm-3" id="selected-card-name-${i}"
+                    name='selected-card-id-${i}'
+                    placeholder="<spring:message code="deck.form.slot-${i}.placeholder"/>" readonly>
+                </c:forEach>
+              </div>
+              <div class="row" id="selected-card-slots">
+                <c:forEach var="i" begin="1" end="5">
+                  <div class="selected-card-slot col p-0 bg-dark text-light rounded d-flex justify-content-center align-items-center"
+                    id="selected-card-slot-${i}" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                </c:forEach>
+              </div>
+            </c:otherwise>
+          </c:choose>
+        </div>
+      </form>
+    </div>
     <!-- End: Form -->
 
     <!-- Start: Card HTML -->
-    <div class="row mx-3 mt-3" id="available-cards">
+    <div class="row px-5">
       <c:forEach items="${cardList}" var="card">
-        <div class="col-sm-3 px-3 mb-5 d-flex justify-content-center" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <div class="col my-4 d-flex justify-content-center" ondragover="allowDrop(event)" ondrop="drop(event)">
           <div class="heroCardFather" id="${card.cardId}" draggable="true" ondragstart="drag(event)">
             <div class="heroCard" draggable="false">
-              <div class="cardImg"
-                style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
-              <img class="templateImg"
+              <div class="cardImg" 
+                style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')">
+              </div>
+              <img class="templateImg" 
                 src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
                 alt="edit icon" draggable="false">
               <div class="titleArea">
@@ -143,7 +171,7 @@
   
   </div>
 </section>
-<!-- End: Deck list -->
+<!-- End: Deck Form -->
 
 <!-- Reduce long card titles -->
 <script>changeTitleFontSize();</script>

@@ -92,7 +92,9 @@ public class DeckController {
 			 */
 			List<Card> cardList = cardService.listCards();
 			model.addAttribute("cardList", cardList);
-
+			
+			model.addAttribute("action", "create");
+			
 			view = "deck/form";
 		}
 		return view;
@@ -117,6 +119,8 @@ public class DeckController {
 
 			List<Card> cardList = cardService.listCards();
 			model.addAttribute("cardList", cardList);
+			
+			model.addAttribute("action", "edit");
 
 			view = "deck/form";
 		}
@@ -137,7 +141,7 @@ public class DeckController {
 		if (checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 
-			String deckIdAsString = request.getParameter("deck_id");
+			String deckIdAsString = request.getParameter("deckId");
 
 			if (deckIdAsString == null) {
 				String deckName = request.getParameter("deckName");
@@ -189,13 +193,13 @@ public class DeckController {
 	 * @param id       To know which deck we are deleting
 	 * @return String
 	 */
-	@RequestMapping(value = { "/deck/{id}/delete" }, method = RequestMethod.GET)
-	public String deleteDeck(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response,
-			Model model) {
+	@RequestMapping(value = { "/deck/delete" }, method = RequestMethod.POST)
+	public String deleteDeck(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
 		if (checkIfUserIsLogged(request, model)) {
-			Deck deck = deckService.getDeckById(id);
+			Integer deckId = Integer.valueOf(request.getParameter("deleteId"));
+			Deck deck = deckService.getDeckById(deckId);
 			deckService.removeDeck(deck);
 
 			view = "redirect:/deck/list";

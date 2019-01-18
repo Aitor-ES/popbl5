@@ -16,7 +16,6 @@ window.setTimeout(function() {
     });
 }, 10000);
 
-
 /* Top button: show & hide
  *********************************************************/
 window.onscroll = function() {scrollFunction()};
@@ -86,3 +85,9 @@ function userProgress() {
     	$('#myProgressBar').fadeIn();
     }
 }
+
+window.onscroll = function() {stickyFunction()};
+
+function stickyFunction() {
+	  
+	}

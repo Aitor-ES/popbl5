@@ -1,23 +1,28 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-<section id="tournament_list">
+<!-- Start: Deck List -->
+<section id="heroes">
   <div class="container-fluid">
-    <div class="row px-4 pt-4">
+  
+    <!-- Start: Title -->
+    <div class="row px-sm-4 pt-4">
       <div class="col">
-        <h2 class="title-style">
-          <spring:message code="heroes.title" />
-        </h2>
+        <h2 class="title-style"> <spring:message code="heroes.title" /> </h2>
       </div>
     </div>
-    <div class="row mx-3 mt-3">
+    <!-- End: Title -->
+    
+    <!-- Start: Hero list -->
+    <div class="row px-5 my-3">
       <c:forEach items="${heroesList}" var="card">
-        <div class="col-sm-3 px-3 mb-5 d-flex justify-content-center">
+        <div class="col my-4 d-flex justify-content-center">
           <div class="heroCardFather" id="${card.cardId}">
             <div class="heroCard">
               <div class="cardImg"
-                style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')"></div>
+                style="background-image: url('${pageContext.request.contextPath}/static/img/card/heroes/${card.name}.png')">
+              </div>
               <a href="${pageContext.request.contextPath}/card/${card.cardId}/data">
                 <img class="templateImg"
                 src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
@@ -57,12 +62,15 @@
         </div>
       </c:forEach>
     </div>
-  </div>
+    <!-- End: Hero list -->
+    
+    <!-- Start: Top button -->
+    <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
+    <!-- End: Top button -->
   
-  <!-- Start: Back to top button -->
-  <button class="btn btn-lg btn-primary" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
-  <!-- End: Back to top button -->
+  </div>
 </section>
+<!-- End: Heroes -->
 
 <!-- Reduce long card titles -->
 <script>changeTitleFontSize();</script>
