@@ -29,7 +29,6 @@
               src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
               alt="edit icon">
             <div class="titleArea">
-            <script>changeTitleFontSize();</script>
               <div class="heroName">${card.name}</div>
             </div>
             <div class="stats">
@@ -201,12 +200,13 @@
       </div>
     </div>
     <!-- End: Titles & Data -->
-        
-
+ 
     <!-- Start: Top button -->
     <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
     <!-- End: Top button -->
   
   </div>
 </section>
+<!-- Reduce long card titles -->      
+<script>changeTitleFontSize();</script>
 <!-- End: Card data -->
