@@ -28,7 +28,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,31 +57,13 @@ public class RankingController {
 	@RequestMapping(value = { "/ranking" }, method = RequestMethod.GET)
 	public String rankingPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			List<User> ranking = userService.listUsers();
 			model.addAttribute("ranking", ranking);
 			
 			view = "ranking";
 		}
 		return view;
-	}
-	
-	/**
-	 * @brief Method that checks if users is logged
-	 * @param request Provides request information for the servlets
-	 * @param model A holder for model attributes
-	 * @return boolean
-	 */
-	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;		
-		HttpSession session = request.getSession(true);
-		
-		if (session.getAttribute("user") != null) {
-			isUserLogged = true;
-		} else {
-			model.addAttribute("error", "general.notLogged");
-		}
-		return isUserLogged;
 	}
 
 }

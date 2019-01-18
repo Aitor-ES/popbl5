@@ -55,7 +55,7 @@ public class TournamentController {
 	public String tournamentListPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 
 			List<Tournament> availableTournamentList = tournamentService.listTournaments();
@@ -92,7 +92,7 @@ public class TournamentController {
 	@RequestMapping(value = { "/tournament/create" }, method = RequestMethod.GET)
 	public String tournamentCreatePage(HttpServletRequest request, Model model) {
 		String view = "home";
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			view = "tournament/create";
 		}
 		return view;
@@ -134,7 +134,7 @@ public class TournamentController {
 			Model model) {
 		String view = "redirect:/tournament/list";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Tournament tournament = tournamentService.getTournamentById(id);
 			if (tournament.getUserTournamentMaps().size() < tournament.getNumParticipants()) {
 				HttpSession session = request.getSession(true);
@@ -171,24 +171,6 @@ public class TournamentController {
 	 */
 	public Boolean isPowerOfTwo(int participants) {
 		return (participants != 0) && ((participants & (participants - 1)) == 0);
-	}
-
-	/**
-	 * @brief Method that checks if users is logged
-	 * @param request Provides request information for the servlets
-	 * @param model   A holder for model attributes
-	 * @return boolean
-	 */
-	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;
-		HttpSession session = request.getSession(true);
-
-		if (session.getAttribute("user") != null) {
-			isUserLogged = true;
-		} else {
-			model.addAttribute("error", "general.notLogged");
-		}
-		return isUserLogged;
 	}
 
 }

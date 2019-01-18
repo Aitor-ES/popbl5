@@ -27,7 +27,6 @@ import java.util.List;
  */
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,7 +57,7 @@ public class HeroesController {
 	public String heroesPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 		
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			List<Card> heroesList = cardService.listCards();
 			model.addAttribute("heroesList", heroesList);
 			
@@ -66,25 +65,6 @@ public class HeroesController {
 		}
 		
 		return view;
-	}
-
-	/**
-	 * @brief Method that checks if users is logged
-	 * @param request Provides request information for the servlets
-	 * @param model A holder for model attributes
-	 * @return boolean
-	 */
-	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;
-		HttpSession session = request.getSession(true);
-
-		if (session.getAttribute("user") != null) {
-			isUserLogged = true;
-		} else {
-			model.addAttribute("error", "general.notLogged");
-		}
-		
-		return isUserLogged;
 	}
 
 }

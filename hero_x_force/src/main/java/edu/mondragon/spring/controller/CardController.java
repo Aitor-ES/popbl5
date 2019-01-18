@@ -26,7 +26,6 @@ package edu.mondragon.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -50,126 +49,96 @@ public class CardController {
 	 * @brief The user service
 	 */
 	UserService userService = ApplicationContextProvider.getContext().getBean(UserService.class);
-	CardService cardService= ApplicationContextProvider.getContext().getBean(CardService.class);
+	CardService cardService = ApplicationContextProvider.getContext().getBean(CardService.class);
 
 	/**
 	 * @brief Method to redirect to heroes view
-	 * @param model implementation of Map for use when building data model
-	 * @param request Provides request information for the servlets
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
 	 * @param response To assist the servlet in sending a response
-	 * @param model A holder for model attributes
+	 * @param model    A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/card/list" }, method = RequestMethod.GET)
 	public String heroesPage(HttpServletRequest request, HttpServletResponse response, Model model) {
-		return checkIfUserIsLogged(request, model) ? "card/list" : "home";
-	}
-	
-	/**
-	 * @brief Method to redirect to heroes view
-	 * @param model implementation of Map for use when building data model
-	 * @param request Provides request information for the servlets
-	 * @param response To assist the servlet in sending a response
-	 * @param model A holder for model attributes
-	 * @return String
-	 */
-	@RequestMapping(value = { "/card/stats" }, method = RequestMethod.GET)
-	@ResponseBody
-	public String obtainHeroesJson(@RequestParam("id")String id) {
-		int idAsInt = Integer.parseInt(id);
-		
-		Card card = cardService.getCardById(idAsInt);
-		JSONArray ja = new JSONArray();
-		JSONObject json = new JSONObject();
-		
-		json.put("area", "HP");
-		json.put("value", card.getHp());
-		
-		ja.put(json);
-		
-		json = new JSONObject();
-		json.put("area", "ATK");
-		json.put("value", card.getAtk());
-		
-		
-		ja.put(json);
-		
-		json = new JSONObject();
-		json.put("area", "DEF");
-		json.put("value", card.getDef());
-		
-		ja.put(json);
-		
-		json = new JSONObject();
-		json.put("area", "Mag ATK");
-		json.put("value", card.getMagAtk());
-		
-		ja.put(json);
-		
-		json = new JSONObject();
-		json.put("area", "Mag DEF");
-		json.put("value", card.getMagDef());
-		
-		ja.put(json);
-		
-		json = new JSONObject();
-		json.put("area", "SPD");
-		json.put("value", card.getSpd());
-		
-		ja.put(json);
-		
-		System.out.println(ja.toString());
-		
-		
-		return "["+ja.toString()+"]";
+		return Validators.checkIfUserIsLogged(request, model) ? "card/list" : "home";
 	}
 
 	/**
 	 * @brief Method to redirect to deck-form view
-	 * @param model implementation of Map for use when building data model
-	 * @param request Provides request information for the servlets
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
 	 * @param response To assist the servlet in sending a response
-	 * @param model A holder for model attributes
+	 * @param model    A holder for model attributes
 	 * @return String
 	 */
 	@RequestMapping(value = { "/card/{id}/data" }, method = RequestMethod.GET)
-	public String cardDataPage(HttpServletRequest request, HttpServletResponse response, Model model, @PathVariable("id") int id) {
-
-		Card card = cardService.getCardById(id);
+	public String cardDataPage(HttpServletRequest request, HttpServletResponse response, Model model,
+			@PathVariable("id") int id) {
+		String view = "home";
 		
-		model.addAttribute("card", card);
-		return checkIfUserIsLogged(request, model) ? "card/data" : "home";
+		if (Validators.checkIfUserIsLogged(request, model)) {
+			Card card = cardService.getCardById(id);
+			model.addAttribute("card", card);
+			
+			view = "card/data";
+		}
+		return view;
 	}
 
 	/**
-	 * @brief Method that shows the edit create card view
-	 * @param model implementation of Map for use when building data model
-	 * @param request Provides request information for the servlets
+	 * @brief Method to redirect to heroes view
+	 * @param model    implementation of Map for use when building data model
+	 * @param request  Provides request information for the servlets
 	 * @param response To assist the servlet in sending a response
-	 * @param model A holder for model attributes
+	 * @param model    A holder for model attributes
 	 * @return String
 	 */
-	@RequestMapping(value = "/card/form", method = RequestMethod.GET)
-	public String showAdminTools(HttpServletRequest request, HttpServletResponse response, Model model) {
-		return checkIfUserIsLogged(request, model) ? "card/form" : "home";
-	}
-	
-	/**
-	 * @brief Method that checks if users is logged
-	 * @param request Provides request information for the servlets
-	 * @param model A holder for model attributes
-	 * @return boolean
-	 */
-	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;		
-		HttpSession session = request.getSession(true);
-		
-		if (session.getAttribute("user") != null) {
-			isUserLogged = true;
-		} else {
-			model.addAttribute("error", "general.notLogged");
-		}
-		return isUserLogged;
+	@RequestMapping(value = { "/card/stats" }, method = RequestMethod.GET)
+	@ResponseBody
+	public String obtainHeroesJson(@RequestParam("id") String id) {
+		int idAsInt = Integer.parseInt(id);
+
+		Card card = cardService.getCardById(idAsInt);
+		JSONArray ja = new JSONArray();
+		JSONObject json = new JSONObject();
+
+		json.put("area", "HP");
+		json.put("value", card.getHp());
+
+		ja.put(json);
+
+		json = new JSONObject();
+		json.put("area", "ATK");
+		json.put("value", card.getAtk());
+
+		ja.put(json);
+
+		json = new JSONObject();
+		json.put("area", "DEF");
+		json.put("value", card.getDef());
+
+		ja.put(json);
+
+		json = new JSONObject();
+		json.put("area", "Mag ATK");
+		json.put("value", card.getMagAtk());
+
+		ja.put(json);
+
+		json = new JSONObject();
+		json.put("area", "Mag DEF");
+		json.put("value", card.getMagDef());
+
+		ja.put(json);
+
+		json = new JSONObject();
+		json.put("area", "SPD");
+		json.put("value", card.getSpd());
+
+		ja.put(json);
+
+		return "[" + ja.toString() + "]";
 	}
 
 }

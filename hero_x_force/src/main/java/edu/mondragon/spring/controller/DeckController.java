@@ -59,7 +59,7 @@ public class DeckController {
 	public String decksPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
 			model.addAttribute("deckList", deckList);
@@ -81,7 +81,7 @@ public class DeckController {
 	public String deckFormPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			/**
 			 * @brief TODO: future lines HttpSession session = request.getSession(true);
 			 *        Set<UserCardMap> cardMapList = userService.getUserCards(((User)
@@ -113,7 +113,7 @@ public class DeckController {
 			Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Deck deck = deckService.getDeckById(id);
 			model.addAttribute("deck", deck);
 
@@ -138,7 +138,7 @@ public class DeckController {
 	public String deckSave(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 
 			String deckIdAsString = request.getParameter("deckId");
@@ -197,7 +197,7 @@ public class DeckController {
 	public String deleteDeck(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Integer deckId = Integer.valueOf(request.getParameter("deleteId"));
 			Deck deck = deckService.getDeckById(deckId);
 			deckService.removeDeck(deck);
@@ -205,24 +205,6 @@ public class DeckController {
 			view = "redirect:/deck/list";
 		}
 		return view;
-	}
-
-	/**
-	 * @brief Method that checks if users is logged
-	 * @param request Provides request information for the servlets
-	 * @param model   A holder for model attributes
-	 * @return boolean
-	 */
-	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;
-		HttpSession session = request.getSession(true);
-
-		if (session.getAttribute("user") != null) {
-			isUserLogged = true;
-		} else {
-			model.addAttribute("error", "general.notLogged");
-		}
-		return isUserLogged;
 	}
 
 }

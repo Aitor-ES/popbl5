@@ -74,24 +74,6 @@ public class DuelController {
 	private List<String> battleLog = new ArrayList<>();
 
 	/**
-	 * @brief Method that checks if users is logged
-	 * @param request Provides request information for the servlets
-	 * @param model   A holder for model attributes
-	 * @return boolean
-	 */
-	public boolean checkIfUserIsLogged(HttpServletRequest request, Model model) {
-		boolean isUserLogged = false;
-		HttpSession session = request.getSession(true);
-
-		if (session.getAttribute("user") != null) {
-			isUserLogged = true;
-		} else {
-			model.addAttribute("error", "general.notLogged");
-		}
-		return isUserLogged;
-	}
-
-	/**
 	 * @brief Method to redirect to duels view
 	 * @param request  Provides request information for the servlets
 	 * @param response To assist the servlet in sending a response
@@ -102,15 +84,19 @@ public class DuelController {
 	public String duelsPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			Set<Match> matchesAsUser2 = userService
 					.getMatchesAsUser2(((User) session.getAttribute("user")).getUserId());
 
-			/*
-			 * Iterator<Match> it = matchesAsUser2.iterator(); while (it.hasNext()) { Match
-			 * match = it.next(); if (match.getWinner() != null) { it.remove(); } }
-			 */
+			Iterator<Match> it = matchesAsUser2.iterator();
+			while (it.hasNext()) {
+				Match match = it.next();
+				if (match.getWinner() != null) {
+					it.remove();
+				}
+			}
+
 			model.addAttribute("matchesAsUser2", matchesAsUser2);
 
 			Set<Deck> deckList = userService.getUserDecks(((User) session.getAttribute("user")).getUserId());
@@ -134,7 +120,7 @@ public class DuelController {
 			Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Match match = matchService.getMatchById(id);
 			matchService.removeMatch(match);
 
@@ -154,7 +140,7 @@ public class DuelController {
 	public String duelCreatePage(HttpServletRequest request, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			HttpSession session = request.getSession(true);
 			User sessionUser = (User) session.getAttribute("user");
 
@@ -220,7 +206,7 @@ public class DuelController {
 	public String loadBattlePage(@PathVariable("id") int id, HttpServletRequest request, Model model) {
 		String view = "home";
 
-		if (checkIfUserIsLogged(request, model)) {
+		if (Validators.checkIfUserIsLogged(request, model)) {
 			Match match = matchService.getMatchById(id);
 
 			if (match.getWinner() == null) {

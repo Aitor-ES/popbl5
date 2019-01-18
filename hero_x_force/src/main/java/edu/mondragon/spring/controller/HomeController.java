@@ -13,10 +13,12 @@
 package edu.mondragon.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import edu.mondragon.email.EmailService;
 import edu.mondragon.spring.configuration.ApplicationContextProvider;
 import edu.mondragon.user.User;
@@ -56,7 +58,7 @@ public class HomeController {
 	 * @return String
 	 */
 	@RequestMapping(value = { "/home/form" }, method = RequestMethod.POST)
-	public String homePage(HttpServletRequest request, ModelMap model) {
+	public String homeForm(HttpServletRequest request, ModelMap model) {
 		String view = "home";
 		
 		String username = request.getParameter("username");
