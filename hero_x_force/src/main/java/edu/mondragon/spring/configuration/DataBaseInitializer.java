@@ -135,7 +135,7 @@ public class DataBaseInitializer {
 				"Starts with a buff on Attack and Magic Attack that loses power with damage.");
 		abilityService.addAbility(ability10);
 
-		Ability ability11 = new Ability("Pressure", "The enemy team can\\'t do the same attack twice in a row.");
+		Ability ability11 = new Ability("Pressure", "The enemy team cannot do the same attack twice in a row.");
 		abilityService.addAbility(ability11);
 
 		Ability ability12 = new Ability("Overgrow", "Plant-type moves deal more damage when low HP.");
