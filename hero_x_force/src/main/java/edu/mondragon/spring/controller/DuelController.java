@@ -60,6 +60,10 @@ public class DuelController {
 	MatchService matchService = ApplicationContextProvider.getContext().getBean(MatchService.class);
 	DeckService deckService = ApplicationContextProvider.getContext().getBean(DeckService.class);
 
+
+	/**
+	 * @brief Battle log with all the messages of the match
+	 */
 	private List<String> battleLog = new ArrayList<>();
 
 	/**

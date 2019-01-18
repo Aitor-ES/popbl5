@@ -44,12 +44,12 @@ public class Validators {
 
 	/**
 	 * @brief Method to validate the data inserted by the user
-	 * @param model
-	 * @param user
-	 * @param email
-	 * @param password
-	 * @param confirmPassword
-	 * @return
+	 * @param model This class serves as generic model holder for Servlet MVC
+	 * @param user User object
+	 * @param email string
+	 * @param password string
+	 * @param confirmPassword string
+	 * @return boolean
 	 */
 	public static boolean validateUserData(ModelMap model, User user, String email, String password,
 			String confirmPassword) {
@@ -74,11 +74,11 @@ public class Validators {
 
 	/**
 	 * @brief Method to validate the data inserted by the user
-	 * @param model
-	 * @param email
-	 * @param password
-	 * @param confirmPassword
-	 * @return
+	 * @param model This class serves as generic model holder for Servlet MVC
+	 * @param email string
+	 * @param password string
+	 * @param confirmPassword string
+	 * @return boolean
 	 */
 	public static boolean validateUserData(ModelMap model, String email, String password, String confirmPassword) {
 		boolean correct = true;
@@ -100,7 +100,7 @@ public class Validators {
 	/**
 	 * @brief Checks the strength of the password for 0 to 10
 	 * @param password
-	 * @return
+	 * @return int
 	 */
 	private static int passwordStrength(String password) {
 		// total score of password
@@ -137,7 +137,7 @@ public class Validators {
 	 * @brief Method to validate number of participants in tournaments
 	 * @param model        This class serves as generic model holder for Servlet MVC
 	 * @param participants number of participants to check
-	 * @return
+	 * @return boolean
 	 */
 	public static boolean validateParticipantNumber(ModelMap model, int participants) {
 		boolean correct = true;
@@ -153,7 +153,7 @@ public class Validators {
 	/**
 	 * @brief Method that checks if a number is a power of two
 	 * @param n number to check
-	 * @return
+	 * @return Boolean
 	 */
 	public static Boolean isPowerOfTwo(int n) {
 		return (n != 0) && ((n & (n - 1)) == 0);
