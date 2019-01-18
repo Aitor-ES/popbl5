@@ -9,6 +9,15 @@
   font-size: var(--movile-p-font-size);
 }
 
+  
+#deck-list .modal-content {
+  background-color: #3b4652;
+  opacity: .85;
+  padding: 20px;
+  box-shadow: 0px 0px 3px #848484;
+  color: white;
+}
+
 /* Desk Form
  *********************************************************/
 #deck-form .card {
@@ -53,7 +62,7 @@
  * sm >= 576px | md >= 768px | lg >= 992px | xl >= 1200px
  *********************************************************/
 @media (min-width: 768px) {
-  #deck-list .card p {
+  #deck-list p {
     font-size: var(--desktop-p-font-size);
   }
   

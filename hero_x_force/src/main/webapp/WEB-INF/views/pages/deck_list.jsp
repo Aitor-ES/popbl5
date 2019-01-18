@@ -23,82 +23,101 @@
       </div>
     </div>
 
-    <!-- Start: Deck list -->
-    <c:forEach items="${deckList}" var="deck">
-      <div class="card mx-3 mx-sm-5 mt-4 mb-5">
-      
-        <!-- Deck header -->
-        <div class="card-header p-3 bg-dark text-light">
-          <div class="row ">
+    <!-- Start: Deck list & info -->
+    <div class="row mb-4 mt-2">
+      <div class="col px-0">
+        <c:choose>
+          <c:when test="${deckList.size() == 0}">
           
-            <!-- Deck name -->
-            <div class="col-8 p-0 d-flex align-items-center">
-          	   <p class="mb-0">${deck.name}</p>
+            <!-- Info -->
+            <div class="row mt-3">
+              <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center">
+                <p class="text-center m-0 p-1 modal-content"><span><i class="fas fa-info-circle"></i> <spring:message code="deck.list.empty"/></span></p>
+              </div>
             </div>
-            
-            <!-- Button -->
-            <div class="col-4 p-0 d-flex justify-content-end">
-              <a class="button-style btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/${deck.deckId}/form" role="button">
-                <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Deck body -->
-        <div class="card-body">
-          <div class="row mx-0">
-            <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
-            
-              <!-- Card HTML -->
-              <div class="col my-3 d-flex justify-content-center">
-                <div class="heroCardDeckFather" draggable="false" ondragstart="drag(event)">
-                  <div class="heroCardDeck" draggable="false">
-                    <div class="cardImg" 
-                style="background-image: url('${pageContext.request.contextPath}/${deckCardMap.card.img}')">
+          </c:when>
+          
+          <c:otherwise> 
+          
+            <!-- Deck list -->
+            <c:forEach items="${deckList}" var="deck">
+              <div class="card mx-3 mx-sm-5 mt-4 mb-5">
+              
+                <!-- Deck header -->
+                <div class="card-header p-3 bg-dark text-light">
+                  <div class="row ">
+                  
+                    <!-- Deck name -->
+                    <div class="col-8 p-0 d-flex align-items-center">
+                       <p class="mb-0">${deck.name}</p>
                     </div>
-                    <img class="templateImg" 
-                      src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(deckCardMap.card.type)}-template.png"
-                      alt="edit icon">
-                    <div class="titleArea">
-                      <div class="heroName">${deckCardMap.card.name}</div>
-                    </div>
-                    <div class="stats">
-                      <div class="ATK statName"><spring:message code="card.atk.physical" /></div>
-                      <div class="DEF statName"><spring:message code="card.def.physical" /></div>
-                      <div class="SPD statName"><spring:message code="card.spd" /></div>
-                      <div class="HP statName"><spring:message code="card.hp" /></div>
-                      <div class="MATK statName"><spring:message code="card.atk.magic" /></div>
-                      <div class="MDEF statName"><spring:message code="card.def.magic" /></div>
-                      <div class="ATK_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.atk}</div>
-                      <div class="DEF_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.def}</div>
-                      <div class="SPD_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.spd}</div>
-                      <div class="HP_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.hp}</div>
-                      <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.magAtk}</div>
-                      <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.magDef}</div>
-                    </div>
-                    <div class="sagaArea">
-                      <div class="saga">${deckCardMap.card.saga}</div>
-                    </div>
-                    <div class="levelArea">
-                      <c:forEach var="i" begin="1" end="${deckCardMap.card.stars}">
-                        <div class="levelStar"></div>
-                      </c:forEach>
-                    </div>
-                    <div class="abilityArea">
-                      <div class="abilityTitle"><spring:message code="card.ability" /></div>
-                      <div class="abilityName" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.ability.name}</div>
+                    
+                    <!-- Button -->
+                    <div class="col-4 p-0 d-flex justify-content-end">
+                      <a class="button-style btn btn-lg btn-warning" href="${pageContext.request.contextPath}/deck/${deck.deckId}/form" role="button">
+                        <i class="fas fa-cog"></i> <spring:message code="action.edit"/>
+                      </a>
                     </div>
                   </div>
                 </div>
+                
+                <!-- Deck body -->
+                <div class="card-body">
+                  <div class="row mx-0">
+                    <c:forEach items="${deck.deckCardMaps}" var="deckCardMap">
+                    
+                      <!-- Card HTML -->
+                      <div class="col my-3 d-flex justify-content-center">
+                        <div class="heroCardDeckFather" draggable="false" ondragstart="drag(event)">
+                          <div class="heroCardDeck" draggable="false">
+                            <div class="cardImg" 
+                        style="background-image: url('${pageContext.request.contextPath}/${deckCardMap.card.img}')">
+                            </div>
+                            <img class="templateImg" 
+                              src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(deckCardMap.card.type)}-template.png"
+                              alt="edit icon">
+                            <div class="titleArea">
+                              <div class="heroName">${deckCardMap.card.name}</div>
+                            </div>
+                            <div class="stats">
+                              <div class="ATK statName"><spring:message code="card.atk.physical" /></div>
+                              <div class="DEF statName"><spring:message code="card.def.physical" /></div>
+                              <div class="SPD statName"><spring:message code="card.spd" /></div>
+                              <div class="HP statName"><spring:message code="card.hp" /></div>
+                              <div class="MATK statName"><spring:message code="card.atk.magic" /></div>
+                              <div class="MDEF statName"><spring:message code="card.def.magic" /></div>
+                              <div class="ATK_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.atk}</div>
+                              <div class="DEF_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.def}</div>
+                              <div class="SPD_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.spd}</div>
+                              <div class="HP_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.hp}</div>
+                              <div class="MATK_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.magAtk}</div>
+                              <div class="MDEF_VAL statValue" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.magDef}</div>
+                            </div>
+                            <div class="sagaArea">
+                              <div class="saga">${deckCardMap.card.saga}</div>
+                            </div>
+                            <div class="levelArea">
+                              <c:forEach var="i" begin="1" end="${deckCardMap.card.stars}">
+                                <div class="levelStar"></div>
+                              </c:forEach>
+                            </div>
+                            <div class="abilityArea">
+                              <div class="abilityTitle"><spring:message code="card.ability" /></div>
+                              <div class="abilityName" style="color:var(--${fn:toLowerCase(deckCardMap.card.type)}-color);">${deckCardMap.card.ability.name}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </c:forEach>
+                  </div>
+                </div>
               </div>
-              
             </c:forEach>
-          </div>
-        </div>
+          </c:otherwise>
+        </c:choose>
       </div>
-    </c:forEach>
-    <!-- End: Deck list -->
+    </div>                      
+    <!-- End: Deck list & info -->
   
     <!-- Start: Top button -->
     <button class="button-style btn btn-lg btn-warning" onclick="topFunction()" id="topButton"><spring:message code="action.top"/></button>
