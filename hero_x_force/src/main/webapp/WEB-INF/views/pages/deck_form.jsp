@@ -128,7 +128,7 @@
               </div>
               <img class="templateImg" 
                 src="${pageContext.request.contextPath}/static/img/card/templates/${fn:toLowerCase(card.type)}-template.png"
-                alt="edit icon" draggable="false">
+                alt="edit icon" draggable="false" onContextMenu="return false;">
               <div class="titleArea">
                 <div class="heroName">${card.name}</div>
               </div>
