@@ -40,7 +40,7 @@
           <!-- Close -->
           <div class="col p-0 d-flex justify-content-start align-items-center">
             <div class="row px-sm-4 mb-2">
-              <button class="button-style btn btn-lg btn-warning" role="button" onclick="getBattleLog()"><spring:message code="action.start"/></button>
+              <button class="button-style btn btn-lg btn-warning" role="button" onclick="getBattleLog(); this.disabled=true;"><spring:message code="action.start"/></button>
             </div>
           </div>
             
