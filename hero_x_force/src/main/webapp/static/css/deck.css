@@ -26,9 +26,9 @@
 }
 
 #deck-form .modal-content {
-   background-color: #3b4652;
+   background-color: #dc3545;
    opacity: .85;
-   box-shadow: 0px 0px 3px #848484;
+   box-shadow: 0px 0px 3px #dc3545;
    color: white;
 }
 

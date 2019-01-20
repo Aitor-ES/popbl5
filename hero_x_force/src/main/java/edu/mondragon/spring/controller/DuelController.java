@@ -215,7 +215,8 @@ public class DuelController {
 
 				if (this.startBattle(match)) {
 					match.setWinner(match.getUser1());
-
+					model.addAttribute("winner", match.getUser1());
+					
 					User user1 = userService.getUserById(match.getUser1().getUserId());
 					User user2 = userService.getUserById(match.getUser2().getUserId());
 
@@ -233,7 +234,8 @@ public class DuelController {
 					}
 				} else {
 					match.setWinner(match.getUser2());
-
+					model.addAttribute("winner", match.getUser2());
+					
 					User user1 = userService.getUserById(match.getUser1().getUserId());
 					User user2 = userService.getUserById(match.getUser2().getUserId());
 
