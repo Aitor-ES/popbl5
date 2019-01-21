@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- Start: Duel battle -->
-<section id="duel-result">
+<section id="duel-battle">
   <div class="container-fluid">
   
     <!-- Start: Title -->
@@ -14,6 +14,23 @@
       </div>
     </div>
     <!-- End: Title -->
+    
+    <!-- Start: Battle info -->
+    <div class="row mt-3">
+      <div class="col d-flex justify-content-center align-items-center">
+        <div id="winner" style="display: none">
+          <c:choose>
+            <c:when test="${pageContext.response.locale.language == 'eu'}">
+              <p class="text-center m-0 py-1 modal-content"><span class="px-2"><i class="fas fa-trophy"></i> ${winner.username}<spring:message code="duel.win"/></span></p>
+            </c:when>
+            <c:otherwise>
+              <p class="text-center m-0 py-1 modal-content"><span class="px-2"><i class="fas fa-trophy"></i> ${winner.username} <spring:message code="duel.win"/></span></p>
+            </c:otherwise>
+          </c:choose>
+        </div>
+      </div>
+    </div>
+    <!-- End: Battle info -->
     
     <!-- Start: Card -->
     <div class="card mx-3 mx-sm-5 mt-4 mb-5">
@@ -36,7 +53,7 @@
   
       <!-- Battle footer -->
       <div class="card-footer text-muted px-2">
-        <div class="row">
+        <div class="row m-0">
           <!-- Close -->
           <div class="col p-0 d-flex justify-content-start align-items-center">
             <div class="row px-sm-4 mb-2">
@@ -97,6 +114,7 @@
       	clearInterval(interval);
       	var closeBtn = document.getElementById('close-button');
       	closeBtn.removeAttribute('hidden');
+      	$('#winner').fadeIn();
       }
   }
 </script>
